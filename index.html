@@ -1,0 +1,707 @@
+ <!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Nalanda Learning Hub- Where Ancient Wisdom Meets Future Skills</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+         <style>
+        @import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap');
+        
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Inter', sans-serif;
+        }
+        
+        body {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            min-height: 100vh;
+        }
+        
+        .hero-gradient {
+            background: linear-gradient(135deg, rgba(102, 126, 234, 0.9) 0%, rgba(118, 75, 162, 0.9) 100%);
+        }
+        
+        .course-card {
+            transition: all 0.3s ease;
+            border-radius: 20px;
+            overflow: hidden;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+        }
+        
+        .course-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 20px 40px rgba(0, 0, 0, 0.2);
+        }
+        
+        .floating-element {
+            animation: float 6s ease-in-out infinite;
+        }
+        
+        @keyframes float {
+            0% { transform: translateY(0px); }
+            50% { transform: translateY(-20px); }
+            100% { transform: translateY(0px); }
+        }
+        
+        .typewriter {
+            overflow: hidden;
+            border-right: .15em solid #764ba2;
+            white-space: nowrap;
+            animation: typing 3.5s steps(40, end), blink-caret .75s step-end infinite;
+        }
+        
+        @keyframes typing {
+            from { width: 0 }
+            to { width: 100% }
+        }
+        
+        @keyframes blink-caret {
+            from, to { border-color: transparent }
+            50% { border-color: #764ba2; }
+        }
+        
+        .gradient-text {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+        
+        .enroll-link {
+            display: block;
+            text-align: center;
+            text-decoration: none;
+            padding: 12px 0;
+            border-radius: 8px;
+            font-weight: 600;
+            transition: all 0.3s ease;
+        }
+        
+        .enroll-link:hover {
+            transform: scale(1.05);
+            box-shadow: 0 10px 25px rgba(0, 0, 0, 0.2);
+        }
+    </style>
+</head>
+<body class="min-h-screen">
+    <!-- Navigation -->
+    <nav class="bg-white/90 backdrop-blur-md fixed w-full z-50 shadow-lg">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex justify-between items-center h-16">
+                <div class="flex items-center">
+                    <div class="flex-shrink-0 flex items-center">
+                        <div class="w-10 h-10 bg-gradient-to-r from-indigo-600 to-purple-600 rounded-lg flex items-center justify-center text-white font-bold text-xl mr-3">
+                             NLH
+                        </div>
+                        <span class="text-2xl font-bold gradient-text"> Nalanda Learning Hub</span>
+                    </div>
+                </div>
+                
+                <div class="hidden md:flex items-center space-x-8">
+                          <a href="#courses" class="bg-gradient-to-r from-orange-600 to-darkorange-600 text-white px-6 py-2 rounded-full hover:shadow-lg transition-all duration-300 font-medium">
+                          courses
+                    </a>   
+
+  <a href="techpod.html" class="bg-gradient-to-r from-grey-600 to-white-600 text-white px-6 py-2 rounded-full hover:shadow-lg transition-all duration-300 font-medium   ">
+                         
+
+ <p style="color: purple">techpod</p> 
+                    </a> 
+
+  <a href="#contact" class="bg-gradient-to-r from-green-600 to-darkgreen-600 text-white px-6 py-2 rounded-full hover:shadow-lg transition-all duration-300 font-medium ">
+                        contact
+                    </a>
+
+                    <a href="portfolio.html" class="bg-gradient-to-r from-indigo-600 to-purple-600 text-white px-6 py-2 rounded-full hover:shadow-lg transition-all duration-300 font-medium">
+                        My Portfolio
+                    </a>
+
+
+
+<a href="intro.html" class="bg-gradient-to-r from-red-600 to-darkred-600 text-white px-6 py-2 rounded-full hover:shadow-lg transition-all duration-300 font-medium">
+                        startup intro
+                    </a>
+                </div>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <section class="pt-32 pb-20 px-4 sm:px-6 lg:px-8">
+        <div class="max-w-7xl mx-auto">
+            <div class="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
+                <div>
+                    <h1 class="text-5xl md:text-6xl font-bold text-white mb-6">
+                        Where <span class="text-yellow-300">Ancient Wisdom</span> Meets <span class="text-yellow-300">Future Skills</span>
+                    </h1>
+                    <p class="text-xl text-white/90 mb-8">
+                        Revolutionize your learning journey with cutting-edge courses designed for the digital age, inspired by the timeless wisdom of  Nalands, the world's best  e-learning platform .
+                    </p>
+                    <div class="flex flex-wrap gap-4">
+                        <a href="#courses" class="bg-white text-indigo-600 px-8 py-4 rounded-full font-semibold hover:shadow-2xl transition-all duration-300 transform hover:scale-105">
+                            Explore Courses <i class="ml-2 fas fa-arrow-right"></i>
+                        </a>
+                        <a href="portfolio.html" class="border-2 border-white text-white px-8 py-4 rounded-full font-semibold hover:bg-white hover:text-indigo-600 transition-all duration-300">
+                            developer info
+                        </a>
+                    </div>
+                </div>
+                
+                <div class="relative">
+                    <div class="floating-element">
+                        <div class="bg-white/20 backdrop-blur-md rounded-3xl p-8 border border-white/30">
+                            <div class="grid grid-cols-2 gap-6">
+                                <div class="bg-white rounded-2xl p-6 shadow-xl">
+                                    <i class="fas fa-brain text-4xl text-indigo-600 mb-4"></i>
+                                    <h3 class="font-semibold text-gray-800">AI & ML</h3>
+                                    <p class="text-sm text-gray-600 mt-2">Master the future</p>
+                                </div>
+                                <div class="bg-white rounded-2xl p-6 shadow-xl">
+                                    <i class="fas fa-shield-alt text-4xl text-purple-600 mb-4"></i>
+                                    <h3 class="font-semibold text-gray-800">Cyber Security</h3>
+                                    <p class="text-sm text-gray-600 mt-2">Protect digital worlds</p>
+                                </div>
+                                <div class="bg-white rounded-2xl p-6 shadow-xl">
+                                    <i class="fas fa-code text-4xl text-blue-600 mb-4"></i>
+                                    <h3 class="font-semibold text-gray-800">Web Dev</h3>
+                                    <p class="text-sm text-gray-600 mt-2">Build the web</p>
+                                </div>
+                                <div class="bg-white rounded-2xl p-6 shadow-xl">
+                                    <i class="fas fa-network-wired text-4xl text-green-600 mb-4"></i>
+                                    <h3 class="font-semibold text-gray-800">Networking</h3>
+                                    <p class="text-sm text-gray-600 mt-2">Connect the world</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+   <!-- Courses Section -->
+<section id="courses" class="py-20 bg-white px-4 sm:px-6 lg:px-8">
+  <div class="max-w-7xl mx-auto">
+    <div class="text-center mb-16">
+      <h2 class="text-4xl md:text-5xl font-bold text-gray-900 mb-6">
+        Future-Ready <span class="gradient-text">Courses</span>
+      </h2>
+      <p class="text-xl text-gray-600 max-w-3xl mx-auto">
+        Discover our comprehensive curriculum designed to transform you into a tech professional of tomorrow
+      </p>
+    </div>
+
+    <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+      <!-- AI & Machine Learning -->
+      <div class="course-card group bg-gradient-to-br from-purple-50 to-indigo-50 p-8">
+        <div class="w-16 h-16 bg-gradient-to-r from-purple-600 to-indigo-600 rounded-2xl flex items-center justify-center text-white text-2xl mb-6">
+          <i class="fas fa-brain"></i>
+        </div>
+        <h3 class="text-2xl font-bold text-gray-900 mb-4">Artificial Intelligence & Machine Learning</h3>
+        <p class="text-gray-600 mb-6">Master AI algorithms, neural networks, and intelligent systems that are shaping the future of technology.</p>
+        <div class="flex items-center justify-between">
+          <span class="bg-purple-100 text-purple-800 px-3 py-1 rounded-full text-sm font-medium">contact me</span>
+          <span class="text-purple-600 font-semibold">+917983395430</span>
+        </div>
+        <div class="mt-6">
+          <img src="https://storage.googleapis.com/workspace-0f70711f-8b4e-4d94-86f1-2a93ccde5887/image/227e064e-4c64-4ca5-9e41-f3ca2816428f.png" alt="Artificial Intelligence and machine learning concept with neural network visualization and data patterns" class="w-full h-48 object-cover rounded-xl" onerror="this.style.display='none'">
+        </div>
+        <a href="introduction%20to%20artificial%20intelligence.html" class="enroll-link bg-gradient-to-r from-purple-600 to-indigo-600 text-white mt-6 rounded-lg font-semibold hover:shadow-xl transition-all duration-300 transform group-hover:scale-105 inline-block px-4 py-2">
+          open notes <i class="ml-2 fas fa-arrow-right"></i>
+        </a>
+      </div>
+
+      <!-- Cyber Security -->
+      <div class="course-card group bg-gradient-to-br from-red-50 to-orange-50 p-8">
+        <div class="w-16 h-16 bg-gradient-to-r from-red-600 to-orange-600 rounded-2xl flex items-center justify-center text-white text-2xl mb-6">
+          <i class="fas fa-shield-alt"></i>
+        </div>
+        <h3 class="text-2xl font-bold text-gray-900 mb-4">Cyber Security Mastery</h3>
+        <p class="text-gray-600 mb-6">Learn to defend against cyber threats, secure networks, and protect digital assets in our comprehensive security program.</p>
+        <div class="flex items-center justify-between">
+          <span class="bg-red-100 text-red-800 px-3 py-1 rounded-full text-sm font-medium">contact me</span>
+          <span class="text-red-600 font-semibold">+917983395430</span>
+        </div>
+        <div class="mt-6">
+          <img src="https://storage.googleapis.com/workspace-0f70711f-8b4e-4d94-86f1-2a93ccde5887/image/4c2da07e-85f6-4ab2-9358-d66a20a9b146.png" alt="Cybersecurity concept showing digital shield protection and network security visualization" class="w-full h-48 object-cover rounded-xl" onerror="this.style.display='none'">
+        </div>
+        <a href="introduction%20to%20cybersecurity.html" class="enroll-link bg-gradient-to-r from-red-600 to-orange-600 text-white mt-6 rounded-lg font-semibold hover:shadow-xl transition-all duration-300 transform group-hover:scale-105 inline-block px-4 py-2">
+          open notes <i class="ml-2 fas fa-arrow-right"></i>
+        </a>
+      </div>
+
+      <!-- Software Development -->
+      <div class="course-card group bg-gradient-to-br from-blue-50 to-cyan-50 p-8">
+        <div class="w-16 h-16 bg-gradient-to-r from-blue-600 to-cyan-600 rounded-2xl flex items-center justify-center text-white text-2xl mb-6">
+          <i class="fas fa-laptop-code"></i>
+        </div>
+        <h3 class="text-2xl font-bold text-gray-900 mb-4">Software Development</h3>
+        <p class="text-gray-600 mb-6">Become a full-stack developer with expertise in modern frameworks, databases, and software architecture principles.</p>
+        <div class="flex items-center justify-between">
+          <span class="bg-blue-100 text-blue-800 px-3 py-1 rounded-full text-sm font-medium">contact me</span>
+          <span class="text-blue-600 font-semibold">+917983395430</span>
+        </div>
+        <div class="mt-6">
+          <img src="https://storage.googleapis.com/workspace-0f70711f-8b4e-4d94-86f1-2a93ccde5887/image/fc867098-3703-4a87-ad09-2bfccae7accf.png" alt="Software development workspace with multiple monitors showing code and development tools" class="w-full h-48 object-cover rounded-xl" onerror="this.style.display='none'">
+        </div>
+        <a href="sd.html" class="enroll-link bg-gradient-to-r from-blue-600 to-cyan-600 text-white mt-6 rounded-lg font-semibold hover:shadow-xl transition-all duration-300 transform group-hover:scale-105 inline-block px-4 py-2">
+          open notes <i class="ml-2 fas fa-arrow-right"></i>
+        </a>
+      </div>
+
+      <!-- Web Development -->
+      <div class="course-card group bg-gradient-to-br from-green-50 to-emerald-50 p-8">
+        <div class="w-16 h-16 bg-gradient-to-r from-green-600 to-emerald-600 rounded-2xl flex items-center justify-center text-white text-2xl mb-6">
+          <i class="fas fa-code"></i>
+        </div>
+        <h3 class="text-2xl font-bold text-gray-900 mb-4">Web Development</h3>
+        <p class="text-gray-600 mb-6">Master frontend and backend development with React, Node.js, and modern web technologies to build responsive applications.</p>
+        <div class="flex items-center justify-between">
+          <span class="bg-green-100 text-green-800 px-3 py-1 rounded-full text-sm font-medium">contact me</span>
+          <span class="text-green-600 font-semibold">+917983395430</span>
+        </div>
+        <div class="mt-6">
+          <img src="https://storage.googleapis.com/workspace-0f70711f-8b4e-4d94-86f1-2a93ccde5887/image/4bca52a3-871f-419f-91c6-650058334160.png" alt="Modern web development environment with responsive design elements and coding interface" class="w-full h-48 object-cover rounded-xl" onerror="this.style.display='none'">
+        </div>
+        <a href="wd.html" class="enroll-link bg-gradient-to-r from-green-600 to-emerald-600 text-white mt-6 rounded-lg font-semibold hover:shadow-xl transition-all duration-300 transform group-hover:scale-105 inline-block px-4 py-2">
+          open notes <i class="ml-2 fas fa-arrow-right"></i>
+        </a>
+      </div>
+
+      <!-- Networking -->
+      <div class="course-card group bg-gradient-to-br from-indigo-50 to-purple-50 p-8">
+        <div class="w-16 h-16 bg-gradient-to-r from-indigo-600 to-purple-600 rounded-2xl flex items-center justify-center text-white text-2xl mb-6">
+          <i class="fas fa-network-wired"></i>
+        </div>
+        <h3 class="text-2xl font-bold text-gray-900 mb-4">Networking Essentials</h3>
+        <p class="text-gray-600 mb-6">Learn network architecture, protocols, and security to build and maintain robust IT infrastructure systems.</p>
+        <div class="flex items-center justify-between">
+          <span class="bg-indigo-100 text-indigo-800 px-3 py-1 rounded-full text-sm font-medium">contact me</span>
+          <span class="text-indigo-600 font-semibold">+917983395430</span>
+        </div>
+        <div class="mt-6">
+          <img src="https://storage.googleapis.com/workspace-0f70711f-8b4e-4d94-86f1-2a93ccde5887/image/11ec8d0e-39e5-4dc7-804a-28e468d642b6.png" alt="Network infrastructure visualization with interconnected nodes and data flow diagram" class="w-full h-48 object-cover rounded-xl" onerror="this.style.display='none'">
+        </div>
+        <a href="cn.html" class="enroll-link bg-gradient-to-r from-indigo-600 to-purple-600 text-white mt-6 rounded-lg font-semibold hover:shadow-xl transition-all duration-300 transform group-hover:scale-105 inline-block px-4 py-2">
+          open notes <i class="ml-2 fas fa-arrow-right"></i>
+        </a>
+      </div>
+
+      <!-- IoT -->
+      <div class="course-card group bg-gradient-to-br from-gray-50 to-blue-gray-50 p-8">
+        <div class="w-16 h-16 bg-gradient-to-r from-gray-600 to-blue-gray-600 rounded-2xl flex items-center justify-center text-white text-2xl mb-6">
+          <i class="fas fa-microchip"></i>
+        </div>
+        <h3 class="text-2xl font-bold text-gray-900 mb-4">Internet of Things</h3>
+        <p class="text-gray-600 mb-6">Build smart devices and connected systems with IoT technologies, sensors, and cloud integration for modern applications.</p>
+        <div class="flex items-center justify-between">
+          <span class="bg-gray-100 text-gray-800 px-3 py-1 rounded-full text-sm font-medium">contact me</span>
+          <span class="text-gray-600 font-semibold">+917983395430</span>
+        </div>
+        <div class="mt-6">
+          <img src="https://storage.googleapis.com/workspace-0f70711f-8b4e-4d94-86f1-2a93ccde5887/image/5e09f342-17b7-4c50-abe7-f1dc9218421e.png" alt="Internet of Things concept showing connected smart devices and sensor networks in a smart home" class="w-full h-48 object-cover rounded-xl" onerror="this.style.display='none'">
+        </div>
+        <a href="mmx.html" class="enroll-link bg-gradient-to-r from-gray-600 to-blue-gray-600 text-white mt-6 rounded-lg font-semibold hover:shadow-xl transition-all duration-300 transform group-hover:scale-105 inline-block px-4 py-2">
+          open notes <i class="ml-2 fas fa-arrow-right"></i>
+        </a>
+      </div>
+
+   <!-- Entrepreneurship -->
+      <div class="course-card group bg-gradient-to-br from-yellow-50 to-orange-50 p-8 rounded-2xl shadow-md hover:shadow-xl transition-all">
+        <div class="w-16 h-16 bg-gradient-to-r from-yellow-600 to-orange-600 rounded-2xl flex items-center justify-center text-white text-2xl mb-6">
+          <i class="fas fa-lightbulb"></i>
+        </div>
+        <h3 class="text-2xl font-bold text-gray-900 mb-4">Entrepreneurship from Scratch to Advance</h3>
+        <p class="text-gray-600 mb-6">"Where Vision Meets Action"</p>
+        <div class="flex items-center justify-between">
+          <span class="bg-yellow-100 text-yellow-800 px-3 py-1 rounded-full text-sm font-medium">Contact me</span>
+          <span class="text-yellow-600 font-semibold">+91 7983395430</span>
+        </div>
+        <div class="mt-6">
+          <img src="download.webp"
+               alt="Entrepreneurship concept showing innovation and teamwork"
+               class="w-full h-48 object-cover rounded-xl"
+               onerror="this.style.display='none'">
+        </div>
+        <a href="nn.html"
+           class="enroll-link bg-gradient-to-r from-yellow-600 to-orange-600 text-white mt-6 rounded-lg font-semibold hover:shadow-xl transition-all duration-300 transform group-hover:scale-105 inline-block px-4 py-2">
+          Open Notes <i class="ml-2 fas fa-arrow-right"></i>
+        </a>
+      </div>
+
+      <!-- Communication Skills -->
+      <div class="course-card group bg-gradient-to-br from-blue-50 to-indigo-50 p-8 rounded-2xl shadow-md hover:shadow-xl transition-all">
+        <div class="w-16 h-16 bg-gradient-to-r from-blue-600 to-indigo-600 rounded-2xl flex items-center justify-center text-white text-2xl mb-6">
+          <i class="fas fa-comments"></i>
+        </div>
+        <h3 class="text-2xl font-bold text-gray-900 mb-4">Communication Skills</h3>
+        <p class="text-gray-600 mb-6">"Master the Art of Expressing Ideas that Inspire."</p>
+        <div class="flex items-center justify-between">
+          <span class="bg-blue-100 text-blue-800 px-3 py-1 rounded-full text-sm font-medium">Contact me</span>
+          <span class="text-blue-600 font-semibold">+91 7983395430</span>
+        </div>
+         <div class="mt-6">
+          <img src="download%20(1).webp"
+               alt=" showing how communication are the bond of innovation and teamwork"
+               class="w-full h-48 object-cover rounded-xl"
+               onerror="this.style.display='none'">
+        </div>
+        <a href="eng.html"
+           class="enroll-link bg-gradient-to-r from-blue-600 to-indigo-600 text-white mt-6 rounded-lg font-semibold hover:shadow-xl transition-all duration-300 transform group-hover:scale-105 inline-block px-4 py-2">
+          Open Notes <i class="ml-2 fas fa-arrow-right"></i>
+        </a>
+      </div>
+
+    </div>
+  </div>
+
+
+
+
+ <!-- Stock Market -->
+  <div class="course-card group bg-gradient-to-br from-blue-50 to-indigo-50 p-8 rounded-2xl shadow-md hover:shadow-xl transition-all">
+    <div class="w-16 h-16 bg-gradient-to-r from-blue-600 to-indigo-600 rounded-2xl flex items-center justify-center text-white text-2xl mb-6">
+      <i class="fas fa-chart-line"></i>
+    </div>
+    <h3 class="text-2xl font-bold text-gray-900 mb-4">Master Investment in Stock Market</h3>
+    <p class="text-gray-600 mb-6">Invest Smart, Grow Wealth, Master the Market.</p>
+    <div class="flex items-center justify-between">
+      <span class="bg-blue-100 text-blue-800 px-3 py-1 rounded-full text-sm font-medium">Contact me</span>
+      <span class="text-blue-600 font-semibold">+91 7983395430</span>
+    </div>
+    <div class="mt-6">
+      <img src="download%20(2).webp"
+           alt="Illustration of stock market investment and growth"
+           class="w-full h-48 object-cover rounded-xl"
+           onerror="this.style.display='none'">
+    </div>
+    <a href="sm.html"
+       class="enroll-link bg-gradient-to-r from-blue-600 to-indigo-600 text-white mt-6 rounded-lg font-semibold hover:shadow-xl transition-all duration-300 transform group-hover:scale-105 inline-block px-4 py-2">
+      Open Notes <i class="ml-2 fas fa-arrow-right"></i>
+    </a>
+   
+
+</div>
+
+
+
+
+
+
+
+
+
+
+
+</section>
+
+
+       
+     
+
+
+ 
+
+ 
+
+   
+    
+
+
+                
+                 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+    </section>
+
+    <!-- Features Section -->
+    <section class="py-20 bg-gradient-to-r from-indigo-600 to-purple-600 px-4 sm:px-6 lg:px-8">
+        <div class="max-w-7xl mx-auto">
+            <div class="text-center mb-16">
+                <h2 class="text-4xl md:text-5xl font-bold text-white mb-6">
+                    Why Choose <span class="text-yellow-300"> Nalanda</span>?
+                </h2>
+                <p class="text-xl text-white/90 max-w-3xl mx-auto">
+                    Experience learning reimagined for the digital age with our unique approach
+                </p>
+            </div>
+
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
+                <div class="text-center p-8 bg-white/10 backdrop-blur-md rounded-3xl border border-white/20">
+                    <div class="w-20 h-20 bg-white/20 rounded-full flex items-center justify-center mx-auto mb-6">
+                        <i class="fas fa-graduation-cap text-3xl text-yellow-300"></i>
+                    </div>
+                    <h3 class="text-xl font-bold text-white mb-4">Ancient Wisdom</h3>
+                    <p class="text-white/80">Teaching methods inspired by Nalanda, the world's  best e-learning platform </p>
+                </div>
+
+                <div class="text-center p-8 bg-white/10 backdrop-blur-md rounded-3xl border border-white/20">
+                    <div class="w-20 h-20 bg-white/20 rounded-full flex items-center justify-center mx-auto mb-6">
+                        <i class="fas fa-hands-helping text-3xl text-yellow-300"></i>
+                    </div>
+                    <h3 class="text-xl font-bold text-white mb-4">1:1 Mentorship</h3>
+                    <p class="text-white/80">whatsapp group for doubt solving related to courses topic and quizes for preparation </p>
+                </div>
+
+                <div class="text-center p-8 bg-white/10 backdrop-blur-md rounded-3xl border border-white/20">
+                    <div class="w-20 h-20 bg-white/20 rounded-full flex items-center justify-center mx-auto mb-6">
+                        <i class="fas fa-briefcase text-3xl text-yellow-300"></i>
+                    </div>
+                    <h3 class="text-xl font-bold text-white mb-4">Career Ready</h3>
+                    <p class="text-white/80">Practical skills that employers actually want and need</p>
+                </div>
+
+                <div class="text-center p-8 bg-white/10 backdrop-blur-md rounded-3xl border border-white/20">
+                    <div class="w-20 h-20 bg-white/20 rounded-full flex items-center justify-center mx-auto mb-6">
+                        <i class="fas fa-infinity text-3xl text-yellow-300"></i>
+                    </div>
+                    <h3 class="text-xl font-bold text-white mb-4"> premium courses </h3>
+                    <p class="text-white/80">Learn at your own pace with forever updated course materials with  videos  lectures, premium notes and quizzes for practices </p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="bg-gray-900 text-white py-12 px-4 sm:px-6 lg:px-8">
+        <div class="max-w-7xl mx-auto">
+            <div class="grid grid-cols-1 md:grid-cols-4 gap-8">
+                <div>
+                    <div class="flex items-center mb-6">
+                        <div class="w-12 h-12 bg-gradient-to-r from-indigo-600 to-purple-600 rounded-lg flex items-center justify-center text-white font-bold text-xl mr-3">
+                             NLH
+                        </div>
+                        <span class="text-2xl font-bold gradient-text"> Nalanda Learning Hub</span>
+                    </div>
+                    <p class="text-gray-400 mb-6">
+                        Where ancient teaching methodologies meet modern technology education to create the learning experience of tomorrow.
+                    </p>
+                    <div class="flex space-x-4">
+                         
+                        </a>
+                        <a href="https://youtube.com/@glitchbalak?si=z9YO65XkC1r-S-6D" class="text-gray-400 hover:text-white transition-colors">
+                            <i class="fab fa-youtube"></i>
+                        </a>
+                        <a href="#" class="text-gray-400 hover:text-white transition-colors">
+                            <i class="fab fa-linkedin-in"></i>
+                        </a>
+                        <a href="https://www.instagram.com/yashrajbhatt97?utm_source=ig_web_button_share_sheet&igsh=ZDNlZDc0MzIxNw==" class="text-gray-400 hover:text-white transition-colors">
+                            <i class="fab fa-instagram"></i>
+                        </a>
+                    </div>
+                </div>
+
+                <div>
+                    <h3 class="text-lg font-semibold mb-6">Quick Links</h3>
+                    <ul class="space-y-3">
+                        <li><a href="#courses" class="text-gray-400 hover:text-white transition-colors">Courses</a></li>
+                        <li><a href="#about" class="text-gray-400 hover:text-white transition-colors">About Us</a></li>
+                        <li><a href="#contact" class="text-gray-400 hover:text-white transition-colors">Contact</a></li>
+                          
+                    </ul>
+                </div>
+
+                <div>
+                    <h3 class="text-lg font-semibold mb-6">Courses</h3>
+                    <ul class="space-y-3">
+                        <li><a href="introduction%20to%20artificial%20intelligence.html " class="text-gray-400 hover:text-white transition-colors">AI & ML</a></li>
+                        <li><a href="introduction%20to%20cybersecurity.html  " class="text-gray-400 hover:text-white transition-colors">Cyber Security</a></li>
+                        <li><a href="sd.html " class="text-gray-400 hover:text-white transition-colors">Software Dev</a></li>
+                        <li><a href="wd.html " class="text-gray-400 hover:text-white transition-colors">Web Development</a></li>
+                        <li><a href="wd.html " class="text-gray-400 hover:text-white transition-colors">Web Development</a></li>
+                        <li><a href="nn.html  " class="text-gray-400 hover:text-white transition-colors">entrepreneurship  </a></li>
+                        <li><a href="cn.html  " class="text-gray-400 hover:text-white transition-colors">computer network    </a></li>
+                        <li><a href="   " class="text-gray-400 hover:text-white transition-colors"> internet of things (IOT)    </a></li>
+                    
+                    </ul>
+                </div>
+
+                <div>
+                    <h3 class="text-lg font-semibold mb-6">Contact Info</h3>
+                    <div class="space-y-3 text-gray-400">
+                        <p><i class="fas fa-envelope mr-2"></i>  yashrajbhatt24@gmail.com</p>
+                        <p><i class="fas fa-phone mr-2"></i> +91 7983395430 </p>
+                        <p><i class="fas fa-map-marker-alt mr-2"></i>  kashipur,U.S.Nagar,Uttrakhand</p>
+                         
+
+                    </div>
+                </div>
+            </div>
+
+            <div class="border-t border-gray-800 mt-12 pt-8 text-center">
+                <p class="text-gray-400">© 2024 Takshila Learning Hub. All rights reserved.</p>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        // Simple animation for course cards on scroll
+        document.addEventListener('DOMContentLoaded', function() {
+            const observer = new IntersectionObserver((entries) => {
+                entries.forEach(entry => {
+                    if (entry.isIntersecting) {
+                        entry.target.style.opacity = '1';
+                        entry.target.style.transform = 'translateY(0)';
+                    }
+                });
+            }, { threshold: 0.1 });
+
+            document.querySelectorAll('.course-card').forEach(card => {
+                card.style.opacity = '0';
+                card.style.transform = 'translateY(50px)';
+                card.style.transition = 'all 0.6s ease';
+                observer.observe(card);
+            });
+
+            // Smooth scrolling for navigation links
+            document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+                anchor.addEventListener('click', function (e) {
+                    e.preventDefault();
+                    const target = document.querySelector(this.getAttribute('href'));
+                    if (target) {
+                        target.scrollIntoView({
+                            behavior: 'smooth',
+                            block: 'start'
+                        });
+                    }
+                });
+            });
+        });
+
+
+ 
+document.addEventListener("DOMContentLoaded", () => {
+    // Smooth Scroll for internal links
+    document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+        anchor.addEventListener("click", function(e) {
+            e.preventDefault();
+            const target = document.querySelector(this.getAttribute("href"));
+            if (target) {
+                target.scrollIntoView({ behavior: "smooth", block: "start" });
+            }
+        });
+    });
+
+    // Dark / Light Mode Toggle
+    const toggleBtn = document.createElement("button");
+    toggleBtn.innerHTML = '<i class="fas fa-moon"></i>';
+    toggleBtn.className = "fixed bottom-6 right-6 bg-indigo-600 text-white p-3 rounded-full shadow-lg hover:scale-110 transition-all";
+    document.body.appendChild(toggleBtn);
+
+    toggleBtn.addEventListener("click", () => {
+        document.body.classList.toggle("dark");
+        if (document.body.classList.contains("dark")) {
+            document.body.style.background = "linear-gradient(135deg, #111827, #1f2937)";
+            toggleBtn.innerHTML = '<i class="fas fa-sun"></i>';
+        } else {
+            document.body.style.background = "linear-gradient(135deg, #667eea, #764ba2)";
+            toggleBtn.innerHTML = '<i class="fas fa-moon"></i>';
+        }
+    });
+
+    // Search / Filter Courses
+    const searchBar = document.createElement("input");
+    searchBar.type = "text";
+    searchBar.placeholder = "Search courses...";
+    searchBar.className = "w-full md:w-1/2 block mx-auto mb-10 px-4 py-3 border rounded-lg shadow focus:outline-none focus:ring-2 focus:ring-indigo-500";
+    const courseSection = document.querySelector("#courses .max-w-7xl");
+    courseSection.insertBefore(searchBar, courseSection.children[1]);
+
+    searchBar.addEventListener("input", e => {
+        const query = e.target.value.toLowerCase();
+        document.querySelectorAll(".course-card").forEach(card => {
+            const title = card.querySelector("h3").textContent.toLowerCase();
+            card.style.display = title.includes(query) ? "block" : "none";
+        });
+    });
+
+    // Expand/Collapse Course Details
+    document.querySelectorAll(".course-card").forEach(card => {
+        const p = card.querySelector("p");
+        if (p) {
+            const fullText = p.textContent;
+            if (fullText.length > 100) {
+                const shortText = fullText.substring(0, 100) + "...";
+                p.textContent = shortText;
+
+                const toggleBtn = document.createElement("button");
+                toggleBtn.textContent = "Read more";
+                toggleBtn.className = "text-indigo-600 font-medium mt-2 hover:underline";
+                card.appendChild(toggleBtn);
+
+                toggleBtn.addEventListener("click", () => {
+                    if (p.textContent === shortText) {
+                        p.textContent = fullText;
+                        toggleBtn.textContent = "Show less";
+                    } else {
+                        p.textContent = shortText;
+                        toggleBtn.textContent = "Read more";
+                    }
+                });
+            }
+        }
+    });
+
+    // Back-to-Top Button
+    const backToTop = document.createElement("button");
+    backToTop.innerHTML = '<i class="fas fa-arrow-up"></i>';
+    backToTop.className = "hidden fixed bottom-20 right-6 bg-purple-600 text-white p-3 rounded-full shadow-lg hover:scale-110 transition-all";
+    document.body.appendChild(backToTop);
+
+    window.addEventListener("scroll", () => {
+        if (window.scrollY > 400) {
+            backToTop.classList.remove("hidden");
+        } else {
+            backToTop.classList.add("hidden");
+        }
+    });
+
+    backToTop.addEventListener("click", () => {
+        window.scrollTo({ top: 0, behavior: "smooth" });
+    });
+
+    // Typing Effect in Hero Section
+    const heroText = document.querySelector("h1");
+    if (heroText) {
+        const text = heroText.textContent;
+        heroText.textContent = "";
+        let i = 0;
+        function typingEffect() {
+            if (i < text.length) {
+                heroText.textContent += text.charAt(i);
+                i++;
+                setTimeout(typingEffect, 60);
+            }
+        }
+        typingEffect();
+    }
+
+   
+
+  
+ 
+
+
+
+ 
+ 
+    </script>
+</body>
+</html>
+
