@@ -1,2268 +1,393 @@
- <!DOCTYPE html>
+  <!doctype html>
 <html lang="en">
 <head>
-  <meta charset="utf-8">
-  <meta name="viewport" content="width=device-width,initial-scale=1">
-  <title>Communication Skills — Enhanced (Inline CSS)</title>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>Communication Skills — Responsive</title>
+  <style>
+    /* Mobile-first, responsive layout with fluid typography */
+    :root{
+      --max-width:1100px;
+      --card-bg:#fff;
+      --card-border:#111827;
+      --accent:#1a73e8;
+      --muted:#6b7280;
+      --text:#0b0b0b;
+      --radius:14px;
+      --gap:18px;
+      --page-pad:16px;
+      --card-pad:18px;
+      --shadow: 0 8px 18px rgba(0,0,0,.06);
+
+      /* fluid typography */
+      --body-clamp: clamp(0.95rem, 1.6vw, 1.05rem);
+      --heading-clamp: clamp(1.1rem, 4vw, 2rem);
+      --h2-clamp: clamp(1rem, 2.2vw, 1.4rem);
+    }
+
+    /* Reset & base */
+    *{box-sizing:border-box}
+    html,body{height:100%}
+    body{
+      margin:0;
+      font-family: "Inter", system-ui, -apple-system, "Segoe UI", Roboto, Arial, sans-serif;
+      background: #f3f4f6;
+      color:var(--text);
+      padding:var(--page-pad);
+      -webkit-font-smoothing:antialiased;
+      -moz-osx-font-smoothing:grayscale;
+      line-height:1.6;
+      font-size:var(--body-clamp);
+    }
+
+    /* Layout container */
+    .wrap{
+      max-width:var(--max-width);
+      margin:0 auto;
+      display:flex;
+      flex-direction:column;
+      gap:var(--gap);
+    }
+
+    .card{
+      background:var(--card-bg);
+      border:2px solid var(--card-border);
+      border-radius:var(--radius);
+      padding:var(--card-pad);
+      box-shadow:var(--shadow);
+      overflow:hidden;
+    }
+
+    /* Headings & text */
+    h1{
+      margin:0 0 10px 0;
+      font-size:var(--heading-clamp);
+      line-height:1.15;
+      color: #111827;
+    }
+    h2{ margin:12px 0 8px; font-size:var(--h2-clamp); color:var(--accent) }
+    h3{ margin:8px 0; font-size:1rem; color:#374151 }
+    p{ margin:0 0 10px 0; color:var(--text) }
+    small{ color:var(--muted) }
+
+    /* Utility */
+    .muted{ color:var(--muted) }
+    .intro{ padding:10px 0; border-radius:8px }
+    .inline{ display:inline }
+    ul,ol{ margin:0 0 12px 20px; color:var(--text) }
+    li{ margin-bottom:8px }
+
+    /* Responsive column utilities (auto-fit for responsiveness) */
+    .cols-2,
+    .cols-3{
+      display:grid;
+      gap:16px;
+    }
+    .cols-2{ grid-template-columns: repeat(auto-fit, minmax(220px, 1fr)); }
+    .cols-3{ grid-template-columns: repeat(auto-fit, minmax(180px, 1fr)); }
+
+    /* Jargon multi-column: use column-width for responsive behaviour */
+    .jargon-list ul{
+      column-width: 220px;
+      columns:auto;
+      -webkit-columns:auto;
+      -moz-columns:auto;
+      list-style:none;
+      padding-left:0;
+      margin:0;
+      gap:10px;
+    }
+    .jargon-list li{ padding:6px 0; }
+
+    /* Dialog/quote style */
+    .dialog p{ margin:6px 0 }
+    .dialog strong{ color:#111827 }
+
+    /* Banner */
+    .banner{
+      display:flex;
+      flex-direction:column;
+      align-items:center;
+      text-align:center;
+      gap:6px;
+      padding:18px;
+      border-radius:10px;
+      background: linear-gradient(180deg,#0ea5e9, #0369a1);
+      color:white;
+    }
+
+    /* Color utility classes (replace inline styles for responsiveness) */
+    .heading-dblue{ color:#1a4b7a }
+    .heading-dgreen{ color:#0b5c3a }
+
+    /* Accessibility: increase contrast on high-contrast preference */
+    @media (prefers-contrast: more){
+      .card{ border-color:#000 }
+    }
+
+    /* Larger screens tweaks */
+    @media (min-width:900px){
+      :root{
+        --card-pad:28px;
+        --gap:22px;
+      }
+      .wrap{ padding:0; }
+    }
+
+    @media (min-width:1100px){
+      :root{ --max-width:1100px }
+    }
+
+    /* Ensure any inline style text inherits color on small devices */
+    .card *[style]{
+      color:inherit !important;
+      font-family:inherit !important;
+    }
+  </style>
 </head>
-<body style="font-family: Arial, sans-serif;  padding:20px;">
+<body>
+  <div class="wrap">
 
- <div style="max-width: 900px; margin: 0 auto; background: #ffffff; border: 2px solid #111827; border-radius: 14px; padding: 28px; line-height: 1.7; box-shadow: 0 10px 20px rgba(0,0,0,.06);">
- 
+    <!-- Communication skills -->
+    <section class="card">
+      <h1>Communication skills</h1>
+      <div class="intro">
+        <p>Communication skills are the abilities that help a person share information, ideas, and feelings effectively with others. They are essential for building relationships, solving problems, working in teams, and succeeding in both personal and professional life.</p>
+      </div>
 
+      <h2>Here’s a breakdown</h2>
+      <div class="cols-2" aria-hidden="false">
+        <div>
+          <h3>1. Types of Communication Skills</h3>
+          <ul>
+            <li>Verbal Communication – Conversations, presentations.</li>
+            <li>Non-Verbal – Body language, gestures, eye contact.</li>
+            <li>Written – Emails, reports, messages.</li>
+            <li>Listening – Active listening and understanding.</li>
+            <li>Visual – Charts, diagrams, images.</li>
+          </ul>
+        </div>
 
-  <!-- Main heading (heading color left unchanged) -->
-  <h1 style="margin:0 0 12px 0;">Communication skills</h1>
+        <div>
+          <h3>2. Key Components</h3>
+          <ul>
+            <li><strong>Clarity</strong> – Simple and understandable.</li>
+            <li><strong>Confidence</strong> – Speak with assurance.</li>
+            <li><strong>Empathy</strong> – Understand others’ feelings.</li>
+            <li><strong>Respect</strong> – Value others' opinions.</li>
+            <li><strong>Feedback</strong> – Give and receive constructively.</li>
+          </ul>
+        </div>
+      </div>
 
-  <!-- Intro section with border and black text (inline CSS) -->
-  <div style="  padding:14px; margin-bottom:14px;    ">
-    <p style="color: black; margin:0;">Communication skills are the abilities that help a person share information, ideas, and feelings effectively with others. They are essential for building relationships, solving problems, working in teams, and succeeding in both personal and professional life.</p>
-  </div>
-
-  <!-- Breakdown: Types -->
-  <h2 style="margin-top:0;">Here’s a breakdown:</h2>
-  <div style="  padding:14px; margin-bottom:14px;    ">
-    <h3 style="margin:0 0 8px 0;">1. Types of Communication Skills</h3>
-    <ul style="color: black; margin:0 0 8px 18px;">
-      <li>Verbal Communication – Using spoken words (e.g., conversations, presentations, discussions).</li>
-      <li>Non-Verbal Communication – Body language, gestures, facial expressions, posture, and eye contact.</li>
-      <li>Written Communication – Emails, reports, text messages, letters, and social media communication.</li>
-      <li>Listening Skills – Active listening, paying attention, and showing understanding.</li>
-      <li>Visual Communication – Using charts, diagrams, and images to express ideas.</li>
-    </ul>
-  </div>
-
-  <!-- Key components -->
-  <div style="  padding:14px; margin-bottom:14px;  ">
-    <h3 style="margin:0 0 8px 0;">2. Key Components of Good Communication</h3>
-    <ul style="color: black; margin:0 0 8px 18px;">
-      <li><strong>Clarity</strong> – Expressing thoughts in a simple and understandable way.</li>
-      <li><strong>Confidence</strong> – Speaking or writing with assurance.</li>
-      <li><strong>Empathy</strong> – Understanding the feelings and perspectives of others.</li>
-      <li><strong>Respect</strong> – Valuing others’ opinions and responding politely.</li>
-      <li><strong>Feedback</strong> – Giving and receiving constructive responses.</li>
-    </ul>
-  </div>
-
-  <!-- Why important -->
-  <div style="  padding:14px; margin-bottom:14px;    ">
-    <h3 style="margin:0 0 8px 0;">3. Why Communication Skills Are Important</h3>
-    <ul style="color: black; margin:0 0 8px 18px;">
-      <li>Improve teamwork and collaboration.</li>
-      <li>Prevent misunderstandings and conflicts.</li>
-      <li>Help in leadership and management.</li>
-      <li>Increase chances of academic and career success.</li>
-      <li>Build strong personal relationships.</li>
-    </ul>
-    <p style="color: black; margin:0; font-style:italic;">👉 In simple words: Communication skills are how well you can express yourself and understand others.</p>
-  </div>
-
-  <!-- Real-life examples -->
-  <h2>real-life examples of good communication skills</h2>
-  <div style="  padding:14px; margin-bottom:14px;    ">
-    <h3 style="margin:0 0 8px 0;">In School/College</h3>
-    <ul style="color: black; margin:0 0 8px 18px;">
-      <li>Asking questions clearly when you don’t understand something in class.</li>
-      <li>Listening carefully when a teacher explains, and then summarizing the point in your own words.</li>
-      <li>Group projects – dividing tasks with teammates by discussing openly and respectfully.</li>
-    </ul>
-
-    <h3 style="margin:8px 0 8px 0;">At Workplace</h3>
-    <ul style="color: black; margin:0 0 8px 18px;">
-      <li>In meetings – presenting your ideas confidently but also allowing others to speak.</li>
-      <li>Writing clear emails – short, polite, and to the point so everyone understands.</li>
-      <li>Handling conflicts – calmly listening to both sides and suggesting a solution.</li>
-    </ul>
-
-    <h3 style="margin:8px 0 8px 0;">In Daily Life</h3>
-    <ul style="color: black; margin:0 0 8px 18px;">
-      <li>Talking to family/friends – expressing feelings honestly without shouting or blaming.</li>
-      <li>Shopping – politely asking the shopkeeper about prices or offers.</li>
-      <li>Phone conversations – speaking clearly and not interrupting the other person.</li>
-    </ul>
-
-    <h3 style="margin:8px 0 0 0;">In Interviews</h3>
-    <ul style="color: black; margin:8px 0 0 18px;">
-      <li>Answering questions with confidence and staying on topic.</li>
-      <li>Maintaining eye contact with the interviewer.</li>
-      <li>Listening carefully to the question before answering, instead of rushing.</li>
-    </ul>
-
-    <p style="color: black; margin-top:10px;">👉 In short: Good communication is not just about speaking—it’s also about listening, respecting, and making sure your message is understood.</p>
-  </div>
-
-  <!-- Tips to improve -->
-  <h2>🔑 Tips to Improve Communication Skills</h2>
-  <div style="  padding:14px; margin-bottom:14px;   ">
-    <ol style="color: black; margin:0 0 8px 18px;">
-      <li><strong>Improve Your Listening</strong>
-        <ul style="color: black; margin:6px 0 0 18px;">
-          <li>Don’t interrupt when others are speaking.</li>
-          <li>Nod, smile, or say short responses like “I see”, “That makes sense”.</li>
-          <li>Summarize what the other person said: “So you mean that…”.</li>
-        </ul>
-      </li>
-
-      <li style="margin-top:8px;"><strong>Work on Clarity and Simplicity</strong>
-        <ul style="color: black; margin:6px 0 0 18px;">
-          <li>Use short, clear sentences instead of long and confusing ones.</li>
-          <li>Avoid jargon (difficult words) unless necessary.</li>
-          <li>Practice explaining complex things in simple terms.</li>
-        </ul>
-      </li>
-
-      <li style="margin-top:8px;"><strong>Enhance Your Body Language</strong>
-        <ul style="color: black; margin:6px 0 0 18px;">
-          <li>Maintain good eye contact.</li>
-          <li>Keep an open posture (don’t cross arms, sit/stand straight).</li>
-          <li>Use hand gestures naturally to support your words.</li>
-        </ul>
-      </li>
-
-      <li style="margin-top:8px;"><strong>Build Confidence</strong>
-        <ul style="color: black; margin:6px 0 0 18px;">
-          <li>Practice speaking in front of a mirror or record yourself.</li>
-          <li>Join debates, group discussions, or drama clubs.</li>
-          <li>Prepare before meetings or interviews.</li>
-        </ul>
-      </li>
-
-      <li style="margin-top:8px;"><strong>Expand Your Vocabulary</strong>
-        <ul style="color: black; margin:6px 0 0 18px;">
-          <li>Read books, articles, and newspapers daily.</li>
-          <li>Learn new words and try to use them in conversation.</li>
-          <li>Practice writing (journals, blogs) with better word choices.</li>
-        </ul>
-      </li>
-
-      <li style="margin-top:8px;"><strong>Develop Empathy</strong>
-        <ul style="color: black; margin:6px 0 0 18px;">
-          <li>Try to understand others’ perspectives before replying.</li>
-          <li>Respond politely, even in disagreements.</li>
-          <li>Show appreciation with phrases like “I understand your point”, “That’s a good idea”.</li>
-        </ul>
-      </li>
-
-      <li style="margin-top:8px;"><strong>Ask for Feedback</strong>
-        <ul style="color: black; margin:6px 0 0 18px;">
-          <li>After a presentation, ask: “Was I clear enough?”</li>
-          <li>Accept suggestions without feeling offended.</li>
-          <li>Work on weak areas consistently.</li>
-        </ul>
-      </li>
-    </ol>
-  </div>
-
-</div>
-
-  <div style="max-width: 900px; margin: 0 auto; background: #ffffff; border: 2px solid #111827; border-radius: 14px; padding: 28px; line-height: 1.7; box-shadow: 0 10px 20px rgba(0,0,0,.06);">
- 
-  <h1>🔹 What is Professional Communication?</h1>
-
-  <div style="color:#000;   padding:12px; margin:10px 0;">
-    <p style="margin:0;">
-      Professional communication means sharing information, ideas, and feedback in a clear, respectful,
-      and business-appropriate way in workplaces, academic settings, or formal environments.
-    </p>
-    <p style="margin-top:8px;">
-      It’s not just about what you say, but also how you say it.
-    </p>
-  </div>
-
-  <h2>🔹 Types of Professional Communication</h2>
-
-  <div style="color:#000;   padding:12px; margin:10px 0;">
-    <ul style="margin:0 0 0 20px; padding:0;">
-      <li style="margin-bottom:6px;">Verbal Communication – Meetings, presentations, phone calls.</li>
-      <li style="margin-bottom:6px;">Written Communication – Emails, reports, memos, proposals.</li>
-      <li style="margin-bottom:6px;">Non-verbal Communication – Dress code, posture, eye contact, facial expressions.</li>
-      <li>Digital Communication – Online chats, video conferences, LinkedIn messages.</li>
-    </ul>
-  </div>
-
-  <h2>🔹 Key Elements of Professional Communication</h2>
-
-  <div style="color:#000;  padding:12px; margin:10px 0;">
-    <p style="margin:0;"><strong>Clarity</strong> → Be simple and to the point.</p>
-    <p style="margin:8px 0 0;"><strong>Politeness</strong> → Use respectful words like “please”, “thank you”.</p>
-    <p style="margin:8px 0 0;"><strong>Formality</strong> → Avoid slang or casual tone in professional settings.</p>
-    <p style="margin:8px 0 0;"><strong>Active Listening</strong> → Pay attention before responding.</p>
-    <p style="margin:8px 0 0;"><strong>Timeliness</strong> → Respond to emails/messages on time.</p>
-    <p style="margin:8px 0 0;"><strong>Confidentiality</strong> → Respect private or sensitive information.</p>
-  </div>
-
-  <h2>🔹 Examples of Professional Communication</h2>
-
-  <div style="color:#000;   padding:12px; margin:10px 0;">
-    <p style="margin:0;">
-      Writing an email to your manager:
-      <em style="display:block; margin-top:6px;">“Dear Sir/Madam, I hope this message finds you well. I would like to update you on the progress of the project…”</em>
-    </p>
-
-    <p style="margin-top:10px;">Answering in interviews with confidence and relevance.</p>
-    <p style="margin-top:6px;">Giving a presentation with clear slides and engaging delivery.</p>
-    <p style="margin-top:6px;">Listening to a colleague’s concern and responding politely.</p>
-  </div>
-
-  <h2>🔹 Why Professional Communication Matters</h2>
-
-  <div style="color:#000;  padding:12px; margin:10px 0;">
-    <ul style="margin:0 0 0 20px; padding:0;">
-      <li style="margin-bottom:6px;">Builds trust and respect in the workplace.</li>
-      <li style="margin-bottom:6px;">Prevents misunderstandings and conflicts.</li>
-      <li style="margin-bottom:6px;">Helps in teamwork, leadership, and networking.</li>
-      <li>Improves career growth and professional image.</li>
-    </ul>
-    <p style="margin-top:8px;">👉 In short: Professional communication = Clear + Respectful + Formal + Purpose-driven communication.</p>
-  </div>
-
-  <h2>📌 Real-Life Examples of Professional Communication</h2>
-
-  <h3>🏫 In School / College (Academic Professionalism)</h3>
-  <div style="color:#000;   padding:12px; margin:10px 0;">
-    <p style="margin:0;">
-      Writing a formal email to a teacher:
-      <em style="display:block; margin-top:6px;">“Respected Ma’am, I could not attend yesterday’s class due to health issues. Kindly share the notes or assignment details.”</em>
-    </p>
-    <p style="margin-top:10px;">Giving a presentation in class using slides and speaking clearly, instead of reading directly from paper.</p>
-    <p style="margin-top:6px;">Participating in a debate or seminar with respectful language, even if you disagree.</p>
-  </div>
-
-  <h3>💼 In Workplace</h3>
-  <div style="color:#000;  padding:12px; margin:10px 0;">
-    <p style="margin:0;">
-      Emailing your manager:
-      <em style="display:block; margin-top:6px;">“Good morning Sir, here is the weekly progress report. Please let me know if you’d like further details.”</em>
-    </p>
-    <p style="margin-top:10px;">Team meetings: Listening to others’ ideas first, then sharing your point politely:
-      <em style="display:block; margin-top:6px;">“I agree with your suggestion, and I’d like to add another possible approach…”</em>
-    </p>
-    <p style="margin-top:10px;">Customer service: Responding to a complaint:
-      <em style="display:block; margin-top:6px;">“We’re sorry for the inconvenience. We will resolve this issue within 24 hours.”</em>
-    </p>
-  </div>
-
-  <h3>🎤 In Job Interviews</h3>
-  <div style="color:#000;   padding:12px; margin:10px 0;">
-    <p style="margin:0;">Greeting: “Good morning, thank you for giving me this opportunity.”</p>
-    <p style="margin-top:8px;">Answering concisely: “My strength is problem-solving, and I applied for this role because it aligns with my skills in software development.”</p>
-    <p style="margin-top:8px;">Asking at the end: “May I know what the next steps in the process are?”</p>
-  </div>
-
-  <h3>👨‍💻 In Online / Digital Settings</h3>
-  <div style="color:#000;   padding:12px; margin:10px 0;">
-    <p style="margin:0;">
-      Writing a LinkedIn message to connect with a professional:
-      <em style="display:block; margin-top:6px;">“Hello Mr. Sharma, I admire your work in cybersecurity. I’d be glad to connect and learn from your insights.”</em>
-    </p>
-  </div>
-
-  <h2>Examples Showing Good vs Poor Communication</h2>
-
-  <div style="color:#000;  padding:12px; margin:10px 0;">
-    <p style="margin:0;">
-      Good (email to teacher/manager):
-      <em style="display:block; margin-top:6px;">“Respected Sir/Ma’am, I am writing to request an extension for the project deadline. I will ensure to complete it by next Monday.”</em>
-    </p>
-
-    <p style="margin-top:10px;">
-      Poor:
-      <em style="display:block; margin-top:6px;">“Hey, I can’t finish the project, give me more time.”</em>
-    </p>
-
-    <p style="margin-top:10px;">
-      In meetings — Good:
-      <em style="display:block; margin-top:6px;">“I understand your point. May I suggest an alternative approach that might save time?”</em>
-    </p>
-
-    <p style="margin-top:10px;">
-      Poor:
-      <em style="display:block; margin-top:6px;">“That idea won’t work. Mine is better.”</em>
-    </p>
-
-    <p style="margin-top:10px;">
-      Job interview — Good:
-      <em style="display:block; margin-top:6px;">“Thank you for the opportunity. My skills in networking and cybersecurity make me a good fit for this role.”</em>
-    </p>
-
-    <p style="margin-top:10px;">
-      Poor:
-      <em style="display:block; margin-top:6px;">“I just need a job, and I’ll do anything.”</em>
-    </p>
-
-    <p style="margin-top:10px;">
-      Phone with clients — Professional:
-      <em style="display:block; margin-top:6px;">“Good afternoon, this is Yash from Nalanda Learning Hub. How may I assist you today?”</em>
-    </p>
-
-    <p style="margin-top:10px;">
-      Poor:
-      <em style="display:block; margin-top:6px;">“Hello? Yeah, what do you want?”</em>
-    </p>
-
-    <p style="margin-top:10px;">
-      Feedback — Constructive:
-      <em style="display:block; margin-top:6px;">“Great effort on the report! To make it even stronger, you could add more data in section two.”</em>
-    </p>
-
-    <p style="margin-top:10px;">
-      Feedback — Harsh:
-      <em style="display:block; margin-top:6px;">“This report is full of mistakes. Do it again.”</em>
-    </p>
-  </div>
-
-  <h2>Conclusion</h2>
-  <div style="color:#000;   padding:12px; margin:10px 0;">
-    <p style="margin:0;">
-      In short, good professional communication builds respect, trust, and clarity, while poor communication creates misunderstandings, conflicts, and a negative impression.
-    </p>
-  </div> 
-</div>
-
-
-
-   
-    <div style="max-width: 900px; margin: 0 auto; background: #ffffff; border: 2px solid #111827; border-radius: 14px; padding: 28px; line-height: 1.7; box-shadow: 0 10px 20px rgba(0,0,0,.06);">
-
-
-    <h1>🔹 What Are Professional Jargons?</h1>
-    <p style="color: black;">Professional jargons are specialized words or phrases used in a particular field, profession, or industry. They help experts communicate quickly and precisely with each other. However, they may be confusing to outsiders who are not familiar with the field.</p>
-
-    <h2>👉 Example</h2>
-    <p style="color: black;">In IT, saying “The server is down due to a DDoS attack” is jargon. To a non-IT person, you’d simply say “The website isn’t working because it’s being overloaded by too much traffic.”</p>
-
-    <h2>🔹 Why Are Jargons Used?</h2>
-    <ul style="color: black;">
-      <li>To save time (short forms, abbreviations).</li>
-      <li>To show expertise in a field.</li>
-      <li>To communicate precisely among professionals.</li>
-      <li>To standardize language within industries.</li>
-    </ul>
-
-    <h2>🔹 Examples of Professional Jargons</h2>
-
-    <div style="  padding:14px;   margin-bottom:12px;">
-      <h3>🖥️ Information Technology (IT)</h3>
-      <ul style="color: black;">
-        <li><strong>Bug</strong> – An error in software.</li>
-        <li><strong>Bandwidth</strong> – Amount of data transferred over a network.</li>
-        <li><strong>Cloud</strong> – Storing and accessing data online instead of local devices.</li>
-        <li><strong>Firewall</strong> – Security system that controls network traffic.</li>
+      <h3>3. Why Important</h3>
+      <ul>
+        <li>Improve teamwork and collaboration.</li>
+        <li>Prevent misunderstandings and conflicts.</li>
+        <li>Help in leadership and management.</li>
+        <li>Increase chances of academic and career success.</li>
+        <li>Build strong personal relationships.</li>
       </ul>
-    </div>
 
-    <div style="  padding:14px;   margin-bottom:12px;">
-      <h3>📊 Business / Management</h3>
-      <ul style="color: black;">
-        <li><strong>ROI (Return on Investment)</strong> – Profit gained from an investment.</li>
-        <li><strong>Synergy</strong> – Combined effort is greater than individual efforts.</li>
-        <li><strong>Scalability</strong> – Ability of a business/system to grow without problems.</li>
-        <li><strong>KPI (Key Performance Indicator)</strong> – A measure of success or progress.</li>
+      <p class="muted"><em>In simple words:</em> Communication skills are how well you express yourself and understand others.</p>
+    </section>
+
+    <!-- Professional Communication -->
+    <section class="card">
+      <h1>🔹 What is Professional Communication?</h1>
+      <p>Professional communication means sharing information, ideas, and feedback in a clear, respectful, and business-appropriate way in workplaces, academic settings, or formal environments.</p>
+
+      <h2>Types of Professional Communication</h2>
+      <div class="cols-2">
+        <div>
+          <ul>
+            <li>Verbal – Meetings, presentations, calls.</li>
+            <li>Written – Emails, reports, memos.</li>
+            <li>Non-verbal – Dress, posture, eye contact.</li>
+            <li>Digital – Chats, video calls, LinkedIn messages.</li>
+          </ul>
+        </div>
+
+        <div>
+          <h3>Key Elements</h3>
+          <p><strong>Clarity</strong> → Be simple and to the point. <strong>Politeness</strong> → Use "please", "thank you".</p>
+          <p><strong>Formality</strong> → Avoid slang. <strong>Active Listening</strong> → Pay attention. <strong>Timeliness</strong> → Respond on time.</p>
+        </div>
+      </div>
+
+      <h2>Examples (short)</h2>
+      <p>Writing an email to your manager: <em>“Good morning Sir, here is the weekly progress report. Please let me know if you’d like further details.”</em></p>
+      <p class="muted">Good professional communication builds trust; poor communication creates misunderstandings.</p>
+    </section>
+
+    <!-- Jargon -->
+    <section class="card jargon-list">
+      <h1>🔹 What Are Professional Jargons?</h1>
+      <p>Professional jargons are specialized words or phrases used in a particular field. They help experts communicate quickly but may confuse outsiders.</p>
+
+      <h2>Examples by domain</h2>
+      <div class="cols-2">
+        <div>
+          <h3>IT</h3>
+          <ul>
+            <li><strong>Bug</strong> – software error.</li>
+            <li><strong>Bandwidth</strong> – data transfer capacity.</li>
+            <li><strong>Cloud</strong> – online data storage.</li>
+            <li><strong>Firewall</strong> – network security.</li>
+          </ul>
+        </div>
+
+        <div>
+          <h3>Business</h3>
+          <ul>
+            <li><strong>ROI</strong> – Return on Investment.</li>
+            <li><strong>KPI</strong> – Key Performance Indicator.</li>
+            <li><strong>Scalability</strong> – ability to grow.</li>
+            <li><strong>Synergy</strong> – combined effort advantage.</li>
+          </ul>
+        </div>
+      </div>
+
+      <h2 style="margin-top:12px">Professional Jargon — quick list</h2>
+      <ul>
+        <li>EOD → End of the day</li>
+        <li>Bandwidth → Time or energy available</li>
+        <li>Synergy → Working together for better results</li>
+        <li>Circle back → Return to a topic later</li>
+        <li>Touch base → Briefly check in</li>
+        <li>Low-hanging fruit → Easy wins</li>
+        <li>Pivot → Change strategy</li>
+        <li>Leverage → Use effectively</li>
+        <li>KPI → Key performance indicators</li>
+        <li>ROI → Return on investment</li>
+        <li>Stakeholder → Person affected or involved</li>
+        <li>Deliverables → Expected outputs</li>
       </ul>
-    </div>
 
-    <div style="  padding:14px;   margin-bottom:12px;">
-      <h3>💉 Medical Field</h3>
-      <ul style="color: black;">
-        <li><strong>BP (Blood Pressure)</strong> – The force of blood against artery walls.</li>
-        <li><strong>Diagnosis</strong> – Identifying a disease.</li>
-        <li><strong>ICU (Intensive Care Unit)</strong> – Hospital unit for critical patients.</li>
-        <li><strong>Prognosis</strong> – Prediction of the outcome of a disease.</li>
+      <p class="muted">✅ Use jargon with professionals. ❌ Avoid with non-experts — prefer simple words.</p>
+    </section>
+
+    <!-- Rules of Verbal Communication -->
+    <section class="card">
+      <h2>🔹 Rules of Verbal Communication</h2>
+      <div class="cols-2">
+        <div>
+          <p><strong>Clarity:</strong> Speak clearly; avoid unnecessary jargon.</p>
+          <p><strong>Tone:</strong> Match tone to context; avoid sounding rude.</p>
+          <p><strong>Pace & Volume:</strong> Moderate speed and volume; pause at key points.</p>
+        </div>
+        <div>
+          <p><strong>Active Listening:</strong> Listen fully; don't interrupt.</p>
+          <p><strong>Relevance:</strong> Stay on topic; be concise.</p>
+          <p><strong>Respect:</strong> Use polite words and value others' time.</p>
+        </div>
+      </div>
+      <p class="muted">In short: Be clear, respectful, and adaptable.</p>
+    </section>
+
+    <!-- Also/As well/Too -->
+    <section class="card">
+      <h1 class="heading-dblue">Correct Usage of Also, As well and Too</h1>
+      <div>
+        <h2 class="heading-dgreen">Also</h2>
+        <p><strong>Formal:</strong> Usually before main verb or at beginning. Example: "I can code in Python. Also, I am learning Java."</p>
+
+        <h2 class="heading-dgreen">As well</h2>
+        <p><strong>Informal/Polite:</strong> Usually at sentence end. Example: "She brought her laptop as well."</p>
+
+        <h2 class="heading-dgreen">Too</h2>
+        <p><strong>Casual:</strong> Usually at sentence end. Example: "I like pizza too."</p>
+      </div>
+
+      <h2>Quick Tips</h2>
+      <ul>
+        <li>Use <strong>also</strong> in mid-sentence or formal writing.</li>
+        <li>Use <strong>too</strong> at the end in casual speech.</li>
+        <li>Use <strong>as well</strong> at the end when polite/neutral.</li>
       </ul>
-    </div>
-
-    <div style="  padding:14px;   margin-bottom:18px;">
-      <h3>⚖️ Law</h3>
-      <ul style="color: black;">
-        <li><strong>Affidavit</strong> – A written statement confirmed by oath.</li>
-        <li><strong>Plaintiff</strong> – Person who brings a case to court.</li>
-        <li><strong>Defendant</strong> – Person accused or sued in a case.</li>
-        <li><strong>Litigation</strong> – Process of taking legal action.</li>
-      </ul>
-    </div>
-
-    <h2>🔹 When to Use and Avoid Jargons</h2>
-    <p style="color: black;">✅ Use when speaking with professionals in the same field (saves time, ensures accuracy).<br>
-    ❌ Avoid when talking to non-experts (they may get confused, so use simple words).</p>
-
-    <p style="color: black;">👉 In short: Professional jargon is like a secret code used by experts in the same profession. It’s powerful if used correctly but confusing if used in the wrong place.</p>
-
-    <hr style="  margin:18px 0;">
-
-    <h2>  <strong>Professional Jargon  </strong> 🧠</h2>
-     
-    <div style="  padding:12px;  ">
-      <ul style="columns:2; -webkit-columns:2; list-style: none; padding-left:0; color: black; margin:0;">
-        <li style="padding:6px 0;"><strong>EOD</strong> → End of the day</li>
-        <li style="padding:6px 0;"><strong>Bandwidth</strong> → Time or energy available</li>
-        <li style="padding:6px 0;"><strong>Synergy</strong> → Working together for better results</li>
-        <li style="padding:6px 0;"><strong>Circle back</strong> → Return to a topic later</li>
-        <li style="padding:6px 0;"><strong>Touch base</strong> → Briefly connect or check in</li>
-        <li style="padding:6px 0;"><strong>Low-hanging fruit</strong> → Easy tasks or quick wins</li>
-        <li style="padding:6px 0;"><strong>Boil the ocean</strong> → Trying to do too much</li>
-        <li style="padding:6px 0;"><strong>Actionable items</strong> → Tasks ready to be done</li>
-        <li style="padding:6px 0;"><strong>Pivot</strong> → Change direction or strategy</li>
-        <li style="padding:6px 0;"><strong>Leverage</strong> → Use something effectively</li>
-        <li style="padding:6px 0;"><strong>Drill down</strong> → Look deeper into details</li>
-        <li style="padding:6px 0;"><strong>Take offline</strong> → Discuss privately</li>
-        <li style="padding:6px 0;"><strong>Pain points</strong> → Problems or challenges</li>
-        <li style="padding:6px 0;"><strong>Move the needle</strong> → Make a noticeable impact</li>
-        <li style="padding:6px 0;"><strong>On the same page</strong> → In agreement</li>
-        <li style="padding:6px 0;"><strong>Backburner</strong> → Delay or deprioritize</li>
-        <li style="padding:6px 0;"><strong>Loop in</strong> → Include someone in the conversation</li>
-        <li style="padding:6px 0;"><strong>Align</strong> → Agree on goals or plans</li>
-        <li style="padding:6px 0;"><strong>Ideate</strong> → Brainstorm ideas</li>
-        <li style="padding:6px 0;"><strong>Greenlight</strong> → Approve something</li>
-        <li style="padding:6px 0;"><strong>Escalate</strong> → Send to higher authority</li>
-        <li style="padding:6px 0;"><strong>Think outside the box</strong> → Be creative</li>
-        <li style="padding:6px 0;"><strong>Run it up the flagpole</strong> → Test an idea</li>
-        <li style="padding:6px 0;"><strong>Fast-track</strong> → Speed up the process</li>
-        <li style="padding:6px 0;"><strong>Triage</strong> → Prioritize tasks</li>
-        <li style="padding:6px 0;"><strong>Brain dump</strong> → Share ideas freely</li>
-        <li style="padding:6px 0;"><strong>SWOT analysis</strong> → Strengths, Weaknesses, Opportunities, Threats</li>
-        <li style="padding:6px 0;"><strong>In the weeds</strong> → Lost in too many details</li>
-        <li style="padding:6px 0;"><strong>Zoom out</strong> → Look at the big picture</li>
-        <li style="padding:6px 0;"><strong>KPI</strong> → Key performance indicators</li>
-        <li style="padding:6px 0;"><strong>ROI</strong> → Return on investment</li>
-        <li style="padding:6px 0;"><strong>Ping</strong> → Message someone</li>
-        <li style="padding:6px 0;"><strong>Circle the wagons</strong> → Unite for support or defense</li>
-        <li style="padding:6px 0;"><strong>Drinking the Kool-Aid</strong> → Fully believe in an idea</li>
-        <li style="padding:6px 0;"><strong>Champion</strong> → Strongly support something</li>
-        <li style="padding:6px 0;"><strong>Analysis paralysis</strong> → Overthinking</li>
-        <li style="padding:6px 0;"><strong>Paradigm shift</strong> → Major change</li>
-        <li style="padding:6px 0;"><strong>Table it</strong> → Postpone the discussion</li>
-        <li style="padding:6px 0;"><strong>Double down</strong> → Commit more strongly</li>
-        <li style="padding:6px 0;"><strong>Close the loop</strong> → Follow up and finish</li>
-        <li style="padding:6px 0;"><strong>Manage expectations</strong> → Set realistic goals</li>
-        <li style="padding:6px 0;"><strong>Own the outcome</strong> → Take responsibility</li>
-        <li style="padding:6px 0;"><strong>Bring your A-game</strong> → Do your best</li>
-        <li style="padding:6px 0;"><strong>Boots on the ground</strong> → Actively involved</li>
-        <li style="padding:6px 0;"><strong>Value-add</strong> → Extra benefit</li>
-        <li style="padding:6px 0;"><strong>Deep dive</strong> → Thorough analysis</li>
-        <li style="padding:6px 0;"><strong>Quick win</strong> → Fast and easy success</li>
-        <li style="padding:6px 0;"><strong>Stakeholder</strong> → Person involved or affected</li>
-        <li style="padding:6px 0;"><strong>Deliverables</strong> → Expected results or outputs</li>
-        <li style="padding:6px 0;"><strong>Touchpoint</strong> → Interaction moment</li>
-        <li style="padding:6px 0;"><strong>Painkiller</strong> → Solution to a problem</li>
-      </ul>
-    </div>
-
-     
-  </div>
-
-
- 
-
- <div style="max-width: 900px; margin: 0 auto; background: #ffffff; border: 2px solid #111827; border-radius: 14px; padding: 28px; line-height: 1.7; box-shadow: 0 10px 20px rgba(0,0,0,.06);">
- 
-
-
-<!-- Rules of Verbal Communication -->
-<div style="  padding: 15px; margin-bottom: 20px; color: black;">
-  <h2>🔹 Rules of Verbal Communication</h2>
-  <p><strong>1. Clarity</strong><br>
-  Speak clearly and avoid unnecessary jargon unless your audience understands it.<br>
-  Use simple words when explaining complex ideas.</p>
-
-  <p><strong>2. Tone of Voice</strong><br>
-  Match your tone with the context (formal, casual, friendly, authoritative).<br>
-  Avoid sounding rude, aggressive, or monotonous.</p>
-
-  <p><strong>3. Pace and Volume</strong><br>
-  Speak at a moderate speed — not too fast, not too slow.<br>
-  Adjust your volume so everyone can hear without shouting.</p>
-
-  <p><strong>4. Active Listening</strong><br>
-  Communication is two-way — listen as carefully as you speak.<br>
-  Don’t interrupt while others are speaking.</p>
-
-  <p><strong>5. Relevance</strong><br>
-  Stay on topic and avoid unnecessary details.<br>
-  Keep your message concise and to the point.</p>
-
-  <p><strong>6. Respect and Courtesy</strong><br>
-  Use polite words (“please,” “thank you,” “excuse me”).<br>
-  Show respect for other people’s opinions even if you disagree.</p>
-
-  <p><strong>7. Body Language Alignment</strong><br>
-  Make sure your words and non-verbal cues (gestures, eye contact, posture) match.<br>
-  For example, saying “I’m confident” while slouching sends mixed signals.</p>
-
-  <p><strong>8. Feedback</strong><br>
-  Check if the listener understood (ask: “Does that make sense?”).<br>
-  Be open to questions and clarifications.</p>
-
-  <p><strong>9. Adaptability</strong><br>
-  Adjust your language based on the audience (friends vs. colleagues vs. children).<br>
-  Avoid overly technical terms when speaking to non-specialists.</p>
-
-  <p><strong>10. Honesty</strong><br>
-  Be truthful in your words.<br>
-  Misleading or false statements damage trust and credibility.</p>
-
-  <p>✅ In short: Be clear, respectful, and adaptable. Speak with purpose, listen actively, and ensure your message is understood.</p>
-</div>
-
-<!-- Clarity in Communication -->
-<div style="  padding: 15px; margin-bottom: 20px; color: black;">
-  <h2>🔹 Clarity in Communication</h2>
-  <p><strong>What It Means:</strong> Expressing your thoughts clearly so the listener gets your message without confusion.</p>
-
-  <p><strong>Why Clarity is Important:</strong><br>
-  - Avoids Misunderstandings<br>
-  - Saves Time<br>
-  - Builds Credibility<br>
-  - Improves Learning & Retention<br>
-  - Enhances Professionalism</p>
-
-  <p><strong>How to Achieve Clarity:</strong><br>
-  - Use simple, precise words<br>
-  - Organize your thoughts before speaking<br>
-  - Avoid unnecessary jargon<br>
-  - Give examples or comparisons<br>
-  - Confirm understanding by asking: “Does that make sense?”</p>
-
-  <p><strong>Example:</strong><br>
-  ❌ Unclear: “We might want to explore some alternative resource allocation strategies.”<br>
-  ✅ Clear: “We need to find a better way to divide the workload among the team.”</p>
-
-  <p><strong>Written Communication Example (IT Support Email):</strong><br>
-  📧 To a client:<br>
-  “Your server will be down for scheduled maintenance on Saturday, 21st September, from 10:00 PM to 2:00 AM (IST). During this time, you may experience service interruptions. Please save your work in advance.”</p>
-
-  <p><strong>Spoken Communication Example (IT Team Meeting):</strong><br>
-  🗣️ Team Lead speaking:<br>
-  “Everyone, just a reminder—our server maintenance is on Saturday night, from 10 PM to 2 AM. Services may be offline, so make sure you back up any critical files before then. Any questions?”</p>
-</div>
-
-<!-- Tone of Voice -->
-<div style="  padding: 15px; margin-bottom: 20px; color: black;">
-  <h2>🔹 Tone of Voice</h2>
-  <p><strong>What It Means:</strong> The way you express emotions and attitudes through speech, including pitch, pace, volume, and emphasis.</p>
-
-  <p><strong>Importance of Tone:</strong><br>
-  - Adds Meaning<br>
-  - Builds Connection<br>
-  - Shows Professionalism<br>
-  - Avoids Misunderstanding<br>
-  - Influences Motivation</p>
-
-  <p><strong>Types of Tone:</strong><br>
-  Formal, Informal, Encouraging, Assertive, Aggressive (avoid), Sympathetic/Empathetic</p>
-
-  <p><strong>Tips to Use Tone Effectively:</strong><br>
-  - Match tone to audience and situation<br>
-  - Keep voice calm and steady<br>
-  - Use variation in pitch<br>
-  - Smile while speaking<br>
-  - Listen to others’ tone and adjust</p>
-
-  <p><strong>IT Domain Example:</strong><br>
-  ❌ Aggressive: “Why didn’t you fix the server yet? You’re too slow.”<br>
-  ✅ Professional: “Could you please update me on the server status? Let me know if you need support.”</p>
-</div>
-
-<!-- Pace and Volume -->
-<div style="  padding: 15px; margin-bottom: 20px; color: black;">
-  <h2>🔹 Pace and Volume</h2>
-  <p><strong>Pace:</strong> How fast or slow you speak.<br>
-  Speaking too fast → confusing<br>
-  Speaking too slow → boring<br>
-  Moderate pace → understandable</p>
-
-  <p><strong>Volume:</strong> How loud or soft you speak.<br>
-  Too soft → listeners struggle<br>
-  Too loud → sounds aggressive<br>
-  Proper volume → clear, professional</p>
-
-  <p><strong>Tips:</strong><br>
-  - Pause at important points<br>
-  - Practice even breathing<br>
-  - Adjust pace and volume according to audience and environment</p>
-
-  <p><strong>Example:</strong><br>
-  ❌ Too fast: “The servermaintenanceisscheduledforsaturdaynightpleasesaveyourwork.”<br>
-  ✅ Moderate: “The server maintenance is scheduled for Saturday night. Please save your work in advance.”</p>
-</div>
-
-<!-- Active Listening -->
-<div style="  padding: 15px; margin-bottom: 20px; color: black;">
-  <h2>🔹 Active Listening</h2>
-  <p><strong>What It Means:</strong> Fully concentrating, understanding, responding thoughtfully, and remembering key points.</p>
-
-  <p><strong>Importance:</strong><br>
-  - Builds Relationships<br>
-  - Reduces Misunderstandings<br>
-  - Encourages Open Communication<br>
-  - Improves Problem-Solving<br>
-  - Boosts Productivity<br>
-  - Develops Empathy</p>
-
-  <p><strong>Techniques:</strong><br>
-  - Eye contact<br>
-  - Nod / verbal cues<br>
-  - Avoid interrupting<br>
-  - Clarifying questions<br>
-  - Paraphrase<br>
-  - Focus fully</p>
-
-  <p><strong>IT Example:</strong><br>
-  PM explains a database crash.<br>
-  Active listening response:<br>
-  Maintains eye contact, nods, paraphrases: “So the database crash occurred during backup?”<br>
-  Asks clarifying questions: “Should we restore backup first or fix live database?”</p>
-</div>
-
-<!-- Relevance -->
-<div style="  padding: 15px; margin-bottom: 20px; color: black;">
-  <h2>🔹 Relevance in Communication</h2>
-  <p>Focus on topic, share directly related info, avoid unnecessary details.</p>
-
-  <p><strong>IT Example:</strong><br>
-  ❌ Irrelevant: Developer talks about unrelated Azure features.<br>
-  ✅ Relevant: Developer ensures database backups are completed and downtime scheduled, ignoring unrelated Azure features.</p>
-</div>
-
-<!-- Respect and Courtesy -->
-<div style="  padding: 15px; margin-bottom: 20px; color: black;">
-  <h2>🔹 Respect and Courtesy</h2>
-  <p>Communicate politely, value opinions and time of others.</p>
-
-  <p><strong>IT Example:</strong><br>
-  ❌ “This bug report is wrong. Can’t you guys test properly?”<br>
-  ✅ “I noticed discrepancies in the bug report. Could you please double-check the test cases?”</p>
-</div>
-
-<!-- Body Language Alignment -->
-<div style="  padding: 15px; margin-bottom: 20px; color: black;">
-  <h2>🔹 Body Language Alignment</h2>
-  <p>Ensure gestures, posture, and facial expressions match your words.</p>
-
-  <p><strong>IT Example:</strong><br>
-  ❌ Saying “I’m confident” but avoiding eye contact and slouching.<br>
-  ✅ Maintaining eye contact, standing straight, open gestures while saying “I’m confident.”</p>
-</div>
-
-<!-- Feedback -->
-<div style="  padding: 15px; margin-bottom: 20px; color: black;">
-  <h2>🔹 Feedback</h2>
-  <p>Giving or receiving info about performance to improve outcomes.</p>
-
-  <p><strong>IT Example:</strong><br>
-  ❌ “This code is wrong. Fix it.”<br>
-  ✅ “I noticed a few issues in the login module. Could you review authentication function?”</p>
-</div>
-
-<!-- Adaptability -->
-<div style="  padding: 15px; margin-bottom: 20px; color: black;">
-  <h2>🔹 Adaptability</h2>
-  <p>Adjust communication style, tone, and language based on audience and context.</p>
-
-  <p><strong>IT Example:</strong><br>
-  ❌ Using technical jargon with non-technical managers.<br>
-  ✅ Explain in simple terms for managers, detailed terms for developers.</p>
-</div>
-
-<!-- Honesty -->
-<div style="  padding: 15px; margin-bottom: 20px; color: black;">
-  <h2>🔹 Honesty</h2>
-  <p>Be truthful, transparent, and straightforward to build trust and credibility.</p>
-
-  <p><strong>IT Example:</strong><br>
-  ❌ “The bug has been fixed; everything is fine.” (false)<br>
-  ✅ “I found a critical bug causing delays. I’m working on fixing it and will update by end of day.”</p>
-</div>
-
-</div>
- 
- 
-  <div style="max-width: 900px; margin: 0 auto; background: #ffffff; border: 2px solid #111827; border-radius: 14px; padding: 28px; line-height: 1.7; box-shadow: 0 10px 20px rgba(0,0,0,.06);">
- 
-
-  <h2 style="color: #1a73e8;">Similar Sounding Words with Examples</h2>
-
-  <div style="  padding: 10px; margin-bottom: 10px; color: black;">
-    <strong>Adverse (adjective) – harmful, unfavorable</strong><br>
-    Example: “The server outage had an adverse impact on our client’s operations.”<br>
-    Meaning: It caused a negative effect.
-  </div>
-
-  <div style="  padding: 10px; margin-bottom: 10px; color: black;">
-    <strong>Averse (adjective) – having a strong dislike or opposition</strong><br>
-    Example: “The developer is averse to using outdated frameworks for new projects.”<br>
-    Meaning: They do not like or avoid something.
-  </div>
-
-  <div style=" padding: 10px; margin-bottom: 10px; color: black;">
-    <strong>Advise (verb) – to give a recommendation or suggestion</strong><br>
-    Example: “I advise updating the firewall rules to prevent future security breaches.”
-  </div>
-
-  <div style="  padding: 10px; margin-bottom: 10px; color: black;">
-    <strong>Advice (noun) – guidance or recommendation given</strong><br>
-    Example: “The IT consultant’s advice helped us optimize our cloud storage costs.”
-  </div>
-
-  <div style="  padding: 10px; margin-bottom: 10px; color: black;">
-    <strong>Affect (verb) – to influence or make a change in something</strong><br>
-    Example: “The new software patch may affect the performance of older devices.”
-  </div>
-
-  <div style="  padding: 10px; margin-bottom: 10px; color: black;">
-    <strong>Effect (noun) – the result or outcome of a change</strong><br>
-    Example: “The effect of enabling multi-factor authentication was a significant drop in unauthorized access attempts.”
-  </div>
-
-  <div style="  padding: 10px; margin-bottom: 10px; color: black;">
-    <strong>Accept (to receive or agree)</strong><br>
-    Example: “We accept all encrypted file submissions.”
-  </div>
-
-  <div style="  padding: 10px; margin-bottom: 10px; color: black;">
-    <strong>Except (excluding)</strong><br>
-    Example: “All devices, except the legacy servers, are updated.”
-  </div>
-
-  <div style="  padding: 10px; margin-bottom: 10px; color: black;">
-    <strong>Loose (not tight)</strong><br>
-    Example: “The Ethernet cable is loose.”
-  </div>
-
-  <div style="  padding: 10px; margin-bottom: 10px; color: black;">
-    <strong>Lose (to misplace or fail)</strong><br>
-    Example: “Don’t lose the backup files.”
-  </div>
-
-  <div style="  padding: 10px; margin-bottom: 10px; color: black;">
-    <strong>Ensure (to make certain)</strong><br>
-    Example: “Ensure all firewalls are active before the audit.”
-  </div>
-
-  <div style="  padding: 10px; margin-bottom: 10px; color: black;">
-    <strong>Insure (to provide financial coverage)</strong><br>
-    Example: “We insure our servers against physical damage.”
-  </div>
-
-  <div style="  padding: 10px; margin-bottom: 10px; color: black;">
-    <strong>Its (possessive form of “it”)</strong><br>
-    Example: “The system logs show its last update time.”
-  </div>
-
-  <div style="  padding: 10px; margin-bottom: 10px; color: black;">
-    <strong>It’s (contraction of “it is”)</strong><br>
-    Example: “It’s crucial to patch servers regularly.”
-  </div>
-
-  <div style="  padding: 10px; margin-bottom: 10px; color: black;">
-    <strong>Than (used for comparison)</strong><br>
-    Example: “This solution is faster than the previous one.”
-  </div>
-
-  <div style="  padding: 10px; margin-bottom: 10px; color: black;">
-    <strong>Then (referring to time or sequence)</strong><br>
-    Example: “Update the server, and then reboot it.”
-  </div>
-
-  <div style="  padding: 10px; margin-bottom: 10px; color: black;">
-    <strong>Weather (climate)</strong><br>
-    Example: “Weather delayed the cable installation.”
-  </div>
-
-  <div style=" padding: 10px; margin-bottom: 10px; color: black;">
-    <strong>Whether (expressing choice or condition)</strong><br>
-    Example: “Check whether the service is running.”
-  </div>
-
-  <div style="  padding: 10px; margin-bottom: 10px; color: black;">
-    <strong>Complement (something that enhances)</strong><br>
-    Example: “The monitoring tool complements our antivirus software.”
-  </div>
-
-  <div style="  padding: 10px; margin-bottom: 10px; color: black;">
-    <strong>Compliment (praise)</strong><br>
-    Example: “The manager complimented the team for fixing bugs quickly.”
-  </div>
-
-  <div style="  padding: 10px; margin-bottom: 10px; color: black;">
-    <strong>Discrete (separate, distinct)</strong><br>
-    Example: “We store discrete databases for each project.”
-  </div>
-
-  <div style="  padding: 10px; margin-bottom: 10px; color: black;">
-    <strong>Discreet (careful, subtle)</strong><br>
-    Example: “Be discreet when sharing client credentials.”
-  </div>
-
-  <div style="  padding: 10px; margin-bottom: 10px; color: black;">
-    <strong>Principal (most important)</strong><br>
-    Example: “The principal server must remain online at all times.”
-  </div>
-
-  <div style="  padding: 10px; margin-bottom: 10px; color: black;">
-    <strong>Principle (rule or belief)</strong><br>
-    Example: “We follow the principle of least privilege in security.”
-  </div>
-
-  <div style="  padding: 10px; margin-bottom: 10px; color: black;">
-    <strong>Peek (glance quickly)</strong><br>
-    Example: “Let’s peek at the server logs.”
-  </div>
-
-  <div style="  padding: 10px; margin-bottom: 10px; color: black;">
-    <strong>Peak (highest point)</strong><br>
-    Example: “CPU usage reached its peak at noon.”
-  </div>
-
-  <div style="  padding: 10px; margin-bottom: 10px; color: black;">
-    <strong>Raise (to increase)</strong><br>
-    Example: “We need to raise server capacity.”
-  </div>
-
-  <div style="  padding: 10px; margin-bottom: 10px; color: black;">
-    <strong>Raze (to destroy)</strong><br>
-    Example: “They plan to raze the old server room.”
-  </div>
-
-  <div style=" padding: 10px; margin-bottom: 10px; color: black;">
-    <strong>Who’s (who is)</strong><br>
-    Example: “Who’s responsible for updating the security patches?”
-  </div>
-
-  <div style="  padding: 10px; margin-bottom: 10px; color: black;">
-    <strong>Whose (possessive form of who)</strong><br>
-    Example: “Whose laptop keeps disconnecting from the network?”
-  </div>
-</div>
-
- <div style="max-width: 900px; margin: 0 auto; background: #ffffff; border: 2px solid #111827; border-radius: 14px; padding: 28px; line-height: 1.7; box-shadow: 0 10px 20px rgba(0,0,0,.06);">
- 
-
- 
-  <!-- Main heading (NOT black) -->
-  <h1 style="margin-bottom:8px; color:#1a4b7a;">Correct Usage of Also, As well and Too</h1>
-
-  <!-- Intro section -->
-  <div style="  padding:14px;    margin-bottom:12px; color:black;">
-    <p style="margin:0 0 8px 0;">Below is an easy way  to use <strong style="color:black;">also</strong>, <strong style="color:black;">as well</strong> and <strong style="color:black;">too</strong>.</p>
-    <p style="margin:0;">Quick tips and examples follow. Headings remain styled separately; all other text is black for clarity.</p>
-  </div>
-
-  <!-- Also -->
-  <h2 style="color:#0b5c3a; margin-top:14px;">1. Also</h2>
-  <div style="  padding:12px;     margin-bottom:12px; color:black;">
-    <p style="margin:0 0 8px 0;"><strong>Used in formal writing/speaking.</strong></p>
-    <p style="margin:0 0 8px 0;">Usually placed before the main verb (except <em>be</em> verb) or at the beginning of the sentence.</p>
-    <p style="margin:0 0 8px 0;"><strong>Emphasizes addition.</strong></p>
-    <p style="margin:0;"><u>✅ Examples:</u></p>
-    <ul style="margin:8px 0 0 20px; padding:0;">
-      <li style="margin-bottom:6px;">"She is smart and <strong>also</strong> hardworking."</li>
-      <li style="margin-bottom:6px;">"I can code in Python. <strong>Also,</strong> I am learning Java."</li>
-      <li style="margin-bottom:6px;">"He <strong>also</strong> likes playing football."</li>
-    </ul>
-  </div>
-
-  <!-- As well -->
-  <h2 style="color:#0b5c3a;">2. As well</h2>
-  <div style="  padding:12px;    margin-bottom:12px; color:black;">
-    <p style="margin:0 0 8px 0;"><strong>More informal and conversational.</strong></p>
-    <p style="margin:0 0 8px 0;">Usually placed at the end of the sentence. Works like "too," but sounds a little softer/polite.</p>
-    <p style="margin:0;"><u>✅ Examples:</u></p>
-    <ul style="margin:8px 0 0 20px; padding:0;">
-      <li style="margin-bottom:6px;">"I enjoy music, and I love dancing <strong>as well</strong>."</li>
-      <li style="margin-bottom:6px;">"He brought his laptop <strong>as well</strong>."</li>
-      <li style="margin-bottom:6px;">"You should come to the meeting <strong>as well</strong>."</li>
-    </ul>
-  </div>
-
-  <!-- Too -->
-  <h2 style="color:#0b5c3a;">3. Too</h2>
-  <div style="  padding:12px;     margin-bottom:12px; color:black;">
-    <p style="margin:0 0 8px 0;"><strong>Very common in everyday English.</strong></p>
-    <p style="margin:0 0 8px 0;">Like "as well," it usually goes at the end of the sentence. More casual than "also" in spoken English.</p>
-    <p style="margin:0;"><u>✅ Examples:</u></p>
-    <ul style="margin:8px 0 0 20px; padding:0;">
-      <li style="margin-bottom:6px;">"I like pizza <strong>too</strong>."</li>
-      <li style="margin-bottom:6px;">"She is coming <strong>too</strong>."</li>
-      <li style="margin-bottom:6px;">"He works hard, and he studies a lot <strong>too</strong>."</li>
-    </ul>
-  </div>
-
-  <!-- Quick Tips -->
-  <h2 style="color:#0b5c3a;">🔑 Quick Tips</h2>
-  <div style=" padding:12px; margin-bottom:12px; color:black;">
-    <ul style="margin:0 0 0 20px; padding:0;">
-      <li style="margin-bottom:6px;">Use <strong>also</strong> → in the middle of sentences / formal writing.</li>
-      <li style="margin-bottom:6px;">Use <strong>too</strong> → at the end / casual conversations.</li>
-      <li style="margin-bottom:6px;">Use <strong>as well</strong> → at the end / slightly more polite than <em>too</em>.</li>
-    </ul>
-    <p style="margin-top:8px;"><strong>👉 Example with all three:</strong></p>
-    <p style="margin:4px 0 0 0;">Formal: "<span style="color:black;">She is talented, and she is <strong>also</strong> very kind.</span>"</p>
-    <p style="margin:4px 0 0 0;">Casual: "<span style="color:black;">She is talented, and she is very kind <strong>too</strong>.</span>"</p>
-    <p style="margin:4px 0 0 0;">Polite/Neutral: "<span style="color:black;">She is talented, and she is very kind <strong>as well</strong>.</span>"</p>
-  </div>
-
-  <!-- Real life examples -->
-  <h2 style="color:#0b5c3a;">Real life examples</h2>
-  <div style="  padding:12px;     margin-bottom:12px; color:black;">
-
-    <h3 style="margin:0 0 8px 0; color:#5b2a86;">🏫 At School</h3>
-    <ul style="margin:0 0 10px 20px; padding:0;">
-      <li style="margin-bottom:6px;">Also: "The teacher praised Riya for her project. She <strong>also</strong> mentioned her punctuality."</li>
-      <li style="margin-bottom:6px;">Too: "Riya is good at science. She’s good at math <strong>too</strong>."</li>
-      <li style="margin-bottom:6px;">As well: "Riya helped with the decorations <strong>as well</strong>."</li>
-    </ul>
-
-    <h3 style="margin:0 0 8px 0; color:#5b2a86;">💼 In the Workplace (IT example)</h3>
-    <ul style="margin:0 0 10px 20px; padding:0;">
-      <li style="margin-bottom:6px;">Also: "The server is down, and the firewall is <strong>also</strong> not working."</li>
-      <li style="margin-bottom:6px;">Too: "I fixed the database, and I checked the logs <strong>too</strong>."</li>
-      <li style="margin-bottom:6px;">As well: "We need to test the backup system <strong>as well</strong>."</li>
-    </ul>
-
-    <h3 style="margin:0 0 8px 0; color:#5b2a86;">🏠 At Home</h3>
-    <ul style="margin:0 0 10px 20px; padding:0;">
-      <li style="margin-bottom:6px;">Also: "I’m cooking dinner, and I’ll <strong>also</strong> make dessert."</li>
-      <li style="margin-bottom:6px;">Too: "I’m tired. My brother is tired <strong>too</strong>."</li>
-      <li style="margin-bottom:6px;">As well: "I bought fruits and vegetables <strong>as well</strong>."</li>
-    </ul>
-
-    <h3 style="margin:0 0 8px 0; color:#5b2a86;">✈️ While Traveling</h3>
-    <ul style="margin:0 0 0 20px; padding:0;">
-      <li style="margin-bottom:6px;">Also: "The hotel provides free breakfast and <strong>also</strong> free Wi-Fi."</li>
-      <li style="margin-bottom:6px;">Too: "I visited the Eiffel Tower, and I went to the Louvre <strong>too</strong>."</li>
-      <li style="margin-bottom:6px;">As well: "We’ll explore the local market <strong>as well</strong>."</li>
-    </ul>
-  </div>
-
-  <!-- Side-by-side dialogues -->
-  <h2 style="color:#0b5c3a;">Side-by-side dialogues (real-life flow)</h2>
-
-  <!-- Workplace dialogue -->
-  <div style="  padding:12px;   margin-bottom:12px; color:black;">
-    <h3 style="margin:0 0 8px 0; color:#6a2f2f;">🖥️ Workplace (IT Office) Conversation</h3>
-    <div style="padding-left:6px;">
-      <p style="margin:6px 0;"><strong>Rahul:</strong> I fixed the server issue this morning.</p>
-      <p style="margin:6px 0;"><strong>Amit:</strong> Great! I <strong>also</strong> updated the security patches.</p>
-
-      <p style="margin:6px 0;"><strong>Rahul:</strong> Nice. I checked the firewall logs <strong>too</strong>.</p>
-      <p style="margin:6px 0;"><strong>Amit:</strong> Perfect. Don’t forget to test the backup system <strong>as well</strong>.</p>
-
-      <p style="margin:6px 0;"><strong>Rahul:</strong> Oh, yes. I’m working on the firewall. I’ll <strong>also</strong> update the antivirus software across all devices.</p>
-      <p style="margin:6px 0;"><strong>Amit:</strong> Good idea. I ran a vulnerability scan <strong>too</strong>, and I found a few weak points.</p>
-
-      <p style="margin:6px 0;"><strong>Rahul:</strong> Interesting. Let’s patch those vulnerabilities <strong>as well</strong>.</p>
-      <p style="margin:6px 0;"><strong>Amit:</strong> Done. By the way, I’m preparing a security report for management. I’ll <strong>also</strong> add details about the recent DDoS attack.</p>
-
-      <p style="margin:6px 0;"><strong>Rahul:</strong> Excellent. I prepared screenshots of the incidents <strong>too</strong>.</p>
-      <p style="margin:6px 0;"><strong>Amit:</strong> Perfect. Let’s include client feedback <strong>as well</strong>, so management sees the full picture.</p>
-
-      <p style="margin:6px 0;"><strong>Rahul:</strong> Agreed. With all this, we’re not only solving issues, but we’re <strong>also</strong> improving overall security.</p>
-      <p style="margin:6px 0;"><strong>Amit:</strong> Exactly! And the clients will appreciate our extra effort <strong>too</strong>.</p>
-    </div>
-  </div>
-
-  <!-- Friends planning trip dialogue -->
-  <div style="  padding:12px;     margin-bottom:12px; color:black;">
-    <h3 style="margin:0 0 8px 0; color:#6a2f2f;">Friends Planning a Trip</h3>
-    <div style="padding-left:6px;">
-      <p style="margin:6px 0;"><strong>Rahul:</strong> Hey Amit, I booked the train tickets for Goa.</p>
-      <p style="margin:6px 0;"><strong>Amit:</strong> Nice! I <strong>also</strong> booked a hotel near the beach.</p>
-
-      <p style="margin:6px 0;"><strong>Rahul:</strong> Perfect. I packed my clothes <strong>too</strong>.</p>
-      <p style="margin:6px 0;"><strong>Amit:</strong> Good. Don’t forget to bring sunscreen <strong>as well</strong>.</p>
-
-      <p style="margin:6px 0;"><strong>Rahul:</strong> Yeah, I’ll take that. I’ll <strong>also</strong> carry my camera for some cool shots.</p>
-      <p style="margin:6px 0;"><strong>Amit:</strong> Great! I’m bringing my headphones <strong>too</strong>.</p>
-
-      <p style="margin:6px 0;"><strong>Rahul:</strong> Awesome. Let’s pack some snacks <strong>as well</strong>, so we don’t spend too much on the train.</p>
-      <p style="margin:6px 0;"><strong>Amit:</strong> True. Oh, I <strong>also</strong> downloaded some movies for the journey.</p>
-
-      <p style="margin:6px 0;"><strong>Rahul:</strong> That’s fun! I added a few songs to my playlist <strong>too</strong>.</p>
-      <p style="margin:6px 0;"><strong>Amit:</strong> Cool. Let’s bring a power bank <strong>as well</strong>, just in case.</p>
-
-      <p style="margin:6px 0;"><strong>Rahul:</strong> Good call. This trip will be relaxing, but it’ll <strong>also</strong> be full of adventures.</p>
-      <p style="margin:6px 0;"><strong>Amit:</strong> Exactly! And it’ll give us some great memories <strong>too</strong>.</p>
-    </div>
-  </div>
-
-  <!-- Final note -->
-  <h2 style="color:#0b5c3a;">Summary</h2>
-  <div style="  padding:12px;     margin-bottom:20px; color:black;">
-    <p style="margin:0;">Use <strong>also</strong> for mid-sentence/formal addition, <strong>too</strong> at the sentence end for casual speech, and <strong>as well</strong> at the end when you want a softer/polite tone. Headings here are kept colored for quick scanning; everything else is black as requested.</p>
-  </div>
-
-</div>
-
-
- <!DOCTYPE html>
-<html lang="en">
- <div style="max-width: 900px; margin: 0 auto; background: #ffffff; border: 2px solid #111827; border-radius: 14px; padding: 28px; line-height: 1.7; box-shadow: 0 10px 20px rgba(0,0,0,.06);">
- 
-
- 
-  <header style="background: #4CAF50; color: white; text-align: center; padding: 20px;">
-    <h1 style="margin: 0;">📘 English Vocabulary - 45 Words</h1>
-    <p style="margin: 5px 0 0;">Meaning + Example Sentences</p>
-  </header>
-
-  <main style="padding: 20px;   margin: auto;">
-
-    <section>
-      <h2 style="color: #4CAF50;">1–5</h2>
-      <p><b>Accolade</b> – Honor or award.<br><i>Example:</i> She received an <b>accolade</b> for her outstanding project.</p>
-      <p><b>Anomaly</b> – Something unusual.<br><i>Example:</i> The system flagged an <b>anomaly</b> in login attempts.</p>
-      <p><b>Abysmal</b> – Extremely bad.<br><i>Example:</i> The team’s performance in testing was <b>abysmal</b>.</p>
-      <p><b>Boisterous</b> – Loud and energetic.<br><i>Example:</i> The crowd was <b>boisterous</b> after the product launch.</p>
-      <p><b>Breach</b> – Break/violation.<br><i>Example:</i> Hackers caused a major data <b>breach</b>.</p>
     </section>
 
-    <section>
-      <h2 style="color: #4CAF50;">6–10</h2>
-      <p><b>Candid</b> – Honest and open.<br><i>Example:</i> The manager gave a <b>candid</b> review of my code.</p>
-      <p><b>Concur</b> – To agree.<br><i>Example:</i> I <b>concur</b> with your assessment of the risks.</p>
-      <p><b>Cumbersome</b> – Complicated or heavy to manage.<br><i>Example:</i> The old system was too <b>cumbersome</b> to use.</p>
-      <p><b>Debacle</b> – A complete failure.<br><i>Example:</i> The rollout turned into a <b>debacle</b> due to poor planning.</p>
-      <p><b>Diligent</b> – Hardworking, careful.<br><i>Example:</i> She is very <b>diligent</b> in documenting processes.</p>
+    <!-- Vocabulary banner -->
+    <section class="card">
+      <div class="banner">
+        <h1 style="margin:0">📘 English Vocabulary - 45 Words</h1>
+        <small>Meaning + Example Sentences</small>
+      </div>
+
+      <div style="margin-top:14px">
+        <div class="cols-2">
+          <div>
+            <h3>1–5</h3>
+            <p><strong>Accolade</strong> – Honor or award. Example: She received an accolade for her outstanding project.</p>
+            <p><strong>Anomaly</strong> – Something unusual. Example: The system flagged an anomaly in login attempts.</p>
+            <p><strong>Abysmal</strong> – Extremely bad. Example: The team’s performance was abysmal.</p>
+          </div>
+          <div>
+            <h3>6–10</h3>
+            <p><strong>Candid</strong> – Honest and open. Example: The manager gave a candid review.</p>
+            <p><strong>Concur</strong> – To agree. Example: I concur with your assessment.</p>
+            <p><strong>Cumbersome</strong> – Hard to manage. Example: The old system was cumbersome.</p>
+          </div>
+        </div>
+        <p class="muted" style="margin-top:12px">(More vocabulary sections available — layout scales across devices.)</p>
+      </div>
     </section>
 
-    <section>
-      <h2 style="color: #4CAF50;">11–15</h2>
-      <p><b>Eloquent</b> – Fluent and persuasive in speaking.<br><i>Example:</i> He gave an <b>eloquent</b> presentation on cybersecurity.</p>
-      <p><b>Empathy</b> – Understanding others’ feelings.<br><i>Example:</i> Good leaders show <b>empathy</b> for their teams.</p>
-      <p><b>Erratic</b> – Unpredictable.<br><i>Example:</i> The server showed <b>erratic</b> behavior before crashing.</p>
-      <p><b>Exemplary</b> – Outstanding, serving as a model.<br><i>Example:</i> Her coding style is <b>exemplary</b> for juniors.</p>
-      <p><b>Feasible</b> – Possible, workable.<br><i>Example:</i> This solution is technically <b>feasible</b> within budget.</p>
+    <!-- Pronunciation (sample) -->
+    <section class="card">
+      <h1>English Pronunciation (selected)</h1>
+      <div class="cols-2">
+        <div>
+          <p><strong>Almond</strong> — AH-muhnd (ignore the "l") — "I eat almonds every morning."</p>
+          <p><strong>Pizza</strong> — PEET-suh — "We ordered pizza for lunch."</p>
+          <p><strong>Salmon</strong> — SAM-uhn (silent "l") — "I cooked salmon for dinner."</p>
+        </div>
+        <div>
+          <p><strong>Resume</strong> — REZ-oo-may (document) / ri-ZOOM (verb) — "I updated my resume."</p>
+          <p><strong>Receipt</strong> — ri-SEET (silent "p") — "Keep the receipt."</p>
+          <p><strong>Rendezvous</strong> — RAHN-deh-voo — "We had a rendezvous at the café."</p>
+        </div>
+      </div>
     </section>
 
-    <section>
-      <h2 style="color: #4CAF50;">16–20</h2>
-      <p><b>Futile</b> – Pointless, useless.<br><i>Example:</i> Restarting the system was <b>futile</b>—the problem persisted.</p>
-      <p><b>Grim</b> – Serious, depressing.<br><i>Example:</i> The report painted a <b>grim</b> picture of security risks.</p>
-      <p><b>Hasty</b> – Done quickly, without care.<br><i>Example:</i> A <b>hasty</b> decision caused downtime.</p>
-      <p><b>Hostile</b> – Unfriendly, aggressive.<br><i>Example:</i> They faced a <b>hostile</b> takeover attempt.</p>
-      <p><b>Hypocrisy</b> – Saying one thing, doing another.<br><i>Example:</i> Criticizing poor security while ignoring your own is <b>hypocrisy</b>.</p>
+    <!-- Speaking styles (sample) -->
+    <section class="card">
+      <h1>Vocabulary: The Way People Are Talking</h1>
+      <div class="cols-2">
+        <div>
+          <p><strong>Taciturn</strong> – Quiet, not talking much.</p>
+          <p><strong>Garrulous</strong> – Talkative, often trivial.</p>
+          <p><strong>Verbose</strong> – Using too many words.</p>
+          <p><strong>Concise</strong> – Expressing much in few words.</p>
+        </div>
+        <div>
+          <p><strong>Articulate</strong> – Speak clearly and effectively.</p>
+          <p><strong>Eloquent</strong> – Persuasive and fluent.</p>
+          <p><strong>Assertive</strong> – Confident and firm in speech.</p>
+          <p><strong>Sarcastic</strong> – Saying something but meaning the opposite.</p>
+        </div>
+      </div>
     </section>
 
-    <section>
-      <h2 style="color: #4CAF50;">21–25</h2>
-      <p><b>Impeccable</b> – Perfect, flawless.<br><i>Example:</i> The code review was <b>impeccable</b>.</p>
-      <p><b>Incessant</b> – Non-stop.<br><i>Example:</i> The server alarm rang <b>incessantly</b>.</p>
-      <p><b>Inevitable</b> – Certain to happen.<br><i>Example:</i> With weak passwords, a breach is <b>inevitable</b>.</p>
-      <p><b>Innate</b> – Natural, inborn.<br><i>Example:</i> She has an <b>innate</b> talent for problem-solving.</p>
-      <p><b>Lucid</b> – Clear, easy to understand.<br><i>Example:</i> He gave a <b>lucid</b> explanation of cloud computing.</p>
+    <!-- Emptiness vocabulary (sample) -->
+    <section class="card">
+      <h1>Vocabulary: Emptiness (selected)</h1>
+      <div class="cols-2">
+        <div>
+          <p><strong>Vacant</strong> – Empty, not occupied.</p>
+          <p><strong>Void</strong> – An empty space; nothingness.</p>
+          <p><strong>Hollow</strong> – Empty inside.</p>
+          <p><strong>Desolate</strong> – Empty, abandoned, lonely.</p>
+        </div>
+        <div>
+          <p><strong>Abyss</strong> – Deep, bottomless emptiness.</p>
+          <p><strong>Blank</strong> – Empty, without content.</p>
+          <p><strong>Loneliness</strong> – Painful emotional emptiness.</p>
+          <p><strong>Oblivion</strong> – State of being forgotten.</p>
+        </div>
+      </div>
     </section>
 
-    <section>
-      <h2 style="color: #4CAF50;">26–30</h2>
-      <p><b>Mediocre</b> – Average, not very good.<br><i>Example:</i> The software had <b>mediocre</b> performance.</p>
-      <p><b>Meticulous</b> – Very careful, detailed.<br><i>Example:</i> The engineer was <b>meticulous</b> in documenting changes.</p>
-      <p><b>Mundane</b> – Ordinary, boring.<br><i>Example:</i> Updating passwords felt like a <b>mundane</b> task.</p>
-      <p><b>Novice</b> – Beginner.<br><i>Example:</i> The <b>novice</b> coder struggled with debugging.</p>
-      <p><b>Obsolete</b> – Outdated, no longer used.<br><i>Example:</i> That programming language is now <b>obsolete</b>.</p>
-    </section>
-
-    <section>
-      <h2 style="color: #4CAF50;">31–35</h2>
-      <p><b>Overwhelmed</b> – Feeling too much to handle.<br><i>Example:</i> He was <b>overwhelmed</b> by project deadlines.</p>
-      <p><b>Peril</b> – Danger, risk.<br><i>Example:</i> Ignoring updates puts data in <b>peril</b>.</p>
-      <p><b>Pragmatic</b> – Practical, realistic.<br><i>Example:</i> We need a <b>pragmatic</b> approach to solve this issue.</p>
-      <p><b>Precarious</b> – Risky, unstable.<br><i>Example:</i> The system is in a <b>precarious</b> state after the update.</p>
-      <p><b>Prolific</b> – Highly productive.<br><i>Example:</i> She is a <b>prolific</b> writer of technical blogs.</p>
-    </section>
-
-    <section>
-      <h2 style="color: #4CAF50;">36–40</h2>
-      <p><b>Resilient</b> – Able to recover quickly.<br><i>Example:</i> The team was <b>resilient</b> after the setback.</p>
-      <p><b>Rigorous</b> – Strict, thorough.<br><i>Example:</i> We followed a <b>rigorous</b> testing process.</p>
-      <p><b>Scrutiny</b> – Close examination.<br><i>Example:</i> The report is under strict <b>scrutiny</b> by auditors.</p>
-      <p><b>Skeptical</b> – Doubtful.<br><i>Example:</i> He was <b>skeptical</b> about the success of the new tool.</p>
-      <p><b>Tedious</b> – Boring, repetitive.<br><i>Example:</i> Data entry is a <b>tedious</b> job.</p>
-    </section>
-
-    <section>
-      <h2 style="color: #4CAF50;">41–45</h2>
-      <p><b>Transparent</b> – Open, clear.<br><i>Example:</i> We must be <b>transparent</b> with clients about issues.</p>
-      <p><b>Ubiquitous</b> – Present everywhere.<br><i>Example:</i> Smartphones are <b>ubiquitous</b> in today’s world.</p>
-      <p><b>Vague</b> – Unclear.<br><i>Example:</i> The error message was too <b>vague</b> to be helpful.</p>
-      <p><b>Vulnerable</b> – Weak, open to attack.<br><i>Example:</i> The outdated server was <b>vulnerable</b> to hackers.</p>
-      <p><b>Witty</b> – Clever, humorous.<br><i>Example:</i> He gave a <b>witty</b> response during the meeting.</p>
-    </section>
-
-  </main>
-
-</div>
-
-    <div style="max-width: 900px; margin: 0 auto; background: #ffffff; border: 2px solid #111827; border-radius: 14px; padding: 28px; line-height: 1.7; box-shadow: 0 10px 20px rgba(0,0,0,.06);">
- 
-
- 
-  <!-- Main Heading -->
-  <h1 style="color:#1a4b7a; margin-bottom:15px;">Alone vs Lonely</h1>
-
-  <!-- Introduction -->
-  <div style="    padding:12px; margin-bottom:12px;   color:black;">
-    <p style="margin:0;">“Alone” and “Lonely” are often used interchangeably, but they have different <strong>meanings and emotional tones</strong>. Here’s a clear breakdown:</p>
   </div>
-
-  <!-- Alone Section -->
-  <div style="    padding:12px; margin-bottom:12px;   color:black;">
-    <h2 style="color:#0b5c3a; margin-top:0;">1. Alone</h2>
-    <p style="margin:6px 0;"><strong>Meaning:</strong> Physically by yourself, without other people around.</p>
-    <p style="margin:6px 0;"><strong>Tone:</strong> Neutral — being alone isn’t necessarily bad; it can be peaceful or freeing.</p>
-    <p style="margin:6px 0;"><strong>Example Sentences:</strong></p>
-    <ul style="margin:6px 0 0 20px; padding:0;">
-      <li style="margin-bottom:6px;">“I like being <strong>alone</strong> when I read my favorite book.”</li>
-      <li style="margin-bottom:6px;">“She was <strong>alone</strong> in the office after everyone left.”</li>
-    </ul>
-    <p style="margin-top:6px;">✅ Key point: <strong>Alone = the state of being by yourself</strong> (doesn’t imply sadness).</p>
-  </div>
-
-  <!-- Lonely Section -->
-  <div style="   padding:12px; margin-bottom:12px;   color:black;">
-    <h2 style="color:#0b5c3a; margin-top:0;">2. Lonely</h2>
-    <p style="margin:6px 0;"><strong>Meaning:</strong> Feeling sad or unhappy because you’re alone or feel isolated.</p>
-    <p style="margin:6px 0;"><strong>Tone:</strong> Emotional — it conveys <strong>negative feelings</strong> of isolation or longing for company.</p>
-    <p style="margin:6px 0;"><strong>Example Sentences:</strong></p>
-    <ul style="margin:6px 0 0 20px; padding:0;">
-      <li style="margin-bottom:6px;">“He felt <strong>lonely</strong> after moving to a new city where he knew no one.”</li>
-      <li style="margin-bottom:6px;">“Even in a crowd, she sometimes feels <strong>lonely</strong>.”</li>
-    </ul>
-    <p style="margin-top:6px;">✅ Key point: <strong>Lonely = the feeling of being disconnected or missing companionship</strong> (it’s possible to feel lonely even when not physically alone).</p>
-  </div>
-
-  <!-- Quick Trick -->
-  <div style="    padding:12px; margin-bottom:12px;   color:black;">
-    <h2 style="color:#0b5c3a; margin-top:0;">Quick Trick to Remember</h2>
-    <ul style="margin:6px 0 0 20px; padding:0;">
-      <li style="margin-bottom:6px;"><strong>Alone</strong> = a fact (physical state).</li>
-      <li style="margin-bottom:6px;"><strong>Lonely</strong> = a feeling (emotional state).</li>
-    </ul>
-  </div>
-
-  <!-- Scenario -->
-  <div style="  padding:12px; margin-bottom:12px;  color:black;">
-    <h2 style="color:#0b5c3a; margin-top:0;">Scenario: Working in a Software Development Team</h2>
-
-    <!-- Alone scenario -->
-    <div style="    padding:10px; margin-bottom:10px;  ">
-      <h3 style="color:#5b2a86; margin-top:0;">1. Alone (neutral state)</h3>
-      <p style="margin:4px 0;">Raj is debugging a piece of code in the office. Everyone else is in meetings.</p>
-      <p style="margin:4px 0;">He’s alone at his desk, but he’s focused and enjoying the quiet to solve the problem.</p>
-      <p style="margin:4px 0;">✅ He’s physically by himself, but he doesn’t feel sad — being alone here is productive.</p>
-    </div>
-
-    <!-- Lonely scenario -->
-    <div style=" padding:10px; margin-bottom:10px;  ">
-      <h3 style="color:#5b2a86; margin-top:0;">2. Lonely (negative feeling)</h3>
-      <p style="margin:4px 0;">Same office. Raj is sitting in the cafeteria during lunch.</p>
-      <p style="margin:4px 0;">He notices all his teammates are chatting and laughing together, but no one invites him to join.</p>
-      <p style="margin:4px 0;">Raj feels lonely, even though he is not literally alone — he feels isolated and disconnected from the group.</p>
-    </div>
-
-    <p style="margin:6px 0;">Key takeaway:</p>
-    <ul style="margin:6px 0 0 20px; padding:0;">
-      <li style="margin-bottom:6px;">Being alone can be positive or neutral — it’s about physical solitude.</li>
-      <li style="margin-bottom:6px;">Feeling lonely is negative — it’s about emotional isolation, which can happen even around people.</li>
-    </ul>
-  </div>
-
-  <!-- Dialogue Examples -->
-  <div style="   padding:12px; margin-bottom:12px;   color:black;">
-    <h2 style="color:#0b5c3a; margin-top:0;">Dialogue Examples</h2>
-
-    <!-- Coding Focus -->
-    <div style="   padding:10px; margin-bottom:10px;  ">
-      <h3 style="color:#5b2a86; margin-top:0;">Coding Focus</h3>
-      <p style="margin:4px 0;"><strong>Dev A:</strong> “I’m alone in the server room, finally a quiet place to fix this bug.”</p>
-      <p style="margin:4px 0;"><strong>Dev B:</strong> “I feel lonely in the break room…everyone’s laughing at Jira tickets I don’t understand.”</p>
-    </div>
-
-    <!-- Remote Work -->
-    <div style="    padding:10px; margin-bottom:10px;  ">
-      <h3 style="color:#5b2a86; margin-top:0;">Remote Work</h3>
-      <p style="margin:4px 0;"><strong>Raj:</strong> “Working from home today. I’m alone, just me and my laptop.”</p>
-      <p style="margin:4px 0;"><strong>Mia:</strong> “I’m lonely on Zoom…my teammates have their cameras off, and no one talks.”</p>
-    </div>
-
-    <!-- Lunch Time -->
-    <div style="  padding:10px; margin-bottom:10px;  ">
-      <h3 style="color:#5b2a86; margin-top:0;">Lunch Time</h3>
-      <p style="margin:4px 0;"><strong>Raj:</strong> “I grabbed lunch alone—perfect, I get my sandwich in peace.”</p>
-      <p style="margin:4px 0;"><strong>Mia:</strong> “I’m lonely at lunch…everyone else is in the cafeteria chatting about memes I don’t get.”</p>
-    </div>
-
-    <!-- After-Hours Overtime -->
-    <div style="    padding:10px; margin-bottom:10px;  ">
-      <h3 style="color:#5b2a86; margin-top:0;">After-Hours Overtime</h3>
-      <p style="margin:4px 0;"><strong>Dev A:</strong> “I’m alone in the office late at night, finally some uninterrupted coding time.”</p>
-      <p style="margin:4px 0;"><strong>Dev B:</strong> “I feel lonely…the cleaning staff is the only one around to complain to.”</p>
-    </div>
-  </div>
-</div>
-
-   
-
-     <div style="max-width: 900px; margin: 0 auto; background: #ffffff; border: 2px solid #111827; border-radius: 14px; padding: 28px; line-height: 1.7; box-shadow: 0 10px 20px rgba(0,0,0,.06);">
- 
-
- 
-
- <h1 style="color: #2c3e50;">English Pronunciation</h1>
-
-    <div style="  padding: 10px; margin-bottom: 15px; color: black;">
-        <strong>1. Almond</strong><br>
-        Pronunciation: AH-muhnd (ignore the “l”)<br>
-        Example: “I eat almonds in my cereal every morning.”<br>
-        <em>Memory Trick:</em> Think “A Humble Nut” → AH-muhnd.
-    </div>
-
-    <div style="  padding: 10px; margin-bottom: 15px; color: black;">
-        <strong>2. Pizza</strong><br>
-        Pronunciation: PEET-suh<br>
-        Example: “We ordered pizza for lunch.”<br>
-        <em>Memory Trick:</em> “PEE in the ZA” → PEET-suh.
-    </div>
-
-    <div style="  padding: 10px; margin-bottom: 15px; color: black;">
-        <strong>3. Jalapeño</strong><br>
-        Pronunciation: HAH-luh-PEH-nyo<br>
-        Example: “I love spicy tacos with jalapeños.”<br>
-        <em>Memory Trick:</em> “HA! Lush pepper, yo!” → HAH-luh-PEH-nyo.
-    </div>
-
-    <div style="  padding: 10px; margin-bottom: 15px; color: black;">
-        <strong>4. Sachet</strong><br>
-        Pronunciation: SASH-ay<br>
-        Example: “The drawer had a sachet of perfume.”<br>
-        <em>Memory Trick:</em> A small SASH bag → SASH-ay.
-    </div>
-
-    <div style="  padding: 10px; margin-bottom: 15px; color: black;">
-        <strong>5. Salon</strong><br>
-        Pronunciation: suh-LAHN<br>
-        Example: “I went to the salon to get my hair cut.”<br>
-        <em>Memory Trick:</em> “Sofa + LAN” → suh-LAHN.
-    </div>
-
-    <div style="  padding: 10px; margin-bottom: 15px; color: black;">
-        <strong>6. Hummus</strong><br>
-        Pronunciation: HOO-muhs<br>
-        Example: “We ate hummus with bread as a snack.”<br>
-        <em>Memory Trick:</em> “Who’s ‘mus’ eating this dip?” → HOO-muhs.
-    </div>
-
-    <div style="  padding: 10px; margin-bottom: 15px; color: black;">
-        <strong>7. Meme</strong><br>
-        Pronunciation: MEEM<br>
-        Example: “He sent me a funny meme about coding.”<br>
-        <em>Memory Trick:</em> “ME + ME” → MEEM.
-    </div>
-
-    <div style="  padding: 10px; margin-bottom: 15px; color: black;">
-        <strong>8. Salmon</strong><br>
-        Pronunciation: SAM-uhn (silent “l”)<br>
-        Example: “I cooked salmon for dinner.”<br>
-        <em>Memory Trick:</em> Sam eats fish → SAM-uhn.
-    </div>
-
-    <div style="  padding: 10px; margin-bottom: 15px; color: black;">
-        <strong>9. Poignant</strong><br>
-        Pronunciation: POY-nuhnt<br>
-        Example: “The movie’s ending was very poignant.”<br>
-        <em>Memory Trick:</em> “POY, that’s intense!” → POY-nuhnt.
-    </div>
-
-    <div style="  padding: 10px; margin-bottom: 15px; color: black;">
-        <strong>10. Lettuce</strong><br>
-        Pronunciation: LET-iss<br>
-        Example: “I put lettuce in my sandwich.”<br>
-        <em>Memory Trick:</em> “LET’s eat this” → LET-iss.
-    </div>
-
-    <div style="  padding: 10px; margin-bottom: 15px; color: black;">
-        <strong>11. Resume</strong><br>
-        Pronunciation: Document: REZ-oo-may / Verb: ri-ZOOM<br>
-        Example: “I updated my resume for a job application.”<br>
-        <em>Memory Trick:</em> “RESUME your job” → REZ-oo-may.
-    </div>
-
-    <div style="  padding: 10px; margin-bottom: 15px; color: black;">
-        <strong>12. Receipt</strong><br>
-        Pronunciation: ri-SEET (silent “p”)<br>
-        Example: “Keep the receipt after shopping.”<br>
-        <em>Memory Trick:</em> “Re-SEE the paper” → ri-SEET.
-    </div>
-
-    <div style="  padding: 10px; margin-bottom: 15px; color: black;">
-        <strong>13. Rendezvous</strong><br>
-        Pronunciation: RAHN-deh-voo (silent “z”)<br>
-        Example: “We had a quick rendezvous at the café.”<br>
-        <em>Memory Trick:</em> “RUN to the DOO” → RAHN-deh-voo.
-    </div>
-</div>
-
-
- 
- 
- <div style="max-width: 900px; margin: 0 auto; background: #ffffff; border: 2px solid #111827; border-radius: 14px; padding: 28px; line-height: 1.7; box-shadow: 0 10px 20px rgba(0,0,0,.06);">
- 
-
- 
-
-  <h1>English Vocabulary — Personality Traits</h1>
-
-   
-
-  <div style="  padding:12px; margin:10px 0;  ">
-    <div style="margin-bottom:10px;">
-      <strong style="display:block; font-size:18px;">Egoist</strong>
-      <p style="margin:6px 0; color:black;">Meaning: A person who thinks about themselves and their own interests first.</p>
-      <p style="margin:6px 0; color:black;">Memory Trick: Ego = “I, me, myself.”</p>
-      <p style="margin:6px 0; color:black;">Example: “He never helps his colleagues; he’s such an egoist.”</p>
-    </div>
-
-    <div style="margin-bottom:10px;">
-      <strong style="display:block; font-size:18px;">Altruist</strong>
-      <p style="margin:6px 0; color:black;">Meaning: A person who cares about others and is willing to help, even if they don’t benefit themselves.</p>
-      <p style="margin:6px 0; color:black;">Memory Trick: Altru = all true care for others.</p>
-      <p style="margin:6px 0; color:black;">Example: “Donating anonymously to charity shows you are an altruist.”</p>
-    </div>
-
-    <div style="margin-bottom:10px;">
-      <strong style="display:block; font-size:18px;">Misanthrope</strong>
-      <p style="margin:6px 0; color:black;">Meaning: A person who dislikes or distrusts people in general.</p>
-      <p style="margin:6px 0; color:black;">Memory Trick: Mis = hate, Anthropos = human.</p>
-      <p style="margin:6px 0; color:black;">Example: “After being betrayed, he turned into a misanthrope and avoided social gatherings.”</p>
-    </div>
-
-    <div style="margin-bottom:10px;">
-      <strong style="display:block; font-size:18px;">Misogynist</strong>
-      <p style="margin:6px 0; color:black;">Meaning: A person who dislikes or has prejudice against women.</p>
-      <p style="margin:6px 0; color:black;">Memory Trick: Mis = hate, Gyn = woman.</p>
-      <p style="margin:6px 0; color:black;">Example: “A misogynist would never support women’s rights.”</p>
-    </div>
-
-    <div>
-      <strong style="display:block; font-size:18px;">Ascetic</strong>
-      <p style="margin:6px 0; color:black;">Meaning: A person who lives a simple, disciplined life without luxury, often for spiritual or religious reasons.</p>
-      <p style="margin:6px 0; color:black;">Memory Trick: Ascetic = A simple ethic.</p>
-      <p style="margin:6px 0; color:black;">Example: “The monk lived an ascetic life in the mountains, surviving on little food.”</p>
-    </div>
-  </div>
-
-  
-  <div style="  padding:12px; margin:10px 0;   color:black;">
-    <p style="margin:6px 0;"><strong>Affable</strong> – Friendly and easy to talk to. <em>“The new manager is so affable that everyone feels comfortable around him.”</em></p>
-    <p style="margin:6px 0;"><strong>Amiable</strong> – Warm and good-natured. <em>“Her amiable personality makes her popular in every group.”</em></p>
-    <p style="margin:6px 0;"><strong>Charismatic</strong> – Charming and inspiring. <em>“The speaker was so charismatic that the audience couldn’t stop listening.”</em></p>
-    <p style="margin:6px 0;"><strong>Compassionate</strong> – Caring about others’ feelings. <em>“Doctors must be compassionate towards their patients.”</em></p>
-    <p style="margin:6px 0;"><strong>Conscientious</strong> – Responsible and careful. <em>“He is a conscientious worker who double-checks every detail.”</em></p>
-    <p style="margin:6px 0;"><strong>Courageous</strong> – Brave in facing danger. <em>“Firefighters are courageous people who risk their lives to save others.”</em></p>
-    <p style="margin:6px 0;"><strong>Courteous</strong> – Polite and respectful. <em>“The waiter was very courteous, always greeting us with a smile.”</em></p>
-    <p style="margin:6px 0;"><strong>Dependable</strong> – Trustworthy and reliable. <em>“She’s a dependable friend who is always there when you need her.”</em></p>
-    <p style="margin:6px 0;"><strong>Diligent</strong> – Hardworking and focused. <em>“The students were diligent in preparing for the exam.”</em></p>
-    <p style="margin:6px 0;"><strong>Empathetic</strong> – Able to understand others’ emotions. <em>“He was very empathetic when I shared my problems.”</em></p>
-    <p style="margin:6px 0;"><strong>Exuberant</strong> – Full of energy and enthusiasm. <em>“The kids were exuberant after winning the match.”</em></p>
-    <p style="margin:6px 0;"><strong>Generous</strong> – Willing to give and share. <em>“The donor was generous enough to fund the school library.”</em></p>
-    <p style="margin:6px 0;"><strong>Gregarious</strong> – Sociable, enjoys being with people. <em>“She’s gregarious and loves hosting parties.”</em></p>
-    <p style="margin:6px 0;"><strong>Honest</strong> – Truthful and sincere. <em>“He gave an honest answer even though it was difficult.”</em></p>
-    <p style="margin:6px 0;"><strong>Humble</strong> – Modest, not arrogant. <em>“Despite his success, he remains humble.”</em></p>
-    <p style="margin:6px 0;"><strong>Innovative</strong> – Creative and original. <em>“The team came up with an innovative solution to reduce costs.”</em></p>
-    <p style="margin:6px 0;"><strong>Optimistic</strong> – Always looking on the bright side. <em>“Even in tough times, she stays optimistic.”</em></p>
-    <p style="margin:6px 0;"><strong>Pragmatic</strong> – Practical and realistic. <em>“We need a pragmatic approach to solve this problem.”</em></p>
-    <p style="margin:6px 0;"><strong>Resilient</strong> – Able to recover quickly from difficulties. <em>“Children are often more resilient than adults think.”</em></p>
-    <p style="margin:6px 0;"><strong>Versatile</strong> – Adaptable, skilled in many areas. <em>“He’s a versatile actor who can play both comedy and drama.”</em></p>
-  </div>
-
-   
-  <div style="  padding:12px; margin:10px 0;   color:black;">
-    <p style="margin:6px 0;"><strong>Arrogant</strong> – Proud and thinks highly of oneself. <em>“His arrogant attitude made him unpopular among his peers.”</em></p>
-    <p style="margin:6px 0;"><strong>Belligerent</strong> – Aggressive and hostile. <em>“The customer became belligerent when his order was delayed.”</em></p>
-    <p style="margin:6px 0;"><strong>Callous</strong> – Emotionally insensitive. <em>“The callous remark hurt her deeply.”</em></p>
-    <p style="margin:6px 0;"><strong>Cynical</strong> – Distrusts others’ motives. <em>“He’s so cynical that he never believes anyone’s good intentions.”</em></p>
-    <p style="margin:6px 0;"><strong>Dogmatic</strong> – Stubbornly insists own opinion is right. <em>“Her dogmatic views left no room for discussion.”</em></p>
-    <p style="margin:6px 0;"><strong>Egocentric</strong> – Self-centered. <em>“He’s too egocentric to think about anyone else’s feelings.”</em></p>
-    <p style="margin:6px 0;"><strong>Impulsive</strong> – Acts without thinking. <em>“She made an impulsive decision to quit her job.”</em></p>
-    <p style="margin:6px 0;"><strong>Indolent</strong> – Lazy and avoiding effort. <em>“He’s too indolent to even clean his own room.”</em></p>
-    <p style="margin:6px 0;"><strong>Irascible</strong> – Easily angered. <em>“The irascible boss shouted at his team over small mistakes.”</em></p>
-    <p style="margin:6px 0;"><strong>Jealous</strong> – Resentful of others’ success. <em>“He felt jealous of his friend’s promotion.”</em></p>
-    <p style="margin:6px 0;"><strong>Manipulative</strong> – Controls others for personal gain. <em>“She’s very manipulative and uses people to get what she wants.”</em></p>
-    <p style="margin:6px 0;"><strong>Melancholic</strong> – Often sad or gloomy. <em>“The movie had a melancholic ending.”</em></p>
-    <p style="margin:6px 0;"><strong>Narcissistic</strong> – Obsessed with self-image. <em>“His narcissistic selfies annoyed his friends.”</em></p>
-    <p style="margin:6px 0;"><strong>Pessimistic</strong> – Always expecting the worst. <em>“Don’t be so pessimistic; things might turn out well.”</em></p>
-    <p style="margin:6px 0;"><strong>Pretentious</strong> – Trying to appear more important than one is. <em>“He sounds pretentious when he uses big words unnecessarily.”</em></p>
-    <p style="margin:6px 0;"><strong>Reckless</strong> – Careless and irresponsible. <em>“His reckless driving caused an accident.”</em></p>
-    <p style="margin:6px 0;"><strong>Rude</strong> – Lacking manners. <em>“It was rude to interrupt the teacher while she was speaking.”</em></p>
-    <p style="margin:6px 0;"><strong>Selfish</strong> – Only concerned with self. <em>“He’s too selfish to share his toys.”</em></p>
-    <p style="margin:6px 0;"><strong>Stubborn</strong> – Refuses to change mind easily. <em>“The child was stubborn and refused to eat vegetables.”</em></p>
-    <p style="margin:6px 0;"><strong>Vindictive</strong> – Seeking revenge. <em>“Her vindictive behavior made her plot against her colleague.”</em></p>
-  </div>
-
-   
-  <div style="  padding:12px; margin:10px 0;   color:black;">
-    <p style="margin:6px 0;"><strong>Ambitious</strong> – Strong desire to succeed. <em>“She is very ambitious and wants to become a CEO.”</em></p>
-    <p style="margin:6px 0;"><strong>Analytical</strong> – Good at examining details logically. <em>“He has an analytical mind that helps in problem-solving.”</em></p>
-    <p style="margin:6px 0;"><strong>Cautious</strong> – Careful and avoiding risks. <em>“Be cautious while crossing the busy street.”</em></p>
-    <p style="margin:6px 0;"><strong>Critical</strong> – Tends to judge or find faults. <em>“She gave a critical review of the book.”</em></p>
-    <p style="margin:6px 0;"><strong>Diplomatic</strong> – Tactful in dealing with people. <em>“He handled the conflict in a diplomatic way.”em></p>
-    <p style="margin:6px 0;"><strong>Meticulous</strong> – Very detail-oriented. <em>“The designer is meticulous about every stitch.”</em></p>
-    <p style="margin:6px 0;"><strong>Observant</strong> – Notices things quickly. <em>“She’s very observant and spots mistakes easily.”</em></p>
-    <p style="margin:6px 0;"><strong>Perfectionist</strong> – Wants everything flawless. <em>“He’s a perfectionist, never satisfied with his own work.”</em></p>
-    <p style="margin:6px 0;"><strong>Reserved</strong> – Quiet, keeps feelings to self. <em>“He’s reserved and doesn’t talk much in groups.”</em></p>
-    <p style="margin:6px 0;"><strong>Witty</strong> – Quick and clever with words. <em>“Her witty remarks always make the class laugh.”</em></p>
-  </div>
-
-</div>
-
-
-
-  
-  
-  <div style="max-width: 900px; margin: 0 auto; background: #ffffff; border: 2px solid #111827; border-radius: 14px; padding: 28px; line-height: 1.7; box-shadow: 0 10px 20px rgba(0,0,0,.06);">
- 
-
-    <h1 style="font-size:28px; margin-bottom:18px; color:#1e88a5;">Medical Specialist Vocabulary</h1>
-
-    <div style="  padding:14px; margin-bottom:12px;     color:#000000;">
-      <h2 style="margin:0 0 8px 0; color:#2a6f97;">Dermatologist</h2>
-      <p style="margin:0 0 6px 0; color:#000000;">Meaning: Doctor who treats skin, hair, and nail problems.</p>
-      <p style="margin:0; color:#000000;">Example: The dermatologist prescribed cream for my acne.</p>
-    </div>
-
-    <div style="  padding:14px; margin-bottom:12px;   color:#000000;">
-      <h2 style="margin:0 0 8px 0; color:#2a6f97;">Ophthalmologist</h2>
-      <p style="margin:0 0 6px 0; color:#000000;">Meaning: Doctor who treats eye diseases and performs eye surgery.</p>
-      <p style="margin:0; color:#000000;">Example: The ophthalmologist suggested glasses for my poor vision.</p>
-    </div>
-
-    <div style="  padding:14px; margin-bottom:12px;    color:#000000;">
-      <h2 style="margin:0 0 8px 0; color:#2a6f97;">Obstetrician</h2>
-      <p style="margin:0 0 6px 0; color:#000000;">Meaning: Doctor who specializes in pregnancy and childbirth.</p>
-      <p style="margin:0; color:#000000;">Example: The obstetrician monitored the mother’s health during pregnancy.</p>
-    </div>
-
-    <div style=" padding:14px; margin-bottom:12px;    color:#000000;">
-      <h2 style="margin:0 0 8px 0; color:#2a6f97;">Cardiologist</h2>
-      <p style="margin:0 0 6px 0; color:#000000;">Meaning: Doctor who treats heart diseases.</p>
-      <p style="margin:0; color:#000000;">Example: The cardiologist performed tests to check for heart problems.</p>
-    </div>
-
-    <!-- Grouped shorter entries: GP, Internist, Family Physician -->
-    <div style="  padding:14px; margin-bottom:12px;    color:#000000;">
-      <h2 style="margin:0 0 8px 0; color:#2a6f97;">more medical specialist vocabulary  </h2>
-      <p style="margin:0 0 6px 0; color:#000000;">General Practitioner (GP) – Treats common illnesses.<br>👉 The GP prescribed medicine for my fever.</p>
-      <p style="margin:0 0 6px 0; color:#000000;">Internist – Focuses on internal organs in adults.<br>👉 The internist diagnosed the stomach issue.</p>
-      <p style="margin:0; color:#000000;">Family Physician – Provides ongoing care for all family members.<br>👉 Our family physician has treated us for years.</p>
-    </div>
-
-    <div style="  padding:14px; margin-bottom:12px;     color:#000000;">
-      
-      <p style="margin:0 0 6px 0; color:#000000;">Neurologist – Treats brain, nerves, and spinal cord disorders.<br>👉 The neurologist helped with my migraine headaches.</p>
-      <p style="margin:0; color:#000000;">Neurosurgeon – Performs brain and spine surgery.<br>👉 The neurosurgeon operated on the patient’s tumor.</p>
-    </div>
-
-    <div style="  padding:14px; margin-bottom:12px;    color:#000000;">
-        
-      <p style="margin:0 0 6px 0; color:#000000;">Orthopedic Surgeon – Treats bone and joint problems.<br>👉 The orthopedic surgeon fixed my broken leg.</p>
-      <p style="margin:0 0 6px 0; color:#000000;">Rheumatologist – Specializes in arthritis and joint pain.<br>👉 The rheumatologist prescribed treatment for arthritis.</p>
-      <p style="margin:0; color:#000000;">Physiatrist – Rehabilitation and physical therapy doctor.<br>👉 The physiatrist helped me recover after an accident.</p>
-    </div>
-
-    <div style="  padding:14px; margin-bottom:12px;     color:#000000;">
-             <p style="margin:0 0 6px 0; color:#000000;">Pediatrician – Treats children’s health problems.<br>👉 The pediatrician checked the baby’s growth.</p>
-      <p style="margin:0 0 6px 0; color:#000000;">Neonatologist – Cares for newborn babies.<br>👉 The premature baby was treated by a neonatologist.</p>
-      <p style="margin:0; color:#000000;">Pediatric Surgeon – Operates on children.<br>👉 The pediatric surgeon removed the child’s appendix.</p>
-    </div>
-
-    <div style="  padding:14px; margin-bottom:12px;     color:#000000;">
-            <p style="margin:0 0 6px 0; color:#000000;">Gynecologist – Specializes in female reproductive health.<br>👉 The gynecologist conducted a routine checkup.</p>
-      <p style="margin:0; color:#000000;">Reproductive Endocrinologist – Fertility and IVF specialist.<br>👉 The couple consulted a reproductive endocrinologist.</p>
-    </div>
-
-    <div style="  padding:14px; margin-bottom:12px;     color:#000000;">
-            <p style="margin:0 0 6px 0; color:#000000;">Cardiac Surgeon – Performs heart surgeries.<br>👉 The cardiac surgeon did a bypass surgery.</p>
-      <p style="margin:0 0 6px 0; color:#000000;">Hematologist – Treats blood disorders.<br>👉 The hematologist diagnosed anemia.</p>
-      <p style="margin:0; color:#000000;">Vascular Surgeon – Treats blood vessel diseases.<br>👉 The vascular surgeon repaired the blocked artery.</p>
-    </div>
-
-    <div style="  padding:14px; margin-bottom:12px;   color:#000000;">
-       <p style="margin:0 0 6px 0; color:#000000;">Pulmonologist – Lung and respiratory system specialist.<br>👉 The pulmonologist treated my asthma.</p>
-      <p style="margin:0; color:#000000;">Thoracic Surgeon – Operates on chest organs like lungs.<br>👉 The thoracic surgeon removed the lung tumor.</p>
-    </div>
-
-    <div style="  padding:14px; margin-bottom:12px;    color:#000000;">
-         <p style="margin:0 0 6px 0; color:#000000;">Gastroenterologist – Treats stomach and digestive diseases.<br>👉 The gastroenterologist treated my ulcer.</p>
-      <p style="margin:0; color:#000000;">Hepatologist – Liver specialist.<br>👉 The hepatologist diagnosed fatty liver disease.</p>
-      <p style="margin:0; color:#000000;">Proctologist – Treats rectum and anus problems.<br>👉 The proctologist treated piles.</p>
-    </div>
-
-    <div style="  padding:14px; margin-bottom:12px;     color:#000000;">
-            <p style="margin:0 0 6px 0; color:#000000;">Nephrologist – Kidney specialist.<br>👉 The nephrologist treated kidney stones.</p>
-      <p style="margin:0; color:#000000;">Urologist – Treats urinary system and male reproductive organs.<br>👉 The urologist treated prostate issues.</p>
-    </div>
-
-    <div style="  padding:14px; margin-bottom:12px;    color:#000000;">
-          <p style="margin:0 0 6px 0; color:#000000;">Endocrinologist – Treats hormone-related diseases.<br>👉 The endocrinologist manages diabetes patients.</p>
-      <p style="margin:0; color:#000000;">Diabetologist – Specializes in diabetes.<br>👉 The diabetologist adjusted my insulin dosage.</p>
-    </div>
-
-    <div style="  padding:14px; margin-bottom:12px;    color:#000000;">
-          <p style="margin:0 0 6px 0; color:#000000;">Immunologist – Studies immune system diseases.<br>👉 The immunologist treated my allergy.</p>
-      <p style="margin:0; color:#000000;">Infectious Disease Specialist – Manages bacterial/viral infections.<br>👉 The infectious disease specialist treated dengue fever.</p>
-    </div>
-
-    <div style="  padding:14px; margin-bottom:12px;    color:#000000;">
-         <p style="margin:0 0 6px 0; color:#000000;">Otolaryngologist (ENT) – Ear, nose, throat doctor.<br>👉 The ENT doctor treated my sinus infection.</p>
-      <p style="margin:0; color:#000000;">Audiologist – Hearing specialist.<br>👉 The audiologist recommended hearing aids.</p>
-    </div>
-
-    <div style="  padding:14px; margin-bottom:12px;     color:#000000;">
-         <p style="margin:0 0 6px 0; color:#000000;">Oncologist – Cancer doctor.<br>👉 The oncologist started chemotherapy.</p>
-      <p style="margin:0 0 6px 0; color:#000000;">Radiation Oncologist – Uses radiation for cancer treatment.<br>👉 The radiation oncologist planned the therapy sessions.</p>
-      <p style="margin:0; color:#000000;">Surgical Oncologist – Performs cancer surgeries.<br>👉 The surgical oncologist removed the tumor.</p>
-    </div>
-
-    <div style="  padding:14px; margin-bottom:12px;    color:#000000;">
-         <p style="margin:0 0 6px 0; color:#000000;">Psychiatrist – Treats mental health with medicines.<br>👉 The psychiatrist prescribed antidepressants.</p>
-      <p style="margin:0 0 6px 0; color:#000000;">Psychologist – Provides counseling (non-surgical).<br>👉 The psychologist helped with stress management.</p>
-      <p style="margin:0; color:#000000;">Psychoanalyst – Uses therapy based on Freud’s theories.<br>👉 The psychoanalyst studied his unconscious fears.</p>
-    </div>
-
-    <div style="  padding:14px; margin-bottom:12px;    color:#000000;">
-         <p style="margin:0 0 6px 0; color:#000000;">Cosmetic Surgeon – Enhances appearance with surgery.<br>👉 The cosmetic surgeon performed a nose job.</p>
-      <p style="margin:0; color:#000000;">Plastic Surgeon – Reconstructs damaged body parts.<br>👉 The plastic surgeon repaired burn scars.</p>
-    </div>
-
-    <div style="  padding:14px; margin-bottom:12px;   color:#000000;">
-          <p style="margin:0 0 6px 0; color:#000000;">Dentist – General teeth doctor.<br>👉 The dentist filled my cavity.</p>
-      <p style="margin:0 0 6px 0; color:#000000;">Orthodontist – Fixes crooked teeth/braces.<br>👉 The orthodontist put braces on my teeth.</p>
-      <p style="margin:0 0 6px 0; color:#000000;">Periodontist – Gum disease specialist.<br>👉 The periodontist treated my swollen gums.</p>
-      <p style="margin:0; color:#000000;">Oral Surgeon – Performs surgeries in mouth/jaw.<br>👉 The oral surgeon removed my wisdom tooth.</p>
-    </div>
-
-    <div style="  padding:14px; margin-bottom:12px;    color:#000000;">
-        <p style="margin:0 0 6px 0; color:#000000;">Radiologist – Reads X-rays and scans.<br>👉 The radiologist detected the fracture.</p>
-      <p style="margin:0 0 6px 0; color:#000000;">Pathologist – Studies lab samples (blood/tissue).<br>👉 The pathologist confirmed the diagnosis.</p>
-      <p style="margin:0 0 6px 0; color:#000000;">Anesthesiologist – Manages anesthesia during surgery.<br>👉 The anesthesiologist gave me anesthesia before surgery.</p>
-      <p style="margin:0; color:#000000;">Palliative Care Specialist – Provides comfort for serious illnesses.<br>👉 The palliative care specialist helped cancer patients manage pain.</p>
-    </div>
-
-    <div style="  padding:14px; margin-bottom:12px;   color:#000000;">
-          <p style="margin:0 0 6px 0; color:#000000;">Sports Medicine Specialist – Treats sports injuries.<br>👉 The sports medicine doctor helped the player recover.</p>
-      <p style="margin:0 0 6px 0; color:#000000;">Geriatrician – Doctor for elderly people.<br>👉 The geriatrician treated my grandmother’s health issues.</p>
-      <p style="margin:0 0 6px 0; color:#000000;">Occupational Therapist – Helps patients regain daily skills.<br>👉 The occupational therapist taught stroke patients to use their hands again.</p>
-      <p style="margin:0; color:#000000;">Speech Therapist – Helps with speech and communication problems.<br>👉 The speech therapist worked with the child’s stammering.</p>
-    </div>
-
-  </div>
-
-  <div style="max-width: 900px; margin: 0 auto; background: #ffffff; border: 2px solid #111827; border-radius: 14px; padding: 28px; line-height: 1.7; box-shadow: 0 10px 20px rgba(0,0,0,.06);">
- 
-    <h1 style="color: #000;">Vocabulary: The Way People Are Talking</h1>
-
-    <p style="  padding: 8px; color: black;">
-        <strong>Taciturn</strong> – Quiet, not talking much.<br>
-        👉 He is so taciturn that he rarely joins group discussions.
-    </p>
-
-    <p style="  padding: 8px; color: black;">
-        <strong>Garrulous</strong> – Talkative, often about trivial things.<br>
-        👉 The garrulous neighbor kept chatting for hours about her garden.
-    </p>
-
-    <p style="  padding: 8px; color: black;">
-        <strong>Voluble</strong> – Fluent, talkative, and expressive.<br>
-        👉 The lawyer’s voluble arguments impressed the jury.
-    </p>
-
-    <p style="  padding: 8px; color: black;">
-        <strong>Inarticulate</strong> – Unable to express oneself clearly.<br>
-        👉 He was inarticulate during the interview due to nervousness.
-    </p>
-
-    <p style="  padding: 8px; color: black;">
-        <strong>Cogent</strong> – Clear, logical, and convincing.<br>
-        👉 She gave a cogent explanation for the delay.
-    </p>
-
-    <p style="  padding: 8px; color: black;">
-        <strong>Loquacious</strong> – Very talkative.<br>
-        👉 The loquacious student always has a story to tell.
-    </p>
-
-    <p style="  padding: 8px; color: black;">
-        <strong>Verbose</strong> – Using too many words.<br>
-        👉 The report was so verbose that no one wanted to read it.
-    </p>
-
-    <p style=" padding: 8px; color: black;">
-        <strong>Wordy</strong> – Similar to verbose; overuses words.<br>
-        👉 His wordy speech could have been cut in half.
-    </p>
-
-    <p style="  padding: 8px; color: black;">
-        <strong>Chatty</strong> – Informal, friendly talker.<br>
-        👉 She is a chatty person who easily makes friends.
-    </p>
-
-    <p style="  padding: 8px; color: black;">
-        <strong>Prattling</strong> – Talking in a silly or meaningless way.<br>
-        👉 The kids were prattling about cartoons.
-    </p>
-
-    <p style="  padding: 8px; color: black;">
-        <strong>Babbling</strong> – Talking quickly without making sense.<br>
-        👉 He was babbling after drinking too much coffee.
-    </p>
-
-    <p style="  padding: 8px; color: black;">
-        <strong>Rambling</strong> – Talking or writing in a confused, lengthy way.<br>
-        👉 Her rambling story lost everyone’s attention.
-    </p>
-
-    <p style="  padding: 8px; color: black;">
-        <strong>Tiresome</strong> – Talking in a boring and long-winded manner.<br>
-        👉 His tiresome explanations made the meeting dull.
-    </p>
-
-    <p style="  padding: 8px; color: black;">
-        <strong>Eloquent</strong> – Fluent, persuasive, and expressive speech.<br>
-        👉 The president gave an eloquent speech.
-    </p>
-
-    <p style="  padding: 8px; color: black;">
-        <strong>Articulate</strong> – Able to speak clearly and effectively.<br>
-        👉 The articulate teacher explained the concept well.
-    </p>
-
-    <p style="  padding: 8px; color: black;">
-        <strong>Silver-tongued</strong> – Very persuasive and charming in speech.<br>
-        👉 The salesman was silver-tongued and convincing.
-    </p>
-
-    <p style="  padding: 8px; color: black;">
-        <strong>Grandiloquent</strong> – Using fancy, pompous words.<br>
-        👉 The professor’s grandiloquent style confused the students.
-    </p>
-
-    <p style="  padding: 8px; color: black;">
-        <strong>Magniloquent</strong> – Speaking in an exaggerated, lofty way.<br>
-        👉 His magniloquent speech sounded artificial.
-    </p>
-
-    <p style="  padding: 8px; color: black;">
-        <strong>Rhetorical</strong> – Skilled in persuasive speaking or writing.<br>
-        👉 The leader’s rhetorical skills moved the crowd.
-    </p>
-
-    <p style="  padding: 8px; color: black;">
-        <strong>Fluent</strong> – Smooth and easy in speech.<br>
-        👉 She is fluent in both English and Spanish.
-    </p>
-
-    <p style="  padding: 8px; color: black;">
-        <strong>Reticent</strong> – Reserved, not willing to talk.<br>
-        👉 He was reticent about his personal life.
-    </p>
-
-    <p style="  padding: 8px; color: black;">
-        <strong>Mute</strong> – Silent, not speaking.<br>
-        👉 The audience was mute after the shocking news.
-    </p>
-
-    <p style="  padding: 8px; color: black;">
-        <strong>Dumbstruck</strong> – Speechless due to surprise or shock.<br>
-        👉 She was dumbstruck when she won the award.
-    </p>
-
-    <p style="  padding: 8px; color: black;">
-        <strong>Speechless</strong> – Unable to speak temporarily.<br>
-        👉 He was speechless after hearing the good news.
-    </p>
-
-    <p style="  padding: 8px; color: black;">
-        <strong>Laconic</strong> – Using very few words.<br>
-        👉 Her laconic reply showed she wasn’t interested.
-    </p>
-
-    <p style="  padding: 8px; color: black;">
-        <strong>Pithy</strong> – Short but meaningful in speech.<br>
-        👉 The quote was pithy and memorable.
-    </p>
-
-    <p style="  padding: 8px; color: black;">
-        <strong>Concise</strong> – Expressing much in few words.<br>
-        👉 The teacher gave a concise explanation.
-    </p>
-
-    <p style="  padding: 8px; color: black;">
-        <strong>Curt</strong> – Brief to the point of rudeness.<br>
-        👉 His curt reply offended her.
-    </p>
-
-    <p style="  padding: 8px; color: black;">
-        <strong>Blunt</strong> – Direct, without sugarcoating.<br>
-        👉 She gave a blunt opinion about his dress.
-    </p>
-
-    <p style="  padding: 8px; color: black;">
-        <strong>Terse</strong> – Short and to the point (sometimes rude).<br>
-        👉 His terse instructions left no room for questions.
-    </p>
-
-    <p style="  padding: 8px; color: black;">
-        <strong>Halting</strong> – Speaking with pauses, unsure.<br>
-        👉 His halting speech revealed his nervousness.
-    </p>
-
-    <p style="  padding: 8px; color: black;">
-        <strong>Stammering</strong> – Repeating sounds while speaking.<br>
-        👉 The child was stammering due to stage fear.
-    </p>
-
-    <p style="  padding: 8px; color: black;">
-        <strong>Stuttering</strong> – Involuntary repetition of sounds.<br>
-        👉 The boy was stuttering while introducing himself.
-    </p>
-
-    <p style=" padding: 8px; color: black;">
-        <strong>Mumbling</strong> – Speaking unclearly and softly.<br>
-        👉 He kept mumbling his answers in class.
-    </p>
-
-    <p style="  padding: 8px; color: black;">
-        <strong>Whispering</strong> – Speaking very softly.<br>
-        👉 They were whispering secrets during the lecture.
-    </p>
-
-    <p style="  padding: 8px; color: black;">
-        <strong>Persuasive</strong> – Convincing in speech.<br>
-        👉 The lawyer was highly persuasive in court.
-    </p>
-
-    <p style="  padding: 8px; color: black;">
-        <strong>Assertive</strong> – Confident and firm in speech.<br>
-        👉 She is assertive when expressing her opinions.
-    </p>
-
-    <p style="  padding: 8px; color: black;">
-        <strong>Boastful</strong> – Talking proudly about oneself.<br>
-        👉 He was boastful about his achievements.
-    </p>
-
-    <p style="  padding: 8px; color: black;">
-        <strong>Arrogant</strong> – Proud and looking down on others.<br>
-        👉 The arrogant speaker ignored everyone’s ideas.
-    </p>
-
-    <p style="  padding: 8px; color: black;">
-        <strong>Condescending</strong> – Talking as if others are less important.<br>
-        👉 Her condescending tone upset her colleagues.
-    </p>
-
-    <p style="  padding: 8px; color: black;">
-        <strong>Authoritative</strong> – Speaking with power and confidence.<br>
-        👉 The teacher’s authoritative voice kept the class silent.
-    </p>
-
-    <p style="  padding: 8px; color: black;">
-        <strong>Inspirational</strong> – Encouraging and uplifting.<br>
-        👉 The coach gave an inspirational talk before the game.
-    </p>
-
-    <p style="  padding: 8px; color: black;">
-        <strong>Motivational</strong> – Inspires action and positivity.<br>
-        👉 The speaker gave a motivational seminar on success.
-    </p>
-
-    <p style="  padding: 8px; color: black;">
-        <strong>Sarcastic</strong> – Saying something but meaning the opposite.<br>
-        👉 He gave a sarcastic comment about the food.
-    </p>
-
-    <p style="  padding: 8px; color: black;">
-        <strong>Ironic</strong> – Saying something that has the opposite meaning.<br>
-        👉 She made an ironic remark about the “great weather” during the storm.
-    </p>
-
-    <p style="  padding: 8px; color: black;">
-        <strong>Humorous</strong> – Funny and entertaining.<br>
-        👉 The humorous storyteller kept everyone laughing.
-    </p>
-
-    <p style="  padding: 8px; color: black;">
-        <strong>Witty</strong> – Clever and quick with words.<br>
-        👉 His witty remarks made the debate lively.
-    </p>
-
-    <p style="  padding: 8px; color: black;">
-        <strong>Glib</strong> – Smooth-talking but insincere.<br>
-        👉 The politician gave glib promises before the election.
-    </p>
-
-    <p style="  padding: 8px; color: black;">
-        <strong>Oratorical</strong> – Formal and powerful style of speaking.<br>
-        👉 The freedom fighter gave an oratorical speech.
-    </p>
-
-    <p style="  padding: 8px; color: black;">
-        <strong>Evasive</strong> – Avoiding giving a direct answer.<br>
-        👉 He was evasive when asked about the mistake.
-    </p>
-
-</div>
-
- 
-
- <div style="max-width: 900px; margin: 0 auto; background: #ffffff; border: 2px solid #111827; border-radius: 14px; padding: 28px; line-height: 1.7; box-shadow: 0 10px 20px rgba(0,0,0,.06);">
- 
-
- 
-    <h1 style="color: #000;">Vocabulary: General Stuff</h1>
-
-    <!-- 1–4 -->
-    <p style="  padding:8px; color:black;">
-        <strong>Enervate</strong> – To weaken or drain energy.<br>
-        👉 The long meeting enervated everyone in the office.
-    </p>
-    <p style="  padding:8px; color:black;">
-        <strong>Castigate</strong> – To reprimand or criticize severely.<br>
-        👉 The teacher castigated the student for cheating on the exam.
-    </p>
-    <p style="  padding:8px; color:black;">
-        <strong>Alleviate</strong> – To make something less severe.<br>
-        👉 The doctor gave medicine to alleviate the patient’s pain.
-    </p>
-    <p style="  padding:8px; color:black;">
-        <strong>Vacillate</strong> – To waver or be indecisive.<br>
-        👉 She vacillated between accepting the job and staying at her current position.
-    </p>
-
-    <!-- 5–20 -->
-    <p style="  padding:8px; color:black;">
-        <strong>Abate</strong> – To reduce in intensity or amount.<br>
-        👉 The storm finally abated after three hours.
-    </p>
-    <p style="  padding:8px; color:black;">
-        <strong>Accentuate</strong> – To emphasize or highlight.<br>
-        👉 The designer used bright colors to accentuate the room’s features.
-    </p>
-    <p style="  padding:8px; color:black;">
-        <strong>Admonish</strong> – To warn or reprimand gently.<br>
-        👉 The manager admonished the team for missing deadlines.
-    </p>
-    <p style=" padding:8px; color:black;">
-        <strong>Allude</strong> – To refer indirectly.<br>
-        👉 He alluded to the problem without naming it.
-    </p>
-    <p style="  padding:8px; color:black;">
-        <strong>Ameliorate</strong> – To improve or make better.<br>
-        👉 The government introduced measures to ameliorate poverty.
-    </p>
-    <p style="  padding:8px; color:black;">
-        <strong>Antagonize</strong> – To provoke hostility.<br>
-        👉 Don’t antagonize your coworkers with rude remarks.
-    </p>
-    <p style="  padding:8px; color:black;">
-        <strong>Apprehend</strong> – To understand or arrest someone.<br>
-        👉 The police apprehended the suspect quickly.
-    </p>
-    <p style="  padding:8px; color:black;">
-        <strong>Assuage</strong> – To soothe or relieve.<br>
-        👉 The counselor tried to assuage the student’s fears.
-    </p>
-    <p style="  padding:8px; color:black;">
-        <strong>Befuddle</strong> – To confuse or perplex.<br>
-        👉 The complex instructions befuddled the new employee.
-    </p>
-    <p style="  padding:8px; color:black;">
-        <strong>Bemoan</strong> – To express sorrow or complaint.<br>
-        👉 She bemoaned the loss of her favorite book.
-    </p>
-    <p style="  padding:8px; color:black;">
-        <strong>Berate</strong> – To scold sharply.<br>
-        👉 The coach berated the players for poor performance.
-    </p>
-    <p style="  padding:8px; color:black;">
-        <strong>Bolster</strong> – To support or strengthen.<br>
-        👉 The evidence bolstered his argument in court.
-    </p>
-    <p style="  padding:8px; color:black;">
-        <strong>Cajole</strong> – To persuade by flattery or coaxing.<br>
-        👉 He cajoled his friend into joining the party.
-    </p>
-    <p style="  padding:8px; color:black;">
-        <strong>Capitulate</strong> – To surrender or give in.<br>
-        👉 The army capitulated after weeks of fighting.
-    </p>
-    <p style="  padding:8px; color:black;">
-        <strong>Circumscribe</strong> – To limit or restrict.<br>
-        👉 Rules circumscribe our freedom at work.
-    </p>
-    <p style="  padding:8px; color:black;">
-        <strong>Clamor</strong> – To loudly demand or protest.<br>
-        👉 The crowd clamored for the politician to speak.
-    </p>
-
-    <!-- 21–35 -->
-    <p style="  padding:8px; color:black;">
-        <strong>Cogitate</strong> – To think deeply.<br>
-        👉 He cogitated for hours before making a decision.
-    </p>
-    <p style="  padding:8px; color:black;">
-        <strong>Commensurate</strong> – Corresponding in size or degree.<br>
-        👉 Salary should be commensurate with experience.
-    </p>
-    <p style="  padding:8px; color:black;">
-        <strong>Conflate</strong> – To combine into one.<br>
-        👉 The editor conflated two articles into one report.
-    </p>
-    <p style="  padding:8px; color:black;">
-        <strong>Confound</strong> – To confuse or amaze.<br>
-        👉 The magician’s trick confounded the audience.
-    </p>
-    <p style="  padding:8px; color:black;">
-        <strong>Conjecture</strong> – To guess or infer.<br>
-        👉 We can only conjecture about the cause of the accident.
-    </p>
-    <p style="  padding:8px; color:black;">
-        <strong>Contrive</strong> – To plan or devise cleverly.<br>
-        👉 She contrived a clever plan to surprise her friend.
-    </p>
-    <p style="  padding:8px; color:black;">
-        <strong>Debilitate</strong> – To weaken.<br>
-        👉 The illness debilitated him for weeks.
-    </p>
-    <p style="  padding:8px; color:black;">
-        <strong>Decry</strong> – To publicly criticize.<br>
-        👉 Activists decried the new policy as unfair.
-    </p>
-    <p style="  padding:8px; color:black;">
-        <strong>Deflect</strong> – To turn aside or avoid.<br>
-        👉 He deflected the question skillfully.
-    </p>
-    <p style="  padding:8px; color:black;">
-        <strong>Delineate</strong> – To describe or outline clearly.<br>
-        👉 The architect delineated the design for the new building.
-    </p>
-    <p style="  padding:8px; color:black;">
-        <strong>Denounce</strong> – To publicly condemn.<br>
-        👉 The mayor denounced the illegal activity.
-    </p>
-    <p style="  padding:8px; color:black;">
-        <strong>Deprecate</strong> – To express disapproval of.<br>
-        👉 She deprecated the suggestion as impractical.
-    </p>
-    <p style="  padding:8px; color:black;">
-        <strong>Deride</strong> – To mock or ridicule.<br>
-        👉 The critics derided the movie as boring.
-    </p>
-    <p style="  padding:8px; color:black;">
-        <strong>Deter</strong> – To discourage or prevent.<br>
-        👉 High prices deter people from buying unnecessary items.
-    </p>
-    <p style="  padding:8px; color:black;">
-        <strong>Dichotomy</strong> – A division into two contrasting parts.<br>
-        👉 There is a clear dichotomy between theory and practice.
-    </p>
-
-    <!-- 36–50 -->
-    <p style="  padding:8px; color:black;">
-        <strong>Disseminate</strong> – To spread widely.<br>
-        👉 The organization disseminated important health information.
-    </p>
-    <p style="  padding:8px; color:black;">
-        <strong>Dissuade</strong> – To persuade not to do something.<br>
-        👉 I tried to dissuade him from quitting his job.
-    </p>
-    <p style="  padding:8px; color:black;">
-        <strong>Divulge</strong> – To reveal something secret.<br>
-        👉 He refused to divulge the confidential information.
-    </p>
-    <p style="  padding:8px; color:black;">
-        <strong>Emulate</strong> – To imitate with effort to equal or excel.<br>
-        👉 Young athletes try to emulate their heroes.
-    </p>
-    <p style="  padding:8px; color:black;">
-        <strong>Enunciate</strong> – To pronounce clearly.<br>
-        👉 The teacher asked the students to enunciate their words.
-    </p>
-    <p style="  padding:8px; color:black;">
-        <strong>Exacerbate</strong> – To make worse.<br>
-        👉 The heavy rain exacerbated the flooding.
-    </p>
-    <p style="  padding:8px; color:black;">
-        <strong>Exhort</strong> – To strongly encourage or urge.<br>
-        👉 The coach exhorted the team to do their best.
-    </p>
-    <p style=" padding:8px; color:black;">
-        <strong>Exonerate</strong> – To free from blame.<br>
-        👉 The court exonerated him after the evidence was clear.
-    </p>
-    <p style="  padding:8px; color:black;">
-        <strong>Extol</strong> – To praise highly.<br>
-        👉 The critics extolled the artist’s new work.
-    </p>
-    <p style="  padding:8px; color:black;">
-        <strong>Facilitate</strong> – To make easier.<br>
-        👉 The new software facilitates project management.
-    </p>
-    <p style=" padding:8px; color:black;">
-        <strong>Foment</strong> – To instigate or stir up.<br>
-        👉 The speech fomented unrest among the crowd.
-    </p>
-    <p style="  padding:8px; color:black;">
-        <strong>Galvanize</strong> – To shock or stimulate into action.<br>
-        👉 The announcement galvanized employees to work harder.
-    </p>
-    <p style="  padding:8px; color:black;">
-        <strong>Hamper</strong> – To obstruct or slow down.<br>
-        👉 The heavy traffic hampered our journey.
-    </p>
-    <p style="  padding:8px; color:black;">
-        <strong>Impart</strong> – To give or communicate knowledge.<br>
-        👉 The teacher imparted wisdom to her students.
-    </p>
-    <p style="  padding:8px; color:black;">
-        <strong>Impede</strong> – To hinder or obstruct.<br>
-        👉 The rain impeded the construction work.
-    </p>
-
-
-</div>
-
-
- 
-  <div style="max-width: 900px; margin: 0 auto; background: #ffffff; border: 2px solid #111827; border-radius: 14px; padding: 28px; line-height: 1.7; box-shadow: 0 10px 20px rgba(0,0,0,.06);">
- 
-
- 
-
-    <h1 style="color: #000;">Vocabulary: Emptiness</h1>
-
-    <p style="  padding:8px; color:black;">
-        <strong>Vacant</strong> – Empty, not occupied.<br>
-        👉 The house has been vacant for years.
-    </p>
-    <p style="  padding:8px; color:black;">
-        <strong>Vacuous</strong> – Lacking thought or intelligence.<br>
-        👉 He gave a vacuous smile during the meeting.
-    </p>
-    <p style=" padding:8px; color:black;">
-        <strong>Vacuum</strong> – A space completely empty of matter.<br>
-        👉 The astronauts trained in a vacuum chamber.
-    </p>
-    <p style="  padding:8px; color:black;">
-        <strong>Vacation</strong> – A period of time when work/school is left behind.<br>
-        👉 We’re going to Goa for our summer vacation.
-    </p>
-    <p style="  padding:8px; color:black;">
-        <strong>Void</strong> – An empty space; nothingness.<br>
-        👉 He felt a deep void after losing his friend.
-    </p>
-    <p style="  padding:8px; color:black;">
-        <strong>Hollow</strong> – Empty inside.<br>
-        👉 The tree trunk was hollow and housed birds.
-    </p>
-    <p style="  padding:8px; color:black;">
-        <strong>Blank</strong> – Empty, without content.<br>
-        👉 The page was left blank.
-    </p>
-    <p style="  padding:8px; color:black;">
-        <strong>Barrenness</strong> – The state of being empty or unproductive.<br>
-        👉 The desert is known for its barrenness.
-    </p>
-    <p style="  padding:8px; color:black;">
-        <strong>Desolate</strong> – Empty, abandoned, or lonely.<br>
-        👉 The streets were desolate at night.
-    </p>
-    <p style="  padding:8px; color:black;">
-        <strong>Uninhabited</strong> – Without people living there.<br>
-        👉 The island was completely uninhabited.
-    </p>
-    <p style="  padding:8px; color:black;">
-        <strong>Derelict</strong> – Abandoned and empty.<br>
-        👉 The factory stood derelict for decades.
-    </p>
-    <p style="  padding:8px; color:black;">
-        <strong>Deserted</strong> – Empty of people.<br>
-        👉 The park was deserted after dark.
-    </p>
-    <p style="  padding:8px; color:black;">
-        <strong>Unfilled</strong> – Not occupied.<br>
-        👉 The job position remains unfilled.
-    </p>
-    <p style="  padding:8px; color:black;">
-        <strong>Abyss</strong> – A deep, seemingly bottomless emptiness.<br>
-        👉 He stared into the dark abyss of the cave.
-    </p>
-    <p style="  padding:8px; color:black;">
-        <strong>Gap</strong> – An empty space between things.<br>
-        👉 There’s a gap in the fence.
-    </p>
-    <p style="  padding:8px; color:black;">
-        <strong>Crevice</strong> – A narrow empty opening.<br>
-        👉 Coins fell into the crevice of the sofa.
-    </p>
-    <p style="  padding:8px; color:black;">
-        <strong>Chasm</strong> – A deep, empty divide.<br>
-        👉 A huge chasm separated the two cliffs.
-    </p>
-    <p style="  padding:8px; color:black;">
-        <strong>Cavity</strong> – An empty hollow space inside something.<br>
-        👉 The dentist found a cavity in his tooth.
-    </p>
-    <p style="  padding:8px; color:black;">
-        <strong>Emptiness</strong> – The state of being empty.<br>
-        👉 He felt a strange emptiness after the exam ended.
-    </p>
-    <p style="   padding:8px; color:black;">
-        <strong>Blankness</strong> – The state of being empty or expressionless.<br>
-        👉 Her face showed complete blankness.
-    </p>
-    <p style=" padding:8px; color:black;">
-        <strong>Nothingness</strong> – The absence of anything.<br>
-        👉 Meditation brings peace in the silence of nothingness.
-    </p>
-    <p style="  padding:8px; color:black;">
-        <strong>Meaninglessness</strong> – Without purpose.<br>
-        👉 He struggled with the meaninglessness of routine work.
-    </p>
-    <p style="  padding:8px; color:black;">
-        <strong>Despondency</strong> – A feeling of hopeless emptiness.<br>
-        👉 After the loss, she sank into despondency.
-    </p>
-    <p style="  padding:8px; color:black;">
-        <strong>Futility</strong> – A sense of emptiness because something is useless.<br>
-        👉 He realized the futility of arguing further.
-    </p>
-    <p style="  padding:8px; color:black;">
-        <strong>Inanity</strong> – Emptiness of meaning.<br>
-        👉 The conversation was full of inanity.
-    </p>
-    <p style="  padding:8px; color:black;">
-        <strong>Apathy</strong> – Lack of feeling or emotion.<br>
-        👉 His apathy towards work worried his manager.
-    </p>
-    <p style="  padding:8px; color:black;">
-        <strong>Indifference</strong> – Lack of concern or interest.<br>
-        👉 She showed indifference to the outcome.
-    </p>
-    <p style="  padding:8px; color:black;">
-        <strong>Bleakness</strong> – A feeling of emptiness and hopelessness.<br>
-        👉 The movie captured the bleakness of war.
-    </p>
-    <p style="  padding:8px; color:black;">
-        <strong>Loneliness</strong> – A painful sense of emotional emptiness.<br>
-        👉 He felt loneliness in the big city.
-    </p>
-    <p style="  padding:8px; color:black;">
-        <strong>Alienation</strong> – A feeling of being empty and cut off.<br>
-        👉 Her constant travel led to alienation from friends.
-    </p>
-    <p style="  padding:8px; color:black;">
-        <strong>Detachment</strong> – Emotional emptiness or disconnection.<br>
-        👉 He maintained a cold detachment from the issue.
-    </p>
-    <p style="  padding:8px; color:black;">
-        <strong>Hollowness</strong> – Lack of depth, substance, or sincerity.<br>
-        👉 The speech was full of hollowness.
-    </p>
-    <p style="  padding:8px; color:black;">
-        <strong>Vacuity</strong> – Absence of thought or meaning.<br>
-        👉 His remarks revealed the vacuity of his ideas.
-    </p>
-    <p style="  padding:8px; color:black;">
-        <strong>Melancholy</strong> – A deep, empty sadness.<br>
-        👉 She sat in melancholy silence.
-    </p>
-    <p style="  padding:8px; color:black;">
-        <strong>Desperation</strong> – An empty feeling of hopeless urgency.<br>
-        👉 Out of desperation, he agreed to the risky plan.
-    </p>
-    <p style="  padding:8px; color:black;">
-        <strong>Oblivion</strong> – State of being forgotten or unknown.<br>
-        👉 The ancient city fell into oblivion.
-    </p>
-    <p style="  padding:8px; color:black;">
-        <strong>Ethereal</strong> – Extremely delicate, almost empty or unreal.<br>
-        👉 The mist gave an ethereal feeling to the valley.
-    </p>
-    <p style="  padding:8px; color:black;">
-        <strong>Transience</strong> – The emptiness of things that don’t last.<br>
-        👉 He pondered the transience of life.
-    </p>
-    <p style="  padding:8px; color:black;">
-        <strong>Insipid</strong> – Empty of flavor or interest.<br>
-        👉 The soup tasted insipid and dull.
-    </p>
-    <p style=" padding:8px; color:black;">
-        <strong>Aridity</strong> – Dry emptiness, literal or figurative.<br>
-        👉 The desert’s aridity made travel difficult.
-    </p>
-    <p style="  padding:8px; color:black;">
-        <strong>Drought</strong> – Emptiness caused by lack of water.<br>
-        👉 The drought ruined crops in the region.
-    </p>
-    <p style="  padding:8px; color:black;">
-        <strong>Deficiency</strong> – Lack of something necessary.<br>
-        👉 A deficiency in vitamin D can harm health.
-    </p>
-    <p style="  padding:8px; color:black;">
-        <strong>Lacuna</strong> – An empty gap or missing part.<br>
-        👉 There’s a lacuna in the historical record.
-    </p>
-    <p style="  padding:8px; color:black;">
-        <strong>Shortfall</strong> – An emptiness of what is needed.<br>
-        👉 There’s a budget shortfall this year.
-    </p>
-    <p style="  padding:8px; color:black;">
-        <strong>Paucity</strong> – Smallness in number; scarcity.<br>
-        👉 The paucity of resources made planning difficult.
-    </p>
-    <p style="  padding:8px; color:black;">
-        <strong>Scarcity</strong> – A lack or insufficiency.<br>
-        👉 There is a scarcity of clean drinking water.
-    </p>
-    <p style="  padding:8px; color:black;">
-        <strong>Deficit</strong> – An empty shortfall, especially financial.<br>
-        👉 The company reported a deficit last quarter.
-    </p>
-    <p style="  padding:8px; color:black;">
-        <strong>Deprivation</strong> – Emptiness caused by loss of basic needs.<br>
-        👉 Sleep deprivation affects performance.
-    </p>
-    <p style="  padding:8px; color:black;">
-        <strong>Exiguity</strong> – Extreme emptiness or smallness.<br>
-        👉 The exiguity of evidence weakened the case.
-    </p>
-    <p style="  padding:8px; color:black;">
-        <strong>Annihilation</strong> – Emptiness caused by total destruction.<br>
-        👉 The town faced complete annihilation after the fire.
-    </p>
-
-
-</div>
-
-
-
- 
- 
-
-
-
- 
- 
-
-
-   
-
-
- 
- 
- 
-
-
-   
 </body>
 </html>
