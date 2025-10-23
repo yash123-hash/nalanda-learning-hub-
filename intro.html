@@ -1,0 +1,373 @@
+ <!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Nalanda Learning Hub: An innovative e-learning platform inspired by ancient Nalanda University, offering personalized online tutoring and education for all ages.">
+    <meta name="keywords" content="online learning, e-learning, tutoring, education, Nalanda, personalized education">
+    <title>Nalanda Learning Hub - Slideshow Presentation</title>
+    <style>
+        body {
+            font-family: 'Arial', sans-serif;
+            margin: 0;
+            padding: 0;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+            overflow: hidden; /* Prevent scrolling for slideshow feel */
+            height: 100vh;
+        }
+        .slide {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            text-align: center;
+            padding: 20px;
+            opacity: 0;
+            background: rgba(0, 0, 0, 0.1); /* Slight overlay for PPT feel */
+        }
+        .slide.active {
+            opacity: 1;
+        }
+        /* Unique animations for each slide */
+        .slide1.active {
+            animation: fadeInUp 1s ease-out;
+        }
+        .slide2.active {
+            animation: slideInLeft 1s ease-out;
+        }
+        .slide3.active {
+            animation: zoomIn 1s ease-out;
+        }
+        .slide4.active {
+            animation: bounceIn 1s ease-out;
+        }
+        .slide5.active {
+            animation: rotateIn 1s ease-out;
+        }
+        .slide6.active {
+            animation: scaleUp 1s ease-out;
+        }
+        .slide7.active {
+            animation: flipIn 1s ease-out;
+        }
+        .slide h1 {
+            font-size: 3rem;
+            margin-bottom: 20px;
+        }
+        .slide h2 {
+            font-size: 2.5rem;
+            margin-bottom: 20px;
+        }
+        .slide p, .slide ul {
+            font-size: 1.2rem;
+            line-height: 1.6;
+            max-width: 800px;
+            margin: 0 auto;
+        }
+        .slide ul {
+            text-align: left;
+            list-style: disc;
+            padding-left: 20px;
+        }
+        .slide ul li {
+            margin-bottom: 10px;
+        }
+        .navigation {
+            position: fixed;
+            bottom: 20px;
+            left: 50%;
+            transform: translateX(-50%);
+            display: flex;
+            align-items: center;
+            gap: 20px;
+        }
+        .nav-button {
+            background: #ff6b6b;
+            color: white;
+            border: none;
+            padding: 10px 20px;
+            font-size: 1rem;
+            border-radius: 5px;
+            cursor: pointer;
+            transition: background 0.3s, transform 0.3s;
+        }
+        .nav-button:hover {
+            background: #ff5252;
+            transform: scale(1.05);
+        }
+        .nav-button:disabled {
+            background: #ccc;
+            cursor: not-allowed;
+        }
+        .dots {
+            display: flex;
+            gap: 10px;
+        }
+        .dot {
+            width: 12px;
+            height: 12px;
+            border-radius: 50%;
+            background: rgba(255, 255, 255, 0.5);
+            cursor: pointer;
+            transition: background 0.3s;
+        }
+        .dot.active {
+            background: white;
+        }
+        .typing {
+            border-right: 2px solid white;
+            animation: blink 1s infinite;
+        }
+        /* Keyframe animations */
+        @keyframes fadeInUp {
+            from {
+                opacity: 0;
+                transform: translateY(50px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+        @keyframes slideInLeft {
+            from {
+                opacity: 0;
+                transform: translateX(-100%);
+            }
+            to {
+                opacity: 1;
+                transform: translateX(0);
+            }
+        }
+        @keyframes zoomIn {
+            from {
+                opacity: 0;
+                transform: scale(0.5);
+            }
+            to {
+                opacity: 1;
+                transform: scale(1);
+            }
+        }
+        @keyframes bounceIn {
+            0% {
+                opacity: 0;
+                transform: scale(0.3);
+            }
+            50% {
+                opacity: 1;
+                transform: scale(1.05);
+            }
+            70% {
+                transform: scale(0.9);
+            }
+            100% {
+                opacity: 1;
+                transform: scale(1);
+            }
+        }
+        @keyframes rotateIn {
+            from {
+                opacity: 0;
+                transform: rotate(-180deg);
+            }
+            to {
+                opacity: 1;
+                transform: rotate(0deg);
+            }
+        }
+        @keyframes scaleUp {
+            from {
+                opacity: 0;
+                transform: scale(0);
+            }
+            to {
+                opacity: 1;
+                transform: scale(1);
+            }
+        }
+        @keyframes flipIn {
+            from {
+                opacity: 0;
+                transform: rotateY(90deg);
+            }
+            to {
+                opacity: 1;
+                transform: rotateY(0deg);
+            }
+        }
+        @keyframes blink {
+            0%, 50% { border-color: transparent; }
+            51%, 100% { border-color: white; }
+        }
+        @media (prefers-reduced-motion: reduce) {
+            * {
+                animation-duration: 0.01ms !important;
+            }
+        }
+        @media (max-width: 768px) {
+            .slide h1 {
+                font-size: 2rem;
+            }
+            .slide h2 {
+                font-size: 1.8rem;
+            }
+            .slide p, .slide ul {
+                font-size: 1rem;
+            }
+            .navigation {
+                flex-direction: column;
+                gap: 10px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Slides -->
+    <div class="slide slide1 active" id="slide1">
+        <h1>Welcome to Nalanda Learning Hub</h1>
+        <p id="typing-text">Connecting minds, inspiring futures...</p>
+    </div>
+
+    <div class="slide slide2" id="slide2">
+        <h2>What is Nalanda Learning Hub?</h2>
+        <p>Nalanda Learning Hub is an innovative e-learning platform dedicated to providing high-quality online tutoring and personalized education for learners of all ages. Inspired by the ancient Nalanda University — one of the world’s earliest centers of learning — our mission is to revive that spirit of knowledge, curiosity, and excellence in today’s digital era.</p>
+        <p>Join us to unlock your potential and be part of a legacy of knowledge!</p>
+    </div>
+
+    <div class="slide slide3" id="slide3">
+        <h2>Our Aim</h2>
+        <p>To make education accessible, interactive, and future-ready for every student, regardless of their background or location. We aim to nurture critical thinking, creativity, and confidence through modern teaching methodologies and technology-driven learning.</p>
+    </div>
+
+    <div class="slide slide4" id="slide4">
+        <h2>Future Goals</h2>
+        <p>At Nalanda Learning Hub, our journey has just begun. As we continue to grow, our focus is on innovation, inclusivity, and impact — shaping the future of education through technology and human connection. We plan to broaden our curriculum beyond traditional academics to include:</p>
+        <ul>
+            <li><strong>Emerging Tech Skills:</strong> AI, Data Science, Cybersecurity, Blockchain, and Cloud Computing.</li>
+            <li><strong>Creative Fields:</strong> Graphic Design, Digital Marketing, Content Creation, and Video Editing.</li>
+            <li><strong>Professional Growth:</strong> Communication Skills, Interview Preparation, and Leadership Development.</li>
+        </ul>
+        <p>We also aim to collaborate with schools, colleges, and corporates to bring our e-learning solutions into classrooms and workplaces — blending traditional education with digital innovation. Nalanda Learning Hub envisions a world where education is a right, not a privilege.</p>
+    </div>
+
+    <div class="slide slide5" id="slide5">
+        <h2>Key Features</h2>
+        <p>At Nalanda Learning Hub, we combine the wisdom of traditional learning with the innovation of modern technology to create a powerful, interactive, and personalized e-learning experience.</p>
+        <ul>
+            <li>Learn from expert tutors in real-time: Ask questions, share screens, and engage in discussions — just like a real classroom, but from anywhere.</li>
+            <li>24/7 access to tutors and mentors ensures that no question goes unanswered.</li>
+            <li>Our mentors provide guidance on careers and personal development.</li>
+            <li>Join discussion forums, study groups, and live events to collaborate, share ideas, and learn from peers globally.</li>
+            <li>We ensure quality education for all with flexible pricing plans, scholarships, and free resources for deserving learners.</li>
+        </ul>
+    </div>
+
+    <div class="slide slide6" id="slide6">
+        <h2>Why We Exist</h2>
+        <p>At Nalanda Learning Hub, we exist to redefine learning for the modern world — making quality education accessible, engaging, and meaningful for everyone. We believe that education is not just about passing exams, but about empowering minds to think, create, and lead. Every learner deserves a mentor who believes in them, a path tailored to their pace, and a community that supports their growth.</p>
+    </div>
+
+    <div class="slide slide7" id="slide7">
+        <h2>The Startup Idea Spark</h2>
+        <p>The spark for Nalanda Learning Hub was born from a simple observation: students across the country are eager to learn, but not everyone gets equal access to quality education, mentorship, and guidance.</p>
+        <p>During the pandemic and beyond, the shift to online learning revealed both the power and the gaps of digital education. Many learners felt disconnected, unmotivated, or left behind — not because they lacked ability, but because they lacked personalized attention and real engagement.</p>
+        <p>That’s when the idea for Nalanda Learning Hub took shape — to create an online learning platform that blends technology with the human touch. A platform where every student, regardless of location or background, can learn from the best educators, develop real-world skills, and grow confidently at their own pace.</p>
+        <p>Inspired by the legacy of Nalanda University, once the world’s greatest center of learning, we envisioned a modern hub of knowledge — a digital Nalanda for the 21st century — where learning is interactive, inclusive, and innovative.</p>
+        <p>The goal wasn’t just to build another e-learning site, but to build a movement — one that redefines how people learn, connect, and evolve.</p>
+    </div>
+
+    <!-- Navigation -->
+    <div class="navigation">
+        <button class="nav-button" id="prevBtn" disabled>Previous</button>
+        <div class="dots">
+            <div class="dot active" data-slide="1"></div>
+            <div class="dot" data-slide="2"></div>
+            <div class="dot" data-slide="3"></div>
+            <div class="dot" data-slide="4"></div>
+            <div class="dot" data-slide="5"></div>
+            <div class="dot" data-slide="6"></div>
+            <div class="dot" data-slide="7"></div>
+        </div>
+        <button class="nav-button" id="nextBtn">Next</button>
+    </div>
+
+    <script>
+        // Typing effect for slide 1
+        const text = "Connecting minds, inspiring futures...";
+        let index = 0;
+        const typingText = document.getElementById('typing-text');
+
+        function typeWriter() {
+            if (index < text.length) {
+                typingText.innerHTML += text.charAt(index);
+                index++;
+                setTimeout(typeWriter, 100);
+            } else {
+                typingText.classList.remove('typing');
+            }
+        }
+
+        // Slideshow logic
+        const slides = document.querySelectorAll('.slide');
+        const dots = document.querySelectorAll('.dot');
+        const prevBtn = document.getElementById('prevBtn');
+        const nextBtn = document.getElementById('nextBtn');
+        let currentSlide = 0;
+
+        function showSlide(index) {
+            slides.forEach((slide, i) => {
+                slide.classList.remove('active');
+                dots[i].classList.remove('active');
+            });
+            slides[index].classList.add('active');
+            dots[index].classList.add('active');
+            prevBtn.disabled = index === 0;
+            nextBtn.disabled = index === slides.length - 1;
+        }
+
+        function nextSlide() {
+            if (currentSlide < slides.length - 1) {
+                currentSlide++;
+                showSlide(currentSlide);
+            }
+        }
+
+        function prevSlide() {
+            if (currentSlide > 0) {
+                currentSlide--;
+                showSlide(currentSlide);
+            }
+        }
+
+        nextBtn.addEventListener('click', nextSlide);
+        prevBtn.addEventListener('click', prevSlide);
+
+        dots.forEach((dot, index) => {
+            dot.addEventListener('click', () => {
+                currentSlide = index;
+                showSlide(currentSlide);
+            });
+        });
+
+        // Keyboard navigation
+        document.addEventListener('keydown', (e) => {
+            if (e.key === 'ArrowRight') nextSlide();
+            if (e.key === 'ArrowLeft') prevSlide();
+        });
+
+        // Start typing on load
+        window.onload = function() {
+            typingText.innerHTML = '';
+            typingText.classList.add('typing');
+            typeWriter();
+        };
+    </script>
+</body>
+</html>
