@@ -1,0 +1,412 @@
+ <!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>My Modern Creative Portfolio</title>
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700&family=Roboto:wght@300;400&display=swap');
+
+        body {
+            font-family: 'Roboto', sans-serif;
+            margin: 0;
+            padding: 0;
+            line-height: 1.6;
+            color: #333;
+            background: linear-gradient(to right, #f0f2f0, #e2e7e2); /* Modern gradient background */
+        }
+
+        header {
+            background-color: #007bff;
+            color: white;
+            padding: 1rem;
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1); /* Professional shadow */
+        }
+
+        nav {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        nav .logo {
+            font-family: 'Poppins', sans-serif;
+            font-size: 1.8rem;
+            font-weight: 700;
+            color: #fff;
+        }
+
+        nav ul {
+            list-style: none;
+            display: flex;
+            margin: 0;
+            padding: 0;
+        }
+
+        nav ul li {
+            margin-left: 1.5rem;
+        }
+
+        nav ul li a {
+            color: white;
+            text-decoration: none;
+            padding: 0.7rem 1.2rem;
+            transition: all 0.3s ease;
+            border-radius: 5px;
+            font-family: 'Poppins', sans-serif;
+        }
+
+        nav ul li a:hover {
+            background-color: rgba(255, 255, 255, 0.3);
+            transform: scale(1.05); /* Hover effect: Scale up */
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+        }
+
+        .hero {
+            background: linear-gradient(to bottom, #007bff, #00c6ff); /* Creative gradient */
+            text-align: center;
+            padding: 6rem 1rem;
+            color: white;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            flex-direction: column;
+            animation: fadeIn 1s ease-in; /* Animation on load */
+        }
+
+        .profile-img {
+            width: 180px;
+            height: 180px;
+            border-radius: 50%;
+            object-fit: cover;
+            margin-bottom: 1.5rem;
+            border: 4px solid #fff; /* Professional border */
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
+            transition: transform 0.3s ease;
+        }
+
+        .profile-img:hover {
+            transform: scale(1.1); /* Hover effect on image */
+        }
+
+        h1 {
+            font-family: 'Poppins', sans-serif;
+            font-size: 3rem;
+            margin: 0;
+            text-shadow: 1px 1px 5px rgba(0, 0, 0, 0.2); /* Creative shadow */
+        }
+
+        h2 {
+            font-family: 'Poppins', sans-serif;
+            font-size: 2.5rem;
+            text-align: center;
+            margin-bottom: 1.5rem;
+            color: #007bff;
+        }
+
+        .section {
+            padding: 5rem 1rem;
+            text-align: center;
+            opacity: 0; /* For animation */
+            transform: translateY(20px);
+            transition: all 0.5s ease;
+        }
+
+        .section.visible {
+            opacity: 1;
+            transform: translateY(0);
+        }
+
+        .skills-list {
+            list-style: none;
+            padding: 0;
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+        }
+
+        .skills-list li {
+            background-color: #007bff;
+            color: white;
+            padding: 0.8rem 1.5rem;
+            margin: 0.7rem;
+            border-radius: 25px;
+            font-family: 'Poppins', sans-serif;
+            transition: all 0.3s ease;
+        }
+
+        .skills-list li:hover {
+            background-color: #0056b3;
+            transform: scale(1.1); /* Hover effect */
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+        }
+
+        .projects-container {
+            display: flex;
+            justify-content: center;
+            flex-wrap: wrap;
+        }
+
+        .project-card {
+            background-color: #fff;
+            border-radius: 15px;
+            padding: 1.5rem;
+            margin: 1rem;
+            width: 320px;
+            box-shadow: 0 10px 20px rgba(0, 0, 0, 0.15);
+            transition: all 0.4s ease;
+            cursor: pointer; /* Interactive cursor */
+        }
+
+        .project-card:hover {
+            transform: translateY(-10px) scale(1.05); /* Hover animation */
+            box-shadow: 0 15px 30px rgba(0, 0, 0, 0.25);
+        }
+
+        #contact-form {
+            max-width: 600px;
+            margin: 0 auto;
+            display: flex;
+            flex-direction: column;
+        }
+
+        #contact-form input, #contact-form textarea {
+            margin: 0.7rem 0;
+            padding: 1.2rem;
+            border: 2px solid #ddd;
+            border-radius: 8px;
+            font-size: 1.1rem;
+            font-family: 'Roboto', sans-serif;
+            transition: border-color 0.3s;
+        }
+
+        #contact-form input:focus, #contact-form textarea:focus {
+            border-color: #007bff;
+            box-shadow: 0 0 10px rgba(0, 123, 255, 0.2); /* Focus effect */
+        }
+
+        #contact-form button {
+            background-color: #007bff;
+            color: white;
+            padding: 1.2rem;
+            border: none;
+            border-radius: 8px;
+            cursor: pointer;
+            transition: background-color 0.3s, transform 0.3s;
+            font-family: 'Poppins', sans-serif;
+        }
+
+        #contact-form button:hover {
+            background-color: #0056b3;
+            transform: scale(1.05);
+        }
+ footer {
+            background-color: #007bff; /* Blue color */
+            color: white;
+            padding: 20px;
+            text-align: center;
+            position: fixed;
+            bottom: 0;
+            width: 100%;
+        }
+        .social-links {
+            margin-bottom: 10px;
+        }
+        .social-links a {
+            color: white;
+            text-decoration: none;
+            margin: 0 10px;
+            font-size: 18px;
+        }
+        .social-links a:hover {
+            text-decoration: underline;
+        }
+        .contact-info {
+            font-size: 16px;
+        }
+        .btn {
+            background-color: #007bff;
+            color: white;
+            padding: 1.2rem 2.5rem;
+            text-decoration: none;
+            border-radius: 8px;
+            transition: all 0.3s ease;
+            font-family: 'Poppins', sans-serif;
+        }
+
+        .btn:hover {
+            background-color: #0056b3;
+            transform: scale(1.1);
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.15);
+        }
+
+        /* Keyframes for animations */
+        @keyframes fadeIn {
+            from { opacity: 0; }
+            to { opacity: 1; }
+        }
+
+        /* Responsive Design */
+        @media (max-width: 768px) {
+            nav ul {
+                flex-direction: column;
+                align-items: center;
+            }
+
+            nav ul li {
+                margin: 0.5rem 0;
+            }
+
+            .projects-container {
+                flex-direction: column;
+                align-items: center;
+            }
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <nav>
+            <div class="logo">My Portfolio</div>
+            <ul>
+                <li><a href="#hero">Home</a></li>
+                <li><a href="#about">About</a></li>
+                <li><a href="#skills">Skills</a></li>
+                <li><a href="#projects">Projects</a></li>
+                <li><a href="#contact">Contact</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <main>
+        <section id="hero" class="hero section">
+            <div class="hero-content">
+                <img src="kkk.png" alt="Your Profile Picture" class="profile-img">
+                <h1>yash raj bhatt  </h1>
+                <p> SOFTWARE DEVELOPER | WEB DESIGNER | FOUNDER OF NALANDA LEARNING HUB</p>
+                <a href="#contact" class="btn">Get in Touch</a>
+            </div>
+        </section>
+
+        <section id="about" class="section">
+            <h2>About Me</h2>
+            <p> Hi! I’m Yash Raj Bhatt, a passionate learner and aspiring cybersecurity learner  and software developer. I’m currently a CBSE student at Maria Assumpta Convent School, where I’m actively building my skills in ethical hacking, computer networking, and software development.
+
+ Outside of tech, I’m an active and creative person who loves sports, singing, and dancing.   I’ve developed strong communication  and  leadership    skills.
+
+My mission is to combine technical innovation  to create secure, scalable, and future-ready digital systems. I believe in lifelong learning and using technology as a force for positive impact.
+
+🌐 Let’s connect and collaborate on projects that make technology smarter and safer for everyone.  </p>
+        </section>
+
+        <section id="skills" class="section">
+            <h2>Skills</h2>
+            <ul class="skills-list">
+                <li>HTML5</li>
+                <li>CSS3</li>
+                <li>JavaScript</li>
+                
+              <li>Responsive Design</li><br>
+ <li>IOT</li>
+                <li>Computer Networking </li>
+                <li>Cyber security </li>
+                
+              <li>software development </li><br>
+<li>entrepreneurship skills</li>
+                <li>good communication skills </li>
+                <li>Good Non Verbal Skills  </li>
+                
+              <li> good investment skills </li> 
+ <li> git and github  </li> 
+<li>  good knowledge about AI </li> 
+
+            </ul>
+        </section>
+
+        <section id="projects" class="section">
+            <h2>Projects</h2>
+            <div class="projects-container">
+                <div class="project-card" onclick="openModal('A responsive personal portfolio website built with HTML  javascript and CSS.')">
+                    <h3> personal portfolio website </h3>
+                    <p>A responsive personal portfolio website built with HTML  javascript and CSS.</p>
+                </div>
+              <div class="project-card" 
+     onclick="openModal(`Revolutionize your learning journey with cutting-edge courses designed for the digital age, inspired by the timeless wisdom of Nalanda, the world's best e-learning platform.`)">
+    <h3>Nalanda Learning Hub</h3>
+    <p>Revolutionize your learning journey with cutting-edge courses designed for the digital age, inspired by the timeless wisdom of Nalanda, the world's best e-learning platform.</p>
+</div>
+            </div>
+        </section><br><br><br><br>
+
+         
+    </main>
+  <footer>
+        <div class="social-links">
+            <a href="https://www.instagram.com/yashrajbhatt97?utm_source=ig_web_button_share_sheet&igsh=ZDNlZDc0MzIxNw==" target="_blank">Instagram</a>
+            <a href="https://youtube.com/@super_sd-f2b?si=A8WCdVaKMyev1Q5J" target="_blank">YouTube</a>
+            <a href="https://github.com/yash123-hash/nalanda-learning-hub-.git" target="_blank">GitHub</a>
+            <a href="https://www.linkedin.com/in/yash-raj-bhatt-063a09356?utm_source=share&utm_campaign=share_via&utm_content=profile&utm_medium=android_app">LinkedIn</a>
+        </div>
+        <div class="contact-info">
+            <p>Email: your.email@example.com</p>
+            <p>Phone: +1-123-456-7890</p>
+        </div>
+    </footer>
+
+
+    <!-- Modal for interactivity -->
+    <div id="modal" style="display: none; position: fixed; top: 50%; left: 50%; transform: translate(-50%, -50%); background: white; padding: 20px; border-radius: 10px; box-shadow: 0 0 20px rgba(0,0,0,0.5); z-index: 2000;">
+        <span onclick="closeModal()" style="float: right; cursor: pointer;">&times;</span>
+        <p id="modal-content"></p>
+    </div>
+
+    <script>
+        // Smooth Scrolling
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function(e) {
+                e.preventDefault();
+                document.querySelector(this.getAttribute('href')).scrollIntoView({
+                    behavior: 'smooth'
+                });
+            });
+        });
+
+        // Scroll Animation using Intersection Observer
+        const sections = document.querySelectorAll('.section');
+        const observer = new IntersectionObserver(entries => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.classList.add('visible');
+                }
+            });
+        }, { threshold: 0.1 });
+
+        sections.forEach(section => {
+            observer.observe(section);
+        });
+
+        // Modal for Projects
+        function openModal(content) {
+            document.getElementById('modal-content').innerText = content;
+            document.getElementById('modal').style.display = 'block';
+        }
+
+        function closeModal() {
+            document.getElementById('modal').style.display = 'none';
+        }
+
+        
+
+// Optional JavaScript for interactivity, e.g., alert on click
+        document.querySelectorAll('.social-links a').forEach(link => {
+            link.addEventListener('click', function() {
+                alert('Opening ' + this.textContent);
+            });
+        });
+
+    </script>
+</body>
+</html>
