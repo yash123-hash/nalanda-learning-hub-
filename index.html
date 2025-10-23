@@ -1,966 +1,449 @@
- <!doctype html>
+  <!DOCTYPE html>
 <html lang="en">
 <head>
   <meta charset="utf-8" />
-  <meta name="viewport" content="width=device-width,initial-scale=1" />
-  <title>Yash Raj Bhatt — Networking Message</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Nalanda Learning Hub — Where Ancient Wisdom Meets Future Skills</title>
+  <!-- Tailwind CDN (for quick prototyping) -->
+  <script src="https://cdn.tailwindcss.com"></script>
+  <!-- Google Inter font -->
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet" />
+  <!-- Font Awesome (icons) -->
+  <script src="https://kit.fontawesome.com/a2e0b1a6c1.js" crossorigin="anonymous"></script>
+
+  <style>
+    :root{--primary-from:#667eea;--primary-to:#764ba2}
+    *{box-sizing:border-box;font-family:Inter,system-ui,-apple-system,"Segoe UI",Roboto,"Helvetica Neue",Arial}
+    body{min-height:100vh;background:linear-gradient(135deg,var(--primary-from) 0%,var(--primary-to) 100%)}
+
+    /* small custom utilities (keeps Tailwind for majority) */
+    .course-card{transition:transform .32s ease,box-shadow .32s ease;border-radius:1.25rem;overflow:hidden}
+    .course-card:hover{transform:translateY(-8px);box-shadow:0 20px 40px rgba(0,0,0,.12)}
+
+    /* Floating animation */
+    .floating-element{animation:float 6s ease-in-out infinite}
+    @keyframes float{0%{transform:translateY(0)}50%{transform:translateY(-12px)}100%{transform:translateY(0)}}
+
+    /* Typewriter (used for a small subtle effect) */
+    .typewriter{display:inline-block;white-space:nowrap;overflow:hidden;border-right:.12em solid rgba(0,0,0,.12)}
+    @keyframes typing{from{width:0}to{width:100%}}
+    @keyframes blink-caret{50%{border-color:transparent}}
+
+    /* make sure backdrop blurs gracefully */
+    .glass{background:rgba(255,255,255,.06);backdrop-filter:blur(6px);-webkit-backdrop-filter:blur(6px)}
+
+    /* smooth image fallback */
+    img.object-cover{object-fit:cover}
+
+    /* small accessibility helpers */
+    .sr-only{position:absolute;width:1px;height:1px;padding:0;margin:-1px;overflow:hidden;clip:rect(0,0,0,0);white-space:nowrap;border:0}
+  </style>
 </head>
-<body style="background:#f6f7f9; margin:24px; font-family: Arial, Helvetica, sans-serif;">
+<body class="text-gray-900 antialiased">
+  <!-- NAVBAR -->
+  <header class="fixed inset-x-0 top-0 z-50 bg-white/70 backdrop-blur-md shadow">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="flex items-center justify-between h-16">
+        <a class="flex items-center gap-3" href="#">
+          <div class="w-10 h-10 rounded-lg bg-gradient-to-r from-indigo-600 to-purple-600 flex items-center justify-center text-white font-bold">NLH</div>
+           
+        </a>
 
-  <!-- Container with inline border and padding -->
-  <div style="border:2px solid #444; border-radius:10px; padding:20px; max-width:900px; margin:0 auto; background:#ffffff; box-shadow: 0 6px 18px rgba(0,0,0,0.06);">
+        <!-- Desktop links -->
+        <nav class="hidden md:flex items-center gap-4">
+          <a href="#courses" class="px-4 py-2 rounded-full font-medium bg-gradient-to-r from-orange-500 to-orange-400 text-white shadow-sm">Courses</a>
+          <a href="techpod.html" class="px-4 py-2 rounded-full font-medium text-gray-700 hover:bg-gray-100">TechPod</a>
+          <a href="#contact" class="px-4 py-2 rounded-full font-medium bg-gradient-to-r from-green-500 to-green-400 text-white">Contact</a>
+          <a href="portfolio.html" class="px-4 py-2 rounded-full font-medium bg-gradient-to-r from-indigo-600 to-purple-600 text-white">My Portfolio</a>
+          <a href="intro.html" class="px-4 py-2 rounded-full font-medium bg-gradient-to-r from-red-500 to-red-400 text-white">Startup Intro</a>
+        </nav>
 
-    <!-- Heading (not forced to black) -->
-    <h1 style="margin-top:0; margin-bottom:12px; font-size:1.5rem; color:#0b63c6;">
-       Welcome to the World of Networking
-    </h1>
-
-    <!-- All other text explicitly set to black via inline styles -->
-    <p style="color:black; margin:6px 0;">
-      Hi, my name is Yash Raj Bhatt I teach computer networking at Takshila Learning Hubb.
-    </p>
-
-    <p style="color:black; margin:6px 0;">
-      I want you to know that behind everything that you read, everything that you watch, everything that you do — is really just an amazing effort of mine. I am dedicated and passionate about helping you learn about networking.
-    </p>
-
-    <p style="color:black; margin:6px 0;">
-      So you are about to undertake an exciting journey into this world of networking.
-    </p>
-
-    <p style="color:black; margin:6px 0;">
-      You know, for me, it's like the one common language that truly unifies us all.
-    </p>
-
-    <p style="color:black; margin:6px 0;">
-      Whether you're communicating with a friend next door, or somebody that you've never met halfway across the world — networking is really that one language.
-    </p>
-
-    <p style="color:black; margin:6px 0;">
-      Those networking protocols that you're going to be learning about are the one language that is used throughout the world — no matter who you're communicating with or where you're communicating from.
-    </p>
-
-    <p style="color:black; margin:6px 0;">
-      Networking is also, to me, like a jigsaw puzzle. Learning networking is all these different protocols and processes. At first they might not make sense, but the more you learn, you'll see how these protocols and processes fit together.
-    </p>
-
-    <p style="color:black; margin:6px 0;">
-      And this whole picture of the internet and networking will become clearer.
-    </p>
-
-    <p style="color:black; margin:6px 0;">
-      So I want you to know that you're not alone in this journey — I am all behind you. I am truly passionate and dedicated in wanting to help you learn about networking.
-    </p>
-
-    <p style="color:black; margin:6px 0;">
-      We hope you enjoy your journey into this world of networking. I'll see you soon.
-    </p>
-
-    <p style="color:black; margin-top:18px; font-weight:600;">
-      — Yash Raj Bhatt
-    </p>
-
-  </div>
-
-<div style="border:2px solid #444; border-radius:10px; padding:20px; max-width:900px; margin:0 auto; background:#ffffff; box-shadow: 0 6px 18px rgba(0,0,0,0.06);">
-
-
-    <h1>Everything is Online</h1>
-
-    <p style="color: black;   padding:12px;   line-height:1.6;">
-      “Hey Shad, are you online?” “Of course, I am!” How many of us still think about whether or not we are “online”? We expect our devices, cell phones, tablets, laptops and desktop computers to always be connected to the global internet. We use this network to interact with our friends, shop, share pictures and experiences, and learn. The internet has become such a part of everyday life that we almost take it for granted.
-    </p>
-
-    <p style="color: black;   padding:12px;   line-height:1.6;">
-      Normally, when people use the term internet, they are not referring to the physical connections in the real world. Rather, they tend to think of it as a formless collection of connections. It is the “place” people go to find or share information.
-    </p>
-
-    <h2>Who Owns “The Internet”?</h2>
-
-    <p style="color: black;   padding:12px;   line-height:1.6;">
-      The internet is not owned by any individual or group. The internet is a worldwide collection of interconnected networks (internetwork or internet for short), cooperating with each other to exchange information using common standards. Through telephone wires, fiber-optic cables, wireless transmissions, and satellite links, internet users can exchange information in a variety of forms, as shown in the figure.
-    </p>
-
-    <p style="color: black;  padding:12px;  line-height:1.6;">
-      Everything that you access online is located somewhere on the global internet. Social media sites, multiplayer games, messaging centers that provide email, online courses — all of these internet destinations are connected to local networks that send and receive information through the internet.
-    </p>
-
-    <p style="color: black;   padding:12px;  line-height:1.6;">
-      Think about all of the interactions that you have during the day which require you to be online.
-    </p>
-
-    <div style="color: black;  padding:12px;  margin-bottom:12px;">
-      <strong>examples:-</strong>
-      <ul style="color: black;">
-        <li style="color: black;">Intelligent networks allow handheld devices to receive news and emails, and to send text.</li>
-        <li style="color: black;">Video conferencing instantly connects people around the globe.</li>
-        <li style="color: black;">Phones connect globally to share voice, text, and images.</li>
-        <li style="color: black;">Online gaming connects thousands of people seamlessly.</li>
-      </ul>
+        <!-- Mobile menu button -->
+        <div class="md:hidden">
+          <button id="mobile-menu-btn" aria-expanded="false" aria-controls="mobile-menu" class="p-2 rounded-md bg-white/80 shadow focus:outline-none">
+            <span class="sr-only">Open main menu</span>
+            <i class="fas fa-bars"></i>
+          </button>
+        </div>
+      </div>
     </div>
 
-    <h2>Local Networks</h2>
-
-    <p style="color: black;   padding:12px;   line-height:1.6;">
-      Local networks come in all sizes. They can range from simple networks consisting of two computers, to networks connecting hundreds of thousands of devices. Networks installed in small offices, or homes and home offices, are referred to as small office/home office (SOHO) networks. SOHO networks let you share resources such as printers, documents, pictures, and music, between a few local users.
-    </p>
-
-    <p style="color: black;  padding:12px;   line-height:1.6;">
-      In business, large networks can be used to advertise and sell products, order supplies, and communicate with customers. Communication over a network is usually more efficient and less expensive than traditional forms of communication, such as regular mail or long distance phone calls. Networks allow for rapid communication such as email and instant messaging, and provide consolidation and access to information stored on network servers.
-    </p>
-
-    <p style="color: black;   padding:12px;   line-height:1.6;">
-      Business and SOHO networks usually provide a shared connection to the internet. The internet is considered a "network of networks" because it is literally made up of thousands of local networks that are connected to each other.
-    </p>
-
-    <h2>Small Home Networks</h2>
-
-    <p style="color: black;   padding:12px;   line-height:1.6;">
-      Small home networks connect a few computers to each other and to the internet.
-    </p>
-
-    <h2>Small Office and Home Office Networks</h2>
-
-    <p style="color: black;   padding:12px;  line-height:1.6;">
-      The SOHO network allows computers in a home office or a remote office to connect to a corporate network, or access centralized, shared resources.
-    </p>
-
-    <h2>Medium to Large Networks</h2>
-
-    <p style="color: black;   padding:12px;   line-height:1.6;">
-      Medium to large networks, such as those used by corporations and schools, can have many locations with hundreds or thousands of interconnected hosts.
-    </p>
-
-    <h2>World Wide Networks</h2>
-
-    <p style="color: black;   padding:12px;   line-height:1.6;">
-      The internet is a network of networks that connects hundreds of millions of computers world-wide.
-    </p>
-
-
-
-<h1>Mobile Devices</h1>
-
-  <div style="    padding:16px; margin:14px 0;  ">
-    <h2 style="margin-top:0;">Smartphone</h2>
-    <p style="color:#000; line-height:1.6;">
-      Smartphones are able to connect to the internet from almost anywhere. Smartphones combine the functions of many different products together, such as a telephone, camera, GPS receiver, media player, and touch screen computer.
-    </p>
-  </div>
-
-  <div style="    padding:16px; margin:14px 0;  ">
-    <h2 style="margin-top:0;">Tablet</h2>
-    <p style="color:#000; line-height:1.6;">
-      Tablets, like smartphones, also have the functionality of multiple devices. With the additional screen size, they are ideal for watching videos and reading magazines or books. With on-screen keyboards, users are able to do many of the things they used to do on their laptop computer, such as composing emails or browsing the web.
-    </p>
-  </div>
-
-  <div style="    padding:16px; margin:14px 0;  ">
-    <h2 style="margin-top:0;">Smartwatch</h2>
-    <p style="color:#000; line-height:1.6;">
-      A smartwatch can connect to a smartphone to provide the user with alerts and messages. Additional functions, such as heart rate monitoring and counting steps, like a pedometer, can help people who are wearing the device to track their health.
-    </p>
-  </div>
-
-  <div style="  padding:16px; margin:14px 0;  ">
-    <h2 style="margin-top:0;">Smart Glasses</h2>
-    <p style="color:#000; line-height:1.6;">
-      A wearable computer in the form of glasses, such as Google Glass, contains a tiny screen that displays information to the wearer in a similar fashion to the Head-Up Display (HUD) of a fighter pilot. A small touch pad on the side allows the user to navigate menus while still being able to see through the smart glasses.
-    </p>
-  </div>
-
-  <h1>Connected Home Devices</h1>
-
-  <div style="    padding:16px; margin:14px 0;  ">
-    <h2 style="margin-top:0;">Security System</h2>
-    <p style="color:#000; line-height:1.6;">
-      Many of the items in a home, such as security systems, lighting, and climate controls, can be monitored and configured remotely using a mobile device.
-    </p>
-  </div>
-
-  <div style="   padding:16px; margin:14px 0;  ">
-    <h2 style="margin-top:0;">Appliances</h2>
-    <p style="color:#000; line-height:1.6;">
-      Household appliances such as refrigerators, ovens, and dishwashers can be connected to the internet. This allows the homeowner to power them on or off, monitor the status of the appliance, and also be alerted to preset conditions, such as when the temperature in the refrigerator rises above an acceptable level.
-    </p>
-  </div>
-
-  <div style="    padding:16px; margin:14px 0;  ">
-    <h2 style="margin-top:0;">Smart TV</h2>
-    <p style="color:#000; line-height:1.6;">
-      A smart TV can be connected to the internet to access content without the need for TV service provider equipment. Also, a smart TV can allow a user to browse the web, compose email, or display video, audio, or photos stored on a computer.
-    </p>
-  </div>
-
-  <div style="    padding:16px; margin:14px 0;  ">
-    <h2 style="margin-top:0;">Gaming Console</h2>
-    <p style="color:#000; line-height:1.6;">
-      Gaming consoles can connect to the internet to download games and play with friends online.
-    </p>
-  </div>
-
-  <h1>Other Connected Devices</h1>
-
-  <div style="  padding:16px; margin:14px 0;  ">
-    <h2 style="margin-top:0;">Smart Cars</h2>
-    <p style="color:#000; line-height:1.6;">
-      Many modern cars can connect to the internet to access maps, audio and video content, or information about a destination. They can even send a text message or email if there is an attempted theft or call for assistance in case of an accident. These cars can also connect to smartphones and tablets to display information about the different engine systems, provide maintenance alerts, or display the status of the security system.
-    </p>
-  </div>
-
-  <div style="   padding:16px; margin:14px 0;  ">
-    <h2 style="margin-top:0;">RFID Tags</h2>
-    <p style="color:#000; line-height:1.6;">
-      Radio frequency identification (RFID) tags can be placed in or on objects to track them or monitor sensors for many conditions.
-    </p>
-  </div>
-
-  <div style="   padding:16px; margin:14px 0;  ">
-    <h2 style="margin-top:0;">Sensors and Actuators</h2>
-    <p style="color:#000; line-height:1.6;">
-      Connected sensors can provide temperature, humidity, wind speed, barometric pressure, and soil moisture data. Actuators can then be automatically triggered based on current conditions. For example, a smart sensor can periodically send soil moisture data to a monitoring station. The monitoring station can then send a signal to an actuator to begin watering. The sensor will continue to send soil moisture data allowing the monitoring station to determine when to deactivate the actuator.
-    </p>
-  </div>
-
-  <div style=" padding:16px; margin:14px 0;  ">
-    <h2 style="margin-top:0;">Medical Devices</h2>
-    <p style="color:#000; line-height:1.6;">
-      Medical devices such as pacemakers, insulin pumps, and hospital monitors provide users or medical professionals with direct feedback or alerts when vital signs are at specific levels.
-    </p>
-  </div>
-
-
-
-
-     
-
-  </div>
-
-
-
-
-
-<div style="max-width: 900px; margin: 24px auto; padding: 20px; border: 2px solid #444; border-radius: 12px; background: #fff;">
-  <h2 style="margin: 0 0 14px; font-size: 28px; line-height: 1.2; color: #1a56db;">
-    Understanding Data & Its Types
-  </h2>
-
-  <p style="color:#000; margin: 10px 0; line-height:1.6;">
-    We hear about data all the time, especially when we're talking about computer networks.
-  </p>
-  <p style="color:#000; margin: 10px 0; line-height:1.6;">
-    You hear about data that's transmitted, data that's entered, data that's stored, and you even hear about big data that exists somewhere out in the cloud, but what exactly is data?
-  </p>
-  <p style="color:#000; margin: 10px 0; line-height:1.6;">
-    Okay, data in its raw form is the information that you input. Every time you hit send or share or upload, you are sending data that you created somewhere out onto the network.
-  </p>
-
-  <p style="color:#000; margin: 10px 0; line-height:1.6;">
-    Now, there are different types of data. I'm going to talk a little bit first about <strong>volunteer data</strong>.
-  </p>
-  <p style="color:#000; margin: 10px 0; line-height:1.6;">
-    Volunteer data is data that you offer yourself. You realize the data is being collected about you, and you are agreeing to share it or to store it somewhere on the network.
-  </p>
-
-  <p style="color:#000; margin: 10px 0; line-height:1.6;">
-    The second type of data that you may not realize is actually being collected about you is something we call <strong>inferred data</strong>. Inferred data is data that you generate by your activities.
-  </p>
-  <p style="color:#000; margin: 10px 0; line-height:1.6;">
-    For example, your credit card. Every place that you use your credit card keeps a record, and therefore, if you move about and go to different stores, things are being collected about you, like your preferences, the places that you typically eat or shop, and also, information that helps pinpoint your location.
-  </p>
-  <p style="color:#000; margin: 10px 0; line-height:1.6;">
-    For example, I'm here in Portland today, and I used my ATM card. Now, I live in Florida. So my bank has now data that indicates that I traveled from Florida to Portland, and that information then becomes part of a larger databank that is stored at the bank and also at the credit card processing company. So this data exists, even though I didn't intentionally volunteer it.
-  </p>
-
-  <p style="color:#000; margin: 10px 0; line-height:1.6;">
-    Now, another type of data is <strong>observed data</strong>. For example, your phone probably keeps track of your location. Most people have their location services on. That information is also being stored and is being transmitted to your carrier.
-  </p>
-  <p style="color:#000; margin: 10px 0; line-height:1.6;">
-    So you have a lot of information out there that is being collected and stored—hence, the term big data out in the cloud. So we have to be careful sometimes when we click on the share or store buttons on our devices so that we know where things are going.
-  </p>
-
-
-<header>
-    <h1>Bandwidth</h1>
+    <!-- Mobile menu (hidden by default) -->
+    <nav id="mobile-menu" class="hidden md:hidden border-t border-white/20">
+      <div class="px-4 pt-4 pb-6 space-y-2">
+        <a href="#courses" class="block px-4 py-2 rounded-lg bg-gradient-to-r from-orange-500 to-orange-400 text-white font-medium">Courses</a>
+        <a href="techpod.html" class="block px-4 py-2 rounded-lg text-gray-700 hover:bg-gray-100">TechPod</a>
+        <a href="#contact" class="block px-4 py-2 rounded-lg bg-gradient-to-r from-green-500 to-green-400 text-white font-medium">Contact</a>
+        <a href="portfolio.html" class="block px-4 py-2 rounded-lg bg-gradient-to-r from-indigo-600 to-purple-600 text-white font-medium">My Portfolio</a>
+        <a href="intro.html" class="block px-4 py-2 rounded-lg bg-gradient-to-r from-red-500 to-red-400 text-white font-medium">Startup Intro</a>
+      </div>
+    </nav>
   </header>
 
-  <div style="color:black;   padding:14px;  margin-bottom:12px;">
-    <p>In Computer Networks, <strong>Bandwidth</strong> is the maximum amount of data that can be transmitted over a communication channel (like a cable, wireless link, or fiber optic) in a given amount of time.</p>
+  <!-- HERO -->
+  <main class="pt-24">
+    <section class="py-12 px-4 sm:px-6 lg:px-8">
+      <div class="max-w-7xl mx-auto grid grid-cols-1 lg:grid-cols-2 gap-10 items-center">
+        <div>
+          <h1 class="text-3xl sm:text-4xl md:text-5xl font-extrabold text-white leading-tight">Where <span class="text-yellow-300">Ancient Wisdom</span> Meets <span class="text-yellow-300">Future Skills</span></h1>
+          <p class="mt-4 text-white/90 max-w-2xl">Revolutionize your learning journey with cutting-edge courses designed for the digital age, inspired by the timeless wisdom of Nalanda.</p>
 
-    <ul style="color:black; margin-top:8px;">
-      <li><strong>Measured in:</strong> bits per second (bps) or multiples (Kbps, Mbps, Gbps, Tbps).</li>
-      <li><strong>Represents:</strong> The capacity of a network link, not the actual speed you always get.</li>
-      <li>If a network link has <strong>100 Mbps bandwidth</strong>, it means at most 100 Megabits of data can be transmitted per second.</li>
-      <li>Actual speed might be less due to latency, packet loss, congestion, or protocol overhead.</li>
-    </ul>
+          <div class="mt-6 flex flex-wrap gap-3">
+            <a href="#courses" class="inline-flex items-center gap-2 bg-white text-indigo-600 px-5 py-3 rounded-full font-semibold shadow hover:scale-105 transform transition">Explore Courses <i class="fas fa-arrow-right ml-1"></i></a>
+            <a href="portfolio.html" class="inline-flex items-center gap-2 border border-white/40 text-white px-5 py-3 rounded-full font-semibold hover:bg-white hover:text-indigo-600 transition">Developer Info</a>
+          </div>
 
-    <p style="color:black; margin-top:8px;"><strong>Types:</strong></p>
-    <ol style="color:black;">
-      <li><strong>Digital Bandwidth</strong> – data rate in bits per second.</li>
-      <li><strong>Analog Bandwidth</strong> – range of frequencies a channel can carry, measured in Hertz (Hz).</li>
-    </ol>
+          <!-- small search for courses on hero (mobile friendly) -->
+        </div>
 
-    <p style="color:black; margin-top:8px;">Affects data transfer rate (downloads, streaming, VoIP). Determines network performance in LAN, WAN, or Internet. Plays a role in Quality of Service (QoS) for video calls, gaming, etc.</p>
-  </div>
-
-  <section>
-    <h2>Throughput</h2>
-
-    <div style="color:black;     padding:14px;  ">
-      <p>Throughput in computer networks refers to the actual amount of data successfully transmitted from one point to another in a given period of time.</p>
-
-      <p style="color:black;"><strong>Measured in:</strong> bits per second (bps), kilobits per second (Kbps), megabits per second (Mbps), or gigabits per second (Gbps).</p>
-
-      <p style="color:black;"><strong>Relationship:</strong> <em>Bandwidth</em> = maximum theoretical data transfer capacity of a network link. <em>Throughput</em> = actual data transfer rate achieved in practice.</p>
-
-      <p style="color:black;">Example: A link with <strong>100 Mbps bandwidth</strong> may only achieve <strong>70 Mbps throughput</strong> due to delays, congestion, or errors.</p>
-
-      <p style="color:black;"><strong>Common causes that reduce throughput:</strong></p>
-      <ul style="color:black;">
-        <li>Network congestion – too many users transmitting data simultaneously.</li>
-        <li>Latency – delays caused by distance or processing.</li>
-        <li>Packet loss – data needing retransmission.</li>
-        <li>Protocol overhead – headers, acknowledgments, etc.</li>
-        <li>Hardware limitations – router, switch, or end device capacity.</li>
-      </ul>
-
-      <p style="color:black; margin-top:8px;"><strong>Summary:</strong> Bandwidth is the speed limit, Throughput is the actual speed you get.</p>
-    </div>
-  </section>
-
-  
- 
-</div>
-
-
-<div style="max-width: 900px; margin: 0 auto; background: #ffffff; border: 2px solid #111827; border-radius: 14px; padding: 28px; line-height: 1.7; box-shadow: 0 10px 20px rgba(0,0,0,.06);">
-
-    <h1 style="margin: 0 0 16px; text-align:center; color:#1a73e8;">Clients & Servers in Modern Networks</h1>
-
-    <p style="color:#000; margin:0 0 12px;">In modern networks, computer hosts can act as a client, a server, or both. The software installed on the computer determines which role the computer plays.</p>
-
-    <h2 style="margin:24px 0 8px; color:#1a73e8;">Servers</h2>
-    <div style="   padding:16px;">
-      <p style="color:#000; margin:0 0 10px;">Servers are hosts that have software installed which enable them to provide information to other hosts on the network, like email or webpages.</p>
-      <p style="color:#000; margin:0;">Each server service requires a separate server software.</p>
-    </div>
-
-    <h2 style="margin:24px 0 8px; color:#1a73e8;">Clients</h2>
-    <div style="    padding:16px;">
-      <p style="color:#000; margin:0 0 10px;">Clients are computer hosts that have software installed that enables the host to request and display the information obtained from the server.</p>
-      <p style="color:#000; margin:0 0 10px;">An example of client software is a web browser such as Chrome, Edge, Safari, or Firefox. Using web browser software, the client can request the webpage from the server. The web server will respond with the webpage.</p>
-      <p style="color:#000; margin:0;">Another example is email. Clients use an email client software such as Microsoft Outlook to access email on the server. Clients can both send and receive email messages from the email server.</p>
-    </div>
-
-  </div>
-
-
-<div style="max-width: 900px; margin: 0 auto; background: #ffffff; border: 2px solid #111827; border-radius: 14px; padding: 28px; line-height: 1.7; box-shadow: 0 10px 20px rgba(0,0,0,.06);">
-
-<h1 style="margin:0 0 20px; color:#1f4b99; font-size:28px; letter-spacing:0.3px;">
-      Client and Server Roles & Peer-to-Peer Networks
-    </h1>
-
-    <!-- Client & Server Roles -->
-    <section style="    padding:18px 20px; margin:0 0 16px; color:#000;">
-      <h2 style="margin:0 0 10px; color:#1f4b99; font-size:22px;">Client and Server Roles</h2>
-      <p style="margin:0 0 10px;">
-        All computers connected to a network that participate directly in network communication are classified as hosts.
-        Hosts can send and receive messages on the network. In modern networks, computer hosts can act as a client, a
-        server, or both. The software installed on the computer determines which role the computer plays.
-      </p>
-      <p style="margin:0 0 10px;">
-        <strong style="color:#000;">Servers</strong> are hosts that have software installed which enable them to provide
-        information, like email or web pages, to other hosts on the network. Each service requires separate server
-        software. For example, a host requires web server software in order to provide web services to the network.
-        Every destination that you visit online is provided to you by a server located somewhere on a network that is
-        connected to the global internet.
-      </p>
-      <p style="margin:0 0 0;">
-        <strong style="color:#000;">Clients</strong> are computer hosts that have software installed that enables the hosts to
-        request and display the information obtained from the server. An example of client software is a web browser,
-        such as Internet Explorer, Safari, Mozilla Firefox, or Chrome.
-      </p>
-    </section>
-
-    <!-- Peer-to-Peer Networks -->
-    <section style="    padding:18px 20px; margin:0 0 16px; color:#000;">
-      <h2 style="margin:0 0 10px; color:#1f4b99; font-size:22px;">Peer-to-Peer (P2P) Networks</h2>
-      <p style="margin:0 0 10px;">
-        Client and server software usually run on separate computers, but it is also possible for one computer to run
-        both client and server software at the same time. In small businesses and homes, many computers function as the
-        servers and clients on the network. This type of network is called a peer-to-peer (P2P) network.
-      </p>
-      <p style="margin:0 0 10px;">
-        The simplest P2P network consists of two directly connected computers using either a wired or wireless
-        connection. Both computers are then able to use this simple network to exchange data and services with each
-        other, acting as either a client or a server as necessary.
-      </p>
-      <p style="margin:0 0 10px;">
-        Multiple PCs can also be connected to create a larger P2P network, but this requires a network device, such as a
-        switch, to interconnect the computers.
-      </p>
-      <p style="margin:0 0 10px;">
-        The main disadvantage of a P2P environment is that the performance of a host can be slowed down if it is acting
-        as both a client and a server at the same time. In larger businesses, because of the potential for high amounts
-        of network traffic, it is often necessary to have dedicated servers to support the number of service requests.
-      </p>
-
-      <div style="   padding:12px 14px; margin-top:6px;">
-        <h3 style="margin:0 0 8px; color:#1f4b99; font-size:18px;">Advantages of P2P</h3>
-        <ul style="margin:0 0 12px 18px; padding:0;">
-          <li style="margin-bottom:6px;">Easy to set up</li>
-          <li style="margin-bottom:6px;">Less complex</li>
-          <li style="margin-bottom:6px;">Lower cost because network devices and dedicated servers may not be required</li>
-          <li style="margin-bottom:0;">Can be used for simple tasks such as transferring files and sharing printers</li>
-        </ul>
-
-        <h3 style="margin:10px 0 8px; color:#1f4b99; font-size:18px;">Disadvantages of P2P</h3>
-        <ul style="margin:0 0 0 18px; padding:0;">
-          <li style="margin-bottom:6px;">No centralized administration</li>
-          <li style="margin-bottom:6px;">Not as secure</li>
-          <li style="margin-bottom:6px;">Not scalable</li>
-          <li style="margin-bottom:0;">All devices may act as both clients and servers which can slow their performance</li>
-        </ul>
+        <div class="relative">
+          <div class="floating-element glass rounded-3xl p-6 border border-white/20">
+            <div class="grid grid-cols-2 gap-4">
+              <div class="bg-white rounded-2xl p-4 shadow">
+                <i class="fas fa-brain text-3xl text-indigo-600"></i>
+                <h4 class="font-semibold mt-3">AI & ML</h4>
+                <p class="text-sm text-gray-500">Master the future</p>
+              </div>
+              <div class="bg-white rounded-2xl p-4 shadow">
+                <i class="fas fa-shield-alt text-3xl text-purple-600"></i>
+                <h4 class="font-semibold mt-3">Cyber Security</h4>
+                <p class="text-sm text-gray-500">Protect digital worlds</p>
+              </div>
+              <div class="bg-white rounded-2xl p-4 shadow">
+                <i class="fas fa-code text-3xl text-blue-600"></i>
+                <h4 class="font-semibold mt-3">Web Dev</h4>
+                <p class="text-sm text-gray-500">Build the web</p>
+              </div>
+              <div class="bg-white rounded-2xl p-4 shadow">
+                <i class="fas fa-network-wired text-3xl text-green-600"></i>
+                <h4 class="font-semibold mt-3">Networking</h4>
+                <p class="text-sm text-gray-500">Connect the world</p>
+              </div>
+            </div>
+          </div>
+        </div>
       </div>
     </section>
 
-    <!-- P2P Applications -->
-    <section style="     padding:18px 20px; margin:0 0 16px; color:#000;">
-      <h2 style="margin:0 0 10px; color:#1f4b99; font-size:22px;">Peer-to-Peer Applications</h2>
-      <p style="margin:0 0 10px;">
-        A P2P application allows a device to act as both a client and a server within the same communication. In this
-        model, every client is a server and every server is a client. P2P applications require that each end device
-        provide a user interface and run a background service.
-      </p>
-      <p style="margin:0 0 0;">
-        Some P2P applications use a hybrid system where resource sharing is decentralized, but the indexes that point to
-        resource locations are stored in a centralized directory. In a hybrid system, each peer accesses an index server
-        to get the location of a resource stored on another peer.
-      </p>
+    <!-- COURSES -->
+    <section id="courses" class="py-12 bg-white px-4 sm:px-6 lg:px-8">
+      <div class="max-w-7xl mx-auto">
+        <div class="text-center mb-8">
+          <h2 class="text-2xl md:text-3xl font-bold">Future-Ready <span style="background:linear-gradient(135deg,var(--primary-from),var(--primary-to));-webkit-background-clip:text;color:transparent;">Courses</span></h2>
+          <p class="text-gray-600 mt-3">Discover our comprehensive curriculum designed to transform you into a tech professional of tomorrow.</p>
+        </div>
 
-      <div style="margin-top:12px;    padding:12px 14px;">
-        <p style="margin:0;">
-          <strong style="color:#000;">Example:</strong> Instant messaging where both clients can simultaneously send and
-          receive messages.
-        </p>
+        <!-- Search bar (inserted here for larger screens too) -->
+        <div class="mb-6 px-2">
+          <input id="course-search" type="search" placeholder="Search courses..." class="w-full md:w-1/2 mx-auto block px-4 py-3 border rounded-lg shadow focus:outline-none focus:ring-2 focus:ring-indigo-500" />
+        </div>
+
+        <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
+
+          <!-- Generic course card component -->
+          <!-- Repeat / generate as needed -->
+          <article class="course-card bg-gradient-to-br from-purple-50 to-indigo-50 p-6">
+            <div class="flex items-center gap-4">
+              <div class="w-14 h-14 rounded-2xl bg-gradient-to-r from-purple-600 to-indigo-600 flex items-center justify-center text-white"> <i class="fas fa-brain"></i></div>
+              <div>
+                <h3 class="text-lg font-semibold text-gray-900">Artificial Intelligence & Machine Learning</h3>
+                <p class="text-sm text-gray-600 mt-1 line-clamp-3">Master AI algorithms, neural networks, and intelligent systems that are shaping the future of technology.</p>
+              </div>
+            </div>
+            <div class="mt-4 flex items-center justify-between">
+              <span class="bg-purple-100 text-purple-800 px-3 py-1 rounded-full text-sm font-medium">Contact me</span>
+              <span class="text-purple-600 font-semibold">+91 79833 95430</span>
+            </div>
+            <div class="mt-4 overflow-hidden rounded-lg">
+              <img src="https://storage.googleapis.com/workspace-0f70711f-8b4e-4d94-86f1-2a93ccde5887/image/227e064e-4c64-4ca5-9e41-f3ca2816428f.png" alt="AI & ML" class="w-full h-40 object-cover rounded-md" loading="lazy" onerror="this.style.display='none'" />
+            </div>
+            <a href="introduction%20to%20artificial%20intelligence.html" class="mt-4 inline-block enroll-link bg-gradient-to-r from-purple-600 to-indigo-600 text-white rounded-lg font-semibold px-4 py-2">Open Notes <i class="fas fa-arrow-right ml-2"></i></a>
+          </article>
+
+          <article class="course-card bg-gradient-to-br from-red-50 to-orange-50 p-6">
+            <div class="flex items-center gap-4">
+              <div class="w-14 h-14 rounded-2xl bg-gradient-to-r from-red-600 to-orange-600 flex items-center justify-center text-white"> <i class="fas fa-shield-alt"></i></div>
+              <div>
+                <h3 class="text-lg font-semibold text-gray-900">Cyber Security Mastery</h3>
+                <p class="text-sm text-gray-600 mt-1">Learn to defend against cyber threats, secure networks, and protect digital assets in our comprehensive security program.</p>
+              </div>
+            </div>
+            <div class="mt-4 flex items-center justify-between">
+              <span class="bg-red-100 text-red-800 px-3 py-1 rounded-full text-sm font-medium">Contact me</span>
+              <span class="text-red-600 font-semibold">+91 79833 95430</span>
+            </div>
+            <div class="mt-4 overflow-hidden rounded-lg">
+              <img src="https://storage.googleapis.com/workspace-0f70711f-8b4e-4d94-86f1-2a93ccde5887/image/4c2da07e-85f6-4ab2-9358-d66a20a9b146.png" alt="Cybersecurity" class="w-full h-40 object-cover rounded-md" loading="lazy" onerror="this.style.display='none'" />
+            </div>
+            <a href="introduction%20to%20cybersecurity.html" class="mt-4 inline-block enroll-link bg-gradient-to-r from-red-600 to-orange-600 text-white rounded-lg font-semibold px-4 py-2">Open Notes <i class="fas fa-arrow-right ml-2"></i></a>
+          </article>
+
+          <article class="course-card bg-gradient-to-br from-blue-50 to-cyan-50 p-6">
+            <div class="flex items-center gap-4">
+              <div class="w-14 h-14 rounded-2xl bg-gradient-to-r from-blue-600 to-cyan-600 flex items-center justify-center text-white"> <i class="fas fa-laptop-code"></i></div>
+              <div>
+                <h3 class="text-lg font-semibold text-gray-900">Software Development</h3>
+                <p class="text-sm text-gray-600 mt-1">Become a full-stack developer with expertise in modern frameworks, databases, and software architecture principles.</p>
+              </div>
+            </div>
+            <div class="mt-4 flex items-center justify-between">
+              <span class="bg-blue-100 text-blue-800 px-3 py-1 rounded-full text-sm font-medium">Contact me</span>
+              <span class="text-blue-600 font-semibold">+91 79833 95430</span>
+            </div>
+            <div class="mt-4 overflow-hidden rounded-lg">
+              <img src="https://storage.googleapis.com/workspace-0f70711f-8b4e-4d94-86f1-2a93ccde5887/image/fc867098-3703-4a87-ad09-2bfccae7accf.png" alt="Software development" class="w-full h-40 object-cover rounded-md" loading="lazy" onerror="this.style.display='none'" />
+            </div>
+            <a href="sd.html" class="mt-4 inline-block enroll-link bg-gradient-to-r from-blue-600 to-cyan-600 text-white rounded-lg font-semibold px-4 py-2">Open Notes <i class="fas fa-arrow-right ml-2"></i></a>
+          </article>
+
+          <!-- other cards (Web Dev, Networking, IoT, Entrepreneurship, Communication, Stock) -->
+
+          <article class="course-card bg-gradient-to-br from-green-50 to-emerald-50 p-6">
+            <div class="flex items-center gap-4">
+              <div class="w-14 h-14 rounded-2xl bg-gradient-to-r from-green-600 to-emerald-600 flex items-center justify-center text-white"> <i class="fas fa-code"></i></div>
+              <div>
+                <h3 class="text-lg font-semibold text-gray-900">Web Development</h3>
+                <p class="text-sm text-gray-600 mt-1">Master frontend and backend development with React, Node.js, and modern web technologies to build responsive applications.</p>
+              </div>
+            </div>
+            <div class="mt-4 flex items-center justify-between">
+              <span class="bg-green-100 text-green-800 px-3 py-1 rounded-full text-sm font-medium">Contact me</span>
+              <span class="text-green-600 font-semibold">+91 79833 95430</span>
+            </div>
+            <div class="mt-4 overflow-hidden rounded-lg">
+              <img src="https://storage.googleapis.com/workspace-0f70711f-8b4e-4d94-86f1-2a93ccde5887/image/4bca52a3-871f-419f-91c6-650058334160.png" alt="Web development" class="w-full h-40 object-cover rounded-md" loading="lazy" onerror="this.style.display='none'" />
+            </div>
+            <a href="wd.html" class="mt-4 inline-block enroll-link bg-gradient-to-r from-green-600 to-emerald-600 text-white rounded-lg font-semibold px-4 py-2">Open Notes <i class="fas fa-arrow-right ml-2"></i></a>
+          </article>
+
+          <article class="course-card bg-gradient-to-br from-indigo-50 to-purple-50 p-6">
+            <div class="flex items-center gap-4">
+              <div class="w-14 h-14 rounded-2xl bg-gradient-to-r from-indigo-600 to-purple-600 flex items-center justify-center text-white"> <i class="fas fa-network-wired"></i></div>
+              <div>
+                <h3 class="text-lg font-semibold text-gray-900">Networking Essentials</h3>
+                <p class="text-sm text-gray-600 mt-1">Learn network architecture, protocols, and security to build and maintain robust IT infrastructure systems.</p>
+              </div>
+            </div>
+            <div class="mt-4 flex items-center justify-between">
+              <span class="bg-indigo-100 text-indigo-800 px-3 py-1 rounded-full text-sm font-medium">Contact me</span>
+              <span class="text-indigo-600 font-semibold">+91 79833 95430</span>
+            </div>
+            <div class="mt-4 overflow-hidden rounded-lg">
+              <img src="https://storage.googleapis.com/workspace-0f70711f-8b4e-4d94-86f1-2a93ccde5887/image/11ec8d0e-39e5-4dc7-804a-28e468d642b6.png" alt="Networking" class="w-full h-40 object-cover rounded-md" loading="lazy" onerror="this.style.display='none'" />
+            </div>
+            <a href="cn.html" class="mt-4 inline-block enroll-link bg-gradient-to-r from-indigo-600 to-purple-600 text-white rounded-lg font-semibold px-4 py-2">Open Notes <i class="fas fa-arrow-right ml-2"></i></a>
+          </article>
+
+          <article class="course-card bg-gradient-to-br from-gray-50 to-blue-gray-50 p-6">
+            <div class="flex items-center gap-4">
+              <div class="w-14 h-14 rounded-2xl bg-gradient-to-r from-gray-600 to-blue-gray-600 flex items-center justify-center text-white"> <i class="fas fa-microchip"></i></div>
+              <div>
+                <h3 class="text-lg font-semibold text-gray-900">Internet of Things</h3>
+                <p class="text-sm text-gray-600 mt-1">Build smart devices and connected systems with IoT technologies, sensors, and cloud integration for modern applications.</p>
+              </div>
+            </div>
+            <div class="mt-4 flex items-center justify-between">
+              <span class="bg-gray-100 text-gray-800 px-3 py-1 rounded-full text-sm font-medium">Contact me</span>
+              <span class="text-gray-600 font-semibold">+91 79833 95430</span>
+            </div>
+            <div class="mt-4 overflow-hidden rounded-lg">
+              <img src="https://storage.googleapis.com/workspace-0f70711f-8b4e-4d94-86f1-2a93ccde5887/image/5e09f342-17b7-4c50-abe7-f1dc9218421e.png" alt="IoT" class="w-full h-40 object-cover rounded-md" loading="lazy" onerror="this.style.display='none'" />
+            </div>
+            <a href="mmx.html" class="mt-4 inline-block enroll-link bg-gradient-to-r from-gray-600 to-blue-gray-600 text-white rounded-lg font-semibold px-4 py-2">Open Notes <i class="fas fa-arrow-right ml-2"></i></a>
+          </article>
+
+          <!-- Entrepreneurship, Communication, Stock market as smaller cards -->
+
+          <article class="course-card p-6 bg-gradient-to-br from-yellow-50 to-orange-50">
+            <div class="flex items-center gap-4">
+              <div class="w-14 h-14 rounded-2xl bg-gradient-to-r from-yellow-600 to-orange-600 flex items-center justify-center text-white"> <i class="fas fa-lightbulb"></i></div>
+              <div>
+                <h3 class="text-lg font-semibold">Entrepreneurship</h3>
+                <p class="text-sm text-gray-600 mt-1">From idea to execution — learn business fundamentals, fundraising, and product-market fit.</p>
+              </div>
+            </div>
+            <div class="mt-4 flex items-center justify-between">
+              <span class="bg-yellow-100 text-yellow-800 px-3 py-1 rounded-full text-sm font-medium">Contact me</span>
+              <span class="text-yellow-600 font-semibold">+91 79833 95430</span>
+            </div>
+            <a href="nn.html" class="mt-4 inline-block enroll-link bg-gradient-to-r from-yellow-600 to-orange-600 text-white rounded-lg font-semibold px-4 py-2">Open Notes <i class="fas fa-arrow-right ml-2"></i></a>
+          </article>
+
+          <article class="course-card p-6 bg-gradient-to-br from-blue-50 to-indigo-50">
+            <div class="flex items-center gap-4">
+              <div class="w-14 h-14 rounded-2xl bg-gradient-to-r from-blue-600 to-indigo-600 flex items-center justify-center text-white"> <i class="fas fa-comments"></i></div>
+              <div>
+                <h3 class="text-lg font-semibold">Communication Skills</h3>
+                <p class="text-sm text-gray-600 mt-1">Master the art of presenting ideas that inspire and influence.</p>
+              </div>
+            </div>
+            <div class="mt-4 flex items-center justify-between">
+              <span class="bg-blue-100 text-blue-800 px-3 py-1 rounded-full text-sm font-medium">Contact me</span>
+              <span class="text-blue-600 font-semibold">+91 79833 95430</span>
+            </div>
+            <a href="eng.html" class="mt-4 inline-block enroll-link bg-gradient-to-r from-blue-600 to-indigo-600 text-white rounded-lg font-semibold px-4 py-2">Open Notes <i class="fas fa-arrow-right ml-2"></i></a>
+          </article>
+
+          <article class="course-card p-6 bg-gradient-to-br from-blue-50 to-indigo-50">
+            <div class="flex items-center gap-4">
+              <div class="w-14 h-14 rounded-2xl bg-gradient-to-r from-blue-600 to-indigo-600 flex items-center justify-center text-white"> <i class="fas fa-chart-line"></i></div>
+              <div>
+                <h3 class="text-lg font-semibold">Stock Market Investing</h3>
+                <p class="text-sm text-gray-600 mt-1">Invest smart and build wealth with practical market strategies.</p>
+              </div>
+            </div>
+            <div class="mt-4 flex items-center justify-between">
+              <span class="bg-blue-100 text-blue-800 px-3 py-1 rounded-full text-sm font-medium">Contact me</span>
+              <span class="text-blue-600 font-semibold">+91 79833 95430</span>
+            </div>
+            <a href="sm.html" class="mt-4 inline-block enroll-link bg-gradient-to-r from-blue-600 to-indigo-600 text-white rounded-lg font-semibold px-4 py-2">Open Notes <i class="fas fa-arrow-right ml-2"></i></a>
+          </article>
+
+        </div>
       </div>
     </section>
 
-    <!-- Multiple Roles -->
-    <section style="  padding:18px 20px; margin:0 0 16px; color:#000;">
-      <h2 style="margin:0 0 10px; color:#1f4b99; font-size:22px;">Multiple Roles in the Network</h2>
-      <p style="margin:0 0 10px;">
-        A computer with server software can provide services simultaneously to one or many clients. Additionally, a
-        single computer can run multiple types of server software. In a home or small business, it may be necessary for
-        one computer to act as a file server, a web server, and an email server.
-      </p>
-      <p style="margin:0 0 0;">
-        A single computer can also run multiple types of client software. There must be client software for every
-        service required. With multiple clients installed, a host can connect to multiple servers at the same time. For
-        example, a user can check email and view a web page while instant messaging and listening to internet radio.
-      </p>
-    </section>
-
-
-</div>
-
- <div style="max-width: 900px; margin: 0 auto; background: #ffffff; border: 2px solid #111827; border-radius: 14px; padding: 28px; line-height: 1.7; box-shadow: 0 10px 20px rgba(0,0,0,.06);">
-
-  <!-- Title (no color override so headings keep their default color) -->
-  <h1 style="margin-top:0;">Network Infrastructure</h1>
-
-  <!-- Section 1 -->
-      <p style="color:black;">
-      The path that a message takes from its source to destination can be as simple as a single cable connecting one computer to another, or as complex as a network that literally spans the globe. This network infrastructure is the platform that supports the network. It provides the stable and reliable channel over which our communications can occur.
-    </p>
-
-    <p style="color:black;">
-      The network infrastructure contains three categories of hardware components, as shown in the figure:
-    </p>
-
-    <h3 style="margin:12px 0 6px;">End devices</h3>
-    <ul style="margin-top:6px; padding-left:20px;">
-      <li style="color:black;">Desktop Computer</li>
-      <li style="color:black;">Laptop</li>
-      <li style="color:black;">Printer</li>
-      <li style="color:black;">IP Phone</li>
-      <li style="color:black;">Wireless Tablet</li>
-      <li style="color:black;">TelePresence Endpoint</li>
-    </ul>
-
-    <h3 style="margin:12px 0 6px;">Intermediate devices</h3>
-    <ul style="margin-top:6px; padding-left:20px;">
-      <li style="color:black;">Wireless Router</li>
-      <li style="color:black;">LAN Switch</li>
-      <li style="color:black;">Router</li>
-      <li style="color:black;">Multilayer Switch</li>
-      <li style="color:black;">Firewall Appliance</li>
-    </ul>
-
-    <h3 style="margin:12px 0 6px;">Network media</h3>
-    <ul style="margin-top:6px; padding-left:20px;">
-      <li style="color:black;">Wireless Media</li>
-      <li style="color:black;">LAN Media</li>
-      <li style="color:black;">WAN Media</li>
-    </ul>
-   
-
-  <!-- Section 2 -->
-     <p style="color:black;">
-      Devices and media are the physical elements, or hardware, of the network. Hardware is often the visible components of the network platform such as a laptop, PC, switch, router, wireless access point, or the cabling used to connect the devices. Occasionally, some components may not be so visible. In the case of wireless media, messages are transmitted through the air using invisible radio frequencies or infrared waves.
-    </p>
-  
-
-  <!-- Section 3: Home Inventory Task -->
-      <p style="margin:0 0 10px;">Make a list of the network infrastructure components installed in your home network</p >
-     
-
-     
-
-  <!-- Section 4: End Devices Overview -->
-      <h2 style="margin:0 0 10px;">End Devices</h2>
-    <p style="color:black;">
-      The network devices that people are most familiar with are called end devices, or hosts. These devices form the interface between users and the underlying communication network.
-    </p>
-
-    <p style="color:black;">
-      Some examples of end devices are as follows:
-    </p>
-
-    <ul style="margin-top:6px; padding-left:20px;">
-      <li style="color:black;">Computers (workstations, laptops, file servers, web servers)</li>
-      <li style="color:black;">Network printers</li>
-      <li style="color:black;">Telephones and teleconferencing equipment</li>
-      <li style="color:black;">Security cameras</li>
-      <li style="color:black;">Mobile devices (such as smart phones, tablets, PDAs, and wireless debit/credit card readers and barcode scanners)</li>
-    </ul>
-
-    <p style="color:black;">
-      An end device (or host) is either the source or destination of a message transmitted over the network. In order to uniquely identify hosts, addresses are used. When a host initiates communication, it uses the address of the destination host to specify where the message should be sent.
-    </p>
-   
-</div>
-
-
-    <!-- Main Card -->
-  <div style="max-width: 900px; margin: 0 auto; background: #ffffff; border: 2px solid #111827; border-radius: 14px; padding: 28px; line-height: 1.7; box-shadow: 0 10px 20px rgba(0,0,0,.06);">
- 
-  
-      <!-- Title -->
-      <h1 style="margin-top:0; margin-bottom:12px; font-size:34px; color:#1f3a93; letter-spacing:0.5px;">
-        ISP Services
-      </h1>
-      <p style="margin-top:0;">
-        An Internet Service Provider (ISP) provides the link between the home network and the internet. An ISP can be the local cable provider, a landline telephone service provider, the cellular network that provides your smartphone service, or an independent provider who leases bandwidth on the physical network infrastructure of another company.
-      </p>
-      <p>
-        Many ISPs also offer additional services to their contract subscribers, as shown in the figure. These services can include email accounts, network storage, and website hosting and automated backup or security services.
-      </p>
-      <p>
-        ISPs are critical to communications across the global internet. Each ISP connects to other ISPs to form a network of links that interconnect users all over the world. ISPs are connected in a hierarchical manner that ensures that internet traffic generally takes the shortest path from the source to the destination.
-      </p>
-      <p>
-        The internet backbone is like an information super highway that provides high-speed data links to connect the various service provider networks in major metropolitan areas around the world. The primary medium that connects the internet backbone is fiber-optic cable. This cable is typically installed underground to connect cities within continents. Fiber-optic cables also run under the sea to connect continents, countries, and cities.
-      </p>
-
-      <!-- Divider -->
-      <div style="height:1px;   margin:22px 0;"></div>
-
-      <!-- ISP Connections -->
-      <h2 style="margin:0 0 10px 0; font-size:26px; color:#1f3a93;">
-        ISP Connections
-      </h2>
-      <p>
-        The interconnection of ISPs that forms the backbone of the internet is a complex web of fiber-optic cables with expensive networking switches and routers that direct the flow of information between source and destination hosts. Average home users are not aware of the infrastructure outside of their network. For a home user, connecting to the ISP is a fairly uncomplicated process.
-      </p>
-
-      <!-- Divider -->
-      <div style="height:1px;   margin:22px 0;"></div>
-
-      <!-- Cable and DSL Connections -->
-      <h2 style="margin:0 0 10px 0; font-size:26px; color:#1f3a93;">
-        Cable and DSL Connections
-      </h2>
-
-      <h3 style="margin:14px 0 6px 0; font-size:20px; color:#1f3a93;">
-        Cable
-      </h3>
-      <p>
-        Typically offered by cable television service providers, the internet data signal is carried on the same coaxial cable that delivers cable television. It provides a high bandwidth, always-on connection to the internet. A special cable modem separates the internet data signal from the other signals carried on the cable and provides an Ethernet connection to a host computer or LAN.
-      </p>
-
-      <h3 style="margin:14px 0 6px 0; font-size:20px; color:#1f3a93;">
-        DSL (Digital Subscriber Line)
-      </h3>
-      <p>
-        DSL provides a high bandwidth, always-on connection to the internet. It requires a special high-speed modem that separates the DSL signal from the telephone signal and provides an Ethernet connection to a host computer or LAN. DSL runs over a telephone line, with the line split into three channels:
-      </p>
-      <ul style="margin:8px 0 8px 18px; padding:0;">
-        <li>One channel is used for voice telephone calls (you can receive calls without disconnecting from the internet).</li>
-        <li>A faster download channel, used to receive information from the internet.</li>
-        <li>An upload channel for sending information (usually slightly slower than the download channel).</li>
-      </ul>
-      <p>
-        The quality and speed of the DSL connection depend mainly on the quality of the phone line and the distance from the central office of your phone company. The farther you are from the central office, the slower the connection.
-      </p>
-
-      <!-- Divider -->
-      <div style="height:1px; background:#e6e6e6; margin:22px 0;"></div>
-
-      <!-- Additional Connectivity Options -->
-      <h2 style="margin:0 0 10px 0; font-size:26px; color:#1f3a93;">
-        Additional Connectivity Options
-      </h2>
-
-      <h3 style="margin:14px 0 6px 0; font-size:20px; color:#1f3a93;">
-        Cellular
-      </h3>
-      <p>
-        Cellular internet access uses a cell phone network to connect. Wherever you can get a cellular signal, you can get internet access. Performance is limited by the capabilities of the phone and the connected cell tower. It’s a real benefit in areas without wired connectivity or for people on the move, but carriers usually meter bandwidth and may charge extra for usage beyond the data plan.
-      </p>
-
-      <h3 style="margin:14px 0 6px 0; font-size:20px; color:#1f3a93;">
-        Satellite
-      </h3>
-      <p>
-        Satellite service is a good option for homes or offices that do not have access to DSL or cable. Dishes require a clear line of sight to the satellite, which can be difficult in heavily wooded areas or where there are overhead obstructions. Speeds vary by contract, equipment and installation costs can be high (sometimes offset by provider deals), followed by a moderate monthly fee. Like cellular, it’s especially useful in otherwise unconnected areas.
-      </p>
-
-      <h3 style="margin:14px 0 6px 0; font-size:20px; color:#1f3a93;">
-        Dial-Up Telephone
-      </h3>
-      <p>
-        An inexpensive option that uses any phone line and a modem. To connect, a user dials the ISP’s access number. The low bandwidth is usually insufficient for large data transfers, but it can be useful for basic, temporary access while traveling. Consider dial-up only when higher-speed options are unavailable.
-      </p>
-
-      
-    </div>
-
-
-<div style="max-width: 900px; margin: 0 auto; background: #ffffff; border: 2px solid #111827; border-radius: 14px; padding: 28px; line-height: 1.7; box-shadow: 0 10px 20px rgba(0,0,0,.06);">
- 
-
-
-  <h1>Wireless Networks</h1>
-
-  <h2>Types of Wireless Networks</h2>
-
-  <div style="    margin-bottom:12px;">
-    <p style="color: black; margin:0 0 10px 0;">Our cell phones communicate on many different networks.</p>
-    <p style="color: black; margin:0 0 10px 0;">When we're communicating over the voice channel, and we're talking say to someone on another cell phone, our communications are going through the cellular provider network.</p>
-    <p style="color: black; margin:0 0 10px 0;">When we use a bluetooth device like a speaker or a headset or even a smart watch, that device is communicating through a completely different network. It is a much shorter range wireless network than the cellular network, and it works with different rules and different protocols.</p>
-    <p style="color: black; margin:0 0 10px 0;">Wi-Fi is something you are probably the most familiar because Wi-Fi is supported on many different types of devices, including smartphones. When we are working on a Wi-Fi network we are usually using that network to communicate over the global internet.</p>
-    <p style="color: black; margin:0 0 10px 0;">And lastly we have near field communications. Near field communications allow us to send information over an extremely short distance. This is how you might use your cellphone to pay for something, you know, in a grocery store or a fast food restaurant.</p>
-    <p style="color: black; margin:0 0 10px 0;">Basically all of these communications, protocols, rules and frequencies are contained within the same device. As far as I'm concerned it's pretty amazing.</p>
-    <p style="color: black; margin:0;">Now there is one other thing that your cellphone does, and that is, it is capable of receiving GPS signals. What's happening is your cellphone is actually receiving signals from satellites that are stationed all around the Earth. And they send signals down to the various devices that have GPS capability. And when they do, your cellphone is able to figure out where it is, usually within a few meters. All of these things may actually be happening simultaneously.</p>
-  </div>
-
-  <h2>Cell Phone Interactions with Different Networks</h2>
-
-  <div style="   margin-bottom:12px;">
-    <p style="color: black; margin:0 0 10px 0;">So let's think for a minute about some of the things we do on our cell phones.</p>
-    <p style="color: black; margin:0 0 10px 0;">The first thing, obviously, is we talk. Because that's their primary function. So we talk to people on land lines and on other cell phones. And we talk to businesses. So basically we use one of the radios within the cell phone, and cell phones contain multiple radios, transmitters, and receivers, to do the talking.</p>
-    <p style="color: black; margin:0 0 10px 0;">Then we also do data. And this is the kind of data that we use our data plan for. This is when we're looking up something on our cell phone when we're not near a regular Wi-Fi network. So we have the data plan network, which uses the cell phone infrastructure in order to be able to access the internet.</p>
-    <p style="color: black; margin:0 0 10px 0;">We also have Wi-Fi. We use hotspots, and usually we also have a home wireless network. Most of us also use our cell phones as a way to get places. We use location services. Location services include our GPS, maps, places near me, and now many of us are also using our cell phones to pay for things. So we have pay services. We can take our cell phone next to the cash register or the receiver and automatically have our financial information transferred. So this is like cash registers, and payment pads.</p>
-    <p style="color: black; margin:0;">So we're going to talk a little bit now about the different kinds of networks that are used to access all of these various services.</p>
-  </div>
-
-  <h2>Other Wireless Networks</h2>
-
-  <div style="    margin-bottom:12px;">
-
-    <h3>Global Positioning System</h3>
-    <p style="color: black; margin:0 0 10px 0;">The GPS uses satellites to transmit signals that cover the globe. The smartphone can receive these signals and calculate the phone’s location to an accuracy of within 10 meters.</p>
-
-    <h3>Wi-Fi</h3>
-    <p style="color: black; margin:0 0 10px 0;">Wi-Fi transmitters and receivers located within the smartphone enable the phone to connect to local networks and the internet. In order to receive and send data on a Wi-Fi network, the phone needs to be within the range of the signal from a wireless network access point. Wi-Fi networks are usually privately owned but often provide guest or public access hotspots. A hotspot is an area where Wi-Fi signals are available. Wi-Fi network connections on the phone are similar to the network connections on a laptop computer.</p>
-
-    <h3>Bluetooth</h3>
-    <p style="color: black; margin:0 0 10px 0;">Bluetooth is a low-power, shorter range wireless technology that is intended to replace wired connectivity for accessories such as speakers, headphones, and microphones. Bluetooth can also be used to connect a smartwatch to a smartphone. Because Bluetooth technology can be used to transmit both data and voice, it can be used to create small local networks. Bluetooth is wireless technology that allows devices to communicate over short distances. Multiple devices can be connected at the same time with Bluetooth.</p>
-
-    <h3>Near Field Communication (NFC)</h3>
-    <p style="color: black; margin:0;">Near Field Communication (NFC) is a wireless communication technology that enables data to be exchanged by devices that are in very close proximity to each other, usually less than a few centimeters. For example, NFC can be used to connect a smartphone and a payment system. NFC uses electromagnetic fields to transmit data.</p>
-
-  </div>
-</div>
-
-  <div style="max-width: 900px; margin: 24px auto; padding: 24px; border: 3px solid #222; border-radius: 16px; background:#fff; box-shadow: 0 4px 18px rgba(0,0,0,.08);">
-
-    <h1 style="margin: 0 0 12px; color: #1a73e8; font-size: 34px;">Mobile Devices and Wi‑Fi</h1>
-    <p style="margin: 0 0 16px; color:#000;">Mobile devices give us the freedom to work, learn, play, and communicate wherever we want. People using mobile devices do not need to be tied to a physical location to send and receive voice, video, and data communications. In addition, wireless facilities, such as internet cafes, are available in many countries. College campuses use wireless networks to allow students to sign up for classes, watch lectures, and submit assignments in areas where physical connections to the network are unavailable. With mobile devices becoming more powerful, many tasks that needed to be performed on large computers connected to physical networks can now be completed using mobile devices on wireless networks.</p>
-    <p style="margin: 0 0 16px; color:#000;">Almost all mobile devices are capable of connecting to Wi‑Fi networks. It is advisable to connect to Wi‑Fi networks when possible because data used over Wi‑Fi does not count against the cellular data plan. Also, because Wi‑Fi radios use less power than cellular radios, connecting to Wi‑Fi networks conserves battery power. Like other Wi‑Fi‑enabled devices, it is important to use security when connecting to Wi‑Fi networks. These precautions should be taken to protect Wi‑Fi communications on mobile devices:</p>
-
-    <div style="    padding:12px 16px; margin: 12px 0 22px;">
-      <ul style="margin: 0; padding: 0 0 0 18px; color:#000;">
-        <li style="margin: 8px 0; color:#000;">Never send login or password information using unencrypted text (plaintext).</li>
-        <li style="margin: 8px 0; color:#000;">Use a VPN connection when possible if you are sending sensitive data.</li>
-        <li style="margin: 8px 0; color:#000;">Enable security on home networks.</li>
-        <li style="margin: 8px 0; color:#000;">Use WPA2 or higher encryption for security.</li>
-      </ul>
-    </div>
-
-    <h2 style="margin: 24px 0 8px; color:#1a73e8; font-size:26px;">Wi‑Fi Settings</h2>
-    <p style="margin: 0 0 12px; color:#000;">Two of the most popular operating systems for mobile devices are Android and Apple iOS. Each operating system has settings that enable you to configure your device to connect to wireless networks.</p>
-
-    <div style="display:block;   padding:16px; margin: 12px 0 18px;">
-      <h3 style="margin: 0 0 8px; color:#1a73e8;">Turn Wi‑Fi On/Off — Android</h3>
-      <ol style="margin: 0; padding: 0 0 0 18px; color:#000;">
-        <li style="margin: 6px 0; color:#000;">Unlock your phone and go to the Home screen.</li>
-        <li style="margin: 6px 0; color:#000;">Open <span style="font-weight:600; color:#000;">Settings</span> ⚙️ (swipe down and tap the gear, or open the app).</li>
-        <li style="margin: 6px 0; color:#000;">Tap <span style="font-weight:600; color:#000;">Network &amp; Internet</span> (name may vary by device).</li>
-        <li style="margin: 6px 0; color:#000;">Tap <span style="font-weight:600; color:#000;">Wi‑Fi</span> and turn the toggle <span style="font-weight:600; color:#000;">ON</span>.</li>
-        <li style="margin: 6px 0; color:#000;">Select a network, enter the password, and tap <span style="font-weight:600; color:#000;">Connect</span>.</li>
-        <li style="margin: 6px 0; color:#000;">Look for the Wi‑Fi icon in the status bar.</li>
-      </ol>
-    </div>
-
-    <div style="display:block;    padding:16px; margin: 12px 0 18px;">
-      <h3 style="margin: 0 0 8px; color:#1a73e8;">Turn Wi‑Fi On/Off — iOS</h3>
-      <ol style="margin: 0; padding: 0 0 0 18px; color:#000;">
-        <li style="margin: 6px 0; color:#000;">Unlock your iPhone/iPad and open <span style="font-weight:600; color:#000;">Settings</span> ⚙️.</li>
-        <li style="margin: 6px 0; color:#000;">Tap <span style="font-weight:600; color:#000;">Wi‑Fi</span> and turn the switch <span style="font-weight:600; color:#000;">ON</span> (green).</li>
-        <li style="margin: 6px 0; color:#000;">Choose a network, enter the password, then tap <span style="font-weight:600; color:#000;">Join</span>.</li>
-        <li style="margin: 6px 0; color:#000;">A ✔️ appears next to the network and the Wi‑Fi icon shows at the top.</li>
-      </ol>
-    </div>
-
-    <h2 style="margin: 24px 0 8px; color:#1a73e8; font-size:26px;">Configure Mobile Wi‑Fi Connectivity</h2>
-    <p style="margin: 0 0 12px; color:#000;">If your device does not prompt to connect, the network SSID broadcast may be off, or the device may not be set to connect automatically. Manually configure the Wi‑Fi settings. <span style="font-weight:600; color:#000;">SSIDs and passphrases are case‑sensitive</span> and must match the router configuration exactly.</p>
-
-    <div style="display:block;    padding:16px; margin: 12px 0 18px;">
-      <h3 style="margin: 0 0 8px; color:#1a73e8;">Manual Connect — Android</h3>
-      <ol style="margin: 0; padding: 0 0 0 18px; color:#000;">
-        <li style="margin: 6px 0; color:#000;">Settings &gt; <span style="font-weight:600; color:#000;">Add network</span></li>
-        <li style="margin: 6px 0; color:#000;">Enter the <span style="font-weight:600; color:#000;">SSID</span></li>
-        <li style="margin: 6px 0; color:#000;">Tap <span style="font-weight:600; color:#000;">Security</span> and select type</li>
-        <li style="margin: 6px 0; color:#000;">Tap <span style="font-weight:600; color:#000;">Password</span> and enter passphrase</li>
-        <li style="margin: 6px 0; color:#000;">Tap <span style="font-weight:600; color:#000;">Save</span></li>
-      </ol>
-    </div>
-
-    <div style="display:block;    padding:16px; margin: 12px 0 18px;">
-      <h3 style="margin: 0 0 8px; color:#1a73e8;">Manual Connect — iOS</h3>
-      <ol style="margin: 0; padding: 0 0 0 18px; color:#000;">
-        <li style="margin: 6px 0; color:#000;">Settings &gt; Wi‑Fi &gt; <span style="font-weight:600; color:#000;">Other</span></li>
-        <li style="margin: 6px 0; color:#000;">Enter the <span style="font-weight:600; color:#000;">SSID</span></li>
-        <li style="margin: 6px 0; color:#000;">Tap <span style="font-weight:600; color:#000;">Security</span> and select type</li>
-        <li style="margin: 6px 0; color:#000;">Tap <span style="font-weight:600; color:#000;">Other Network</span></li>
-        <li style="margin: 6px 0; color:#000;">Tap <span style="font-weight:600; color:#000;">Password</span> and enter passphrase</li>
-        <li style="margin: 6px 0; color:#000;">Tap <span style="font-weight:600; color:#000;">Join</span></li>
-      </ol>
-      <p style="margin: 10px 0 0; color:#000; font-size: 14px;">Note: Mobile OS commands can vary by version/manufacturer. Check your device manual for exact steps.</p>
-    </div>
-
-    <h2 style="margin: 24px 0 8px; color:#1a73e8; font-size:26px;">Configure Cellular Data Settings</h2>
-    <p style="margin: 0 0 12px; color:#000;">Cellular data plans and bandwidth limits vary by carrier and plan. Many users prefer Wi‑Fi when available to avoid charges and save battery.</p>
-
-    <div style="display:block;    padding:16px; margin: 12px 0 18px;">
-      <h3 style="margin: 0 0 8px; color:#1a73e8;">Android — Toggle Cellular Data</h3>
-      <p style="margin: 0 0 8px; color:#000;">Path: <span style="font-weight:600; color:#000;">Settings &gt; More (under Wireless &amp; Networks) &gt; Mobile Networks &gt; Data enabled</span></p>
-    </div>
-
-    <div style="display:block;   padding:16px; margin: 12px 0 18px;">
-      <h3 style="margin: 0 0 8px; color:#1a73e8;">iOS — Toggle Cellular Data</h3>
-      <p style="margin: 0 0 8px; color:#000;">Path: <span style="font-weight:600; color:#000;">Settings &gt; Cellular Data</span> (turn on/off)</p>
-    </div>
-
-    <h2 style="margin: 24px 0 8px; color:#1a73e8; font-size:26px;">How Phones Choose Networks</h2>
-    <div style="display:block;     padding:16px; margin: 12px 0 18px;">
-      <ul style="margin: 0; padding: 0 0 0 18px; color:#000;">
-        <li style="margin: 8px 0; color:#000;"><span style="font-weight:600; color:#000;">Wi‑Fi first:</span> If detected, your phone connects because it’s typically faster and doesn’t use cellular data.</li>
-        <li style="margin: 8px 0; color:#000;"><span style="font-weight:600; color:#000;">Cellular second:</span> If Wi‑Fi isn’t available, the device switches to 5G/4G/3G (if enabled).</li>
-        <li style="margin: 8px 0; color:#000;">Transitions happen automatically in the background. Radios switch seamlessly and your IP session usually continues.</li>
-      </ul>
-    </div>
-
-    <h2 style="margin: 24px 0 8px; color:#1a73e8; font-size:26px;">Bluetooth on a Windows Laptop (Pairing Example)</h2>
-    <div style="display:block;     padding:16px; margin: 12px 0 18px;">
-      <ol style="margin: 0; padding: 0 0 0 18px; color:#000;">
-        <li style="margin: 6px 0; color:#000;">Open Action Center (bottom‑right) and ensure Bluetooth is <span style="font-weight:600; color:#000;">On</span>, or right‑click and choose <span style="font-weight:600; color:#000;">Go to Settings</span>.</li>
-        <li style="margin: 6px 0; color:#000;">Alternatively: Start &gt; Settings &gt; Devices &gt; Bluetooth &amp; other devices.</li>
-        <li style="margin: 6px 0; color:#000;">Put your headset into <span style="font-weight:600; color:#000;">pairing mode</span> (per manufacturer instructions).</li>
-        <li style="margin: 6px 0; color:#000;">Click <span style="font-weight:600; color:#000;">Add Bluetooth or other device</span> &gt; <span style="font-weight:600; color:#000;">Bluetooth</span> &gt; select your headset.</li>
-        <li style="margin: 6px 0; color:#000;">Once connected, Windows will show it’s ready for <span style="font-weight:600; color:#000;">voice and music</span>. Future connections occur automatically when nearby.</li>
-      </ol>
-    </div>
-
-    <h2 style="margin: 24px 0 8px; color:#1a73e8; font-size:26px;">Simple Connectivity with Bluetooth</h2>
-    <p style="margin: 0 0 12px; color:#000;">Bluetooth provides an easy, low‑power way for devices to connect without cables. Up to eight Bluetooth devices can be connected at once.</p>
-
-    <div style="display:block;  padding:16px; margin: 12px 0 18px;">
-      <ul style="margin: 0; padding: 0 0 0 18px; color:#000;">
-        <li style="margin: 6px 0; color:#000;">Hands‑free headset</li>
-        <li style="margin: 6px 0; color:#000;">Keyboard or mouse</li>
-        <li style="margin: 6px 0; color:#000;">Stereo control / audio streaming</li>
-        <li style="margin: 6px 0; color:#000;">Car speakerphone</li>
-        <li style="margin: 6px 0; color:#000;">Tethering (also possible via Wi‑Fi or USB)</li>
-        <li style="margin: 6px 0; color:#000;">Portable mobile speaker</li>
-      </ul>
-    </div>
-
-    <h2 style="margin: 24px 0 8px; color:#1a73e8; font-size:26px;">Bluetooth Pairing</h2>
-    <p style="margin: 0 0 12px; color:#000;">For pairing, Bluetooth radios must be on. One device scans while the other is in <span style="font-weight:600; color:#000;">discoverable</span> mode (sometimes called <span style="font-weight:600; color:#000;">visible</span>). The discoverable device shares its name, class, available services, and supported specs. A PIN or passkey may be requested; it’s stored so you don’t need to enter it again.</p>
-
-    <div style="display:block;    padding:16px; margin: 12px 0 18px;">
-      <h3 style="margin: 0 0 8px; color:#1a73e8;">Pair a Device — Android</h3>
-      <ol style="margin: 0; padding: 0 0 0 18px; color:#000;">
-        <li style="margin: 6px 0; color:#000;">Put the accessory in <span style="font-weight:600; color:#000;">discoverable</span> mode and note its PIN.</li>
-        <li style="margin: 6px 0; color:#000;">Settings &gt; <span style="font-weight:600; color:#000;">Wireless &amp; networks</span> &gt; turn <span style="font-weight:600; color:#000;">Bluetooth</span> on.</li>
-        <li style="margin: 6px 0; color:#000;">Open the <span style="font-weight:600; color:#000;">Bluetooth</span> tab &gt; <span style="font-weight:600; color:#000;">Scan for devices</span>.</li>
-        <li style="margin: 6px 0; color:#000;">Tap the device, enter the PIN, then tap its name again to connect.</li>
-      </ol>
-    </div>
-
-    <div style="display:block;    padding:16px; margin: 12px 0 18px;">
-      <h3 style="margin: 0 0 8px; color:#1a73e8;">Pair a Device — iOS</h3>
-      <ol style="margin: 0; padding: 0 0 0 18px; color:#000;">
-        <li style="margin: 6px 0; color:#000;">Put the accessory in <span style="font-weight:600; color:#000;">discoverable</span> mode and note its PIN.</li>
-        <li style="margin: 6px 0; color:#000;">Settings &gt; <span style="font-weight:600; color:#000;">Bluetooth</span> &gt; turn on.</li>
-        <li style="margin: 6px 0; color:#000;">Tap the discovered device, enter the PIN to pair.</li>
-      </ol>
-      <p style="margin: 10px 0 0; color:#000; font-size: 14px;">Reminder: Steps can vary by OS version. Refer to your device’s manual for exact instructions.</p>
-    </div>
-
-    <h2 style="margin: 24px 0 8px; color:#1a73e8; font-size:26px;">Summary</h2>
-    <div style="display:block;     padding:16px; margin: 12px 0 0;  ">
-      <p style="margin: 0 0 10px; color:#000;">You pair your Bluetooth headphones to listen to music. At the same time, you’re connected to Wi‑Fi to stream that music from YouTube or Spotify. While all this is happening, you can still receive a text message or call over the cellular network.</p>
-      <p style="margin: 0; color:#000;"><span style="font-weight:700; color:#000;">👉 Bottom line:</span> Your phone handles multiple wireless connections simultaneously—each for a different purpose—without interfering with one another.</p>
-    </div>
-
-  </div>
-
-
-<div style="border:2px solid #444; border-radius:10px; padding:20px; max-width:900px; margin:0 auto; background:#ffffff; box-shadow: 0 6px 18px rgba(0,0,0,0.06);">
-
-  
-  <header style=" margin:0 auto 18px auto;">
-    <h1 style="margin:0 0 8px 0;">Home Network Basics</h1>
-      </header>
-
-  <main style="  margin:0 auto;">
-
-    <!-- Components of a Home Network -->
-    <section style="   padding:18px 18px 8px 18px;   margin-bottom:16px;">
-      <h2 style="margin-top:0;">Components of a Home Network</h2>
-      <p style="color:#000;">
-        A home network today connects far more than just an integrated router. Many different devices rely on it for connectivity and smooth functioning. For example, desktop computers connect for work, study, and browsing, while gaming systems such as PlayStation or Xbox use the network for online multiplayer gaming. Smart TVs depend on the network to stream movies, shows, and music. Devices like printers and scanners use it for wireless printing and file sharing. Security cameras stream real-time video for home monitoring, and telephones using VoIP services connect calls over the internet. Even climate control devices like smart thermostats rely on the network to adjust room temperatures remotely. With the arrival of new technologies such as smart lights, appliances, and voice assistants, more and more household functions will continue to depend on the home network for connectivity and control.
-      </p>
-    </section>
-
-    <!-- WLAN -->
-    <section style="      padding:18px 18px 8px 18px;   margin-bottom:16px;">
-      <h2 style="margin-top:0;">A Home Wireless Local Area Network (WLAN)</h2>
-      <p style="color:#000;">
-        A Home Wireless Local Area Network (WLAN) is a type of network that allows devices in a home to connect to the internet and to each other without physical cables, using Wi‑Fi technology. Instead of plugging devices directly into the router with wires, a WLAN uses radio signals to provide connectivity within a certain range, usually covering the entire house.
-      </p>
-      <p style="color:#000;">
-        For example, when you connect your smartphone to your home Wi‑Fi, it’s using the WLAN. Other devices such as laptops, gaming consoles, smart TVs, printers, security cameras, and smart home devices (like Alexa or Google Nest) also connect to this same WLAN. This makes it easy for family members to access the internet from anywhere in the home and also share resources, like printing from a wireless printer or streaming video on a TV.
-      </p>
-      <p style="color:#000; margin-bottom:10px;">👉 In short, a Home WLAN creates a wireless network environment inside the home, enabling convenience, mobility, and support for multiple connected devices.</p>
-    </section>
-
-    <!-- Typical Home Network Routers -->
-    <section style="     padding:18px 18px 8px 18px;   margin-bottom:16px;">
-      <h2 style="margin-top:0;">Typical Home Network Routers</h2>
-      <p style="color:#000;">
-        A typical home network router is the central device that connects all household devices to the internet and to each other. It usually combines multiple functions into a single unit to make networking simple for home users.
-      </p>
-
-      <!-- Ethernet Port -->
-      <div style="    padding:14px; margin:12px 0;  ">
-        <h3 style="margin-top:0;">Ethernet Port</h3>
-        <p style="color:#000;">
-          In a typical home router, there are several ports that connect to its internal switch. These ports are usually labeled “Ethernet” or “LAN” and are used to connect wired devices directly to the router using Ethernet cables. When devices such as desktop computers, gaming consoles, smart TVs, or printers are plugged into these LAN ports, they all become part of the same local network. This means they can communicate with each other easily—for example, a computer can send a document to a printer, or a gaming console can access files from a shared computer—while also sharing the router’s internet connection.
-        </p>
-        <p style="color:#000; margin-bottom:6px;">👉 <b>Example:</b> If you plug your desktop computer and smart TV into the router’s LAN ports, both devices will be on the same home network, allowing the TV to stream videos from the computer’s media library.</p>
-      </div>
-
-      <!-- Internet/WAN Port -->
-      <div style="  padding:14px; margin:12px 0;">
-        <h3 style="margin-top:0;">Internet (WAN) Port</h3>
-        <p style="color:#000;">
-          A home router has a special port called the Internet port or WAN (Wide Area Network) port, which is different from the LAN (Ethernet) ports. LAN ports are used to connect devices within the home network, such as computers, printers, or gaming consoles, so they can share files and resources locally. In contrast, the WAN port connects the router to another network, usually the internet, through a cable modem or DSL modem provided by the Internet Service Provider (ISP). Once connected, the router distributes internet access to all devices in the home, whether they are connected by Ethernet cables (LAN) or wirelessly through Wi‑Fi.
-        </p>
-        <p style="color:#000; margin-bottom:6px;">👉 <b>Example:</b> Your LAN ports may connect a desktop computer, printer, and smart TV, while the WAN port links the router to the ISP’s modem, giving every device internet access.</p>
-      </div>
-
-      <!-- Quick Summary List -->
-      <div style="   padding:14px; margin:12px 0;">
-        <h3 style="margin-top:0;">Quick Summary</h3>
-        <ul style="margin-top:4px; padding-left:18px;">
-          <li style="color:#000;">Home Routers: Have both wired LAN ports and a wireless access point (Wi‑Fi).</li>
-          <li style="color:#000;">Radio Antenna: Provides wireless connectivity for devices like laptops, phones, smart TVs.</li>
-          <li style="color:#000;">Same Local Network:
-            <ul style="margin-top:6px; padding-left:18px;">
-              <li style="color:#000;">Devices on LAN ports (wired)</li>
-              <li style="color:#000;">Devices on Wi‑Fi (wireless)</li>
-            </ul>
-            <span style="display:block; margin-top:6px; color:#000;">→ Both are on the same local network by default.</span>
-          </li>
-          <li style="color:#000;">Internet/WAN Port: The only port on a different network → connects router to ISP’s modem for internet.</li>
-        </ul>
-        <p style="color:#000; margin-top:6px;">👉 <b>Example:</b> A desktop (LAN cable) and a smartphone (Wi‑Fi) are on the same home network, while the WAN port links the router to the internet.</p>
+    <!-- FEATURES -->
+    <section class="py-12 bg-gradient-to-r from-indigo-600 to-purple-600 text-white px-4 sm:px-6 lg:px-8">
+      <div class="max-w-7xl mx-auto">
+        <div class="text-center mb-8">
+          <h2 class="text-2xl md:text-3xl font-bold">Why Choose <span class="text-yellow-300">Nalanda</span>?</h2>
+          <p class="mt-3 text-white/90 max-w-2xl mx-auto">Experience learning reimagined for the digital age with our unique approach.</p>
+        </div>
+        <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
+          <div class="text-center p-6 glass rounded-2xl border border-white/20">
+            <div class="mx-auto w-16 h-16 rounded-full bg-white/10 flex items-center justify-center mb-4"><i class="fas fa-graduation-cap text-yellow-300"></i></div>
+            <h3 class="font-semibold">Ancient Wisdom</h3>
+            <p class="text-sm text-white/80 mt-2">Teaching methods inspired by Nalanda and modern pedagogy.</p>
+          </div>
+          <div class="text-center p-6 glass rounded-2xl border border-white/20">
+            <div class="mx-auto w-16 h-16 rounded-full bg-white/10 flex items-center justify-center mb-4"><i class="fas fa-hands-helping text-yellow-300"></i></div>
+            <h3 class="font-semibold">1:1 Mentorship</h3>
+            <p class="text-sm text-white/80 mt-2">WhatsApp groups and live doubt-solving sessions with quizzes.</p>
+          </div>
+          <div class="text-center p-6 glass rounded-2xl border border-white/20">
+            <div class="mx-auto w-16 h-16 rounded-full bg-white/10 flex items-center justify-center mb-4"><i class="fas fa-briefcase text-yellow-300"></i></div>
+            <h3 class="font-semibold">Career Ready</h3>
+            <p class="text-sm text-white/80 mt-2">Practical skills employers actually want.</p>
+          </div>
+          <div class="text-center p-6 glass rounded-2xl border border-white/20">
+            <div class="mx-auto w-16 h-16 rounded-full bg-white/10 flex items-center justify-center mb-4"><i class="fas fa-infinity text-yellow-300"></i></div>
+            <h3 class="font-semibold">Premium Courses</h3>
+            <p class="text-sm text-white/80 mt-2">Forever-updated content, video lectures, notes and quizzes.</p>
+          </div>
+        </div>
       </div>
     </section>
+
+    <!-- CONTACT / FOOTER AREA -->
+    <footer id="contact" class="bg-gray-900 text-white py-12 px-4 sm:px-6 lg:px-8">
+      <div class="max-w-7xl mx-auto grid grid-cols-1 md:grid-cols-4 gap-8">
+        <div>
+          <div class="flex items-center gap-3 mb-4">
+            <div class="w-12 h-12 rounded-lg bg-gradient-to-r from-indigo-600 to-purple-600 flex items-center justify-center font-bold">NLH</div>
+            <div>
+              <div class="font-semibold">Nalanda Learning Hub</div>
+              <div class="text-sm text-gray-400">Where ancient methods meet modern tech education.</div>
+            </div>
+          </div>
+          <div class="flex gap-3 mt-4 text-gray-400">
+            <a href="https://youtube.com/@glitchbalak?si=z9YO65XkC1r-S-6D" aria-label="YouTube"><i class="fab fa-youtube"></i></a>
+            <a href="#" aria-label="LinkedIn"><i class="fab fa-linkedin"></i></a>
+            <a href="https://www.instagram.com/yashrajbhatt97" aria-label="Instagram"><i class="fab fa-instagram"></i></a>
+          </div>
+        </div>
+
+        <div>
+          <h4 class="font-semibold mb-3">Quick Links</h4>
+          <ul class="text-gray-400 space-y-2">
+            <li><a href="#courses" class="hover:text-white">Courses</a></li>
+            <li><a href="#" class="hover:text-white">About Us</a></li>
+            <li><a href="#contact" class="hover:text-white">Contact</a></li>
+          </ul>
+        </div>
+
+        <div>
+          <h4 class="font-semibold mb-3">Courses</h4>
+          <ul class="text-gray-400 space-y-2">
+            <li><a href="introduction%20to%20artificial%20intelligence.html" class="hover:text-white">AI & ML</a></li>
+            <li><a href="introduction%20to%20cybersecurity.html" class="hover:text-white">Cyber Security</a></li>
+            <li><a href="sd.html" class="hover:text-white">Software Dev</a></li>
+            <li><a href="wd.html" class="hover:text-white">Web Development</a></li>
+          </ul>
+        </div>
+
+        <div>
+          <h4 class="font-semibold mb-3">Contact Info</h4>
+          <div class="text-gray-400 space-y-2">
+            <p><i class="fas fa-envelope mr-2"></i>yashrajbhatt24@gmail.com</p>
+            <p><i class="fas fa-phone mr-2"></i>+91 79833 95430</p>
+            <p><i class="fas fa-map-marker-alt mr-2"></i>Kashipur, U.S. Nagar, Uttarakhand</p>
+          </div>
+        </div>
+      </div>
+
+      <div class="border-t border-gray-800 mt-10 pt-6 text-center text-gray-400">© 2024 Nalanda Learning Hub. All rights reserved.</div>
+    </footer>
+
+    <!-- Back to top + dark toggle -->
+    <button id="back-to-top" class="hidden fixed bottom-20 right-6 bg-purple-600 text-white p-3 rounded-full shadow-lg"><i class="fas fa-arrow-up"></i><span class="sr-only">Back to top</span></button>
+    <button id="dark-toggle" class="fixed bottom-6 right-6 bg-indigo-600 text-white p-3 rounded-full shadow-lg" aria-pressed="false"><i class="fas fa-moon"></i><span class="sr-only">Toggle dark mode</span></button>
 
   </main>
-</div>
 
+  <script>
+    // Mobile menu toggle
+    const mobileBtn = document.getElementById('mobile-menu-btn');
+    const mobileMenu = document.getElementById('mobile-menu');
+    mobileBtn && mobileBtn.addEventListener('click', () => {
+      const expanded = mobileBtn.getAttribute('aria-expanded') === 'true';
+      mobileBtn.setAttribute('aria-expanded', String(!expanded));
+      mobileMenu.classList.toggle('hidden');
+    });
 
-<div style="border:2px solid #444; border-radius:10px; padding:20px; max-width:900px; margin:0 auto; background:#ffffff; box-shadow: 0 6px 18px rgba(0,0,0,0.06);">
+    // Course search filter
+    const searchInput = document.getElementById('course-search');
+    searchInput && searchInput.addEventListener('input', (e) => {
+      const q = e.target.value.toLowerCase();
+      document.querySelectorAll('.course-card').forEach(card => {
+        const title = card.querySelector('h3')?.textContent?.toLowerCase() || '';
+        card.style.display = title.includes(q) ? 'block' : 'none';
+      });
+    });
 
+    // Back to top visibility
+    const backBtn = document.getElementById('back-to-top');
+    window.addEventListener('scroll', () => {
+      if(window.scrollY > 400) backBtn.classList.remove('hidden'); else backBtn.classList.add('hidden');
+    });
+    backBtn.addEventListener('click', () => window.scrollTo({top:0,behavior:'smooth'}));
 
+    // Dark mode toggle (minimal)
+    const darkToggle = document.getElementById('dark-toggle');
+    darkToggle.addEventListener('click', () => {
+      const isDark = document.documentElement.classList.toggle('dark');
+      darkToggle.setAttribute('aria-pressed', String(isDark));
+      // small style switch: invert background and text
+      if(isDark){
+        document.body.style.background = 'linear-gradient(135deg,#0f172a,#111827)';
+        document.body.classList.add('text-white');
+      } else {
+        document.body.style.background = '';
+        document.body.classList.remove('text-white');
+      }
+    });
 
-  <h1 style="margin-bottom:8px;">Network Technologies in the Home</h1>
+    // Simple typewriter effect for the main heading (progressive, non-blocking)
+    const heroH1 = document.querySelector('main h1');
+    if(heroH1){
+      const full = heroH1.textContent.trim();
+      heroH1.textContent = '';
+      let i=0; function type(){ if(i<=full.length){ heroH1.textContent = full.slice(0,i); i++; setTimeout(type,18);} }
+      type();
+    }
 
-  <section style=" padding:14px; margin:12px 0;   color:black;  ">
-    <h2>LAN Wireless Frequencies</h2>
-    <p>In home networks, the most common wireless technologies operate in the unlicensed <strong>2.4&nbsp;GHz</strong> and <strong>5&nbsp;GHz</strong> frequency ranges. One such technology is <strong>Bluetooth</strong>, which uses the 2.4&nbsp;GHz band for low-speed, short-range communication. Its strength lies in its ability to support one-to-many connections, making it ideal for connecting multiple peripherals such as wireless mice, keyboards, and printers. Bluetooth is also widely used for transmitting audio to speakers and headphones. In contrast, modern wireless LAN technologies based on the <em>IEEE 802.11</em> standards (Wi-Fi) also operate in the 2.4&nbsp;GHz and 5&nbsp;GHz bands but transmit at much higher power levels, providing greater range and faster data throughput. These Wi-Fi connections are essential for devices like smartphones, laptops, and smart TVs to access the internet across the home. Both Bluetooth and Wi-Fi operate in frequency ranges that can be used without a special license or permit, which has helped them become the dominant wireless technologies in households.</p>
-
-    <p style="font-style:italic; margin-top:8px;"><span style="display:inline-block; border:1px dashed #bbb; padding:6px; border-radius:6px;">👉 Example: A Bluetooth headset uses 2.4 GHz for short-range audio, while a Wi-Fi router uses 2.4 GHz or 5 GHz to connect multiple devices throughout the home.</span></p>
-  </section>
-
-  <section style="  padding:14px; margin:12px 0; color:black;  ">
-    <h2>Wired Network Technologies</h2>
-    <p>Some home network devices still benefit from a wired connection, even though most support wireless communication. Wired connections are generally faster, more stable, and not shared with other users on the network, making them ideal for applications like gaming, streaming, or desktop computing. The most common wired technology is the <strong>Ethernet</strong> protocol, which enables communication over a wired LAN. Ethernet usually uses patch cables made of unshielded twisted pair (UTP) with RJ-45 connectors, available in various lengths. Many modern homes are built with Ethernet wall jacks for easy wired connectivity. In homes without built-in Ethernet wiring, powerline adapters can be used to provide network access through the existing electrical wiring.</p>
-
-    <p style="font-style:italic; margin-top:8px;"><span style="display:inline-block; border:1px dashed #bbb; padding:6px; border-radius:6px;">👉 Example: A gaming console or smart TV connected via Ethernet often performs better than one relying on Wi-Fi.</span></p>
-  </section>
-
-  <section style="  padding:14px; margin:12px 0;  color:black;  ">
-    <h2>Category 5e cable</h2>
-    <p>The most common wiring in LANs is <strong>Category 5e (Cat5e)</strong> cable, which contains four pairs of twisted wires. The twisting reduces electrical interference, making the cable reliable and suitable for fast, stable network connections in homes and offices.</p>
-
-    <p style="font-style:italic; margin-top:8px;"><span style="display:inline-block; border:1px dashed #bbb; padding:6px; border-radius:6px;">👉 Example: A Cat5e cable is often used to connect a computer to a router for smooth internet access.</span></p>
-  </section>
-
-  <section style="  padding:14px; margin:12px 0;   color:black;  ">
-    <h2>Coaxial cable</h2>
-    <p>A coaxial cable has an inner wire, an insulating layer, a conducting shield, and an outer jacket for protection. It is durable, resists interference, and is commonly used for TV, internet, and CCTV connections.</p>
-
-    <p style="font-style:italic; margin-top:8px;"><span style="display:inline-block; border:1px dashed #bbb; padding:6px; border-radius:6px;">👉 Example: The wire connecting a cable TV box or modem is usually coaxial.</span></p>
-  </section>
-
-  <section style="  padding:14px; margin:12px 0;  color:black;  ">
-    <h2>Fiber-optic cables</h2>
-    <p>Fiber-optic cables are made of glass or plastic strands, about the thickness of a human hair, and are capable of carrying digital information at very high speeds over long distances. They offer extremely high bandwidth, allowing the transfer of large amounts of data quickly and efficiently.</p>
-
-    <p style="font-style:italic; margin-top:8px;"><span style="display:inline-block; border:1px dashed #bbb; padding:6px; border-radius:6px;">👉 Example: Fiber-optic cables are used in broadband internet connections to deliver fast speeds and support heavy data usage like streaming and online gaming.</span></p>
-  </section>
-
-</div>
-
-
-
-
-
-
-
-
-
-
-
+    // Small accessibility: make nav links focus-visible
+    document.querySelectorAll('a,button').forEach(el=> el.addEventListener('focus',()=> el.classList.add('outline-none')));
+  </script>
 </body>
 </html>
- 
