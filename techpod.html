@@ -1,0 +1,399 @@
+ <!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dark YouTube-Style Podcast/Video Section</title>
+    <style>
+        /* 🎨 Enhanced YouTube Dark Theme with Modern Aesthetics */
+        @import url('https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500;700&display=swap');
+        
+        body {
+            font-family: 'Roboto', Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            background: linear-gradient(135deg, #0f0f0f 0%, #1a1a1a 100%);
+            color: #fff;
+            overflow-x: hidden;
+        }
+        
+        .header {
+            background: rgba(0, 0, 0, 0.8);
+            padding: 15px 20px;
+            text-align: center;
+            box-shadow: 0 2px 10px rgba(255, 0, 0, 0.3);
+            backdrop-filter: blur(10px);
+        }
+        
+        .header h1 {
+            margin: 0;
+            color: #ff0000;
+            font-weight: 700;
+            text-shadow: 0 0 10px rgba(255, 0, 0, 0.5);
+            letter-spacing: 2px;
+        }
+        
+        .container {
+            max-width: 1400px;
+            margin: 0 auto;
+            padding: 20px;
+            display: flex;
+            flex-wrap: wrap;
+            gap: 20px;
+        }
+        
+        .sidebar {
+            flex: 1;
+            min-width: 280px;
+            background: rgba(26, 26, 26, 0.9);
+            padding: 25px;
+            border-radius: 12px;
+            margin-right: 20px;
+            box-shadow: 0 4px 20px rgba(0, 0, 0, 0.5);
+            backdrop-filter: blur(15px);
+            border: 1px solid rgba(255, 0, 0, 0.2);
+        }
+        
+        .main {
+            flex: 3;
+            min-width: 400px;
+        }
+        
+        .video-player {
+            width: 100%;
+            height: 450px;
+            background: #000;
+            border-radius: 12px;
+            margin-bottom: 25px;
+            overflow: hidden;
+            box-shadow: 0 8px 30px rgba(0, 0, 0, 0.7);
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+        
+        .video-player:hover {
+            transform: scale(1.02);
+            box-shadow: 0 12px 40px rgba(255, 0, 0, 0.3);
+        }
+        
+        iframe {
+            width: 100%;
+            height: 100%;
+            border: none;
+            border-radius: 12px;
+        }
+        
+        .playlist {
+            list-style: none;
+            padding: 0;
+        }
+        
+        .playlist li {
+            padding: 15px 20px;
+            margin: 8px 0;
+            background: linear-gradient(135deg, #2a2a2a 0%, #3a3a3a 100%);
+            border-radius: 8px;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            display: flex;
+            align-items: center;
+            font-weight: 500;
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .playlist li::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: -100%;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(90deg, transparent, rgba(255, 0, 0, 0.2), transparent);
+            transition: left 0.5s;
+        }
+        
+        .playlist li:hover::before {
+            left: 100%;
+        }
+        
+        .playlist li:hover {
+            background: linear-gradient(135deg, #3a3a3a 0%, #4a4a4a 100%);
+            transform: translateX(5px);
+            box-shadow: 0 4px 15px rgba(255, 0, 0, 0.3);
+        }
+        
+        .playlist li.active {
+            background: linear-gradient(135deg, #ff0000 0%, #cc0000 100%);
+            color: #fff;
+            box-shadow: 0 4px 15px rgba(255, 0, 0, 0.5);
+        }
+        
+        .playlist li::after {
+            content: '▶';
+            margin-left: auto;
+            color: #ff0000;
+            font-size: 14px;
+        }
+        
+        .thumbnails {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(180px, 1fr));
+            gap: 15px;
+            margin-top: 25px;
+        }
+        
+        .thumb {
+            width: 100%;
+            height: 120px;
+            background: linear-gradient(135deg, #333 0%, #444 100%);
+            border-radius: 8px;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            position: relative;
+            overflow: hidden;
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.3);
+        }
+        
+        .thumb::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: rgba(255, 0, 0, 0.1);
+            opacity: 0;
+            transition: opacity 0.3s;
+        }
+        
+        .thumb:hover::before {
+            opacity: 1;
+        }
+        
+        .thumb:hover {
+            transform: scale(1.05) translateY(-5px);
+            box-shadow: 0 8px 25px rgba(255, 0, 0, 0.4);
+        }
+        
+        .thumb-icon {
+            font-size: 24px;
+            margin-bottom: 5px;
+        }
+        
+        .thumb-title {
+            font-size: 12px;
+            text-align: center;
+            padding: 0 5px;
+        }
+        
+        h2 {
+            color: #ff0000;
+            font-weight: 700;
+            margin-bottom: 15px;
+            text-shadow: 0 0 5px rgba(255, 0, 0, 0.5);
+        }
+        
+        .search-bar {
+            margin-bottom: 20px;
+        }
+        
+        .search-bar input {
+            width: 100%;
+            padding: 10px;
+            border: none;
+            border-radius: 8px;
+            background: rgba(255, 255, 255, 0.1);
+            color: #fff;
+            font-size: 14px;
+            backdrop-filter: blur(10px);
+        }
+        
+        .search-bar input::placeholder {
+            color: #ccc;
+        }
+        
+        .video-info {
+            margin-bottom: 20px;
+            padding: 15px;
+            background: rgba(26, 26, 26, 0.8);
+            border-radius: 8px;
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.3);
+        }
+        
+        .video-info h3 {
+            margin: 0 0 10px 0;
+            color: #ff0000;
+        }
+        
+        .video-info p {
+            margin: 0;
+            font-size: 14px;
+            line-height: 1.5;
+        }
+        
+        /* Loading Animation */
+        .loading {
+            display: none;
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            width: 40px;
+            height: 40px;
+            border: 4px solid #333;
+            border-top: 4px solid #ff0000;
+            border-radius: 50%;
+            animation: spin 1s linear infinite;
+        }
+        
+        @keyframes spin {
+            0% { transform: translate(-50%, -50%) rotate(0deg); }
+            100% { transform: translate(-50%, -50%) rotate(360deg); }
+        }
+        
+        /* Responsive Design */
+        @media (max-width: 768px) {
+            .container {
+                flex-direction: column;
+            }
+            .sidebar {
+                margin-right: 0;
+            }
+            .video-player {
+                height: 300px;
+            }
+            .thumbnails {
+                grid-template-columns: repeat(auto-fill, minmax(150px, 1fr));
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="header">
+        <h1>DarkStream</h1>
+    </div>
+    
+    <div class="container">
+        <!-- 📜 Enhanced Sidebar Playlist -->
+        <div class="sidebar">
+            <h2>Playlist</h2>
+            <div class="search-bar">
+                <input type="text" id="search" placeholder="Search episodes...">
+            </div>
+            <ul class="playlist" id="playlist">
+                <li onclick="playMedia('video1')" id="item-video1">Episode 1: Intro to AI</li>
+                <li onclick="playMedia('video2')" id="item-video2">Episode 2: Future Tech</li>
+                <li onclick="playMedia('podcast1')" id="item-podcast1">Podcast: Deep Dives</li>
+            </ul>
+        </div>
+
+        <!-- 🎥 Enhanced Main Video Section -->
+        <div class="main">
+            <div class="video-player" id="player">
+                <div class="loading" id="loading"></div>
+                <!-- Default YouTube Video Embed -->
+                <iframe id="videoFrame" src="https://www.youtube.com/embed/tgbNymZ7vqY" allowfullscreen></iframe>
+            </div>
+            
+            <div class="video-info" id="videoInfo">
+                <h3>Welcome to DarkStream</h3>
+                <p>Select an episode from the playlist to dive into the world of AI, tech, and podcasts. Enjoy the immersive dark theme experience.</p>
+            </div>
+
+            <h2>More Videos</h2>
+            <div class="thumbnails">
+                <div class="thumb" onclick="playMedia('video1')">
+                    <div class="thumb-icon">🎬</div>
+                    <div class="thumb-title">Intro to AI</div>
+                </div>
+                <div class="thumb" onclick="playMedia('video2')">
+                    <div class="thumb-icon">🤖</div>
+                    <div class="thumb-title">Future Tech</div>
+                </div>
+                <div class="thumb" onclick="playMedia('podcast1')">
+                    <div class="thumb-icon">🎧</div>
+                    <div class="thumb-title">Deep Dives Podcast</div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        // 🎬 Enhanced Function to load YouTube videos dynamically with interactivity
+        const sources = {
+            video1: {
+                url: 'https://www.youtube.com/embed/2ePf9rue1Ao',
+                title: 'Episode 1: Intro to AI',
+                desc: 'An immersive introduction to Artificial Intelligence, exploring its basics and potential.'
+            },
+            video2: {
+                url: 'https://www.youtube.com/embed/ix3Tzfqx6xY',
+                title: 'Episode 2: Future Tech',
+                desc: 'Dive into the cutting-edge technologies shaping our future.'
+            },
+            podcast1: {
+                url: 'https://www.youtube.com/embed/5MgBikgcWnY',
+                title: 'Podcast: Deep Dives',
+                desc: 'A captivating podcast episode discussing in-depth topics in tech and beyond.'
+            }
+        };
+
+        function playMedia(id) {
+            const videoFrame = document.getElementById('videoFrame');
+            const loading = document.getElementById('loading');
+            const videoInfo = document.getElementById('videoInfo');
+            
+            // Remove active class from all playlist items
+            document.querySelectorAll('.playlist li').forEach(item => item.classList.remove('active'));
+            // Add active class to clicked item
+            document.getElementById(`item-${id}`).classList.add('active');
+            
+            if (sources[id]) {
+                // Show loading animation
+                loading.style.display = 'block';
+                videoFrame.style.opacity = '0.5';
+                
+                // Simulate loading delay (in real app, this would be handled by iframe load event)
+                setTimeout(() => {
+                    videoFrame.src = sources[id].url + '?autoplay=1';
+                    videoInfo.innerHTML = `<h3>${sources[id].title}</h3><p>${sources[id].desc}</p>`;
+                    loading.style.display = 'none';
+                    videoFrame.style.opacity = '1';
+                }, 1000);
+            }
+        }
+        
+        // Search functionality
+        document.getElementById('search').addEventListener('input', function() {
+            const query = this.value.toLowerCase();
+            const items = document.querySelectorAll('.playlist li');
+            items.forEach(item => {
+                if (item.textContent.toLowerCase().includes(query)) {
+                    item.style.display = 'flex';
+                } else {
+                    item.style.display = 'none';
+                }
+            });
+        });
+        
+        // Keyboard shortcuts for interactivity
+        document.addEventListener('keydown', function(e) {
+            if (e.key === 'ArrowRight') {
+                // Next video (simplified)
+                const active = document.querySelector('.playlist li.active');
+                const next = active ? active.nextElementSibling : document.querySelector('.playlist li');
+                if (next) next.click();
+            } else if (e.key === 'ArrowLeft') {
+                // Previous video
+                const active = document.querySelector('.playlist li.active');
+                const prev = active ? active.previousElementSibling : null;
+                if (prev) prev.click();
+            }
+        });
+    </script>
+</body>
+</html>
