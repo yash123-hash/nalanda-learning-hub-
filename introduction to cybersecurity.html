@@ -1,0 +1,1340 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Cybersecurity Awareness</title>
+    <style>
+        * {
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background-color: #f4f7fa;
+            margin: 0;
+            padding: 0;
+            color: #333;
+            background-image: linear-gradient(rgba(0,0,0,0.6), rgba(0,0,0,0.6)), url('https://cdn.pixabay.com/photo/2017/01/20/00/30/hacker-1991373_1280.jpg');
+            background-size: cover;
+            background-position: center;
+            background-repeat: no-repeat;
+            background-attachment: fixed;
+        }
+
+        .container {
+            
+            margin: auto;
+            padding: 40px;
+            background-color: #ffffff;
+            box-shadow: 0 4px 30px rgba(0,0,0,0.1);
+            border-radius: 10px;
+            border: 1px solid #ccc;
+
+        }
+
+        h1, h2, h3 {
+            color: #1e3a8a;
+            margin-bottom: 20px;
+        }
+
+        h2 {
+            color: #2563eb;
+            margin-top: 30px;
+        }
+
+        p {
+            font-size: 16px;
+            line-height: 1.6;
+            margin-bottom: 20px;
+        }
+
+        hr {
+            margin: 40px 0;
+            border: none;
+            border-top: 2px dashed #d1d5db;
+        }
+
+        .section, .subsection {
+            border: 1px solid #e2e8f0;
+            border-radius: 8px;
+            padding: 20px;
+            margin-bottom: 30px;
+            background-color: #f9fafb;
+        }
+
+        .highlight {
+            color: blue;
+        }
+
+        .alert {
+            color: #dc2626;
+        }
+
+        .consequences {
+             
+            margin: 50px auto;
+            background-color: #ffffff;
+            padding: 40px 50px;
+            box-shadow: 0 8px 24px rgba(0, 0, 0, 0.15);
+            border-radius: 12px;
+            border: 1px solid #ccc;
+        }
+
+        .consequences h1 {
+            color: #2c3e50;
+            font-size: 36px;
+            text-align: center;
+            margin-bottom: 30px;
+            border-bottom: 2px solid #e0e0e0;
+            padding-bottom: 10px;
+        }
+
+        .consequences h3 {
+            color: #1e88e5;
+            font-size: 24px;
+            margin-top: 30px;
+            border-left: 5px solid #90caf9;
+            padding-left: 12px;
+        }
+
+        ul {
+            padding-left: 20px;
+        }
+
+        h4 {
+            margin-top: 15px;
+            color: #444;
+        }
+
+        @media screen and (max-width: 768px) {
+            .container, .consequences {
+                padding: 20px;
+            }
+            h1 {
+                font-size: 28px;
+            }
+            h2 {
+                font-size: 22px;
+            }
+            h3 {
+                font-size: 18px;
+            }
+            p {
+                font-size: 14px;
+            }
+        }
+
+        @media screen and (max-width: 480px) {
+            h1 {
+                font-size: 24px;
+            }
+            h2 {
+                font-size: 20px;
+            }
+            h3 {
+                font-size: 16px;
+            }
+            p {
+                font-size: 13px;
+            }
+            .container, .consequences {
+                padding: 15px;
+            }
+        }
+h1, h2, h3, h4 {
+    color: #1e3a8a;
+    margin-bottom: 20px;
+    transition: text-decoration 0.3s ease, transform 0.3s ease; /* Added transform transition */
+}
+h1:hover, h2:hover, h3:hover, h4:hover {
+    text-decoration: underline; /* Underline effect on hover */
+    transform: scale(1.05); /* Scale up the heading slightly */
+}
+h1,h3 {
+      font-size: 20px;
+      color: blue;
+      padding: 20px;
+      text-align: center;
+
+      /* Border */
+      border: 2px solid #00ffff; /* Cyan border */
+      border-radius: 5px;
+
+      /* Background */
+      background-color: black;
+
+      /* Glow Effect */
+      text-shadow:
+        0 0 5px #00ffff,
+        0 0 10px #00ffff,
+        0 0 20px #00ffff,
+        0 0 40px #00ffff;
+
+      /* Optional: Glow around the border */
+      box-shadow: 0 0 20px #00ffff;}
+
+button {
+            background-color: #007bff;
+            color: white;
+            border: none;
+            padding: 10px 20px;
+            border-radius: 5px;
+            cursor: pointer;
+            transition: background-color 0.3s;
+        }
+        button:hover {
+            background-color: #0056b3;
+        }
+    
+  </style>
+</head>
+<body style="
+    margin: 0;
+    padding: 0;
+    background-image: linear-gradient(rgba(0,0,0,0.6), rgba(0,0,0,0.6)), url('https://cdn.pixabay.com/photo/2017/01/20/00/30/hacker-1991373_1280.jpg');
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    background-attachment: fixed;
+">
+
+
+ 
+
+    <div class="container">
+
+        <!-- Header -->
+        <h1>Cybersecurity Awareness</h1>
+
+        <!-- Intro -->
+        <p>Cybersecurity is the ongoing effort to protect individuals, organizations, and governments from digital attacks by safeguarding networked systems and data from unauthorized use or harm.</p>
+
+        <!-- Personal / Org / Gov -->
+        <div class="section">
+            <h2>Personal</h2>
+            <p>On a personal level, you need to safeguard your identity, your data, and your computing devices.</p>
+
+            <h2>Organizational</h2>
+            <p>At an organizational level, it is everyone’s responsibility to protect the organization’s reputation, data, and customers.</p>
+
+            <h2>Government</h2>
+            <p>As more digital information is being gathered and shared, its protection becomes even more vital at the government level, where national security, economic stability, and the safety and well-being of citizens are at stake.</p>
+        </div>
+
+        <!-- Protecting Your Personal Data -->
+        <hr>
+        <h2>Protecting Your Personal Data</h2>
+        <p>Personal data is any information that can be used to identify you, and it can exist both offline and online.</p>
+
+        <div class="section">
+            <h3 class="highlight">Online Identity</h3>
+            <p>Your online identity includes usernames, aliases, and social profiles. Limit the personal information you reveal online.</p>
+
+            <h3 class="highlight">Offline Identity</h3>
+            <p>Your offline identity includes your full name, age, address, and daily persona. It’s equally important to protect this information.</p>
+        </div>
+
+        <!-- Your Data -->
+        <h2>Your Data</h2>
+        <p>Personal data includes sensitive information such as your name, SSN, photos, and communications. Cybercriminals can use this to impersonate you and cause harm.</p>
+
+        <div class="section">
+            <h3 class="highlight">Medical Records</h3>
+            <p>Doctors store personal data in electronic health records (EHRs), which can include data from devices like fitness trackers.</p>
+
+            <h3 class="highlight">Education Records</h3>
+            <p>These records may contain grades, contact information, and special education details — all of which can be sensitive.</p>
+
+            <h3 class="highlight">Employment and Financial Records</h3>
+            <p>Your job history, income, tax files, and credit details are highly valuable to hackers.</p>
+        </div>
+
+        <!-- Where is your data -->
+        <h2>Where is Your Data?</h2>
+        <p>Once shared, data spreads quickly — from your device to others, and even to global servers.</p>
+
+        <div class="section">
+            <h3 class="highlight">Doctor Appointment</h3>
+            <p>Your medical record may be shared with insurance, extending its reach.</p>
+
+            <h3 class="highlight">Store Loyalty Card</h3>
+            <p>Loyalty cards track purchases and may share data with marketers.</p>
+        </div>
+
+        <!-- Smart Devices -->
+        <h2>Smart Devices</h2>
+        <p>Smartphones and wearables generate data about you — including GPS, health, and payment info.</p>
+
+        <!-- What Hackers Want -->
+        <h2>What Do Hackers Want?</h2>
+        <p>Money is often the goal — but identity theft can be equally devastating.</p>
+
+        <!-- Identity Theft -->
+        <h2>Identity Theft</h2>
+        <div class="section">
+            <h3 class="highlight">Medical Theft</h3>
+            <p>Stolen insurance can alter your health records and lead to fraud.</p>
+
+            <h3 class="highlight">Banking</h3>
+            <p>Fraudsters may file false tax returns, ruin credit, and impersonate you.</p>
+        </div>
+
+        <!-- Who Wants Your Data -->
+        <h2>Who Else Wants My Data?</h2>
+        <div class="section">
+            <h3 class="highlight">Internet Service Providers</h3>
+            <p>ISPs may sell your browsing habits to third parties.</p>
+
+            <h3 class="highlight">Advertisers</h3>
+            <p>Advertisers use behavioral data to target ads — often without consent.</p>
+
+            <h3 class="highlight">Search Engines & Social Platforms</h3>
+            <p>They collect your preferences, beliefs, and more to sell to marketers.</p>
+
+            <h3 class="highlight">Websites You Visit</h3>
+            <p>Cookies track your browsing — your online footprint builds up fast.</p>
+        </div>
+
+        <!-- Organizational Data -->
+        <hr>
+        <h2>Organizational Data</h2>
+        <p>Organizations handle various data types. The two main types are:</p>
+
+        <div class="section">
+            <h3 class="highlight">Types of Organizational Data</h3>
+            <h4>Transactional Data</h4>
+            <p>Includes buying/selling info, HR decisions, production activities, etc.</p>
+
+            <h4 class="highlight">Intellectual Property</h4>
+            <p>Patents, trademarks and new product plans, which allow an organization to gain economic advantage over competitors. Often considered trade secrets, losing this data could prove disastrous.</p>
+
+            <h4 class="highlight">Financial Data</h4>
+            <p>Income statements, balance sheets and cash flow statements provide insight into the health of a company.</p>
+        </div>
+
+        <h1>IoT and Big Data</h1>
+        <p>IoT is a large network of physical objects — like sensors, software and smart devices — connected to the Internet, able to collect and share data. Cloud storage and virtualization have fueled the rise of “Big Data,” creating both opportunities and security challenges.</p>
+
+        <h1>The McCumber Cube</h1>
+        <p>Developed by John McCumber in 1991, this model helps organizations evaluate and enhance information security by focusing on three dimensions:</p>
+        <ul>
+            <li>Principles for protecting data</li>
+            <li>The state of data (storage, processing, transmission)</li>
+            <li>Protective security measures</li>
+        </ul>
+
+        <h2>Foundational Principles for Protecting Information</h2>
+        <div class="section">
+            <h3 class="highlight">Confidentiality</h3>
+            <p>Ensures sensitive information is not accessed by unauthorized users. Common techniques include data encryption, two-factor authentication, and identity proofing.</p>
+
+            <h3 class="highlight">Integrity</h3>
+            <p>Prevents intentional or accidental data tampering. Methods include hash functions and checksums to verify data integrity.</p>
+
+            <h3 class="highlight">Availability</h3>
+            <p>Ensures systems and data are accessible when needed by authorized users. Backups, hardware maintenance, and software updates are key strategies.</p>
+        </div>
+
+        <h2>The States of Information</h2>
+        <div class="section">
+            <h3 class="highlight">Processing</h3>
+            <p>Data currently being used or modified, such as updating a database (data in process).</p>
+
+            <h3 class="highlight">Storage</h3>
+            <p>Data at rest, stored on devices like SSDs, hard drives, or USBs.</p>
+
+            <h3 class="highlight">Transmission</h3>
+            <p>Data in transit, moving between systems, such as during email or file transfers.</p>
+        </div>
+
+        <h2>Security Measures</h2>
+        <div class="section">
+            <h3 class="highlight">Awareness, Training, and Education</h3>
+            <p>Equipping users with the knowledge to recognize and respond to threats.</p>
+
+            <h3 class="highlight">Technology</h3>
+            <p>Hardware and software-based protections like antivirus, firewalls, and intrusion detection systems.</p>
+
+            <h3 class="highlight">Policy and Procedure</h3>
+            <p>Administrative rules that guide responses to incidents and enforce best practices for secure operations.</p>
+        </div>
+
+        <!-- Data Security Breaches -->
+        <h1>Data Security Breaches</h1>
+        <p>Data breaches can have devastating effects. Two well-known examples highlight how real the risks are:</p>
+
+        <div class="section">
+            <h3 class="alert">Persirai Botnet (2017)</h3>
+            <p>A malware strain targeted over 1,000 models of IP cameras by exploiting open ports. After infection, the malware deleted itself, hiding in memory to avoid detection. Over 122,000 devices were used in large-scale DDoS attacks — without the knowledge of their owners.</p>
+
+            <h3 class="alert">Equifax Breach (2017)</h3>
+            <p>Equifax, a major U.S. credit reporting agency, experienced a breach due to web application vulnerabilities. Hackers accessed millions of sensitive records. In response, Equifax created a separate domain for affected users, but the unfamiliar address enabled phishing scams. Attackers used stolen data for identity theft, difficult for victims to recover from.</p>
+        </div>
+
+        <!-- Consequences of Security Breach -->
+        <h1>🚨 Consequences of a Security Breach</h1>
+        <p>These examples show that the potential consequences of a security breach can be severe and long-lasting.</p>
+
+        <div class="section">
+            <div class="subsection">
+                <h3 class="highlight">🔍 Reputational Damage</h3>
+                <p>A security breach can have a negative long-term impact on an organization's reputation that has taken years to build. Customers, particularly those who have been adversely affected by the breach, will need to be notified and may seek compensation and/or turn to a reliable and secure competitor. Employees may also choose to leave in light of a scandal.</p>
+                <p>Depending on the severity of a breach, it can take a long time to repair an organization's reputation.</p>
+            </div>
+            
+            <div class="subsection">
+                <h3 class="highlight">🎨 Vandalism</h3>
+                <p>A hacker or hacking group may vandalize an organization's website by posting untrue information. They might even just make a few minor edits to your organization's phone number or address, which can be trickier to detect.</p>
+                <p>In either case, online vandalism can portray unprofessionalism and have a negative impact on your organization's reputation and credibility.</p>
+            </div>
+            
+            <div class="subsection">
+                <h3 class="highlight">🕵️ Theft</h3>
+                <p>A data breach often involves an incident where sensitive personal data has been stolen. Cybercriminals can make this information public or exploit it to steal an individual's money and/or identity.</p>
+            </div>
+            
+            <div class="subsection">
+                <h3 class="highlight">💸 Loss of Revenue</h3>
+                <p>The financial impact of a security breach can be devastating. For example, hackers can take down an organization's website, preventing it from doing business online. A loss of customer information may impede company growth and expansion. It may demand further investment in an organization's security infrastructure. And let's not forget that organizations may face large fines or penalties if they do not protect online data.</p>
+            </div>
+            
+            <div class="subsection">
+                <h3 class="highlight">🧠 Damage to Intellectual Property</h3>
+                <p>A security breach could also have a devastating impact on the competitiveness of an organization, particularly if hackers are able to get their hands on confidential documents, trade secrets and intellectual property.</p>
+            </div>
+  <div style="border: 2px solid #004080; border-radius: 8px; padding: 15px; margin-bottom: 20px; background-color: #ffffff;">
+    <h1 style="color: #004080; border-bottom: 2px solid #004080; padding-bottom: 5px;">Key Takeaway</h1>
+    <p style="margin-left: 20px;">A security breach is an incident that results in unauthorized access to data, applications, services or devices, exposing private information that attackers can use for financial gain or other advantages.</p>
+    <p style="margin-left: 20px;">But there are many ways to protect yourself and your organization. It’s important to be aware of common cyber threats and remain vigilant so that you don’t become the next victim.</p>
+  </div>
+
+  <div style="border: 2px solid #004080; border-radius: 8px; padding: 15px; margin-bottom: 20px; background-color: #ffffff;">
+    <h1 style="color: #004080; border-bottom: 2px solid #004080; padding-bottom: 5px;">Cyber Attackers</h1>
+    <p style="margin-left: 20px;">Attackers are individuals or groups who attempt to exploit vulnerabilities for personal or financial gain. As we’ve already seen, they are interested in everything, from credit cards to product designs!</p>
+  </div>
+
+  <div style="border: 2px solid #004080; border-radius: 8px; padding: 15px; margin-bottom: 20px; background-color: #ffffff;">
+    <h1 style="color: #004080; border-bottom: 2px solid #004080; padding-bottom: 5px;">Types of Cyber Attackers</h1>
+    <p style="margin-left: 20px;">Let’s look at some of the main types of cyber attackers who’ll try anything to get their hands on our information. They are often categorized as white hat, gray hat or black hat attackers.</p>
+
+    <div style="border: 1px solid #ccc; padding: 10px; margin: 10px;">
+      <h3 style="color: #006600;">Script Kiddies or Amateurs</h3>
+      <p style="margin-left: 20px;">The term 'script kiddies' emerged in the 1990s and refers to amateur or inexperienced hackers who use existing tools or instructions found on the Internet to launch attacks.</p>
+    </div>
+
+    <div style="border: 1px solid #ccc; padding: 10px; margin: 10px;">
+      <h3 style="color: #006600;">Hacker</h3>
+      <p style="margin-left: 20px;">This group of attackers breaks into computer systems or networks to gain access. Depending on the intent of their break-in, they can be classified as white, gray or black hat hackers.</p>
+    </div>
+
+    <div style="border: 1px solid #cce5ff; padding: 10px; margin: 10px;">
+      <h3 style="color: #006600;">White Hat Attacker</h3>
+      <p style="margin-left: 20px;">They break into networks or systems with permission to improve security by identifying weaknesses.</p>
+    </div>
+
+    <div style="border: 1px solid #fff3cd; padding: 10px; margin: 10px;">
+      <h3 style="color: #666600;">Gray Hat Attacker</h3>
+      <p style="margin-left: 20px;">They might look for vulnerabilities without permission and may or may not report them depending on their personal agenda.</p>
+    </div>
+
+    <div style="border: 1px solid #f8d7da; padding: 10px; margin: 10px;">
+      <h3 style="color: #990000;">Black Hat Attacker</h3>
+      <p style="margin-left: 20px;">They exploit vulnerabilities for illegal, personal, financial, or political gain.</p>
+    </div>
+
+    <div style="border: 1px solid #d4edda; padding: 10px; margin: 10px;">
+      <h3 style="color: #993300;">Organized Hacker</h3>
+      <p style="margin-left: 20px;">These include cybercriminal organizations, hacktivists, terrorists, and state-sponsored attackers. They are sophisticated, organized, and well-funded.</p>
+    </div>
+  </div>
+
+  <div style="border: 2px solid #004080; border-radius: 8px; padding: 15px; margin-bottom: 20px; background-color: #ffffff;">
+    <h1 style="color: #004080; border-bottom: 2px solid #004080; padding-bottom: 5px;">Internal and External Threats</h1>
+    <p style="margin-left: 20px;">Cyber attacks can originate from within an organization as well as from outside of it.</p>
+
+    <div style="border: 1px solid #e2d6f3; padding: 10px; margin: 10px;">
+      <h3 style="color: #800080;">Internal Threats</h3>
+      <p style="margin-left: 20px;">Employees, contractors, or partners can accidentally or intentionally mishandle data, connect infected USBs, click malicious links, or compromise internal systems.</p>
+    </div>
+
+    <div style="border: 1px solid #f5c6cb; padding: 10px; margin: 10px;">
+      <h3 style="color: #800000;">External Threats</h3>
+      <p style="margin-left: 20px;">External attackers can exploit system vulnerabilities, use social engineering, or perform direct intrusions from outside the organization.</p>
+    </div>
+  </div>
+  <div style="border: 2px solid #990000; border-radius: 8px; background-color: #fff3f3; padding: 20px; margin-bottom: 20px;">
+    <h3 style="color: #990000;">🧨 Stuxnet: A Brief Story of the World's First Cyber Weapon</h3>
+    <p style="margin-left: 20px;">Stuxnet is widely considered the world’s first known cyber weapon — a highly sophisticated computer worm discovered in 2010 that marked a new era in cyber warfare.</p>
+
+    <h3 style="color: #000080;">🕵️‍♂️ Who Created It?</h3>
+    <p style="margin-left: 20px;">While no country officially claimed responsibility, cybersecurity experts and leaked intelligence strongly indicate that Stuxnet was developed jointly by the United States (NSA) and Israel (Unit 8200) under a top-secret project called Operation Olympic Games.</p>
+
+    <h3 style="color: #004d00;">🎯 What Was the Target?</h3>
+    <p style="margin-left: 20px;">Stuxnet targeted Iran's Natanz nuclear facility, specifically its uranium enrichment centrifuges.<br><br>But it didn’t just shut them down. It manipulated their speed while reporting everything was normal, causing the delicate centrifuges to spin out of control and break — setting Iran’s nuclear program back by months or even years.</p>
+
+    <h3 style="color: #8b0000;">🛠️ How It Worked</h3>
+    <p style="margin-left: 20px;">Stuxnet infected Windows systems through USB drives.<br><br>Once inside the system, it sent malicious commands to centrifuges but made sure monitoring systems showed normal data — a masterclass in stealth.</p>
+
+    <h3 style="color: #cc7a00;">💡 Why It Was Unique</h3>
+    <p style="margin-left: 20px;">Highly targeted: It was designed not to harm other systems outside of very specific conditions.<br><br>Zero-day exploits: It used at least four unknown (zero-day) vulnerabilities — rare and valuable in the hacking world.<br><br>Cyber-physical impact: It didn’t just steal data; it caused real-world destruction of equipment.</p>
+
+    <h3 style="color: #006699;">📢 Fallout and Legacy</h3>
+    <p style="margin-left: 20px;">Once discovered, Stuxnet spread globally, infecting over 100,000 computers, though it only damaged systems that met its very specific criteria.<br><br>It proved that state-sponsored cyberattacks could achieve military-like results — without traditional warfare.<br><br>Inspired a wave of copycat malware and accelerated the development of cyber defense programs worldwide.</p>
+  </div>
+
+  <!-- Purpose of Cyberwarfare -->
+  <div style="border: 2px solid #004080; border-radius: 8px; background-color: #ffffff; padding: 20px; margin-bottom: 20px;">
+    <h1 style="color: #004080; border-bottom: 2px solid #004080; padding-bottom: 5px;">The Purpose of Cyberwarfare</h1>
+    <p style="margin-left: 20px;">The main reason for resorting to cyberwarfare is to gain advantage over adversaries, whether they are nations or competitors.</p>
+
+    <div style="border: 1px solid #cccccc; background-color: #fdfdfd; border-radius: 6px; padding: 15px; margin: 15px 0;">
+      <h3 style="color: #800080;">To Gather Compromised Information and/or Defense Secrets</h3>
+      <p style="margin-left: 20px;">A nation or international organization can engage in cyberwarfare in order to steal defense secrets and gather information about technology that will help narrow the gaps in its industries and military capabilities.<br><br>Furthermore, compromised sensitive data can give attackers leverage to blackmail personnel within a foreign government.</p>
+    </div>
+
+    <div style="border: 1px solid #cccccc; background-color: #fdfdfd; border-radius: 6px; padding: 15px; margin: 15px 0;">
+      <h3 style="color: #800000;">To Impact Another Nation's Infrastructure</h3>
+      <p style="margin-left: 20px;">Besides industrial and military espionage, a nation can continuously invade another nation’s infrastructure in order to cause disruption and chaos.<br><br>For example, a cyber attack could shut down the power grid of a major city. Consider the consequences if this were to happen; roads would be congested, the exchange of goods and services would be halted, patients would not be able to get the care they would need if an emergency occurred, access to the internet would be interrupted. By shutting down a power grid, a cyber attack could have a huge impact on the everyday life of ordinary citizens.</p>
+    </div>
+  </div>
+  <h1 style="color: #004080; border-bottom: 2px solid #004080; padding-bottom: 10px;">Analyzing a Cyber Attack</h1>
+
+  <!-- Malware Overview -->
+  <div style="border: 2px solid #999; background-color: #fff; padding: 20px; border-radius: 8px; margin-bottom: 20px;">
+    <h3 style="color: #b30000;">Malware</h3>
+    <p>Cybercriminals use many different types of malicious software, or malware, to carry out their activities. Malware is any code that can be used to steal data, bypass access controls, or cause harm to or compromise a system. Knowing what the different types are and how they spread is key to containing and removing them.</p>
+  </div>
+
+  <!-- Each malware type section -->
+  <div style="border: 1px solid #ccc; background-color: #ffffff; padding: 15px; margin-bottom: 15px; border-radius: 6px;">
+    <h3 style="color: #cc6600;">Spyware</h3>
+    <p>Designed to track and spy on you, spyware monitors your online activity and can log every key you press, including sensitive personal information. It often bundles itself with legitimate software or Trojan horses.</p>
+  </div>
+
+  <div style="border: 1px solid #ccc; background-color: #ffffff; padding: 15px; margin-bottom: 15px; border-radius: 6px;">
+    <h3 style="color: #cc6600;">Adware</h3>
+    <p>Adware is installed with some software and automatically delivers ads, often as pop-ups in browsers. It is common for adware to be bundled with spyware.</p>
+  </div>
+
+  <div style="border: 1px solid #ccc; background-color: #ffffff; padding: 15px; margin-bottom: 15px; border-radius: 6px;">
+    <h3 style="color: #cc6600;">Backdoor</h3>
+    <p>Used to bypass authentication and give hackers remote access to a system. Backdoors work silently and are difficult to detect.</p>
+  </div>
+
+  <div style="border: 1px solid #cc0000; background-color: #fff5f5; padding: 15px; margin-bottom: 15px; border-radius: 6px;">
+    <h3 style="color: #cc0000;">Ransomware</h3>
+    <p>Encrypts your data and demands payment to unlock it. Often spread through phishing emails or by exploiting vulnerabilities.</p>
+  </div>
+
+  <div style="border: 1px solid #cc6600; background-color: #fffdf2; padding: 15px; margin-bottom: 15px; border-radius: 6px;">
+    <h3 style="color: #cc6600;">Scareware</h3>
+    <p>Uses fake warning messages to scare users into installing malicious software. If executed, it infects the system with malware.</p>
+  </div>
+
+  <div style="border: 1px solid #cc6600; background-color: #fefefe; padding: 15px; margin-bottom: 15px; border-radius: 6px;">
+    <h3 style="color: #cc6600;">Rootkit</h3>
+    <p>Modifies the operating system to allow unauthorized remote access. Rootkits are hard to detect and often require complete system reinstall to remove.</p>
+  </div>
+
+  <div style="border: 1px solid #cc6600; background-color: #ffffff; padding: 15px; margin-bottom: 15px; border-radius: 6px;">
+    <h3 style="color: #cc6600;">Virus</h3>
+    <p>A self-replicating program that attaches itself to files and requires user action to spread. Can be harmless or destructive and often spreads via USB or email.</p>
+  </div>
+
+  <div style="border: 1px solid #cc6600; background-color: #ffffff; padding: 15px; margin-bottom: 15px; border-radius: 6px;">
+    <h3 style="color: #cc6600;">Trojan Horse</h3>
+    <p>Disguises itself as a legitimate file to trick users. It does not self-replicate but allows other malware to bypass defenses.</p>
+  </div>
+
+  <div style="border: 1px solid #cc6600; background-color: #ffffff; padding: 15px; margin-bottom: 15px; border-radius: 6px;">
+    <h3 style="color: #cc6600;">Worms</h3>
+    <p>Self-replicating malware that spreads across networks without user interaction. Known for causing large-scale damage rapidly, like the Code Red worm in 2001.</p>
+  </div>
+   <div style="border: 2px solid #003366; border-radius: 10px; padding: 20px; background-color: #eef7ff; margin-bottom: 20px;">
+        <h1 style="color: #003366;">Symptoms of Malware</h1>
+        <p>
+            So now you know about the different kinds of malware. But what do you think their symptoms might be?
+            Regardless of the type of malware a system has been infected with, there are some common symptoms to look out for.
+            These include: an increase in CPU usage which slows down your device, frequent computer freezing or crashes,
+            a decrease in web browsing speed, unexplainable network problems, modified or deleted files,
+            presence of unknown files/programs/icons, unknown processes running, programs reconfiguring themselves,
+            and emails sent without your knowledge or consent.
+        </p>
+    </div>
+
+    <div style="border: 2px solid #003366; border-radius: 10px; padding: 20px; background-color: #ffffff; margin-bottom: 20px;">
+        <h1 style="color: #003366;">Methods of Infiltration</h1>
+
+        <div style="border: 2px dashed #336600; border-radius: 10px; padding: 15px; background-color: #f4fff4; margin-bottom: 20px;">
+            <h2 style="color: #336600;">Social Engineering Attacks</h2>
+            <p>
+                Social engineering manipulates people into divulging confidential information or performing unsafe actions.
+                Attackers often exploit helpfulness, urgency, vanity, or authority to gain access.
+            </p>
+
+            <h3 style="color: #cc6600;">Pre-texting</h3>
+            <p>Attacker lies (e.g., claiming to need identity confirmation) to obtain personal or financial data.</p>
+
+            <h3 style="color: #cc6600;">Tailgating</h3>
+            <p>Attacker follows authorized personnel into a secure physical area without credentials.</p>
+
+            <h3 style="color: #cc6600;">Something for Something (Quid Pro Quo)</h3>
+            <p>Offering gifts or benefits in exchange for confidential information.</p>
+        </div>
+
+        <div style="border: 2px dashed #990000; border-radius: 10px; padding: 15px; background-color: #fff4f4; margin-bottom: 20px;">
+            <h3 style="color: #990000;">Denial of Services</h3>
+            <p>Simple network attacks that interrupt access to services or systems.</p>
+
+            <h4>Overwhelming Quantity of Traffic</h4>
+            <p>Excessive traffic overloads systems causing slowdowns or crashes.</p>
+
+            <h4>Maliciously Formatted Packets</h4>
+            <p>Improperly structured packets crash or destabilize the target device/application.</p>
+
+            <h4>Distributed Denial of Service (DDoS)</h4>
+            <p>Mass attacks from multiple systems (botnets) that flood the target with traffic.</p>
+
+            <h4>Botnet</h4>
+            <p>A collection of infected computers used to execute coordinated cyberattacks.</p>
+        </div>
+
+        <div style="border: 2px dashed #336600; border-radius: 10px; padding: 15px; background-color: #f4fff4; margin-bottom: 20px;">
+            <h2 style="color: #336600;">On-Path Attack</h2>
+            <p>
+                Attackers intercept communication between devices to spy or manipulate data (e.g., MITM/MITMO).
+            </p>
+
+            <h3>Man-in-the-Middle Attack (MITM)</h3>
+            <p>Interception of user data in transit, often used to steal credentials or financial data.</p>
+
+            <h3>Man-in-the-Mobile (MITMO)</h3>
+            <p>Mobile-focused MITM used to capture SMS-based 2FA codes (e.g., Zeus malware).</p>
+        </div>
+
+        <div style="border: 2px dashed #5555aa; border-radius: 10px; padding: 15px; background-color: #eef7ff; margin-bottom: 20px;">
+            <h3>SEO Poisoning</h3>
+            <p>Malicious sites optimized for popular search terms to trick users into visiting them.</p>
+
+            <h3>WiFi Password Cracking</h3>
+            <p>Hackers use brute-force, sniffing, or cracking tools to capture wireless passwords.</p>
+        </div>
+    </div>
+
+    <div style="border: 2px solid #003366; border-radius: 10px; padding: 20px; background-color: #eef7ff;">
+        <h1 style="color: #003366;">Password Attack</h1>
+        <p>
+            Password attacks aim to gain unauthorized access through cracking or interception techniques.
+        </p>
+
+        <h3>Password Spraying</h3>
+        <p>Using commonly known passwords (e.g., "123456") across many accounts to find a match.</p>
+
+        <h3>Dictionary Attack</h3>
+        <p>Trying known words from a dictionary to guess passwords.</p>
+
+        <h3>Brute Force Attacks</h3>
+        <p>Trying all possible combinations of characters until the password is found.</p>
+
+        <h3>Rainbow Attacks</h3>
+        <p>Using precomputed hash tables to reverse hashed passwords.</p>
+
+        <h3>Traffic Interception</h3>
+        <p>Capturing unencrypted passwords during transmission over networks.</p>
+
+        <h3 style="color: #990000;">Advanced Persistent Threats (APTs)</h3>
+        <p style=padding: 10px;">
+            Stealthy, multi-phase, long-term attacks by skilled hackers or groups to remain undetected and extract data from organizations.
+        </p>
+    </div>
+    <h1 style="color: #003366; border-bottom: 3px solid #003366; padding-bottom: 10px;">Security Vulnerabilities and Exploits</h1>
+
+    <div style="border: 2px solid #005f73; padding: 15px; margin-bottom: 20px; background-color: #e0f7fa;">
+        <h3 style="color: #005f73;">Vulnerabilities and Exploits</h3>
+        <p>Security vulnerabilities are any kind of software or hardware defect. A program written to take advantage of a known vulnerability is referred to as an exploit. A cybercriminal can use an exploit against a vulnerability to carry out an attack, the goal of which is to gain access to a system, the data it hosts, or a specific resource.</p>
+    </div>
+
+    <div style="border: 2px solid #9b2226; padding: 15px; margin-bottom: 20px; background-color: #ffe5e5;">
+        <h3 style="color: #9b2226;">Hardware Vulnerabilities</h3>
+        <p>Hardware vulnerabilities are most often the result of hardware design flaws. For example, RAM consists of many capacitors placed closely together. A flaw discovered in this design led to an exploit known as <strong>Rowhammer</strong>. By repeatedly accessing a row of memory, it causes electrical interference that corrupts neighboring memory cells.</p>
+    </div>
+
+    <div style="border: 2px solid #003049; padding: 15px; margin-bottom: 20px; background-color: #d0ebff;">
+        <h3 style="color: #003049;">Meltdown and Spectre</h3>
+        <p>Google security researchers discovered Meltdown and Spectre, two hardware vulnerabilities affecting almost all CPUs released since 1995. These exploits allow attackers to read all memory (Meltdown) and access data from other applications (Spectre) through <strong>side-channel attacks</strong>. They work silently and can be repeated without causing system crashes.</p>
+        <p style="font-style: italic; color: #333;">Note: Hardware vulnerabilities are specific to device models and usually require targeted attacks. Good physical security and updated malware protection are often enough for regular users.</p>
+    </div>
+
+    <div style="border: 2px solid #588157; padding: 15px; margin-bottom: 20px; background-color: #e7f5e5;">
+        <h3 style="color: #2d6a4f;">Software Vulnerabilities</h3>
+        <p>Software vulnerabilities are usually introduced by errors in the operating system or application code.
+
+</p>
+    </div>
+
+    <div style="border: 2px solid #6a4c93; padding: 15px; margin-bottom: 20px; background-color: #f3e5f5;">
+        <h3 style="color: #6a4c93;">SYNful Knock Vulnerability</h3>
+        <p><strong>SYNful Knock</strong> is a cyberattack that allows hackers to gain control of routers by modifying their firmware. Once installed, attackers can secretly control the device through hidden network packets (SYN packets), allowing spying and spreading malware within the network.</p>
+    </div>
+<div style="border: 2px solid pink; padding: 15px; margin-bottom: 20px; background-color: #f3e5f5;"> 
+ <h3 style="color: black;">Categorizing Software Vulnerabilities</h3>
+<p>Most software security vulnerabilities fall into several main categories.</p>
+</div>
+
+
+    <div style="border: 2px solid #bc6c25; padding: 15px; margin-bottom: 20px; background-color: #fff3cd;">
+        <h3 style="color: #bc6c25;">Buffer Overflow</h3>
+        <p>A buffer overflow occurs when a program writes more data to a memory buffer than it can hold. This can overwrite nearby memory, causing crashes or letting attackers inject and execute malicious code.</p>
+    </div>
+
+    <div style="border: 2px solid #219ebc; padding: 15px; margin-bottom: 20px; background-color: #e0f7fa;">
+        <h3 style="color: #126782;">Non-Validated Input</h3>
+        <p>Non-validated input happens when user data is not properly checked before processing. For example, if a hotel check-in form expects a room number (100–120), but the user types "All rooms", and the system accepts it, they could access all bookings — leading to a privacy breach.</p>
+    </div>
+
+    <div style="border: 2px solid #ff6b6b; padding: 15px; margin-bottom: 20px; background-color: #ffecec;">
+        <h3 style="color: #c1121f;">Race Conditions</h3>
+        <p>A race condition occurs when two processes try to access or change the same data at the same time. For example, a website offering ₹100 as signup bonus can be tricked into giving ₹500 if a hacker clicks the "Claim Bonus" button quickly before the balance updates, exploiting a timing flaw.</p>
+    </div>
+
+    <div style="border: 2px solid #606c38; padding: 15px; margin-bottom: 20px; background-color: #fefae0;">
+        <h3 style="color: #3a5a40;">Weakness in Security Practices</h3>
+        <p>Secure systems use encryption, authentication, and authorization. Developers should always use trusted libraries and avoid creating their own encryption methods. Custom-made security often introduces new vulnerabilities instead of protecting against them.</p>
+    </div>
+
+    <div style="border: 2px solid #343a40; padding: 15px; margin-bottom: 20px; background-color: #dee2e6;">
+        <h3 style="color: #212529;">Access Control Problems</h3>
+        <p>Access control issues occur when systems don’t restrict access properly. For example, if a school leaves the staff room unlocked, students might walk in and change important notices. Similarly, in web apps, if a user can change the URL to access someone else's profile, it means access control is broken.</p>
+    </div>
+<h1 style="color: green;"> software update</h1>
+    <div style="border: 2px solid #5f0f40; padding: 15px; margin-bottom: 20px; background-color: #fce4ec;">
+        <h3 style="color: #5f0f40;">Software Updates</h3>
+        <p>The goal of software updates is to stay current and avoid exploitation of vulnerabilities. Microsoft, Apple and other operating system producers release patches and updates almost every day and applications such as web browsers, mobile apps and web servers are often updated by the companies or organizations responsible for them.
+
+Despite the fact that organizations put a lot of effort into finding and patching software vulnerabilities, new vulnerabilities are discovered regularly. That’s why some organizations use third party security researchers who specialize in finding vulnerabilities in software, or actually invest in their own penetration testing teams dedicated to search, find and patch software vulnerabilities before they can get exploited.
+
+Google’s Project Zero is a great example of this practice. After discovering a number of vulnerabilities in various software used by end users, Google formed a permanent team dedicated to finding software vulnerabilities. 
+
+</p>
+    </div>
+    <div style="border: 2px solid #ff69b4; border-radius: 10px; padding: 20px; background-color: #fff;">
+        <h1 style="color: #c71585; border-bottom: 3px solid #ff69b4; padding-bottom: 10px;">Cryptocurrency</h1>
+
+        <h3 style="color: #ff1493;">What is Cryptocurrency?</h3>
+        <p style="border: 1px solid #ddd; padding: 10px; background-color: #fff0f5;">
+            Cryptocurrency is digital money that can be used to buy goods and services, using strong encryption techniques to secure online transactions.
+            Banks, governments and even companies like Microsoft and AT&T are very aware of its importance and are jumping on the cryptocurrency bandwagon!
+        </p>
+
+        <h3 style="color: #ff1493;">How Cryptocurrency Works</h3>
+
+        <h4 style="color: #db7093;">Step 1</h4>
+        <p style="border: 1px solid #ddd; padding: 10px; background-color: #fff0f5;">
+            Cryptocurrency owners keep their money in encrypted, virtual ‘wallets.’ When a transaction takes place between the owners of two digital wallets,
+            the details are recorded in a decentralized, electronic ledger or blockchain system. This means it is carried out with a degree of anonymity and is
+            self-managed, with no interference from third parties such as central banks or government entities.
+        </p>
+
+        <h4 style="color: #db7093;">Step 2</h4>
+        <p style="border: 1px solid #ddd; padding: 10px; background-color: #fff0f5;">
+            Approximately every ten minutes, special computers collect data about the latest cryptocurrency transactions, turning them into mathematical puzzles to maintain confidentiality.
+            These transactions are then verified through a technical and highly complex process known as ‘mining.’ This step typically involves an army of ‘miners’
+            working on high-end PCs to solve mathematical puzzles and authenticate transactions.
+        </p>
+
+        <h4 style="color: #db7093;">Step 3</h4>
+        <p style="border: 1px solid #ddd; padding: 10px; background-color: #fff0f5;">\
+            Once verified, the ledger is updated and electronically copied and disseminated worldwide to anyone belonging to the blockchain network, effectively completing a transaction.
+        </p>
+
+        <h3 style="color: #ff1493;">Cryptojacking</h3>
+        <p style="border: 1px solid #ddd; padding: 10px; background-color: #fff0f5;">
+            Cryptojacking is an emerging threat that hides on a user’s computer, mobile phone, tablet, laptop or server,
+            using that machine’s resources to 'mine’ cryptocurrencies without the user's consent or knowledge.
+            Many victims of cryptojacking didn’t even know they’d been hacked until it was too late!
+        </p>
+    </div>
+<div style="border: 2px solid #ccc; border-radius: 10px; background-color: #fff; padding: 20px;">
+        <h1 style="color: #2c3e50;">Protecting Your Devices and Networks</h1>
+        <p>You’ve probably heard of the term ‘online security.’ It’s all about taking the necessary steps to prevent your personal information from falling into the wrong hands.</p>
+
+        <h3 style="color: #2980b9;">Protecting Your Computing Devices</h3>
+        <p>Your computing devices are the portal to your online life, storing a lot of your personal data. Therefore, it’s important to protect the security of your devices.</p>
+
+        <h3 style="color: #2980b9;">Turn On Firewall</h3>
+        <p>You should use at least one type of firewall (either a software firewall or a hardware firewall on a router) to protect your device from unauthorized access. The firewall should be turned on and constantly updated to prevent hackers from accessing your personal or organization data.</p>
+
+        <h3 style="color: #2980b9;">Install Antivirus and Antispyware</h3>
+        <p>Malicious software, such as viruses and spyware, are designed to gain unauthorized access to your computer and your data. Once installed, viruses can destroy your data and slow down your computer. They can even take over your computer and broadcast spam emails using your account. Spyware can monitor your online activities, collect your personal information or produce unwanted pop-up ads on your web browser while you are online.</p>
+        <p>To prevent this, you should only ever download software from trusted websites. However, you should always use antivirus software to provide another layer of protection. This software, which often includes antispyware, is designed to scan your computer and incoming email for viruses and delete them. Keeping your software up to date will protect your computer from any new malicious software that emerges.</p>
+
+        <h3 style="color: #2980b9;">Manage Your Operating System and Browser</h3>
+        <p>Hackers are always trying to take advantage of vulnerabilities that may exist in your operating system (such as Microsoft Windows or macOS) or web browser (such as Google Chrome or Apple Safari).</p>
+        <p>Therefore, to protect your computer and your data, you should set the security settings on your computer and browser to medium level or higher. You should also regularly update your computer’s operating system, including your web browser, and download and install the latest software patches and security updates from the vendors.</p>
+
+        <h3 style="color: #2980b9;">Setup Password Protection</h3>
+        <p>All of your computing devices, including PCs, laptops, tablets and smartphones, should be password protected to prevent unauthorized access. Any stored information, especially sensitive or confidential data, should be encrypted. You should only store necessary information on your mobile device, in case it is stolen or lost.</p>
+        <p>Remember, if any one of your devices is compromised, the criminals may be able to access all of your data through your cloud storage service provider, such as iCloud or Google Drive.</p>
+    </div>
+
+    <div style="margin-top: 30px; border: 2px solid #ccc; border-radius: 10px; background-color: #fff; padding: 20px;">
+        <h1 style="color: #2c3e50;">Wireless Network Security at Home</h1>
+
+        <h3 style="color: #2980b9;">Wireless Network Security at Home</h3>
+        <p>Wireless networks allow Wi-Fi enabled devices, such as laptops and tablets, to connect to the network by way of a preset network identifier, known as the service set identifier (SSID). Although a wireless router can be configured so that it doesn’t broadcast the SSID, this should not be considered adequate security for a wireless network.</p>
+        <p>Hackers will be aware of the preset SSID and default password. Therefore, these details should be changed to prevent intruders from entering your home wireless network. Furthermore, you should encrypt wireless communication by enabling wireless security and the WPA2 encryption feature on your wireless router. But be aware, even with WPA2 encryption enabled, a wireless network can still be vulnerable.</p>
+
+        <h3 style="color: #2980b9;">Discovery of Security Flaw in WPA2 Protocol (2017)</h3>
+        <p>The vulnerability can be exploited by key reinstallation attacks. In simple terms, attackers break the encryption between wireless router and wireless device, giving them access to network data. This affects all modern protected Wi-Fi networks.</p>
+        <p>To mitigate this situation, you should update all wireless-capable devices such as routers, laptops, and mobile devices as soon as security updates become available. Use a wired connection for any devices with a wired network interface card and use a trusted virtual private network (VPN).</p>
+
+        <h3 style="color: #2980b9;">Public Wi-Fi Risks</h3>
+        <p>When you are away from home, you can access your online information and surf the Internet via public wireless networks or Wi-Fi hotspots. However, there are some risks involved, which mean that it is best not to access or send any personal information when using public Wi-Fi.</p>
+        <p>You should always verify that your device isn’t configured with file and media sharing and that it requires user authentication with encryption.</p>
+        <p>You should also use an encrypted VPN service to prevent others from intercepting your information (known as ‘eavesdropping’) over a public wireless network. This service gives you secure access to the Internet, by encrypting the connection between your device and the VPN server. Even if hackers intercept a data transmission in an encrypted VPN tunnel, they will not be able to decipher it.</p>
+
+        <h3 style="color: #2980b9;">Password Security</h3>
+        <p>It’s important that all of your online accounts have a unique password. Using the same passwords leaves you and your data vulnerable to cybercriminals.</p>
+        <p>And if it becomes too much to remember all of these passwords, you should use a password manager. This tool stores and encrypts all of your passwords and helps you log into your accounts automatically.</p>
+
+        <h3 style="color: #2980b9;">Tips for Choosing a Strong Password</h3>
+        <ul>
+            <li>Do not use dictionary words or names in any language.</li>
+            <li>Do not use common misspellings of dictionary words.</li>
+            <li>Use special characters such as !@#$%^&*().</li>
+            <li>Do not use computer names or account names.</li>
+            <li>Use a password with more than 10 characters.</li>
+        </ul>
+
+        <h3 style="color: #2980b9;">Using a Passphrase</h3>
+        <p>In order to prevent unauthorized access to your devices, you should consider using passphrases instead of passwords. A passphrase generally takes the form of a sentence (‘Acat th@tlov3sd0gs.’), making it easier for you to remember. And because it’s longer than a typical password, it’s less vulnerable to dictionary or brute-force attacks.</p>
+
+        <h3 style="color: #2980b9;">Tips for Creating a Good Passphrase</h3>
+        <ul>
+            <li>Choose a statement that is meaningful to you.</li>
+            <li>Add special characters like !@#$%^&*().</li>
+            <li>The longer the better.</li>
+            <li>Avoid common or famous statements (e.g. lyrics from a popular song).</li>
+        </ul>
+
+        <h3 style="color: #2980b9;">Password Guidelines</h3>
+        <p>The United States National Institute of Standards and Technology (NIST) has published improved password requirements. Though intended for government use, these can serve as a standard for all users:</p>
+        <ul>
+            <li>Passwords should be at least 8 characters, but no more than 64 characters.</li>
+            <li>Do not use easily guessed passwords (e.g. 123456, abc123).</li>
+            <li>No composition rules (e.g. mandatory uppercase, numbers) required.</li>
+            <li>Allow users to view their passwords while typing to improve accuracy.</li>
+            <li>Allow printable characters and spaces.</li>
+            <li>Do not use password hints or forced expiration periods.</li>
+            <li>Avoid knowledge-based authentication like secret questions.</li>
+        </ul>
+    </div>
+  <div style="border: 2px solid #0077cc; border-radius: 10px; padding: 20px; background-color: #ffffff;">
+
+    <h1 style="border-bottom: 2px solid #0077cc; padding-bottom: 10px;">Data Maintenance</h1>
+
+    <p>Are you ready to share all of your photos with strangers? Your financial information with your friends? Your email passwords with the general public? No? Then your data must be encrypted.</p>
+
+    <h3 style="border-left: 4px solid #0077cc; padding-left: 10px;">What Is Encryption</h3>
+    <p>Encryption is the process of converting information into a form in which unauthorized parties cannot read it. Only a trusted, authorized person with the secret key or password can decrypt the data and access it in its original form.</p>
+    <p>Note that the encryption itself does not prevent someone from intercepting the data. It can only prevent an unauthorized person from viewing or accessing the content. In fact, some criminals may decide to simply encrypt your data and make it unusable until you pay a ransom.</p>
+
+    <h3 style="border-left: 4px solid #0077cc; padding-left: 10px;">How Do You Encrypt Your Data</h3>
+    <p>Software programs are used to encrypt files, folders, and even entire drives.</p>
+    <p><strong>Encrypting File System (EFS)</strong> is a Windows feature that can encrypt data. It is directly linked to a specific user account, and only the user who encrypts the data will be able to access it after it has been encrypted using EFS. Follow these steps to encrypt data using EFS on Windows:</p>
+
+    <h3>Step 1</h3>
+    <p>Select one or more files or folders.</p>
+
+    <h3>Step 2</h3>
+    <p>Right-click the selected data and go to ‘Properties’.</p>
+
+    <h3>Step 3</h3>
+    <p>Find and click ‘Advanced’.</p>
+
+    <h3>Step 4</h3>
+    <p>Select the ‘Encrypt contents to secure data’ check box.</p>
+
+    <h3>Step 5</h3>
+    <p>Files and folders are now encrypted.</p>
+
+    <h3 style="border-left: 4px solid #0077cc; padding-left: 10px;">Back Up Your Data</h3>
+    <p>Having a backup may prevent the loss of irreplaceable data. To back up data properly, you will need an additional storage location and you must copy the data to that location regularly. Explore some of these additional storage options:</p>
+
+    <h3>Home Network</h3>
+    <p>Storing your data locally means that you have total control of it.</p>
+
+    <h3>Secondary Location</h3>
+    <p>You could copy all of your data to a network-attached storage device (NAS), a simple external hard drive, or maybe even back up important folders on thumb drives, CDs, DVDs, or tapes. In this scenario, you are the owner of the data and are fully responsible for the cost and maintenance of the storage equipment.</p>
+
+    <h3>The Cloud</h3>
+    <p>You could subscribe to a cloud storage service, like Amazon Web Services (AWS). The cost of this service will depend on the amount of storage space you need, so you may need to be more selective about what data you back up. One of the benefits of using a cloud storage service is that your data is safe in the event of storage device failure or disasters such as a fire or theft.</p>
+
+    <h3 style="border-left: 4px solid #0077cc; padding-left: 10px;">How Do You Delete Your Data Permanently</h3>
+    <p>Have you ever had to delete data or get rid of a hard drive? If so, did you take any precautions to safeguard the data to keep it from falling into the wrong hands?</p>
+    <p>To erase data so that it is no longer recoverable, it must be overwritten with ones and zeroes multiple times using tools specially designed to do just that. Tools like <strong>SDelete</strong> from Microsoft claim to remove sensitive data completely. <strong>Shred</strong> for Linux and <strong>Secure Empty Trash</strong> for macOS provide similar services.</p>
+    <p>The only way to be certain that data or files are not recoverable is to physically destroy the hard drive or storage device. Many criminals have taken advantage of files thought to be impenetrable or irrecoverable.</p>
+
+  </div>
+
+    <div style="border: 2px solid #333; border-radius: 10px; background-color: #fff; padding: 25px;   margin: auto; box-shadow: 0 0 10px rgba(0,0,0,0.1);">
+
+        <h1 style="color: #2c3e50; border-bottom: 2px solid #ccc; padding-bottom: 10px;">Who Owns Your Data</h1>
+
+        <h3 style="color: #34495e;">Understanding the Terms</h3>
+        <p style="color: #555;">The Terms of Service will include a number of sections, from user rights and responsibilities to disclaimers and account modification terms.</p>
+
+        <h3 style="color: #34495e;">Data Use Policy</h3>
+        <p style="color: #555;">
+            The data use policy outlines how the service provider will collect, use and share your data.
+            The data use policy of the company you used to set up the account states that for any content you publish:
+            “you grant us a non-exclusive, transferable, sub-licensable, royalty-free, and worldwide license to host, use, 
+            distribute, modify, run, copy, publicly perform or display, translate, and create derivative works of your content 
+            (consistent with your privacy and application settings)”
+        </p>
+
+        <h3 style="color: #34495e;">Privacy Settings</h3>
+        <p style="color: #555;">
+            The privacy settings allow you to control who sees information about you and who can access your profile or account data.
+            As you didn’t set the privacy settings before you accepted the terms, default settings were applied.
+            Accepting the default privacy settings usually means that anyone can see information about you and access your profile.
+        </p>
+
+        <h3 style="color: #34495e;">Security Policy</h3>
+        <p style="color: #555;">
+            The security policy outlines what the company is doing to secure the data it obtains from you.
+        </p>
+
+        <h3 style="color: #34495e;">Before You Sign Up</h3>
+        <p style="color: #555;">
+            <ul style="color: #555; padding-left: 20px;">
+                <li>Read terms and services</li>
+                <li>Understand your rights regarding your data</li>
+                <li>Request a copy of your data</li>
+                <li>Know what providers can do with the data you upload</li>
+                <li>Check what happens to your data when you close your account</li>
+            </ul>
+        </p>
+
+        <h3 style="color: white ;">Protect Your Data</h3>
+        <p style="color: #555;">
+            You must always take appropriate action to protect your data and safeguard your account. To do so, you should:
+            <ul style="color: #555; padding-left: 20px;">
+                <li>Always read the Terms of Service when registering for a new service</li>
+                <li>Decide whether the service is worth waiving your rights to your data for</li>
+                <li>Select your privacy settings rather than accepting the default</li>
+                <li>Limit the group of people you share content with</li>
+                <li>Review the service provider’s security policy</li>
+                <li>Change your passwords periodically</li>
+                <li>Use a complex password and enable two-factor authentication</li>
+            </ul>
+        </p>
+
+    </div>
+<h1 style="text-align: center; color: white;">Safeguarding Your Online Privacy</h1>
+
+  <div style="background-color: #ffffff; border: 2px solid #3498db; border-radius: 8px; padding: 15px; margin-bottom: 20px;">
+    <h3 style="color: white ;">Two Factor Authentication</h3>
+    <p>
+      Popular online services, such as Google, Facebook, Twitter, LinkedIn, Apple, and Microsoft, use two factor authentication to add an extra layer of security for account logins.
+    </p>
+    <p>
+      Besides your username and password or personal identification number (PIN), two factor authentication requires a second token to verify your identity. This may be a:
+    </p>
+    <ul>
+      <li>Physical object such as a credit card, mobile phone, or fob</li>
+      <li>Biometric scan such as a fingerprint or facial and voice recognition</li>
+      <li>Verification code sent via SMS or email</li>
+    </ul>
+    <p>
+      Even with two factor authentication, hackers can still gain access to online accounts through phishing attacks, malware, and social engineering.
+    </p>
+  </div>
+
+  <div style="background-color: #ffffff; border: 2px solid #27ae60; border-radius: 8px; padding: 15px; margin-bottom: 20px;">
+    <h3 style="color: white ;">Open Authorization</h3>
+    <p>
+      Open Authorization (OAuth) is an open standard protocol that allows you to use your credentials to access third-party applications without exposing your password.
+    </p>
+    <p>
+      You are looking forward to registering for a certification course to help you develop your career. But you must be logged into the eLearning portal to do so.
+    </p>
+    <p>
+      You can’t remember your login details, but that’s OK. The portal gives you the option of logging in using your credentials from a social media website such as Facebook or via another account such as Google.
+    </p>
+    <p>
+      So instead of having to reset your login details, you log into the eLearning portal using your existing social media accounts and register for your next course with ease. You can’t wait to get started!
+    </p>
+  </div>
+
+  <div style="background-color: #ffffff; border: 2px solid #e67e22; border-radius: 8px; padding: 15px; margin-bottom: 20px;">
+    <h3 style="color: white ;">Social Sharing</h3>
+    <p>
+      In order to safeguard your privacy on social media, it’s important to share as little personal information as possible. You should also check your social media settings so that only people you know can see your activities or engage in conversations with you.
+    </p>
+    <p>
+      The more information you share online, the easier it is for someone to create a profile about you and take advantage of you, both online and offline.
+    </p>
+  </div>
+
+  <div style="background-color: #ffffff; border: 2px solid #9b59b6; border-radius: 8px; padding: 15px; margin-bottom: 20px;">
+    <h3 style="color: white ;">Email and Web Browser Privacy</h3>
+    <p>
+      These problems can be minimized by enabling the in-private browsing mode on your web browser. Many of the most commonly used web browsers have their own name for private browser mode:
+    </p>
+    <ul>
+      <li>Microsoft Internet Explorer: InPrivate</li>
+      <li>Google Chrome: Incognito</li>
+      <li>Mozilla Firefox: Private tab or private window</li>
+      <li>Safari: Private browsing</li>
+    </ul>
+    <p>
+      When private mode is enabled, cookies, temporary internet files, and browsing history are deleted when you close the window or program. This helps prevent others from gathering information about your online activities or targeting you with ads.
+    </p>
+    <p>
+      However, even with private browsing and cookies disabled, companies are developing new ways of fingerprinting users to track online behavior. For example, intermediary devices like routers can gather information about a user's web surfing history.
+    </p>
+  </div>
+<h1 style="text-align: center; color: #c0392b;">Risky Online Behavior</h1>
+
+  <div style="background-color: #ffffff; border: 2px solid #e74c3c; border-radius: 8px; padding: 15px; margin-bottom: 20px;">
+    <h3 style="color: #e74c3c;">Scenario 1</h3>
+    <p>
+      Do you know what information is safe to share on social media sites? Always limit the amount of information you share online.
+      Think about the data you are about to share about yourself. Could it cause a threat?
+    </p>
+    <p>
+      Posting something that contains your address combined with a recent photo of you on holiday
+      could be an invitation for criminals to target your house.
+      Remember that a post on social media may spread fast
+      as it can be shared again and again with people you don’t know.
+    </p>
+  </div>
+
+  <div style="background-color: #ffffff; border: 2px solid #2980b9; border-radius: 8px; padding: 15px; margin-bottom: 20px;">
+    <h3 style="color: #2980b9;">Scenario 2</h3>
+    <p>
+      For each online service you use, you should use a unique secure password.
+      Memorizing many passwords can become challenging,
+      but writing them down would be a security nightmare if someone got access to them.
+      Instead, you should start to use some password manager applications.
+    </p>
+  </div>
+
+  <div style="background-color: #ffffff; border: 2px solid #16a085; border-radius: 8px; padding: 15px; margin-bottom: 20px;">
+    <h3 style="color: #16a085;">Scenario 3</h3>
+    <p>
+      Connecting to an open Wi-Fi hotspot can make your system and data vulnerable to an attack.
+      Being online has become such an essential part of our daily life.
+      However, we should all think twice about getting online via a public open Wi-Fi hotspot.
+    </p>
+    <p>
+      It might be hosted by an attacker who will have access to the data you are transferring.
+      Try to use a VPN to provide a security layer over the insecure open Wi-Fi network,
+      and only access websites over HTTPS.
+    </p>
+  </div>
+
+  <div style="background-color: #ffffff; border: 2px solid #8e44ad; border-radius: 8px; padding: 15px; margin-bottom: 20px;">
+    <h3 style="color: #8e44ad;">Scenario 4</h3>
+    <p>
+      Are you aware of the risks that come when downloading a trial version of a program?
+      Installing applications on your device from non-trusted sources is a huge security risk.
+    </p>
+    <p>
+      How do you know the application is not coming with malware?
+      Can you take the risk?
+      Can your organization take the risk?
+    </p>
+  </div>
+
+  <div style="background-color: #ffffff; border: 2px solid #d35400; border-radius: 8px; padding: 15px; margin-bottom: 20px;">
+    <h3 style="color: #d35400;">Scenario 5</h3>
+    <p>
+      Have you ever had a warning message telling you to download a diagnostics program that will make your computer safe?
+      You should be aware of the risks. You might have seen these in the past.
+    </p>
+    <p>
+      You are browsing the web and suddenly a pop-up with a scary warning appears.
+      It says that your computer is infected with a virus and recommends downloading a special antivirus software.
+      You should never follow any of these instructions!
+    </p>
+    <p>
+      Most of these pop-ups are only trying to convince you to download a new, potentially malicious application to your computer.
+      Rather, just close the pop-up or the browser, and to be sure, run a system security scan with your trusted antivirus software on your computer.
+    </p>
+  </div>
+
+  <div style="background-color: #ffffff; border: 2px solid #34495e; border-radius: 8px; padding: 15px;">
+    <h3 style="color: #34495e;">Scenario 6</h3>
+    <p>
+      Clicking on links in an email might seem safe, but often all is not what it seems.
+      Make sure you know the signs to look out for!
+    </p>
+    <p>
+      You have just received an email that looks like it is from your IT department. It is written in broken English
+      and requests that you click a link to re-activate your account. It sounds pretty suspicious.
+    </p>
+    <p>
+      If the link URL is outside of your organization’s domain, it is probably a phishing email. Delete it.
+      However, even if it looks OK, before clicking on any links,
+      you should first check in with your IT department to make sure they really did send this email.
+    </p>
+   </div>
+<div style="border: 2px solid #444; padding: 20px; background-color: #fff;">
+    <h1 style="text-align: center; color: #005a9c;">Cybersecurity Devices and Technologies</h1>
+
+    <h3 style="border-bottom: 1px solid #ccc;">Security Appliances</h3>
+    <p>Security appliances can be standalone devices like a router or software tools that are run on a network device. They fall into six general categories.</p>
+
+    <h3 style="border-bottom: 1px solid #ccc;">Routers</h3>
+    <p>Routers are primarily used to interconnect various network segments and provide basic traffic capabilities. Information can help define which computers from a given network segment can communicate with which others.</p>
+
+    <h3 style="border-bottom: 1px solid #ccc;">Firewalls</h3>
+    <p>Firewalls can look deeper into network traffic, identify malicious behavior to be blocked, and apply sophisticated security policies to the passing traffic.</p>
+
+    <h3 style="border-bottom: 1px solid #ccc;">Intrusion Prevention System (IPS)</h3>
+    <p>IPS systems use traffic signatures to match and block malicious traffic and attacks.</p>
+
+    <h3 style="border-bottom: 1px solid #ccc;">Virtual Private Network (VPN)</h3>
+    <p>VPNs let remote employees securely connect to the organization’s network using encrypted tunnels, and can securely interconnect branch offices with the central office.</p>
+
+    <h3 style="border-bottom: 1px solid #ccc;">Antivirus and Antimalware</h3>
+    <p>These use signatures or behavior analysis to identify and block malicious code.</p>
+
+    <h3 style="border-bottom: 1px solid #ccc;">Other Security Devices</h3>
+    <p>Includes web/email security appliances, decryption devices, client access control servers, and security management systems.</p>
+
+    <h3 style="color: #005a9c;">Firewall Types</h3>
+    <p>Firewalls can be host-based or network-based and include several types:</p>
+    <ul>
+      <li><strong>Network layer firewall</strong> – Filters by source/destination IP.</li>
+      <li><strong>Transport layer firewall</strong> – Filters by ports and connection state.</li>
+      <li><strong>Application layer firewall</strong> – Filters by application/service.</li>
+      <li><strong>Context-aware firewall</strong> – Filters by user, device, role, or threat profile.</li>
+      <li><strong>Proxy server</strong> – Filters content requests like URLs and media types.</li>
+      <li><strong>Reverse proxy server</strong> – Protects and distributes access to web servers.</li>
+      <li><strong>NAT firewall</strong> – Hides private addresses of internal hosts.</li>
+      <li><strong>Host-based firewall</strong> – Filters on individual systems.</li>
+    </ul>
+
+    <h3 style="border-bottom: 1px solid #ccc;">Port Scanning</h3>
+    <p>Port scanning probes devices for open ports, useful for security assessments or potentially malicious reconnaissance.</p>
+
+    <h4 style="margin-top:10px;">Zenmap</h4>
+    <p>Download and use Zenmap to scan an IP address. The results show open or closed ports and services.</p>
+
+    <h4>Inside Zenmap</h4>
+    <p>Possible scan responses:</p>
+    <ul>
+      <li><strong>Open/Accepted:</strong> Port/service is accessible.</li>
+      <li><strong>Closed/Denied:</strong> Port/service not running.</li>
+      <li><strong>Filtered/Blocked:</strong> Blocked by firewall.</li>
+    </ul>
+
+    <h4>Nmap Online Port Scanner</h4>
+    <p>Use this for scanning public IP addresses externally. If a port shows as open, port forwarding may be active.</p>
+
+    <h3 style="border-bottom: 1px solid #ccc;">Intrusion Detection and Prevention Systems</h3>
+    <p>IDS and IPS are vital for monitoring, detecting, and preventing attacks.</p>
+
+    <h4>IDS</h4>
+    <p>Scans traffic for known threats and creates alerts, but does not block. Usually placed offline to avoid delays.</p>
+
+    <h4>IPS</h4>
+    <p>Actively blocks threats by analyzing real-time traffic for suspicious patterns.</p>
+
+    <h3 style="border-bottom: 1px solid #ccc;">Real-Time Detection</h3>
+    <p>Modern threats like DDoS require real-time scanning and detection to prevent prolonged damage.</p>
+
+    <h3 style="border-bottom: 1px solid #ccc;">Protecting Against Malware</h3>
+    <p>Use tools like Cisco AMP Threat Grid for detecting zero-day and persistent threats using global intelligence.</p>
+
+    <h4>Benefits of Cisco Threat Grid</h4>
+    <ul>
+      <li><strong>Secure Operations Center Team:</strong> Gains actionable data.</li>
+      <li><strong>Incident Response Team:</strong> Analyzes behavior quickly.</li>
+      <li><strong>Threat Intelligence Team:</strong> Improves overall security posture.</li>
+      <li><strong>Infrastructure Engineering:</strong> Automates threat response.</li>
+    </ul>
+
+    <h3 style="color: #005a9c;">Security Best Practices</h3>
+    <ul>
+      <li><strong>Perform a risk assessment:</strong> Justify security investments.</li>
+      <li><strong>Create security policies:</strong> Outline rules and expectations.</li>
+      <li><strong>Physical security:</strong> Restrict access and ensure fire suppression.</li>
+      <li><strong>HR security:</strong> Conduct background checks.</li>
+      <li><strong>Backup and test:</strong> Regular backups and recovery testing.</li>
+      <li><strong>Maintain patches:</strong> Keep systems updated.</li>
+      <li><strong>Access control:</strong> Define user roles and strong authentication.</li>
+      <li><strong>Test incident response:</strong> Simulate emergency scenarios.</li>
+      <li><strong>Monitoring tools:</strong> Use integrated security monitoring.</li>
+      <li><strong>Security appliances:</strong> Use advanced firewalls and routers.</li>
+      <li><strong>Endpoint protection:</strong> Enterprise-level antivirus/malware tools.</li>
+      <li><strong>User education:</strong> Train staff regularly (e.g., via SANS Institute).</li>
+      <li><strong>Encrypt data:</strong> Secure sensitive data and emails.</li>
+    </ul>
+  </div>
+<h1 style="text-align:center; color:#2c3e50;">Behavior Approach to Cybersecurity</h1>
+
+  <div style="border: 2px solid #ccc; padding: 15px; margin-bottom: 20px;">
+    <h3 style="color:#34495e;">Behavior Approach to Cybersecurity</h3>
+    <p>Behavior-based security is a form of threat detection that involves capturing and analyzing the flow of communication between a user on the local network and a local or remote destination. Any changes in normal patterns of behavior are regarded as anomalies and may indicate an attack.</p>
+  </div>
+
+  <div style="border: 2px solid #ccc; padding: 15px; margin-bottom: 20px;">
+    <h3 style="color:#34495e;">Honeypots</h3>
+    <p>Behavior-based detection lures the attacker in by appealing to their predicted pattern of malicious behavior. Once the attacker is inside the honeypot, the network administrator can capture, log, and analyze their behavior to build a better defense.</p>
+  </div>
+
+  <div style="border: 2px solid #ccc; padding: 15px; margin-bottom: 20px;">
+    <h3 style="color:#34495e;">NetFlow</h3>
+    <p>NetFlow technology is used to gather information about data flowing through a network, including who and what devices are in the network, and when and how users and devices access the network.</p>
+    <p>NetFlow is an important component in behavior-based detection and analysis. Switches, routers, and firewalls equipped with NetFlow can report information about data entering, leaving, and traveling through the network. This information is sent to NetFlow collectors that collect, store, and analyze NetFlow data, which can be used to establish baseline behaviors on more than 90 attributes, such as source and destination IP addresses.</p>
+  </div>
+
+  <div style="border: 2px solid #ccc; padding: 15px; margin-bottom: 20px;">
+    <h3 style="color:#34495e;">Penetration Testing</h3>
+
+    <h4 style="margin-bottom: 5px;">Step 1: Planning</h4>
+    <p>The pen tester gathers as much information as possible about a target system or network, its potential vulnerabilities, and exploits to use against it.</p>
+
+    <h4 style="margin-bottom: 5px;">Step 2: Scanning</h4>
+    <p>The pen tester probes the system to identify weaknesses through methods like port scanning, vulnerability scanning, and enumeration.</p>
+
+    <h4 style="margin-bottom: 5px;">Step 3: Gaining Access</h4>
+    <p>Access is gained through techniques like launching exploits, social engineering, exploiting website vulnerabilities, and cracking weak Wi-Fi encryption.</p>
+
+    <h4 style="margin-bottom: 5px;">Step 4: Maintaining Access</h4>
+    <p>The tester stays undetected using backdoors, rootkits, and other covert tools to access valuable data.</p>
+
+    <h4 style="margin-bottom: 5px;">Step 5: Analysis and Reporting</h4>
+    <p>Findings are presented in a report, with recommendations for security improvements.</p>
+  </div>
+
+  <div style="border: 2px solid #ccc; padding: 15px; margin-bottom: 20px;">
+    <h3 style="color:#34495e;">Impact Reduction</h3>
+    <p>Despite efforts, breaches can still happen. Organizations must be ready to act fast to contain damage.</p>
+
+    <h4>Communicate the Issues</h4>
+    <p>Transparency is critical. Inform both internal staff and external clients clearly and promptly.</p>
+
+    <h4>Be Sincere and Accountable</h4>
+    <p>Respond honestly and take responsibility if at fault.</p>
+
+    <h4>Provide the Details</h4>
+    <p>Explain what happened and what data was compromised. Cover identity theft protection costs if necessary.</p>
+
+    <h4>Find the Cause</h4>
+    <p>Conduct forensic analysis to discover what enabled the breach.</p>
+
+    <h4>Apply Lessons Learned</h4>
+    <p>Implement improvements based on investigation findings.</p>
+
+    <h4>Check and Check Again</h4>
+    <p>Ensure no backdoors or vulnerabilities remain post-breach.</p>
+
+    <h4>Educate</h4>
+    <p>Train staff and clients to reduce future risks.</p>
+  </div>
+
+  <div style="border: 2px solid #ccc; padding: 15px; margin-bottom: 20px;">
+    <h3 style="color:#34495e;">Risk Management</h3>
+    <p>Risk management involves continuously identifying and evaluating risks to reduce their impact. The goal is to balance risk with the cost of implementing controls.</p>
+
+    <h4>Frame the Risks</h4>
+    <p>Identify threats like attacks, service disruptions, and reputation loss that increase risk.</p>
+
+    <h4>Assess the Risks</h4>
+    <p>Prioritize threats based on financial or operational impact.</p>
+
+    <h4>Respond to the Risks</h4>
+    <p>Create an action plan to eliminate, mitigate, transfer, or accept risk.</p>
+
+    <h4>Monitor the Risks</h4>
+    <p>Regularly review and track risks, especially those that are accepted.</p>
+  </div>
+<h1 style="text-align:center; color: #003366;">Legal and Ethical Issues</h1>
+
+    <div style="background-color: #ffffff; border: 1px solid #cccccc; padding: 15px; margin-bottom: 20px;">
+        <h3 style="color: #003366;">Legal and Ethical Issues</h3>
+        <p>In order to protect against attacks, cybersecurity professionals must have the same skills as the attackers. However, cybersecurity professionals use their skills within the bounds of the law.</p>
+    </div>
+
+    <div style="background-color: #ffffff; border: 1px solid #cccccc; padding: 15px; margin-bottom: 20px;">
+        <h3 style="color: #003366;">Personal Legal Issues</h3>
+        <p>At work or home, you may have the opportunity and skills to hack another person’s computer or network. But there is an old saying, 'Just because you can does not mean you should.' Most hacks leave tracks, which can be traced back to you.</p>
+        <p>Cybersecurity professionals develop many skills, which can be used positively or illegally. There is always a huge demand for those who choose to put their cyber skills to good use within legal bounds.</p>
+    </div>
+
+    <div style="background-color: #ffffff; border: 1px solid #cccccc; padding: 15px; margin-bottom: 20px;">
+        <h3 style="color: #003366;">Corporate Legal Issues</h3>
+        <p>Most countries have cybersecurity laws in place, which businesses and organizations must abide by.</p>
+        <p>In some cases, if you break cybersecurity laws while doing your job, the organization may be punished and you could lose your job. In other cases, you could be prosecuted, fined and possibly sentenced.</p>
+        <p>In general, if you are unsure whether an action or behavior might be illegal, assume that it is illegal and do not do it. Always check with the legal or HR department in the organization.</p>
+    </div>
+
+    <div style="background-color: #ffffff; border: 1px solid #cccccc; padding: 15px; margin-bottom: 20px;">
+        <h3 style="color: #003366;">International Law and Cybersecurity</h3>
+        <p>International cybersecurity law is a constantly evolving field. Cyber attacks take place in cyberspace, an electronic space created, maintained and owned by both the public and private entities. There are no traditional geographic boundaries in cyberspace. To further complicate issues, it is much easier to mask the source of an attack in cyberwarfare than in conventional warfare.</p>
+        <p>The global society is still debating how best to deal with cyberspace. Country practice, <i>opinio juris</i> (a sense on behalf of a country that it is bound to the law in question) and any treaties drafted will shape international cybersecurity law.</p>
+    </div>
+
+    <div style="background-color: #ffffff; border: 1px solid #cccccc; padding: 15px; margin-bottom: 20px;">
+        <h3 style="color: #003366;">Ethical Issues in Cybersecurity</h3>
+        <p>Think back to the pen test you carried out for @Apollo. This test revealed that one of your colleagues, who started at the same time as you, was responsible for a data breach. You are thinking of not including this in your report as they might get in trouble.</p>
+        <p>Ask yourself the following questions to help you decide on the best course of action:</p>
+        <ul>
+            <li>Is it legal?</li>
+            <li>Does your action comply with @Apollo policy?</li>
+            <li>Will your action be favorable for @Apollo and its stakeholders?</li>
+            <li>Would it be okay if everyone in @Apollo took this action?</li>
+            <li>Would the outcome of your action represent @Apollo in a positive light in a news headline?</li>
+        </ul>
+    </div>
+
+    <div style="background-color: #ffffff; border: 1px solid #cccccc; padding: 15px; margin-bottom: 20px;">
+        <h3 style="color: #003366;">Corporate Ethical Issues</h3>
+        <p>Many professional IT organizations such as the Information Systems Security Association (ISSA) have published Codes of Ethics to help guide employee actions and behaviors.</p>
+    </div>
+
+    <h1 style="text-align:center; color: #003366;">Education and Careers</h1>
+
+    <div style="background-color: #ffffff; border: 1px solid #cccccc; padding: 15px; margin-bottom: 20px;">
+        <h3 style="color: #003366;">Professional Certifications</h3>
+        <p>Cybersecurity certifications are a great way for you to verify your skills and knowledge and can also boost your career.</p>
+    </div>
+
+    <div style="background-color: #ffffff; border: 1px solid #cccccc; padding: 15px; margin-bottom: 20px;">
+        <h3 style="color: #003366;">CCST</h3>
+        <p>This is an entry-level certification for newcomers who are preparing to start their career in the cybersecurity field. It is aimed at high school and early college students as well as those interested in a career change. This certificate does not expire or require periodic recertification.</p>
+    </div>
+
+    <div style="background-color: #ffffff; border: 1px solid #cccccc; padding: 15px; margin-bottom: 20px;">
+        <h3 style="color: #003366;">CompTIA Security+</h3>
+        <p>This is an entry-level security certification that meets the U.S. Department of Defense Directive 8570.01-M requirements, which is an important item for anyone looking to work in IT security for the federal government.</p>
+    </div>
+
+    <div style="background-color: #ffffff; border: 1px solid #cccccc; padding: 15px; margin-bottom: 20px;">
+        <h3 style="color: #003366;">CEH</h3>
+        <p>This certification tests your understanding and knowledge of how to look for weaknesses and vulnerabilities in target systems using the same knowledge and tools as a malicious hacker but in a lawful and legitimate manner.</p>
+    </div>
+
+    <div style="background-color: #ffffff; border: 1px solid #cccccc; padding: 15px; margin-bottom: 20px;">
+        <h3 style="color: #003366;">CISSP</h3>
+        <p>This is the most recognizable and popular security certification. In order to take the exam, you need to have at least five years of relevant industry experience.</p>
+    </div>
+
+    <div style="background-color: #ffffff; border: 1px solid #cccccc; padding: 15px; margin-bottom: 20px;">
+        <h3 style="color: #003366;">Cisco Certified CyberOps Associate</h3>
+        <p>This certification validates the skills required of associate-level cybersecurity analysts within security operations centers.</p>
+    </div>
+
+    <div style="background-color: #ffffff; border: 1px solid #cccccc; padding: 15px; margin-bottom: 20px;">
+        <h3 style="color: #003366;">Cybersecurity Career Pathways</h3>
+        <p>CyberSeek is a tool that provides detailed data about supply and demand in the cybersecurity job market to help close the cybersecurity skills gap.</p>
+    </div>
+
+
+</body>
+</html>
