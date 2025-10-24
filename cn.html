@@ -1,4 +1,4 @@
-  <!doctype html>
+ <!doctype html>
 <html lang="en">
 <head>
   <meta charset="utf-8" />
@@ -89,6 +89,25 @@
     .muted{color:#444}
     .accent{color:var(--accent)}
     .center{text-align:center}
+
+    /* Additional responsive enhancements for full platform support */
+    @media (max-width:600px){
+      .grid.cols-2{grid-template-columns:1fr}
+      .grid.cols-3{grid-template-columns:1fr}
+      body{margin:8px}
+      .card{padding:12px;border-radius:8px;margin-bottom:16px}
+      h1{font-size:clamp(1.1rem, 3vw, 1.8rem)}
+      h2{font-size:clamp(1rem, 2.5vw, 1.3rem)}
+      h3{font-size:clamp(0.9rem, 2vw, 1rem)}
+      ul,ol{margin-left:16px}
+    }
+    @media (min-width:1200px){
+      .grid.cols-2{grid-template-columns:1fr 1fr}
+      .grid.cols-3{grid-template-columns:repeat(3,1fr)}
+      .card{max-width:1200px;padding:32px}
+    }
+    /* Ensure images or media are responsive if added later */
+    img{max-width:100%;height:auto}
   </style>
 </head>
 <body>
@@ -351,16 +370,11 @@
       <div>
         <h3>iOS — Turn Wi‑Fi On/Off</h3>
         <ol>
-          <li>Settings → Wi‑Fi → toggle ON</li>
-          <li>Choose a network, enter password, Join</li>
-        </ol>
-        <h3>Manual Connect</h3>
-        <ol>
-          <li>Settings → Wi‑Fi → Other → enter SSID and security → Join</li>
-        </ol>
-      </div>
-    </div>
+         </div>
 
+<!-- How Phones Choose Networks -->
+  <section class="card">
+    <h1>How Phones Choose Networks</h1>
     <h2>How Phones Choose Networks</h2>
     <ul>
       <li>Wi‑Fi first (when available)</li>
@@ -388,7 +402,7 @@
     <h2>Typical Home Routers</h2>
     <p>Routers combine routing, switching and wireless access. LAN (Ethernet) ports connect wired devices; the WAN port connects to the ISP modem.</p>
 
-    <div class="""callout
+    <div class="callout">
       <p><strong>Quick summary:</strong> Wired devices (Ethernet) and wireless devices (Wi‑Fi) are on the same local network. The WAN port connects your router to the internet.</p>
     </div>
   </section>
@@ -411,7 +425,7 @@
     </ul>
   </section>
 
-  
+ 
 
 </body>
-</html> 
+</html>
