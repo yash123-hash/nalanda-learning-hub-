@@ -1,4 +1,4 @@
- <!doctype html>
+  <!doctype html>
 <html lang="en">
 <head>
   <meta charset="utf-8" />
@@ -12,18 +12,34 @@
       --bg:#f6f7f9;
       --card-bg:#fff;
       --accent:#1a73e8;
-      --muted:#444;
-      --text:#111;
+      --muted:#6b7280;
+      --text:#0f172a;
       --radius:12px;
-      --max-width:1100px;
-      --gap:18px;
-      --card-border:2px solid rgba(17,24,39,.9);
-      --shadow:0 10px 20px rgba(0,0,0,.06);
-      --flow: clamp(1rem, 1.1vw + .2rem, 1.125rem);
+      --max-width:1200px;
+      --gap: clamp(12px, 2vw, 24px);
+      --card-border:1px solid rgba(17,24,39,.06);
+      --shadow:0 10px 30px rgba(2,6,23,.06);
+      --flow: clamp(14px, 1.2vw + .25rem, 18px);
+      --break-sm: 600px;
+      --break-md: 900px;
+    }
+
+    /* Dark mode support */
+    @media (prefers-color-scheme: dark) {
+      :root{
+        --bg:#0b1220;
+        --card-bg:#081022;
+        --accent:#4ea8ff;
+        --muted:#9aa6bf;
+        --text:#e6eef8;
+        --card-border:1px solid rgba(255,255,255,.04);
+        --shadow: 0 8px 26px rgba(2,6,23,.6);
+      }
     }
 
     body{
-      margin:24px;
+      margin:0;
+      padding: clamp(8px, 1.6vw, 28px);
       font-family: Inter, ui-sans-serif, system-ui, -apple-system, "Segoe UI", Roboto, "Helvetica Neue", Arial;
       -webkit-font-smoothing:antialiased;
       -moz-osx-font-smoothing:grayscale;
@@ -31,401 +47,426 @@
       color:var(--text);
       line-height:1.6;
       font-size:var(--flow);
+      -webkit-text-size-adjust:100%;
+      -ms-text-size-adjust:100%;
     }
 
-    /* container card used throughout */
+    /* Layout container */
     .card{
       width:100%;
       max-width:var(--max-width);
-      margin:0 auto 24px;
+      margin:0 auto var(--gap);
       background:var(--card-bg);
       border-radius:var(--radius);
-      padding:20px;
+      padding: clamp(12px, 2.2vw, 32px);
       border:var(--card-border);
       box-shadow:var(--shadow);
+      overflow:hidden;
     }
 
-    /* utility layout */
-    .stack > * + *{margin-top:12px}
-    h1{font-size:clamp(1.25rem, 2.4vw, 2.2rem); margin:0 0 8px; color:var(--accent)}
-    h2{font-size:clamp(1.05rem, 1.6vw, 1.45rem); margin:12px 0 8px; color:#1f4b99}
-    h3{font-size:clamp(.98rem, 1.1vw, 1.1rem); margin:10px 0 6px; color:#1a56db}
-    p{margin:0 0 10px; color:inherit}
+    /* stack with gap */
+    .stack{display:flex; flex-direction:column; gap:12px}
+    .stack > * {margin:0}
+
+    h1{font-size:clamp(1.15rem, 2.3vw, 2rem); margin:0; color:var(--accent)}
+    h2{font-size:clamp(1rem, 1.6vw, 1.4rem); margin:0; color:#1f4b99}
+    h3{font-size:clamp(.95rem, 1.1vw, 1.05rem); margin:0; color:#1a56db}
+    p{margin:0; color:var(--text)}
+    .muted{color:var(--muted)}
     strong{font-weight:600}
-    ul,ol{margin:8px 0 12px 20px}
+    ul,ol{margin:8px 0 12px 20px;padding:0}
     li{margin:6px 0}
 
-    /* responsive columns for wide screens */
+    /* Responsive grid using auto-fit/minmax */
     .grid{
       display:grid;
       gap:var(--gap);
     }
-    .grid.cols-2{grid-template-columns:repeat(1,1fr)}
-    .grid.cols-3{grid-template-columns:repeat(1,1fr)}
-    @media (min-width:760px){
-      .grid.cols-2{grid-template-columns:1fr 1fr}
-      .grid.cols-3{grid-template-columns:repeat(3,1fr)}
-      .card{padding:28px}
-    }
+    .grid.cols-2{grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));}
+    .grid.cols-3{grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));}
 
-    /* nicer callouts */
+    /* Callout style */
     .callout{
       background:linear-gradient(180deg, rgba(26,115,232,.04), rgba(26,115,232,.02));
       border-left:4px solid var(--accent);
       padding:12px 14px;
       border-radius:8px;
-      color:#000;
+      color:inherit;
     }
 
-    /* small screens: reduce margins */
-    @media (max-width:420px){
-      body{margin:12px}
-      .card{padding:14px;border-radius:10px}
-    }
-
-    /* Ensure elements that had inline colors remain readable */
-    header,main,section,footer{display:block}
-    blockquote{margin:0 0 12px;padding-left:14px;border-left:3px solid #e6e6e6;color:#444}
-    .muted{color:#444}
-    .accent{color:var(--accent)}
+    /* Utility */
     .center{text-align:center}
+    .accent{color:var(--accent)}
+    .small{font-size:0.95em;color:var(--muted)}
+    .muted-block{color:var(--muted)}
+    img{max-width:100%;height:auto;display:block}
+    .wrap{white-space:normal;word-break:break-word}
 
-    /* Additional responsive enhancements for full platform support */
-    @media (max-width:600px){
-      .grid.cols-2{grid-template-columns:1fr}
-      .grid.cols-3{grid-template-columns:1fr}
-      body{margin:8px}
-      .card{padding:12px;border-radius:8px;margin-bottom:16px}
-      h1{font-size:clamp(1.1rem, 3vw, 1.8rem)}
-      h2{font-size:clamp(1rem, 2.5vw, 1.3rem)}
-      h3{font-size:clamp(0.9rem, 2vw, 1rem)}
-      ul,ol{margin-left:16px}
+    /* Make clickable/touch targets comfortable */
+    button, a {touch-action:manipulation}
+
+    /* Reduced motion */
+    @media (prefers-reduced-motion: reduce){
+      *{transition:none!important; animation:none!important}
     }
+
+    /* Accessibility: high-contrast adjustments */
+    @media (prefers-contrast: more) {
+      :root { --card-border:2px solid rgba(255,255,255,.12) }
+      .card{box-shadow:none}
+    }
+
+    /* Breakpoint adjustments */
+    @media (max-width:420px){
+      body{padding:10px}
+      .card{padding:12px;border-radius:10px}
+      h1{font-size:clamp(1.05rem, 4vw, 1.5rem)}
+    }
+
     @media (min-width:1200px){
-      .grid.cols-2{grid-template-columns:1fr 1fr}
-      .grid.cols-3{grid-template-columns:repeat(3,1fr)}
       .card{max-width:1200px;padding:32px}
+      :root{--gap:28px}
     }
-    /* Ensure images or media are responsive if added later */
-    img{max-width:100%;height:auto}
+
+    /* small presentational fixes */
+    blockquote{margin:0 0 12px;padding-left:14px;border-left:3px solid #e6e6e6;color:var(--muted)}
+    footer{opacity:.9;font-size:.95rem}
   </style>
 </head>
 <body>
 
   <!-- Intro message -->
-  <section class="card">
+  <section class="card" aria-labelledby="welcome-title">
     <div class="stack">
-      <h1>Welcome to the World of Networking</h1>
+      <h1 id="welcome-title">Welcome to the World of Networking</h1>
 
-      <p>Hi, my name is Yash Raj Bhatt. I teach computer networking at Takshila Learning Hubb. I want you to know that behind everything that you read, everything that you watch, everything that you do — is really just an amazing effort of mine. I am dedicated and passionate about helping you learn about networking.</p>
+      <p class="wrap">Hi, my name is Yash Raj Bhatt. I teach computer networking at Nalanda  Learning Hubb. Behind every lesson you read and every video you watch is a practical goal: to help you apply networking concepts with confidence.</p>
 
-      <p>So you are about to undertake an exciting journey into this world of networking. For me, it's like the one common language that truly unifies us all. Whether you're communicating with a friend next door, or somebody that you've never met halfway across the world — networking is really that one language.</p>
+      <p class="wrap">You are about to undertake an exciting journey into networking — a common language that unifies devices and systems across the world. Whether you connect with a friend locally or across continents, networking protocols help devices communicate.</p>
 
-      <p>Those networking protocols that you're going to be learning about are the one language that is used throughout the world — no matter who you're communicating with or where you're communicating from.</p>
+      <p class="wrap">Those networking protocols you'll learn are used worldwide — no matter who you're communicating with or where you are. Think of networking as a jigsaw puzzle: the protocols are pieces that eventually reveal a complete picture.</p>
 
-      <p>Networking is also, to me, like a jigsaw puzzle. Learning networking is all these different protocols and processes. At first they might not make sense, but the more you learn, you'll see how these protocols and processes fit together. And this whole picture of the internet and networking will become clearer.</p>
-
-      <p>So I want you to know that you're not alone in this journey — I am all behind you. I am truly passionate and dedicated in wanting to help you learn about networking. We hope you enjoy your journey into this world of networking. I'll see you soon.</p>
+      <p class="wrap">You're not alone in this journey — I'm here to guide you. I am passionate about teaching networking and helping you succeed.</p>
 
       <p style="margin-top:6px; font-weight:600;">— Yash Raj Bhatt</p>
     </div>
   </section>
 
   <!-- Everything is Online -->
-  <section class="card">
+  <section class="card" aria-labelledby="everything-title">
     <div class="stack">
-      <h1>Everything is Online</h1>
+      <h1 id="everything-title">Everything is Online</h1>
 
-      <p>“Hey Shad, are you online?” “Of course, I am!” We expect our devices — phones, tablets, laptops, and desktops — to always be connected to the global internet. We use this network to interact with friends, shop, share pictures, and learn. The internet has become such a part of everyday life that we almost take it for granted.</p>
-
-      <p>Normally, when people use the term internet, they think of it as a formless collection of connections — a “place” people go to find or share information. The internet is a worldwide collection of interconnected networks cooperating to exchange information using common standards.</p>
+      <p class="wrap">We expect phones, tablets, laptops and desktops to be connected to the internet. The internet is a global network of networks — not owned by any single person or group, but made up of many interconnected systems.</p>
 
       <h2>Who Owns “The Internet”?</h2>
-      <p>The internet is not owned by any individual or group. It is a network of networks. Everything you access online is hosted somewhere on that global fabric — social media, games, email, online courses — each connected to local networks that send and receive information.</p>
+      <p class="wrap">No single owner. The internet is a network of networks: services you access are hosted on many different servers that interconnect through ISPs and backbone providers.</p>
 
-      <p>Think about interactions you have daily that require you to be online. Examples:</p>
+      <p class="wrap">Examples of daily interactions that require being online:</p>
       <ul>
-        <li>Intelligent networks deliver news and email to handheld devices.</li>
-        <li>Video conferencing connects people around the globe instantly.</li>
-        <li>Phones share voice, text, and images globally.</li>
-        <li>Online gaming connects thousands of players seamlessly.</li>
+        <li>News and email delivered to handheld devices.</li>
+        <li>Video conferencing connecting people across the globe.</li>
+        <li>Phones sharing voice, text and images worldwide.</li>
+        <li>Online gaming connecting thousands of players in real time.</li>
       </ul>
 
       <h2>Local Networks</h2>
-      <p>Local networks range from two computers to hundreds of thousands of devices. SOHO (Small Office/Home Office) networks let you share printers, documents, and media between a few local users. Larger networks provide business services such as advertising, ordering supplies, and customer communications.</p>
+      <p class="wrap">Local networks range from two computers to tens of thousands of devices. SOHO (Small Office/Home Office) networks let you share printers, files, and media among a few users.</p>
 
       <h2>Small Home Networks</h2>
-      <p>Small home networks connect a few computers to each other and to the internet.</p>
+      <p class="wrap">Small home networks typically connect a few computers and devices to each other and to the internet through a router and modem.</p>
 
       <h2>Medium to Large Networks & World Wide Networks</h2>
-      <p>Medium to large networks can span many locations with thousands of hosts. The internet as a whole connects hundreds of millions of computers worldwide — a true network of networks.</p>
+      <p class="wrap">Medium and large networks span multiple locations with many hosts. The internet connects hundreds of millions of devices — a true network of networks.</p>
     </div>
   </section>
 
   <!-- Mobile Devices -->
-  <section class="card">
-    <h1>Mobile Devices</h1>
+  <section class="card" aria-labelledby="mobile-title">
+    <div class="stack">
+      <h1 id="mobile-title">Mobile Devices</h1>
 
-    <div class="grid cols-2" style="gap:14px">
-      <div>
-        <h2>Smartphone</h2>
-        <p>Smartphones connect to the internet from almost anywhere. They combine phone, camera, GPS, media player and a small computer in one device.</p>
+      <div class="grid cols-2" style="gap:12px">
+        <div>
+          <h2>Smartphone</h2>
+          <p class="wrap">Smartphones connect to the internet from almost anywhere, combining phone, camera, GPS, media player and a small computer in one device.</p>
+        </div>
+
+        <div>
+          <h2>Tablet</h2>
+          <p class="wrap">Tablets offer larger screens for videos and reading. Many tasks once reserved for laptops can now be performed on tablets.</p>
+        </div>
+
+        <div>
+          <h2>Smartwatch</h2>
+          <p class="wrap">Smartwatches connect to smartphones to show alerts, health data and quick interactions.</p>
+        </div>
+
+        <div>
+          <h2>Smart Glasses</h2>
+          <p class="wrap">Wearable displays provide small HUD-style screens and hands-free navigation for specific use-cases.</p>
+        </div>
       </div>
 
-      <div>
-        <h2>Tablet</h2>
-        <p>Tablets offer larger screens for videos and reading. Many tasks once reserved for laptops can be performed on tablets with on-screen keyboards.</p>
+      <h2>Connected Home Devices</h2>
+      <div class="grid cols-2">
+        <div>
+          <h3>Security System</h3>
+          <p class="wrap">Monitored and configured remotely using mobile apps.</p>
+        </div>
+        <div>
+          <h3>Appliances</h3>
+          <p class="wrap">Refrigerators, ovens and other appliances can be monitored or controlled remotely.</p>
+        </div>
+        <div>
+          <h3>Smart TV</h3>
+          <p class="wrap">Smart TVs connect to the internet for streaming and browsing without extra set-top boxes.</p>
+        </div>
+        <div>
+          <h3>Gaming Console</h3>
+          <p class="wrap">Consoles connect online for downloads and multiplayer gaming.</p>
+        </div>
       </div>
 
-      <div>
-        <h2>Smartwatch</h2>
-        <p>Smartwatches connect to smartphones to show alerts, heart rate, steps, and other health info.</p>
-      </div>
-
-      <div>
-        <h2>Smart Glasses</h2>
-        <p>Wearable displays (like Google Glass) provide small HUD-style screens and touchpads for hands-free navigation.</p>
-      </div>
-    </div>
-
-    <h2>Connected Home Devices</h2>
-    <div class="grid cols-2">
-      <div>
-        <h3>Security System</h3>
-        <p>Monitored and configured remotely using mobile apps.</p>
-      </div>
-      <div>
-        <h3>Appliances</h3>
-        <p>Refrigerators, ovens and other appliances can be monitored or controlled remotely.</p>
-      </div>
-      <div>
-        <h3>Smart TV</h3>
-        <p>Smart TVs connect to the internet for streaming and browsing without extra set-top boxes.</p>
-      </div>
-      <div>
-        <h3>Gaming Console</h3>
-        <p>Consoles connect online for downloads and multiplayer gaming.</p>
-      </div>
-    </div>
-
-    <h2>Other Connected Devices</h2>
-    <div class="grid cols-2">
-      <div>
-        <h3>Smart Cars</h3>
-        <p>Cars can connect to networks for navigation, alerts, diagnostics and telematics.</p>
-      </div>
-      <div>
-        <h3>RFID Tags</h3>
-        <p>Used to track objects or monitor sensors.</p>
-      </div>
-      <div>
-        <h3>Sensors & Actuators</h3>
-        <p>Provide telemetry (temperature, moisture, etc.) and can trigger actuators automatically.</p>
-      </div>
-      <div>
-        <h3>Medical Devices</h3>
-        <p>Pacemakers and monitors often provide alerts and telemetry to medical staff.</p>
+      <h2>Other Connected Devices</h2>
+      <div class="grid cols-2">
+        <div>
+          <h3>Smart Cars</h3>
+          <p class="wrap">Cars connect to networks for navigation, alerts, diagnostics and telematics.</p>
+        </div>
+        <div>
+          <h3>RFID Tags</h3>
+          <p class="wrap">Used to track objects or monitor sensors.</p>
+        </div>
+        <div>
+          <h3>Sensors & Actuators</h3>
+          <p class="wrap">Provide telemetry (temperature, moisture, etc.) and can trigger actuators automatically.</p>
+        </div>
+        <div>
+          <h3>Medical Devices</h3>
+          <p class="wrap">Pacemakers and monitors often provide alerts and telemetry to medical staff.</p>
+        </div>
       </div>
     </div>
   </section>
 
   <!-- Data & Bandwidth -->
-  <section class="card">
-    <h2 class="center">Understanding Data & Its Types</h2>
-    <p>Data is the information you input, transmit, or store. Types include volunteer data (you knowingly share it), inferred data (generated from your actions), and observed data (collected automatically, e.g., location).</p>
+  <section class="card" aria-labelledby="data-title">
+    <div class="stack">
+      <h2 id="data-title" class="center">Understanding Data & Its Types</h2>
+      <p class="wrap">Data can be volunteered by you, inferred from your actions, or observed and collected automatically. Understanding data types helps you design and secure networks appropriately.</p>
 
-    <h2>Bandwidth</h2>
-    <div class="callout">
-      <p><strong>Bandwidth</strong> is the maximum amount of data that can be transmitted over a channel in a given time (measured in bps, Kbps, Mbps, Gbps).</p>
-      <p>Bandwidth is the capacity (speed limit); throughput is the actual data rate achieved. Many factors (latency, packet loss, congestion) reduce throughput.</p>
+      <h2>Bandwidth</h2>
+      <div class="callout" role="note" aria-live="polite">
+        <p><strong>Bandwidth</strong> is the maximum amount of data that can be transmitted over a channel in a given time (bps, Kbps, Mbps, Gbps).</p>
+        <p>Bandwidth is like a capacity (speed limit); throughput is the actual data rate you achieve. Latency, packet loss and congestion often reduce throughput.</p>
+      </div>
+
+      <h2>Throughput</h2>
+      <p class="wrap">Throughput is the actual amount of data successfully transmitted over time. For example, a 100 Mbps link may only deliver 70 Mbps throughput due to overhead or congestion.</p>
+      <ul>
+        <li>Typical causes of reduced throughput: congestion, latency, packet loss, protocol overhead and hardware limits.</li>
+      </ul>
     </div>
-
-    <h2>Throughput</h2>
-    <p>Throughput is the actual amount of data successfully transmitted over time. Example: a 100 Mbps link may only deliver 70 Mbps throughput due to overhead or congestion.</p>
-    <ul>
-      <li>Causes of reduced throughput: congestion, latency, packet loss, protocol overhead, hardware limits.</li>
-    </ul>
   </section>
 
   <!-- Clients & Servers -->
   <section class="card">
-    <h1 class="center">Clients & Servers in Modern Networks</h1>
+    <div class="stack">
+      <h1 class="center">Clients & Servers in Modern Networks</h1>
 
-    <p>Hosts can act as clients, servers, or both. Server software provides services (web, email). Client software (browsers, mail clients) requests and displays those services.</p>
+      <p class="wrap">Hosts can act as clients, servers, or both. Server software provides services like web and email, while client software (browsers, mail clients) requests those services.</p>
 
-    <h2>Client and Server Roles & Peer-to-Peer Networks</h2>
-    <p>Hosts that run both client and server software form peer-to-peer networks (P2P). P2P is easy to set up and low cost but less secure and not as scalable as dedicated-server models.</p>
+      <h2>Client and Server Roles & Peer-to-Peer Networks</h2>
+      <p class="wrap">Hosts that run both client and server software form peer-to-peer networks (P2P). P2P is easy to set up and inexpensive but can be less secure and less scalable than dedicated servers.</p>
 
-    <div class="grid cols-2">
-      <div>
-        <h3>Advantages of P2P</h3>
-        <ul>
-          <li>Easy to set up</li>
-          <li>Less complex</li>
-          <li>Lower cost</li>
-        </ul>
+      <div class="grid cols-2">
+        <div>
+          <h3>Advantages of P2P</h3>
+          <ul>
+            <li>Easy to set up</li>
+            <li>Less complex</li>
+            <li>Lower cost</li>
+          </ul>
+        </div>
+        <div>
+          <h3>Disadvantages of P2P</h3>
+          <ul>
+            <li>No centralized administration</li>
+            <li>Not as secure</li>
+            <li>Not scalable</li>
+          </ul>
+        </div>
       </div>
-      <div>
-        <h3>Disadvantages of P2P</h3>
-        <ul>
-          <li>No centralized administration</li>
-          <li>Not as secure</li>
-          <li>Not scalable</li>
-        </ul>
-      </div>
+
+      <p class="wrap"><strong>Example:</strong> Instant messaging where both clients can send and receive simultaneously.</p>
     </div>
-
-    <p><strong>Example:</strong> Instant messaging where both clients can send and receive simultaneously.</p>
   </section>
 
   <!-- Network Infrastructure -->
   <section class="card">
-    <h1>Network Infrastructure</h1>
-    <p>The path a message takes may be a single cable or a global network. The infrastructure includes end devices, intermediate devices, and network media.</p>
+    <div class="stack">
+      <h1>Network Infrastructure</h1>
+      <p class="wrap">Messages travel over paths that might be local cables or the global internet. Infrastructure includes end devices, intermediate devices, and network media.</p>
 
-    <h3>End devices</h3>
-    <ul>
-      <li>Desktop, Laptop, Printer, IP Phone, Tablet, TelePresence endpoint</li>
-    </ul>
+      <h3>End devices</h3>
+      <ul>
+        <li>Desktop, Laptop, Printer, IP Phone, Tablet, TelePresence endpoint</li>
+      </ul>
 
-    <h3>Intermediate devices</h3>
-    <ul>
-      <li>Wireless Router, LAN Switch, Router, Multilayer Switch, Firewall</li>
-    </ul>
+      <h3>Intermediate devices</h3>
+      <ul>
+        <li>Wireless Router, LAN Switch, Router, Multilayer Switch, Firewall</li>
+      </ul>
 
-    <h3>Network media</h3>
-    <ul>
-      <li>Wireless media, LAN media, WAN media</li>
-    </ul>
+      <h3>Network media</h3>
+      <ul>
+        <li>Wireless media, LAN media, WAN media</li>
+      </ul>
 
-    <p>An end device (host) is the source or destination of messages. Addresses uniquely identify hosts on the network.</p>
+      <p class="wrap">An end device (host) is the source or destination of messages. Addresses uniquely identify hosts on the network.</p>
+    </div>
   </section>
 
   <!-- ISP Services -->
   <section class="card">
-    <h1>ISP Services</h1>
-    <p>An Internet Service Provider (ISP) connects your home network to the wider internet. ISPs may also offer email, storage, hosting, backups and security services.</p>
+    <div class="stack">
+      <h1>ISP Services</h1>
+      <p class="wrap">An Internet Service Provider (ISP) connects your home network to the wider internet. ISPs may also offer email, storage, hosting, backups and security services.</p>
 
-    <h2>ISP Connections</h2>
-    <p>The internet backbone is a web of fiber-optic cables and high-speed equipment. Home connections (cable, DSL, cellular, satellite) link users to this backbone.</p>
+      <h2>ISP Connections</h2>
+      <p class="wrap">The internet backbone is a web of fiber-optic cables and high-speed equipment. Home connections (cable, DSL, cellular, satellite) link users to this backbone.</p>
 
-    <h2>Cable & DSL</h2>
-    <p><strong>Cable:</strong> Internet carried on coaxial cable (same as cable TV). Requires a cable modem.</p>
-    <p><strong>DSL:</strong> Runs over phone lines and uses a DSL modem. DSL has separate channels for voice, download and upload.</p>
+      <h2>Cable & DSL</h2>
+      <p><strong>Cable:</strong> Internet carried on coaxial cable (same as cable TV). Requires a cable modem.</p>
+      <p><strong>DSL:</strong> Runs over phone lines and uses a DSL modem. DSL can separate voice, download and upload channels.</p>
 
-    <h2>Other Options</h2>
-    <ul>
-      <li><strong>Cellular:</strong> Uses mobile network; convenient for mobility and areas without wired connectivity.</li>
-      <li><strong>Satellite:</strong> Useful where wired options are unavailable; requires a clear line of sight.</li>
-      <li><strong>Dial-up:</strong> Low bandwidth, useful only when higher-speed options are unavailable.</li>
-    </ul>
+      <h2>Other Options</h2>
+      <ul>
+        <li><strong>Cellular:</strong> Uses mobile network; convenient for mobility and areas without wired connectivity.</li>
+        <li><strong>Satellite:</strong> Useful where wired options are unavailable; requires a clear line of sight.</li>
+        <li><strong>Dial-up:</strong> Low bandwidth, useful only when higher-speed options are unavailable.</li>
+      </ul>
+    </div>
   </section>
 
   <!-- Wireless Networks -->
   <section class="card">
-    <h1>Wireless Networks</h1>
+    <div class="stack">
+      <h1>Wireless Networks</h1>
 
-    <p>Phones and devices contain multiple radios: cellular, Wi‑Fi, Bluetooth, NFC and GPS. These operate simultaneously for different functions (voice, data, location, short-range pairing).</p>
+      <p class="wrap">Most mobile devices include multiple radios: cellular, Wi‑Fi, Bluetooth, NFC and GPS. They can operate concurrently for voice, data, location and short-range pairing.</p>
 
-    <h2>Wi‑Fi, Bluetooth, NFC, GPS</h2>
-    <div class="grid cols-2">
-      <div>
-        <h3>Wi‑Fi</h3>
-        <p>Connects devices to local networks and the internet. Range depends on access point power and environment.</p>
-      </div>
-      <div>
-        <h3>Bluetooth</h3>
-        <p>Low-power, short-range wireless for accessories (headsets, keyboards). Supports multiple simultaneous connections.</p>
-      </div>
-      <div>
-        <h3>NFC</h3>
-        <p>Very short-range communication used for payments and quick pairing.</p>
-      </div>
-      <div>
-        <h3>GPS</h3>
-        <p>Receives satellite signals to determine device location.</p>
+      <h2>Wi‑Fi, Bluetooth, NFC, GPS</h2>
+      <div class="grid cols-2">
+        <div>
+          <h3>Wi‑Fi</h3>
+          <p class="wrap">Connects devices to local networks and the internet. Range depends on access point power and environment.</p>
+        </div>
+        <div>
+          <h3>Bluetooth</h3>
+          <p class="wrap">Low-power, short-range wireless for accessories (headsets, keyboards). Supports multiple simultaneous connections.</p>
+        </div>
+        <div>
+          <h3>NFC</h3>
+          <p class="wrap">Very short-range communication used for payments and quick pairing.</p>
+        </div>
+        <div>
+          <h3>GPS</h3>
+          <p class="wrap">Receives satellite signals to determine device location.</p>
+        </div>
       </div>
     </div>
   </section>
 
   <!-- Mobile Devices and Wi-Fi -->
   <section class="card">
-    <h1>Mobile Devices and Wi‑Fi</h1>
-    <p>Mobile devices enable productivity and learning anywhere. Use Wi‑Fi when possible to save cellular data and battery life; secure Wi‑Fi with WPA2/WPA3 and VPNs for sensitive data.</p>
+    <div class="stack">
+      <h1>Mobile Devices and Wi‑Fi</h1>
+      <p class="wrap">Mobile devices enable productivity anywhere. Use Wi‑Fi when possible to save cellular data and battery — secure Wi‑Fi with WPA2/WPA3 and VPNs for sensitive data.</p>
 
-    <h2>Wi‑Fi Settings (Quick)</h2>
-    <div class="grid cols-2">
-      <div>
-        <h3>Android — Turn Wi‑Fi On/Off</h3>
-        <ol>
-          <li>Settings → Network & Internet → Wi‑Fi → toggle ON</li>
-          <li>Select network, enter password, Connect</li>
-        </ol>
-        <h3>Manual Connect</h3>
-        <ol>
-          <li>Settings → Add network → enter SSID, security and password → Save</li>
-        </ol>
+      <h2>Wi‑Fi Settings (Quick)</h2>
+      <div class="grid cols-2">
+        <div>
+          <h3>Android — Turn Wi‑Fi On/Off</h3>
+          <ol>
+            <li>Settings → Network & Internet → Wi‑Fi → toggle ON</li>
+            <li>Select network, enter password, Connect</li>
+            <li>For manual networks: Settings → Add network → enter SSID, security and password → Save</li>
+          </ol>
+        </div>
+
+        <div>
+          <h3>iOS — Turn Wi‑Fi On/Off</h3>
+          <ol>
+            <li>Settings → Wi‑Fi → toggle ON</li>
+            <li>Select network, enter password, Connect</li>
+            <li>To add network: Settings → Wi‑Fi → Other → enter SSID and credentials → Join</li>
+          </ol>
+        </div>
       </div>
+    </div>
+  </section>
 
-      <div>
-        <h3>iOS — Turn Wi‑Fi On/Off</h3>
-        <ol>
-         </div>
-
-<!-- How Phones Choose Networks -->
+  <!-- How Phones Choose Networks -->
   <section class="card">
-    <h1>How Phones Choose Networks</h1>
-    <h2>How Phones Choose Networks</h2>
-    <ul>
-      <li>Wi‑Fi first (when available)</li>
-      <li>Cellular second (5G/4G/3G)</li>
-      <li>Transitions are automatic and seamless</li>
-    </ul>
+    <div class="stack">
+      <h1>How Phones Choose Networks</h1>
+      <ul>
+        <li>Wi‑Fi first (when available)</li>
+        <li>Cellular second (5G/4G/3G)</li>
+        <li>Transitions are automatic and seamless when supported</li>
+      </ul>
 
-    <h2>Bluetooth Pairing (Example)</h2>
-    <ol>
-      <li>Put accessory in discoverable mode</li>
-      <li>Settings → Bluetooth → Scan → select device → enter PIN if required</li>
-    </ol>
+      <h2>Bluetooth Pairing (Example)</h2>
+      <ol>
+        <li>Put the accessory in discoverable mode</li>
+        <li>Settings → Bluetooth → Scan → select device</li>
+        <li>Enter PIN if required and confirm pairing</li>
+      </ol>
+    </div>
   </section>
 
   <!-- Home Network Basics -->
   <section class="card">
-    <h1>Home Network Basics</h1>
+    <div class="stack">
+      <h1>Home Network Basics</h1>
 
-    <h2>Components of a Home Network</h2>
-    <p>Home networks connect many devices: PCs, consoles, smart TVs, printers, cameras and IoT devices. Routers provide wired LAN ports, wireless AP, and the WAN port to the ISP.</p>
+      <h2>Components of a Home Network</h2>
+      <p class="wrap">Home networks connect many devices: PCs, consoles, smart TVs, printers, cameras and IoT devices. Routers provide LAN ports, wireless access, and the WAN port to the ISP.</p>
 
-    <h2>A Home WLAN</h2>
-    <p>A Wireless LAN (WLAN) uses Wi‑Fi to connect devices within the home without cables. Wired and wireless devices typically are on the same local network.</p>
+      <h2>A Home WLAN</h2>
+      <p class="wrap">A Wireless LAN (WLAN) uses Wi‑Fi to connect devices in the home. Wired and wireless devices usually share the same local network.</p>
 
-    <h2>Typical Home Routers</h2>
-    <p>Routers combine routing, switching and wireless access. LAN (Ethernet) ports connect wired devices; the WAN port connects to the ISP modem.</p>
+      <h2>Typical Home Routers</h2>
+      <p class="wrap">Routers combine routing, switching and wireless access. LAN ports connect wired devices; the WAN port connects your router to the ISP modem.</p>
 
-    <div class="callout">
-      <p><strong>Quick summary:</strong> Wired devices (Ethernet) and wireless devices (Wi‑Fi) are on the same local network. The WAN port connects your router to the internet.</p>
+      <div class="callout">
+        <p><strong>Quick summary:</strong> Wired devices (Ethernet) and wireless devices (Wi‑Fi) are on the same local network. The WAN port connects your router to the internet.</p>
+      </div>
     </div>
   </section>
 
   <!-- Network Technologies in the Home -->
   <section class="card">
-    <h1>Network Technologies in the Home</h1>
+    <div class="stack">
+      <h1>Network Technologies in the Home</h1>
 
-    <h2>LAN Wireless Frequencies</h2>
-    <p>Common Wi‑Fi bands: 2.4 GHz and 5 GHz. Bluetooth also uses 2.4 GHz for short-range connections. Wi‑Fi typically provides greater range and throughput than Bluetooth.</p>
+      <h2>LAN Wireless Frequencies</h2>
+      <p class="wrap">Common Wi‑Fi bands: 2.4 GHz and 5 GHz. Bluetooth also uses 2.4 GHz for short-range connections. Wi‑Fi typically provides greater range and throughput than Bluetooth.</p>
 
-    <h2>Wired Network Technologies</h2>
-    <p>Ethernet (UTP with RJ‑45) remains the preferred wired option for speed and stability. Powerline adapters can use electrical wiring where Ethernet isn't available.</p>
+      <h2>Wired Network Technologies</h2>
+      <p class="wrap">Ethernet (UTP with RJ‑45) remains the preferred wired option for speed and stability. Powerline adapters can use electrical wiring where Ethernet isn't available.</p>
 
-    <h2>Category 5e, Coaxial & Fiber</h2>
-    <ul>
-      <li><strong>Cat5e:</strong> Twisted-pair cable for reliable LAN connections.</li>
-      <li><strong>Coaxial:</strong> Used for cable TV and some internet modems.</li>
-      <li><strong>Fiber-optic:</strong> High-speed backbone and last-mile broadband in many areas.</li>
-    </ul>
+      <h2>Category 5e, Coaxial & Fiber</h2>
+      <ul>
+        <li><strong>Cat5e:</strong> Twisted-pair cable for reliable LAN connections.</li>
+        <li><strong>Coaxial:</strong> Used for cable TV and some internet modems.</li>
+        <li><strong>Fiber-optic:</strong> High-speed backbone and last-mile broadband.</li>
+      </ul>
+    </div>
   </section>
 
- 
-
+   
 </body>
 </html>
