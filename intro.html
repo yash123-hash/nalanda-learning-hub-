@@ -1,373 +1,438 @@
- <!DOCTYPE html>
+ 
+  <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="description" content="Nalanda Learning Hub: An innovative e-learning platform inspired by ancient Nalanda University, offering personalized online tutoring and education for all ages.">
-    <meta name="keywords" content="online learning, e-learning, tutoring, education, Nalanda, personalized education">
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="description" content="Nalanda Learning Hub: An innovative e-learning platform inspired by ancient Nalanda University, offering personalized online tutoring and education for all ages." />
+    <meta name="keywords" content="online learning, e-learning, tutoring, education, Nalanda, personalized education" />
     <title>Nalanda Learning Hub - Slideshow Presentation</title>
     <style>
+        :root{
+            --bg-gradient: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            --overlay: rgba(0,0,0,0.12);
+            --accent: #ff6b6b;
+            --accent-hover: #ff5252;
+            --muted: rgba(255,255,255,0.6);
+            --text: #fff;
+            --max-width: 1100px;
+        }
+
+        /* Reset and base */
+        *{box-sizing: border-box}
+        html,body{height:100%}
         body {
-            font-family: 'Arial', sans-serif;
+            font-family: system-ui, -apple-system, "Segoe UI", Roboto, "Helvetica Neue", Arial;
             margin: 0;
             padding: 0;
-            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
-            color: white;
-            overflow: hidden; /* Prevent scrolling for slideshow feel */
-            height: 100vh;
+            background: var(--bg-gradient);
+            color: var(--text);
+            min-height: 100vh;
+            -webkit-font-smoothing:antialiased;
+            -moz-osx-font-smoothing:grayscale;
+            overflow: hidden; /* desktop slideshow behavior */
         }
+
+        /* Container to better handle responsive overflow on small screens */
+        .slides-wrap {
+            position: relative;
+            width: 100%;
+            height: 100vh;
+            max-height: 100vh;
+            overflow: hidden;
+        }
+
         .slide {
             position: absolute;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
+            inset: 0;
             display: flex;
             flex-direction: column;
             justify-content: center;
             align-items: center;
             text-align: center;
-            padding: 20px;
+            gap: 1rem;
+            padding: clamp(18px, 2.5vw, 48px);
             opacity: 0;
-            background: rgba(0, 0, 0, 0.1); /* Slight overlay for PPT feel */
+            background: var(--overlay);
+            transition: opacity 420ms ease, transform 420ms ease;
+            transform: translateY(10px);
+            will-change: opacity, transform;
+            pointer-events: none;
         }
-        .slide.active {
+
+        .slide[aria-hidden="false"]{
             opacity: 1;
+            transform: translateY(0);
+            pointer-events: auto;
         }
-        /* Unique animations for each slide */
-        .slide1.active {
-            animation: fadeInUp 1s ease-out;
+
+        /* Each slide gets subtle unique motion when shown but reduced for users preferring reduced motion */
+        .slide1[aria-hidden="false"]{ animation: fadeInUp 800ms ease-out; }
+        .slide2[aria-hidden="false"]{ animation: slideInLeft 800ms ease-out; }
+        .slide3[aria-hidden="false"]{ animation: zoomIn 800ms ease-out; }
+        .slide4[aria-hidden="false"]{ animation: bounceIn 800ms ease-out; }
+        .slide5[aria-hidden="false"]{ animation: rotateIn 800ms ease-out; }
+        .slide6[aria-hidden="false"]{ animation: scaleUp 800ms ease-out; }
+        .slide7[aria-hidden="false"]{ animation: flipIn 800ms ease-out; }
+
+        h1, h2 {
+            margin: 0;
+            line-height: 1.05;
+            text-wrap: balance;
+            word-break: break-word;
+            max-width: 100%;
+            width: 100%;
         }
-        .slide2.active {
-            animation: slideInLeft 1s ease-out;
-        }
-        .slide3.active {
-            animation: zoomIn 1s ease-out;
-        }
-        .slide4.active {
-            animation: bounceIn 1s ease-out;
-        }
-        .slide5.active {
-            animation: rotateIn 1s ease-out;
-        }
-        .slide6.active {
-            animation: scaleUp 1s ease-out;
-        }
-        .slide7.active {
-            animation: flipIn 1s ease-out;
-        }
-        .slide h1 {
-            font-size: 3rem;
-            margin-bottom: 20px;
-        }
-        .slide h2 {
-            font-size: 2.5rem;
-            margin-bottom: 20px;
-        }
+
+        /* Responsive, accessible font sizes */
+        h1 { font-size: clamp(1.6rem, 3.5vw, 3rem); font-weight:700; }
+        h2 { font-size: clamp(1.4rem, 3vw, 2.2rem); font-weight:700; }
+
         .slide p, .slide ul {
-            font-size: 1.2rem;
+            font-size: clamp(0.95rem, 1.6vw, 1.15rem);
             line-height: 1.6;
-            max-width: 800px;
+            max-width: var(--max-width);
             margin: 0 auto;
+            text-align: center;
         }
+
         .slide ul {
             text-align: left;
             list-style: disc;
-            padding-left: 20px;
+            padding-left: clamp(18px, 3vw, 36px);
+            margin: 0 auto;
         }
-        .slide ul li {
-            margin-bottom: 10px;
-        }
+
+        .slide ul li{ margin-bottom: 10px; }
+
+        /* Navigation */
         .navigation {
             position: fixed;
-            bottom: 20px;
             left: 50%;
             transform: translateX(-50%);
             display: flex;
             align-items: center;
-            gap: 20px;
+            gap: 12px;
+            z-index: 40;
+            bottom: clamp(12px, 3vh, 24px);
+            backdrop-filter: blur(6px);
+            padding: 6px 10px;
+            border-radius: 999px;
         }
+
         .nav-button {
-            background: #ff6b6b;
+            background: var(--accent);
             color: white;
             border: none;
-            padding: 10px 20px;
-            font-size: 1rem;
-            border-radius: 5px;
+            padding: 10px 14px;
+            font-size: 0.95rem;
+            border-radius: 8px;
             cursor: pointer;
-            transition: background 0.3s, transform 0.3s;
+            transition: background 0.25s ease, transform 0.15s ease;
+            box-shadow: 0 6px 14px rgba(0,0,0,0.18);
         }
-        .nav-button:hover {
-            background: #ff5252;
-            transform: scale(1.05);
+        .nav-button:hover { background: var(--accent-hover); transform: translateY(-1px); }
+        .nav-button:active { transform: translateY(0); }
+        .nav-button[disabled] { background: #bfbfbf; cursor: not-allowed; box-shadow:none; }
+
+        .dots { display:flex; gap:10px; padding:0 6px; align-items:center; }
+        .dot{
+            width: 12px; height: 12px; border-radius:50%;
+            background: var(--muted); cursor: pointer;
+            transition: transform .16s ease, background .16s ease, box-shadow .16s ease;
         }
-        .nav-button:disabled {
-            background: #ccc;
-            cursor: not-allowed;
-        }
-        .dots {
-            display: flex;
-            gap: 10px;
-        }
-        .dot {
-            width: 12px;
-            height: 12px;
-            border-radius: 50%;
-            background: rgba(255, 255, 255, 0.5);
-            cursor: pointer;
-            transition: background 0.3s;
-        }
-        .dot.active {
-            background: white;
-        }
-        .typing {
-            border-right: 2px solid white;
-            animation: blink 1s infinite;
-        }
-        /* Keyframe animations */
-        @keyframes fadeInUp {
-            from {
-                opacity: 0;
-                transform: translateY(50px);
-            }
-            to {
-                opacity: 1;
-                transform: translateY(0);
-            }
-        }
-        @keyframes slideInLeft {
-            from {
-                opacity: 0;
-                transform: translateX(-100%);
-            }
-            to {
-                opacity: 1;
-                transform: translateX(0);
-            }
-        }
-        @keyframes zoomIn {
-            from {
-                opacity: 0;
-                transform: scale(0.5);
-            }
-            to {
-                opacity: 1;
-                transform: scale(1);
-            }
-        }
-        @keyframes bounceIn {
-            0% {
-                opacity: 0;
-                transform: scale(0.3);
-            }
-            50% {
-                opacity: 1;
-                transform: scale(1.05);
-            }
-            70% {
-                transform: scale(0.9);
-            }
-            100% {
-                opacity: 1;
-                transform: scale(1);
-            }
-        }
-        @keyframes rotateIn {
-            from {
-                opacity: 0;
-                transform: rotate(-180deg);
-            }
-            to {
-                opacity: 1;
-                transform: rotate(0deg);
-            }
-        }
-        @keyframes scaleUp {
-            from {
-                opacity: 0;
-                transform: scale(0);
-            }
-            to {
-                opacity: 1;
-                transform: scale(1);
-            }
-        }
-        @keyframes flipIn {
-            from {
-                opacity: 0;
-                transform: rotateY(90deg);
-            }
-            to {
-                opacity: 1;
-                transform: rotateY(0deg);
-            }
-        }
-        @keyframes blink {
-            0%, 50% { border-color: transparent; }
-            51%, 100% { border-color: white; }
-        }
+        .dot[aria-checked="true"]{ background: white; transform: scale(1.08); box-shadow: 0 6px 16px rgba(0,0,0,0.18); }
+
+        /* Typing caret */
+        .typing { border-right: 2px solid white; animation: blink 1s infinite; padding-right: 4px; }
+
+        /* keyframes */
+        @keyframes fadeInUp { from{opacity:0; transform:translateY(40px)} to{opacity:1; transform:translateY(0)} }
+        @keyframes slideInLeft { from{opacity:0; transform:translateX(-100%)} to{opacity:1; transform:translateX(0)} }
+        @keyframes zoomIn { from{opacity:0; transform:scale(.6)} to{opacity:1; transform:scale(1)} }
+        @keyframes bounceIn { 0%{opacity:0; transform:scale(.3)} 50%{transform:scale(1.05)} 70%{transform:scale(.9)} 100%{transform:scale(1)} }
+        @keyframes rotateIn { from{opacity:0; transform:rotate(-180deg)} to{opacity:1; transform:rotate(0)} }
+        @keyframes scaleUp { from{opacity:0; transform:scale(0)} to{opacity:1; transform:scale(1)} }
+        @keyframes flipIn { from{opacity:0; transform:rotateY(90deg)} to{opacity:1; transform:rotateY(0)} }
+        @keyframes blink { 0%,50%{border-color:transparent} 51%,100%{border-color:white} }
+
+        /* Reduced motion preference */
         @media (prefers-reduced-motion: reduce) {
-            * {
-                animation-duration: 0.01ms !important;
-            }
+            .slide[aria-hidden="false"] { animation: none !important; transition: none !important; }
+            * { animation-duration: 0.001ms !important; }
         }
-        @media (max-width: 768px) {
-            .slide h1 {
-                font-size: 2rem;
-            }
-            .slide h2 {
-                font-size: 1.8rem;
-            }
-            .slide p, .slide ul {
-                font-size: 1rem;
-            }
-            .navigation {
-                flex-direction: column;
-                gap: 10px;
-            }
+
+        /* Mobile responsiveness: allow vertical scroll if viewport height too small */
+        @media (max-height: 520px) {
+            body, .slides-wrap { overflow: auto; height: auto; min-height: 100vh; }
+            .slide { position: relative; height: auto; min-height: 60vh; margin-bottom: 12px; border-radius: 8px; }
+            .navigation { position: sticky; margin: 12px auto 24px; left: auto; transform: none; justify-content: center; }
         }
+
+        /* Narrow devices */
+        @media (max-width: 720px) {
+            .navigation { gap: 8px; }
+            .nav-button { padding: 8px 10px; font-size: 0.9rem; }
+            .dot { width: 10px; height: 10px; }
+            .slide ul { padding-left: 18px; text-align: left; }
+        }
+
+        /* Very small phones */
+        @media (max-width: 420px) {
+            h1 { font-size: 1.4rem; }
+            h2 { font-size: 1.1rem; }
+            .slide p { font-size: 0.95rem; }
+            .navigation { bottom: 8px; padding: 6px; }
+        }
+
+        /* Ensure contrast and focus outlines */
+        .nav-button:focus, .dot:focus { outline: 3px solid rgba(255,255,255,0.14); outline-offset: 3px; }
     </style>
 </head>
 <body>
-    <!-- Slides -->
-    <div class="slide slide1 active" id="slide1">
-        <h1>Welcome to Nalanda Learning Hub</h1>
-        <p id="typing-text">Connecting minds, inspiring futures...</p>
-    </div>
+    <div class="slides-wrap" role="region" aria-roledescription="carousel" aria-label="Nalanda Learning Hub slides">
+        <!-- Slides -->
+        <section class="slide slide1" id="slide1" aria-hidden="false" tabindex="-1">
+            <h1>Welcome to Nalanda Learning Hub</h1>
+            <p id="typing-text" aria-live="polite" class="typing">Connecting minds, inspiring futures...</p>
+        </section>
 
-    <div class="slide slide2" id="slide2">
-        <h2>What is Nalanda Learning Hub?</h2>
-        <p>Nalanda Learning Hub is an innovative e-learning platform dedicated to providing high-quality online tutoring and personalized education for learners of all ages. Inspired by the ancient Nalanda University — one of the world’s earliest centers of learning — our mission is to revive that spirit of knowledge, curiosity, and excellence in today’s digital era.</p>
-        <p>Join us to unlock your potential and be part of a legacy of knowledge!</p>
-    </div>
+        <section class="slide slide2" id="slide2" aria-hidden="true" tabindex="-1">
+            <h2>What is Nalanda Learning Hub?</h2>
+            <p>Nalanda Learning Hub is an innovative e-learning platform dedicated to providing high-quality online tutoring and personalized education for learners of all ages. Inspired by the ancient Nalanda University, we blend time‑tested learning values with modern digital tools to make learning effective and inclusive.</p>
+            <p>Join us to unlock your potential and be part of a legacy of knowledge!</p>
+        </section>
 
-    <div class="slide slide3" id="slide3">
-        <h2>Our Aim</h2>
-        <p>To make education accessible, interactive, and future-ready for every student, regardless of their background or location. We aim to nurture critical thinking, creativity, and confidence through modern teaching methodologies and technology-driven learning.</p>
-    </div>
+        <section class="slide slide3" id="slide3" aria-hidden="true" tabindex="-1">
+            <h2>Our Aim</h2>
+            <p>To make education accessible, interactive, and future-ready for every student, regardless of their background or location. We aim to nurture critical thinking, creativity, and confidence through personalized learning paths, mentor-led guidance, and collaborative learning experiences.</p>
+        </section>
 
-    <div class="slide slide4" id="slide4">
-        <h2>Future Goals</h2>
-        <p>At Nalanda Learning Hub, our journey has just begun. As we continue to grow, our focus is on innovation, inclusivity, and impact — shaping the future of education through technology and human connection. We plan to broaden our curriculum beyond traditional academics to include:</p>
-        <ul>
-            <li><strong>Emerging Tech Skills:</strong> AI, Data Science, Cybersecurity, Blockchain, and Cloud Computing.</li>
-            <li><strong>Creative Fields:</strong> Graphic Design, Digital Marketing, Content Creation, and Video Editing.</li>
-            <li><strong>Professional Growth:</strong> Communication Skills, Interview Preparation, and Leadership Development.</li>
-        </ul>
-        <p>We also aim to collaborate with schools, colleges, and corporates to bring our e-learning solutions into classrooms and workplaces — blending traditional education with digital innovation. Nalanda Learning Hub envisions a world where education is a right, not a privilege.</p>
-    </div>
+        <section class="slide slide4" id="slide4" aria-hidden="true" tabindex="-1">
+            <h2>Future Goals</h2>
+            <p>As we grow, our focus is on innovation, inclusivity, and impact — shaping the future of education through technology and human mentorship.</p>
+            <ul>
+                <li><strong>Emerging Tech Skills:</strong> AI, Data Science, Cybersecurity, Blockchain, and Cloud Computing.</li>
+                <li><strong>Creative Fields:</strong> Graphic Design, Digital Marketing, Content Creation, and Video Editing.</li>
+                <li><strong>Professional Growth:</strong> Communication Skills, Interview Preparation, and Leadership Development.</li>
+            </ul>
+            <p>We also collaborate with schools, colleges, and corporates to bring blended learning experiences to classrooms and workplaces.</p>
+        </section>
 
-    <div class="slide slide5" id="slide5">
-        <h2>Key Features</h2>
-        <p>At Nalanda Learning Hub, we combine the wisdom of traditional learning with the innovation of modern technology to create a powerful, interactive, and personalized e-learning experience.</p>
-        <ul>
-            <li>Learn from expert tutors in real-time: Ask questions, share screens, and engage in discussions — just like a real classroom, but from anywhere.</li>
-            <li>24/7 access to tutors and mentors ensures that no question goes unanswered.</li>
-            <li>Our mentors provide guidance on careers and personal development.</li>
-            <li>Join discussion forums, study groups, and live events to collaborate, share ideas, and learn from peers globally.</li>
-            <li>We ensure quality education for all with flexible pricing plans, scholarships, and free resources for deserving learners.</li>
-        </ul>
-    </div>
+        <section class="slide slide5" id="slide5" aria-hidden="true" tabindex="-1">
+            <h2>Key Features</h2>
+            <p>We combine the wisdom of traditional learning with modern technology to create a powerful, interactive, and personalized e-learning experience.</p>
+            <ul>
+                <li>Learn from expert tutors in real-time: Ask questions, share screens, and engage in discussions — from anywhere.</li>
+                <li>24/7 access to tutors and mentors ensures that no question goes unanswered.</li>
+                <li>Mentorship for career and personal development.</li>
+                <li>Discussion forums, study groups, and live events to collaborate globally.</li>
+                <li>Flexible pricing plans, scholarships, and free resources for deserving learners.</li>
+            </ul>
+        </section>
 
-    <div class="slide slide6" id="slide6">
-        <h2>Why We Exist</h2>
-        <p>At Nalanda Learning Hub, we exist to redefine learning for the modern world — making quality education accessible, engaging, and meaningful for everyone. We believe that education is not just about passing exams, but about empowering minds to think, create, and lead. Every learner deserves a mentor who believes in them, a path tailored to their pace, and a community that supports their growth.</p>
-    </div>
+        <section class="slide slide6" id="slide6" aria-hidden="true" tabindex="-1">
+            <h2>Why We Exist</h2>
+            <p>We exist to redefine learning for the modern world — making quality education accessible, engaging, and meaningful for everyone. Education should be empowering, inclusive, and forward-looking.</p>
+        </section>
 
-    <div class="slide slide7" id="slide7">
-        <h2>The Startup Idea Spark</h2>
-        <p>The spark for Nalanda Learning Hub was born from a simple observation: students across the country are eager to learn, but not everyone gets equal access to quality education, mentorship, and guidance.</p>
-        <p>During the pandemic and beyond, the shift to online learning revealed both the power and the gaps of digital education. Many learners felt disconnected, unmotivated, or left behind — not because they lacked ability, but because they lacked personalized attention and real engagement.</p>
-        <p>That’s when the idea for Nalanda Learning Hub took shape — to create an online learning platform that blends technology with the human touch. A platform where every student, regardless of location or background, can learn from the best educators, develop real-world skills, and grow confidently at their own pace.</p>
-        <p>Inspired by the legacy of Nalanda University, once the world’s greatest center of learning, we envisioned a modern hub of knowledge — a digital Nalanda for the 21st century — where learning is interactive, inclusive, and innovative.</p>
-        <p>The goal wasn’t just to build another e-learning site, but to build a movement — one that redefines how people learn, connect, and evolve.</p>
+        <section class="slide slide7" id="slide7" aria-hidden="true" tabindex="-1">
+            <h2>The Startup Idea Spark</h2>
+            <p>The idea for Nalanda Learning Hub came from seeing eager learners without equal access to quality education. The pandemic highlighted both the power and gaps of digital education; our platform is a response to those gaps.</p>
+            <p>Inspired by the legacy of Nalanda University, we envisioned a modern hub of knowledge — a digital Nalanda for the 21st century where learners connect, grow, and lead change.</p>
+            <p>The goal is more than another e-learning site — it’s a movement to redefine how people learn, connect, and evolve.</p>
+        </section>
     </div>
 
     <!-- Navigation -->
-    <div class="navigation">
-        <button class="nav-button" id="prevBtn" disabled>Previous</button>
-        <div class="dots">
-            <div class="dot active" data-slide="1"></div>
-            <div class="dot" data-slide="2"></div>
-            <div class="dot" data-slide="3"></div>
-            <div class="dot" data-slide="4"></div>
-            <div class="dot" data-slide="5"></div>
-            <div class="dot" data-slide="6"></div>
-            <div class="dot" data-slide="7"></div>
+    <div class="navigation" role="navigation" aria-label="Slide navigation">
+        <button class="nav-button" id="prevBtn" aria-label="Previous slide" disabled>Previous</button>
+        <div class="dots" role="tablist" aria-label="Slide indicators">
+            <button class="dot" role="tab" aria-label="Slide 1" aria-checked="true" data-slide="1"></button>
+            <button class="dot" role="tab" aria-label="Slide 2" aria-checked="false" data-slide="2"></button>
+            <button class="dot" role="tab" aria-label="Slide 3" aria-checked="false" data-slide="3"></button>
+            <button class="dot" role="tab" aria-label="Slide 4" aria-checked="false" data-slide="4"></button>
+            <button class="dot" role="tab" aria-label="Slide 5" aria-checked="false" data-slide="5"></button>
+            <button class="dot" role="tab" aria-label="Slide 6" aria-checked="false" data-slide="6"></button>
+            <button class="dot" role="tab" aria-label="Slide 7" aria-checked="false" data-slide="7"></button>
         </div>
-        <button class="nav-button" id="nextBtn">Next</button>
+        <button class="nav-button" id="nextBtn" aria-label="Next slide">Next</button>
     </div>
 
     <script>
-        // Typing effect for slide 1
-        const text = "Connecting minds, inspiring futures...";
-        let index = 0;
-        const typingText = document.getElementById('typing-text');
+        // Responsive / accessible slideshow script with swipe support
+        (function(){
+            const slides = Array.from(document.querySelectorAll('.slide'));
+            const dots = Array.from(document.querySelectorAll('.dot'));
+            const prevBtn = document.getElementById('prevBtn');
+            const nextBtn = document.getElementById('nextBtn');
+            const typingText = document.getElementById('typing-text');
+            const initialTypingText = "Connecting minds, inspiring futures...";
+            let typingIndex = 0;
+            let typingTimer = null;
+            const prefersReducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
 
-        function typeWriter() {
-            if (index < text.length) {
-                typingText.innerHTML += text.charAt(index);
-                index++;
-                setTimeout(typeWriter, 100);
-            } else {
+            // Find initial current slide (first with aria-hidden="false") or default 0
+            let currentSlide = slides.findIndex(s => s.getAttribute('aria-hidden') === 'false');
+            if (currentSlide === -1) currentSlide = 0;
+
+            // Helper to update UI
+            function showSlide(idx, setFocus = false){
+                idx = Math.max(0, Math.min(idx, slides.length - 1));
+                slides.forEach((slide, i) => {
+                    const hidden = i !== idx;
+                    slide.setAttribute('aria-hidden', hidden ? 'true' : 'false');
+                    // keep slides out of tab order when hidden
+                    if (hidden) slide.setAttribute('tabindex', '-1');
+                    else slide.setAttribute('tabindex', '-1'); // we'll focus only when requested
+                });
+                dots.forEach((dot, i) => {
+                    dot.setAttribute('aria-checked', i === idx ? 'true' : 'false');
+                });
+
+                prevBtn.disabled = idx === 0;
+                nextBtn.disabled = idx === slides.length - 1;
+
+                currentSlide = idx;
+
+                // Focus management for keyboard users
+                if (setFocus) {
+                    slides[idx].focus({preventScroll: true});
+                }
+
+                // Start typing only on slide 0
+                manageTyping(idx === 0);
+            }
+
+            // Typing effect (lightweight, respects reduced motion)
+            function manageTyping(enable){
+                clearTimeout(typingTimer);
                 typingText.classList.remove('typing');
+                typingText.textContent = '';
+
+                if (!enable) return;
+
+                if (prefersReducedMotion) {
+                    typingText.textContent = initialTypingText;
+                    return;
+                }
+
+                typingIndex = 0;
+                typingText.classList.add('typing');
+
+                function type(){
+                    if (typingIndex <= initialTypingText.length - 1){
+                        typingText.textContent += initialTypingText.charAt(typingIndex);
+                        typingIndex++;
+                        typingTimer = setTimeout(type, 60); // slightly faster on modern devices
+                    } else {
+                        typingText.classList.remove('typing');
+                    }
+                }
+                type();
             }
-        }
 
-        // Slideshow logic
-        const slides = document.querySelectorAll('.slide');
-        const dots = document.querySelectorAll('.dot');
-        const prevBtn = document.getElementById('prevBtn');
-        const nextBtn = document.getElementById('nextBtn');
-        let currentSlide = 0;
+            // Next / Prev
+            function nextSlide(){
+                if (currentSlide < slides.length - 1){
+                    showSlide(currentSlide + 1, true);
+                }
+            }
+            function prevSlide(){
+                if (currentSlide > 0){
+                    showSlide(currentSlide - 1, true);
+                }
+            }
 
-        function showSlide(index) {
-            slides.forEach((slide, i) => {
-                slide.classList.remove('active');
-                dots[i].classList.remove('active');
+            // Event listeners
+            nextBtn.addEventListener('click', nextSlide);
+            prevBtn.addEventListener('click', prevSlide);
+
+            // Dots: use their index from NodeList to avoid shadowing
+            dots.forEach((dot, dotIndex) => {
+                dot.addEventListener('click', () => {
+                    showSlide(dotIndex, true);
+                });
+                dot.addEventListener('keydown', (e) => {
+                    if (e.key === 'Enter' || e.key === ' ') {
+                        e.preventDefault();
+                        showSlide(dotIndex, true);
+                    }
+                });
             });
-            slides[index].classList.add('active');
-            dots[index].classList.add('active');
-            prevBtn.disabled = index === 0;
-            nextBtn.disabled = index === slides.length - 1;
-        }
 
-        function nextSlide() {
-            if (currentSlide < slides.length - 1) {
-                currentSlide++;
-                showSlide(currentSlide);
-            }
-        }
-
-        function prevSlide() {
-            if (currentSlide > 0) {
-                currentSlide--;
-                showSlide(currentSlide);
-            }
-        }
-
-        nextBtn.addEventListener('click', nextSlide);
-        prevBtn.addEventListener('click', prevSlide);
-
-        dots.forEach((dot, index) => {
-            dot.addEventListener('click', () => {
-                currentSlide = index;
-                showSlide(currentSlide);
+            // Keyboard navigation for the whole document
+            document.addEventListener('keydown', (e) => {
+                if (e.key === 'ArrowRight') nextSlide();
+                if (e.key === 'ArrowLeft') prevSlide();
+                if (e.key === 'Home') showSlide(0, true);
+                if (e.key === 'End') showSlide(slides.length - 1, true);
             });
-        });
 
-        // Keyboard navigation
-        document.addEventListener('keydown', (e) => {
-            if (e.key === 'ArrowRight') nextSlide();
-            if (e.key === 'ArrowLeft') prevSlide();
-        });
+            // Touch / swipe support for mobile
+            let touchStartX = 0, touchStartY = 0;
+            const threshold = 40; // pixels for horizontal swipe detection
+            const restraint = 75; // vertical restraint
 
-        // Start typing on load
-        window.onload = function() {
-            typingText.innerHTML = '';
-            typingText.classList.add('typing');
-            typeWriter();
-        };
+            document.addEventListener('touchstart', function(e){
+                const t = e.changedTouches[0];
+                touchStartX = t.pageX;
+                touchStartY = t.pageY;
+            }, {passive:true});
+
+            document.addEventListener('touchend', function(e){
+                const t = e.changedTouches[0];
+                const deltaX = t.pageX - touchStartX;
+                const deltaY = t.pageY - touchStartY;
+                if (Math.abs(deltaX) >= threshold && Math.abs(deltaY) <= restraint){
+                    if (deltaX < 0) nextSlide();
+                    else prevSlide();
+                }
+            }, {passive:true});
+
+            // Resize: if viewport too short, allow scroll (keeps usability on small screens)
+            function handleResize(){
+                const vh = window.innerHeight;
+                const wrap = document.querySelector('.slides-wrap');
+                if (vh < 520){
+                    document.body.style.overflow = 'auto';
+                    wrap.style.height = 'auto';
+                } else {
+                    document.body.style.overflow = 'hidden';
+                    wrap.style.height = '100vh';
+                }
+            }
+            window.addEventListener('resize', handleResize, {passive:true});
+
+            // Start
+            handleResize();
+            showSlide(currentSlide, false);
+
+            // Start typing if first slide visible on load
+            if (document.readyState === 'complete' || document.readyState === 'interactive'){
+                manageTyping(currentSlide === 0);
+            } else {
+                window.addEventListener('DOMContentLoaded', () => manageTyping(currentSlide === 0));
+            }
+
+            // Improve accessibility: announce slide changes via aria-live region (we reuse typing text's aria-live)
+            // When the slide changes, set a short live announcement for screen reader users
+            const liveAnnouncer = document.createElement('div');
+            liveAnnouncer.setAttribute('aria-live', 'polite');
+            liveAnnouncer.setAttribute('aria-atomic', 'true');
+            liveAnnouncer.style.position = 'absolute';
+            liveAnnouncer.style.left = '-9999px';
+            document.body.appendChild(liveAnnouncer);
+
+            // Hook to update announcement
+            const observer = new MutationObserver(() => {
+                const title = slides[currentSlide].querySelector('h1, h2');
+                const text = title ? title.textContent.trim() : `Slide ${currentSlide + 1}`;
+                liveAnnouncer.textContent = `Showing: ${text}`;
+            });
+            observer.observe(document.querySelector('.slides-wrap'), {attributes: true, subtree: true, childList: true});
+
+        })();
     </script>
 </body>
 </html>
