@@ -1,579 +1,470 @@
-  <!DOCTYPE html>
+  <!doctype html>
 <html lang="en">
 <head>
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <title>CEH Course Modules</title>
+  <title>CEH Course Modules — Responsive</title>
+
+  <!-- Responsive, modern CSS (keeps layout portable across platforms) -->
+  <style>
+    /* Basic reset */
+    *, *::before, *::after { box-sizing: border-box; }
+    html,body { height: 100%; margin: 0; padding: 0; }
+    body {
+      font-family: system-ui, -apple-system, "Segoe UI", Roboto, "Helvetica Neue", Arial;
+      background: #f6f7fb;
+      color: #0a0a0a;
+      -webkit-font-smoothing: antialiased;
+      -moz-osx-font-smoothing: grayscale;
+      line-height: 1.45;
+      font-size: 16px;
+    }
+
+    /* Variables */
+    :root{
+      --primary:#1f6feb;
+      --accent:#2b6cb0;
+      --card-border:#333;
+      --muted:#6c7a86;
+      --surface:#fff;
+      --max-width:1200px;
+      --gutter:1rem;
+    }
+
+    /* Page containers */
+    .wrap {
+      max-width: var(--max-width);
+      width: calc(100% - 2rem);
+      margin: 24px auto;
+      padding: 18px;
+      background: var(--surface);
+      border-radius: 12px;
+      box-shadow: 0 6px 18px rgba(0,0,0,0.06);
+    }
+
+    /* Heading styles (responsive sizes using clamp) */
+    h1, h2, h3 { margin: 0 0 8px 0; line-height: 1.1; }
+    h1 { font-size: clamp(20px, 3.5vw, 32px); }
+    h2 { font-size: clamp(18px, 2.8vw, 24px); color: var(--primary); }
+    h3 { font-size: 1.05rem; }
+
+    /* Module grid - automatically responsive */
+    .modules {
+      display: grid;
+      gap: 16px;
+      grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+      align-items: start;
+    }
+    .module-card {
+      padding: 14px;
+      border-radius: 10px;
+      background: var(--surface);
+      border: 2px solid var(--card-border);
+      box-shadow: 0 4px 12px rgba(0,0,0,0.04);
+    }
+    .module-card p { margin: 0; color: #000; font-size: 0.95rem; }
+
+    /* Section blocks used throughout the page */
+    .section {
+      margin-top: 20px;
+      padding: 18px;
+      border-radius: 12px;
+      background: linear-gradient(180deg, #fff, #fbfdff);
+      border: 3px solid rgba(47,79,159,0.06);
+      box-shadow: 0 8px 24px rgba(0,0,0,0.04);
+    }
+
+    /* Cards inside long content */
+    .card-grid {
+      display: grid;
+      gap: 16px;
+      grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+    }
+    .card {
+      padding: 16px;
+      border-radius: 10px;
+      background: var(--surface);
+      border: 2px solid #e9eef5;
+      color: #000;
+    }
+    .muted { color: var(--muted); }
+
+    /* Navigation / quick links area */
+    .quick-links {
+      display:flex;
+      gap:8px;
+      flex-wrap:wrap;
+      justify-content:flex-end;
+    }
+    .quick-links a{
+      text-decoration:none;
+      padding:8px 12px;
+      border-radius:8px;
+      border:1px solid #e6e9ee;
+      font-size: 0.9rem;
+      color: #2b3a4a;
+      background: transparent;
+    }
+
+    /* Stacked sections (for small screens) */
+    .stack { display:flex; flex-direction:column; gap:14px; }
+
+    /* Deliverables and lists */
+    ul, ol { margin: 8px 0 0 18px; }
+    p { margin-bottom: 10px; }
+
+    /* Footer spacing */
+    .spaced { margin-bottom: 12px; }
+
+    /* Responsive tweaks */
+    @media (max-width: 640px) {
+      body { font-size: 15px; }
+      .wrap { padding: 14px; border-radius: 10px; }
+      h1 { font-size: clamp(18px, 6vw, 26px); }
+      .quick-links { justify-content: center; }
+    }
+
+  </style>
 </head>
-<body style="margin:0; font-family: system-ui, -apple-system, 'Segoe UI', Roboto, 'Helvetica Neue', Arial; background:#f6f7fb;">
+<body>
 
-  <!-- Page container with border -->
-  <div style="max-width:1200px; margin:24px auto; padding:18px; box-sizing:border-box; border:3px solid #2b6cb0; border-radius:12px; background: #ffffff; box-shadow: 0 6px 18px rgba(0,0,0,0.06);">
-
-    <!-- Header (heading colours intentionally left as default/not-forced to black) -->
-    <header style="text-align:center; margin-bottom:18px;">
-      <h1 style="margin:6px 0; font-size: clamp(20px, 3.5vw, 32px);">ethical hacking and penetration testing</h1>
-       
+  <!-- Top Modules Overview -->
+  <div class="wrap" aria-labelledby="modules-heading">
+    <header style="text-align:center;margin-bottom:12px;">
+      <h1 id="modules-heading">Ethical Hacking & Penetration Testing</h1>
+      <p class="muted" style="margin-top:6px;">Complete module list covering fundamentals to advanced topics.</p>
     </header>
 
-    <!-- Modules grid (flex-wrap makes it responsive without media queries) -->
-    <section style="display:flex; flex-wrap:wrap; gap:16px; align-items:flex-start;">
-
-      <!-- Each module card: border added, heading left without forced color, description/text explicitly black -->
-      <div style="flex:1 1 300px; min-width:220px; box-sizing:border-box; padding:14px; border:2px solid #333; border-radius:10px; background:#fff;">
-        <h3 style="margin:0 0 8px 0; font-size:18px;">Module I : Introduction to Ethical Hacking</h3>
-        <p style="margin:0; color:#000; font-size:14px;">Overview, ethics, legal issues, phases of hacking, tools & methodologies.</p>
+    <section class="modules" aria-label="course modules">
+      <div class="module-card">
+        <h3>Module I : Introduction to Ethical Hacking</h3>
+        <p>Overview, ethics, legal issues, phases of hacking, tools & methodologies.</p>
       </div>
 
-      <div style="flex:1 1 300px; min-width:220px; box-sizing:border-box; padding:14px; border:2px solid #333; border-radius:10px; background:#fff;">
-        <h3 style="margin:0 0 8px 0; font-size:18px;">Module II: Footprinting</h3>
-        <p style="margin:0; color:#000; font-size:14px;">Techniques to gather target info — DNS, WHOIS, Google dorking, reconnaissance.</p>
+      <div class="module-card">
+        <h3>Module II: Footprinting</h3>
+        <p>Techniques to gather target info — DNS, WHOIS, Google dorking, reconnaissance.</p>
       </div>
 
-      <div style="flex:1 1 300px; min-width:220px; box-sizing:border-box; padding:14px; border:2px solid #333; border-radius:10px; background:#fff;">
-        <h3 style="margin:0 0 8px 0; font-size:18px;">Module III: Scanning</h3>
-        <p style="margin:0; color:#000; font-size:14px;">Port scanning, service detection, vuln scanning tools and interpretation.</p>
+      <div class="module-card">
+        <h3>Module III: Scanning</h3>
+        <p>Port scanning, service detection, vuln scanning tools and interpretation.</p>
       </div>
 
-      <div style="flex:1 1 300px; min-width:220px; box-sizing:border-box; padding:14px; border:2px solid #333; border-radius:10px; background:#fff;">
-        <h3 style="margin:0 0 8px 0; font-size:18px;">Module IV: Enumeration</h3>
-        <p style="margin:0; color:#000; font-size:14px;">Extracting user/group shares, SNMP, SMB enumeration and fingerprinting.</p>
+      <div class="module-card">
+        <h3>Module IV: Enumeration</h3>
+        <p>Extracting user/group shares, SNMP, SMB enumeration and fingerprinting.</p>
       </div>
 
-      <div style="flex:1 1 300px; min-width:220px; box-sizing:border-box; padding:14px; border:2px solid #333; border-radius:10px; background:#fff;">
-        <h3 style="margin:0 0 8px 0; font-size:18px;">Module V: System Hacking</h3>
-        <p style="margin:0; color:#000; font-size:14px;">Privilege escalation, password attacks, maintaining access and anti-forensics.</p>
+      <div class="module-card">
+        <h3>Module V: System Hacking</h3>
+        <p>Privilege escalation, password attacks, maintaining access and anti-forensics.</p>
       </div>
 
-      <div style="flex:1 1 300px; min-width:220px; box-sizing:border-box; padding:14px; border:2px solid #333; border-radius:10px; background:#fff;">
-        <h3 style="margin:0 0 8px 0; font-size:18px;">Module VI: Trojans and Backdoors</h3>
-        <p style="margin:0; color:#000; font-size:14px;">Types of trojans, backdoors, detection and mitigation strategies.</p>
+      <div class="module-card">
+        <h3>Module VI: Trojans and Backdoors</h3>
+        <p>Types of trojans, backdoors, detection and mitigation strategies.</p>
       </div>
 
-      <div style="flex:1 1 300px; min-width:220px; box-sizing:border-box; padding:14px; border:2px solid #333; border-radius:10px; background:#fff;">
-        <h3 style="margin:0 0 8px 0; font-size:18px;">Module VII: Sniffers</h3>
-        <p style="margin:0; color:#000; font-size:14px;">Packet capture, ARP poisoning, analysis, countermeasures.</p>
+      <div class="module-card">
+        <h3>Module VII: Sniffers</h3>
+        <p>Packet capture, ARP poisoning, analysis, countermeasures.</p>
       </div>
 
-      <div style="flex:1 1 300px; min-width:220px; box-sizing:border-box; padding:14px; border:2px solid #333; border-radius:10px; background:#fff;">
-        <h3 style="margin:0 0 8px 0; font-size:18px;">Module VIII: Denial of Service</h3>
-        <p style="margin:0; color:#000; font-size:14px;">DoS/DDoS techniques, amplification attacks and defense mechanisms.</p>
+      <div class="module-card">
+        <h3>Module VIII: Denial of Service</h3>
+        <p>DoS/DDoS techniques, amplification attacks and defense mechanisms.</p>
       </div>
 
-      <div style="flex:1 1 300px; min-width:220px; box-sizing:border-box; padding:14px; border:2px solid #333; border-radius:10px; background:#fff;">
-        <h3 style="margin:0 0 8px 0; font-size:18px;">Module IX: Social Engineering</h3>
-        <p style="margin:0; color:#000; font-size:14px;">Psychology-based attacks, phishing, pretexting, awareness & training.</p>
+      <div class="module-card">
+        <h3>Module IX: Social Engineering</h3>
+        <p>Psychology-based attacks, phishing, pretexting, awareness & training.</p>
       </div>
 
-      <div style="flex:1 1 300px; min-width:220px; box-sizing:border-box; padding:14px; border:2px solid #333; border-radius:10px; background:#fff;">
-        <h3 style="margin:0 0 8px 0; font-size:18px;">Module X: Session Hijacking</h3>
-        <p style="margin:0; color:#000; font-size:14px;">Cookie/session theft, fixation, mitigation and secure session handling.</p>
+      <div class="module-card">
+        <h3>Module X: Session Hijacking</h3>
+        <p>Cookie/session theft, fixation, mitigation and secure session handling.</p>
       </div>
 
-      <div style="flex:1 1 300px; min-width:220px; box-sizing:border-box; padding:14px; border:2px solid #333; border-radius:10px; background:#fff;">
-        <h3 style="margin:0 0 8px 0; font-size:18px;">Module XI: Hacking Web Servers</h3>
-        <p style="margin:0; color:#000; font-size:14px;">Server misconfigurations, directory traversal, file inclusion attacks.</p>
+      <div class="module-card">
+        <h3>Module XI: Hacking Web Servers</h3>
+        <p>Server misconfigurations, directory traversal, file inclusion attacks.</p>
       </div>
 
-      <div style="flex:1 1 300px; min-width:220px; box-sizing:border-box; padding:14px; border:2px solid #333; border-radius:10px; background:#fff;">
-        <h3 style="margin:0 0 8px 0; font-size:18px;">Module XII: Web Application Vulnerabilities</h3>
-        <p style="margin:0; color:#000; font-size:14px;">OWASP risks, input validation, auth issues, secure coding practices.</p>
+      <div class="module-card">
+        <h3>Module XII: Web Application Vulnerabilities</h3>
+        <p>OWASP risks, input validation, auth issues, secure coding practices.</p>
       </div>
 
-      <div style="flex:1 1 300px; min-width:220px; box-sizing:border-box; padding:14px; border:2px solid #333; border-radius:10px; background:#fff;">
-        <h3 style="margin:0 0 8px 0; font-size:18px;">Module XIII: Web Based Password Cracking Techniques</h3>
-        <p style="margin:0; color:#000; font-size:14px;">Brute force, dictionary, rainbow tables, salting and prevention.</p>
+      <div class="module-card">
+        <h3>Module XIII: Web Based Password Cracking Techniques</h3>
+        <p>Brute force, dictionary, rainbow tables, salting and prevention.</p>
       </div>
 
-      <div style="flex:1 1 300px; min-width:220px; box-sizing:border-box; padding:14px; border:2px solid #333; border-radius:10px; background:#fff;">
-        <h3 style="margin:0 0 8px 0; font-size:18px;">Module XIV: SQL Injection</h3>
-        <p style="margin:0; color:#000; font-size:14px;">Types, exploitation examples, parameterized queries and mitigation.</p>
+      <div class="module-card">
+        <h3>Module XIV: SQL Injection</h3>
+        <p>Types, exploitation examples, parameterized queries and mitigation.</p>
       </div>
 
-      <div style="flex:1 1 300px; min-width:220px; box-sizing:border-box; padding:14px; border:2px solid #333; border-radius:10px; background:#fff;">
-        <h3 style="margin:0 0 8px 0; font-size:18px;">Module XV: Hacking Wireless Networks</h3>
-        <p style="margin:0; color:#000; font-size:14px;">WEP/WPA attacks, rogue APs, wireless security and best practices.</p>
+      <div class="module-card">
+        <h3>Module XV: Hacking Wireless Networks</h3>
+        <p>WEP/WPA attacks, rogue APs, wireless security and best practices.</p>
       </div>
 
-      <div style="flex:1 1 300px; min-width:220px; box-sizing:border-box; padding:14px; border:2px solid #333; border-radius:10px; background:#fff;">
-        <h3 style="margin:0 0 8px 0; font-size:18px;">Module XVI: Viruses</h3>
-        <p style="margin:0; color:#000; font-size:14px;">Malware types, propagation, detection and removal techniques.</p>
+      <div class="module-card">
+        <h3>Module XVI: Viruses</h3>
+        <p>Malware types, propagation, detection and removal techniques.</p>
       </div>
 
-      <div style="flex:1 1 300px; min-width:220px; box-sizing:border-box; padding:14px; border:2px solid #333; border-radius:10px; background:#fff;">
-        <h3 style="margin:0 0 8px 0; font-size:18px;">Module XVII: Novell Hacking</h3>
-        <p style="margin:0; color:#000; font-size:14px;">Legacy Novell services, vulnerabilities and mitigation (as applicable).</p>
+      <div class="module-card">
+        <h3>Module XVII: Novell Hacking</h3>
+        <p>Legacy Novell services, vulnerabilities and mitigation (as applicable).</p>
       </div>
 
-      <div style="flex:1 1 300px; min-width:220px; box-sizing:border-box; padding:14px; border:2px solid #333; border-radius:10px; background:#fff;">
-        <h3 style="margin:0 0 8px 0; font-size:18px;">Module XVIII: Linux Hacking</h3>
-        <p style="margin:0; color:#000; font-size:14px;">Linux-specific attacks, hardening, kernel exploit basics and tools.</p>
+      <div class="module-card">
+        <h3>Module XVIII: Linux Hacking</h3>
+        <p>Linux-specific attacks, hardening, kernel exploit basics and tools.</p>
       </div>
 
-      <div style="flex:1 1 300px; min-width:220px; box-sizing:border-box; padding:14px; border:2px solid #333; border-radius:10px; background:#fff;">
-        <h3 style="margin:0 0 8px 0; font-size:18px;">Module XIX: Evading IDS, Firewalls and Honey pots</h3>
-        <p style="margin:0; color:#000; font-size:14px;">Tactics to evade detection and defensive countermeasures.</p>
+      <div class="module-card">
+        <h3>Module XIX: Evading IDS, Firewalls and Honey pots</h3>
+        <p>Tactics to evade detection and defensive countermeasures.</p>
       </div>
 
-      <div style="flex:1 1 300px; min-width:220px; box-sizing:border-box; padding:14px; border:2px solid #333; border-radius:10px; background:#fff;">
-        <h3 style="margin:0 0 8px 0; font-size:18px;">Module XX: Buffer Overflows</h3>
-        <p style="margin:0; color:#000; font-size:14px;">Stack/heap overflows, exploitation concepts and mitigations (ASLR, DEP).</p>
+      <div class="module-card">
+        <h3>Module XX: Buffer Overflows</h3>
+        <p>Stack/heap overflows, exploitation concepts and mitigations (ASLR, DEP).</p>
       </div>
 
-      <div style="flex:1 1 300px; min-width:220px; box-sizing:border-box; padding:14px; border:2px solid #333; border-radius:10px; background:#fff;">
-        <h3 style="margin:0 0 8px 0; font-size:18px;">Module XXI: Cryptography</h3>
-        <p style="margin:0; color:#000; font-size:14px;">Symmetric/asymmetric crypto, hashing, PKI and secure protocols.</p>
+      <div class="module-card">
+        <h3>Module XXI: Cryptography</h3>
+        <p>Symmetric/asymmetric crypto, hashing, PKI and secure protocols.</p>
       </div>
-
     </section>
-
-     
   </div>
 
- <div style="max-width:1000px; margin:24px auto; padding:18px; box-sizing:border-box; border:3px solid #1f6feb; border-radius:12px; background:#ffffff; box-shadow:0 8px 24px rgba(0,0,0,0.06); width:95%;">
+  <!-- Module I - expanded content -->
+  <div class="wrap section" id="module-i" aria-labelledby="module-i-heading">
+    <header style="text-align:center;margin-bottom:14px;">
+      <h1 id="module-i-heading">Module I — Introduction to Ethical Hacking</h1>
+      <p class="muted spaced">Can hacking be ethical? Terminology, elements of security and fundamentals.</p>
+    </header>
 
-  <!-- Header -->
-  <header style="text-align:center; margin-bottom:18px;">
-    <h1 style="margin:4px 0; font-size:clamp(22px,4vw,36px); color:#1f6feb;">Module I</h1>
-    <h2 style="margin:0; font-size:clamp(18px,3vw,24px); color:#1f6feb;">Introduction to Ethical Hacking</h2>
-  </header>
+    <div class="card-grid">
+      <article class="card" aria-labelledby="q1">
+        <h3 id="q1" style="color:var(--primary);">Can Hacking Be Ethical?</h3>
+        <p>
+          The noun “hacker” describes someone who enjoys learning details of computer systems. Hacking can mean creative problem solving,
+          reverse-engineering to improve software, or, when constrained by law and contract, assessing systems for security purposes.
+        </p>
+      </article>
 
-  <!-- Content Section -->
-  <section style="display:flex; flex-direction:column; gap:16px;">
+      <article class="card" aria-labelledby="terms">
+        <h3 id="terms" style="color:var(--primary);">Terminology</h3>
+        <p>
+          <strong>Cracker</strong> — often used for someone with offensive intent.
+          <strong>Ethical hacker</strong> — security professional who uses skills defensively within legal boundaries.
+        </p>
+        <ul>
+          <li><strong>Threat</strong> – potential adverse event.</li>
+          <li><strong>Vulnerability</strong> – weakness leading to unexpected events.</li>
+          <li><strong>Target of Evaluation</strong> – an IT system chosen for assessment.</li>
+          <li><strong>Attack</strong> – intelligent action to violate security.</li>
+          <li><strong>Exploit</strong> – method to breach a vulnerability.</li>
+        </ul>
+      </article>
 
-    <!-- Card 1 -->
-    <div style="padding:16px; border:2px solid #000; border-radius:10px; background:#fff; color:#000;">
-      <h3 style="margin:0 0 8px 0; font-size:18px; color:#1f6feb;">Can Hacking Be Ethical?</h3>
-      <p style="margin:0; font-size:15px; line-height:1.6; color:#000;">
-        The noun “hacker” describes a person who enjoys learning the details of computer systems and stretching their capabilities.
-        The verb “hacking” can mean rapidly developing new programs or reverse-engineering existing software to improve its code,
-        performance, or efficiency.
-      </p>
+      <article class="card" aria-labelledby="elements">
+        <h3 id="elements" style="color:var(--primary);">Elements of Security</h3>
+        <p>Security reduces the risk of theft, tampering, or disruption. Key elements:</p>
+        <ul>
+          <li><strong>Confidentiality</strong> — concealment of information.</li>
+          <li><strong>Authenticity</strong> — assurance of origin/identity.</li>
+          <li><strong>Integrity</strong> — protection against unauthorized modification.</li>
+          <li><strong>Availability</strong> — access to resources when needed.</li>
+        </ul>
+      </article>
     </div>
+  </div>
 
-    <!-- Card 2 -->
-    <div style="padding:16px; border:2px solid #000; border-radius:10px; background:#fff; color:#000;">
-      <h3 style="margin:0 0 8px 0; font-size:18px; color:#1f6feb;">Terminology</h3>
-      <p style="margin:0 0 10px 0; font-size:15px; line-height:1.6; color:#000;">
-        The term <strong style="color:#000;">cracker</strong> is often used for someone who applies hacking skills offensively.
-        An <strong style="color:#000;">ethical hacker</strong> is a security professional who uses those same skills for defensive and protective purposes.
-      </p>
+  <!-- What Does a Malicious Hacker Do? (Phases) -->
+  <div class="wrap section" id="phases" aria-labelledby="phases-heading">
+    <header style="text-align:center;margin-bottom:12px;">
+      <h1 id="phases-heading">Phases of a Malicious (and Defensive) Hacker</h1>
+      <p class="muted">Reconnaissance → Scanning → Gaining Access → Maintaining Access → Covering Tracks</p>
+    </header>
 
-      <ul style="margin:0; margin-left:18px; font-size:15px; line-height:1.7; color:#000;">
-        <li><strong style="color:#000;">Threat</strong> – An action or event that might prejudice security; a potential violation.</li>
-        <li><strong style="color:#000;">Vulnerability</strong> – A weakness (design or implementation) that can lead to an unexpected, undesirable event.</li>
-        <li><strong style="color:#000;">Target of Evaluation</strong> – An IT system/product/component chosen for security assessment.</li>
-        <li><strong style="color:#000;">Attack</strong> – An assault on system security originating from an intelligent threat actor.</li>
-        <li><strong style="color:#000;">Exploit</strong> – A defined method to breach an IT system through a vulnerability.</li>
-      </ul>
+    <div class="stack">
+      <article class="card">
+        <h2 style="color:var(--primary);">Phase 1 - Reconnaissance</h2>
+        <p>Gather public and semi-public information about a target. Passive reconnaissance is observation; active reconnaissance probes systems.</p>
+        <p><strong>Passive:</strong> open-source intelligence, monitoring traffic. <strong>Active:</strong> probes to find hosts, ports and services.</p>
+      </article>
+
+      <article class="card">
+        <h2 style="color:var(--primary);">Phase 2 - Scanning</h2>
+        <p>Use scanners to find open ports, services and vulnerabilities. Tools include port scanners and vulnerability scanners.</p>
+      </article>
+
+      <article class="card">
+        <h2 style="color:var(--primary);">Phase 3 - Gaining Access</h2>
+        <p>Exploit vulnerabilities to obtain access. Examples: buffer overflows, SQLi, session hijacking. Business risk often high.</p>
+      </article>
+
+      <article class="card">
+        <h2 style="color:var(--primary);">Phase 4 - Maintaining Access</h2>
+        <p>Install persistence mechanisms (backdoors, trojans) if in-scope; otherwise document how persistence could be achieved.</p>
+      </article>
+
+      <article class="card">
+        <h2 style="color:var(--primary);">Phase 5 - Covering Tracks</h2>
+        <p>Techniques to avoid detection: log manipulation, tunneling, steganography. Ethical testers must follow removal procedures in contract.</p>
+      </article>
     </div>
+  </div>
 
-    <!-- Card 3 -->
-    <div style="padding:16px; border:2px solid #000; border-radius:10px; background:#fff; color:#000;">
-      <h3 style="margin:0 0 8px 0; font-size:18px; color:#1f6feb;">Elements of Security</h3>
-      <p style="margin:0 0 10px 0; font-size:15px; line-height:1.6; color:#000;">
-        Security is the state where the risk of undetected theft, tampering, or disruption of information and services is kept low.
-        Any hacking event will impact one or more essential security elements.
-      </p>
-
-      <ul style="margin:0; margin-left:18px; font-size:15px; line-height:1.7; color:#000;">
-        <li><strong style="color:#000;">Confidentiality</strong> — Concealment of information or resources.</li>
-        <li><strong style="color:#000;">Authenticity</strong> — Assurance of the origin/identity of information.</li>
-        <li><strong style="color:#000;">Integrity</strong> — Trustworthiness of data; protection against unauthorized modification.</li>
-        <li><strong style="color:#000;">Availability</strong> — The ability to access information or resources when needed.</li>
-      </ul>
-    </div>
-
-  </section>
-</div>
-
-
-<div style="max-width:1000px; margin:24px auto; padding:18px; box-sizing:border-box; border:3px solid #1f6feb; border-radius:12px; background:#ffffff; box-shadow:0 8px 24px rgba(0,0,0,0.06); width:95%;">
-
-  <!-- Main heading -->
-  <header style="text-align:center; margin-bottom:18px;">
-    <h1 style="margin:6px 0; font-size:clamp(20px,4vw,34px); color:#1f6feb;">What Does a Malicious Hacker Do?</h1>
-  </header>
-
-  <!-- Content -->
-  <section style="display:flex; flex-direction:column; gap:16px;">
-
-    <!-- Phase 1 - Reconnaissance -->
-    <article style="padding:16px; border:2px solid #000; border-radius:10px; background:#fff; color:#000;">
-      <h2 style="margin:0 0 8px 0; font-size:clamp(18px,3vw,22px); color:#1f6feb;">Phase 1 - Reconnaissance</h2>
-      <p style="margin:0 0 10px 0; font-size:15px; line-height:1.6; color:#000;">
-        Reconnaissance refers to the preparatory phase where an attacker seeks to gather as much information as possible
-        about a target of evaluation prior to launching an attack. It can involve network scanning (external or internal)
-        without authorization.
-      </p>
-      <p style="margin:0 0 10px 0; font-size:15px; line-height:1.6; color:#000;">
-        <strong style="color:#000;">Business Risk – ‘Notable’</strong> – Generally noted as "rattling the door knobs" to see if someone
-        is watching and responding. It could indicate a future point of return when more is known about the target.
-      </p>
-
-      <p style="margin:0 0 6px 0; font-size:15px; line-height:1.6; color:#000;"><strong style="color:#000;">Passive reconnaissance</strong> involves monitoring network data for patterns and clues (e.g., sniffing, information gathering).</p>
-
-      <p style="margin:0 0 6px 0; font-size:15px; line-height:1.6; color:#000;"><strong style="color:#000;">Active reconnaissance</strong> involves probing the network to detect:</p>
-      <ul style="margin:0; margin-left:18px; font-size:15px; line-height:1.7; color:#000;">
-        <li>accessible hosts</li>
-        <li>open ports</li>
-        <li>location of routers</li>
-        <li>details of operating systems and services</li>
-      </ul>
-    </article>
-
-    <!-- Phase 2 - Scanning -->
-    <article style="padding:16px; border:2px solid #000; border-radius:10px; background:#fff; color:#000;">
-      <h2 style="margin:0 0 8px 0; font-size:clamp(18px,3vw,22px); color:#1f6feb;">Phase 2 - Scanning</h2>
-      <p style="margin:0 0 10px 0; font-size:15px; line-height:1.6; color:#000;">
-        Scanning refers to the pre-attack phase when the hacker scans the network using information gathered during reconnaissance.
-      </p>
-      <p style="margin:0 0 10px 0; font-size:15px; line-height:1.6; color:#000;"><strong style="color:#000;">Business Risk – ‘High’</strong> – Scanning often finds a single point of entry and can reveal exploitable vulnerabilities.</p>
-
-      <p style="margin:0; font-size:15px; line-height:1.6; color:#000;">Techniques may include:</p>
-      <ul style="margin:6px 0 0 18px; font-size:15px; line-height:1.7; color:#000;">
-        <li>dialers</li>
-        <li>port scanners</li>
-        <li>network mapping and sweeping</li>
-        <li>vulnerability scanners</li>
-      </ul>
-    </article>
-
-    <!-- Phase 3 - Gaining Access -->
-    <article style="padding:16px; border:2px solid #000; border-radius:10px; background:#fff; color:#000;">
-      <h2 style="margin:0 0 8px 0; font-size:clamp(18px,3vw,22px); color:#1f6feb;">Phase 3 - Gaining Access</h2>
-      <p style="margin:0 0 10px 0; font-size:15px; line-height:1.6; color:#000;">
-        Gaining Access is the actual attack phase when the hacker exploits a vulnerability to enter the system.
-        Exploits can occur over LAN, locally, via the Internet, offline, or through deception/theft.
-      </p>
-      <p style="margin:0 0 10px 0; font-size:15px; line-height:1.6; color:#000;">
-        Examples: stack-based buffer overflows, denial of service, session hijacking, password filtering, etc.
-      </p>
-      <p style="margin:0 0 6px 0; font-size:15px; line-height:1.6; color:#000;">
-        Influencing factors: system architecture and configuration, attacker skill level, and initial access obtained.
-      </p>
-      <p style="margin:0; font-size:15px; line-height:1.6; color:#000;"><strong style="color:#000;">Business Risk – ‘Highest’</strong> – Access can compromise OS, application, or network layers.</p>
-    </article>
-
-    <!-- Phase 4 - Maintaining Access -->
-    <article style="padding:16px; border:2px solid #000; border-radius:10px; background:#fff; color:#000;">
-      <h2 style="margin:0 0 8px 0; font-size:clamp(18px,3vw,22px); color:#1f6feb;">Phase 4 - Maintaining Access</h2>
-      <p style="margin:0 0 10px 0; font-size:15px; line-height:1.6; color:#000;">
-        Maintaining Access refers to efforts by the hacker to retain control of an exploited system.
-        Attackers may harden their access against others and install mechanisms to return later.
-      </p>
-      <p style="margin:0 0 6px 0; font-size:15px; line-height:1.6; color:#000;">
-        Common tools: Backdoors, rootkits, Trojans and Trojan horse backdoors. Attackers can upload, download or manipulate data, apps, and configurations.
-      </p>
-    </article>
-
-    <!-- Phase 5 - Covering Tracks -->
-    <article style="padding:16px; border:2px solid #000; border-radius:10px; background:#fff; color:#000;">
-      <h2 style="margin:0 0 8px 0; font-size:clamp(18px,3vw,22px); color:#1f6feb;">Phase 5 - Covering Tracks</h2>
-      <p style="margin:0 0 10px 0; font-size:15px; line-height:1.6; color:#000;">
-        Covering Tracks includes activities to avoid detection and prolong misuse of the system — removing evidence or hiding presence.
-        Reasons include prolonged stay, continued use of resources, avoiding legal action, or preparing new attacks.
-      </p>
-
-      <p style="margin:0 0 6px 0; font-size:15px; line-height:1.6; color:#000;">Techniques: steganography, tunneling, altering log files, and other log manipulation.</p>
-
-      <p style="margin:0; font-size:15px; line-height:1.6; color:#000;">
-        Attackers might stay undetected for long periods, or use this phase to begin fresh reconnaissance on related targets.
-      </p>
-    </article>
-
-  </section>
-</div>
-
-   <div style="max-width:1100px;margin:20px auto;padding:18px;border:4px solid #2b3a4a;border-radius:12px;background:#ffffff;box-shadow:0 8px 24px rgba(43,58,74,0.08);">
-
+  <!-- What Do Ethical Hackers Do? — Overview, Phases, Skills -->
+  <div class="wrap section" id="ethics" aria-labelledby="ethics-heading">
     <header style="display:flex;align-items:center;gap:12px;flex-wrap:wrap;">
       <div style="flex:1;min-width:220px;">
-        <h1 style="margin:0;font-size:clamp(20px,3.2vw,32px);color:#2b3a4a;line-height:1.1;">What Do Ethical Hackers Do?</h1>
-        <p style="margin:6px 0 0;font-size:clamp(13px,1.6vw,16px);color:#56646f;"> <em style="color:#6c7a86;">Quote: “If you know the enemy and know yourself, you need not fear the result of a hundred battles.” — Sun Tzu</em></p>
+        <h1 id="ethics-heading" style="color:#2b3a4a">What Do Ethical Hackers Do?</h1>
+        <p class="muted">Ethical hackers test systems under written authorization and provide remediation guidance.</p>
       </div>
-      <div style="display:flex;gap:8px;align-items:center;justify-content:flex-end;min-width:180px;">
-        <nav aria-label="quick links" style="display:flex;gap:8px;flex-wrap:wrap;">
-          <a href="#what" style="text-decoration:none;padding:8px 12px;border-radius:8px;border:1px solid #e6e9ee;font-size:13px;color:#2b3a4a;">Overview</a>
-          <a href="#phases" style="text-decoration:none;padding:8px 12px;border-radius:8px;border:1px solid #e6e9ee;font-size:13px;color:#2b3a4a;">Phases</a>
-          <a href="#skills" style="text-decoration:none;padding:8px 12px;border-radius:8px;border:1px solid #e6e9ee;font-size:13px;color:#2b3a4a;">Skill Profile</a>
+
+      <div style="min-width:170px;">
+        <nav class="quick-links" aria-label="quick links">
+          <a href="#module-i">Module I</a>
+          <a href="#phases">Phases</a>
+          <a href="#ethics">Overview</a>
         </nav>
       </div>
     </header>
 
-    <main style="margin-top:18px;display:flex;flex-direction:column;gap:18px;">
-
-      <section id="what" style="background:#fcfdff;padding:14px;border-radius:10px;border:2px dashed #e9eef5;">
-        <h2 style="margin:0 0 8px 0;color:#1a2b3c;font-size:clamp(16px,2.4vw,20px);">Ethical Hacker — Goals &amp; Questions</h2>
-        <p style="margin:0 0 8px 0;color:black;font-size:15px;">Ethical hackers try to answer the following important questions about a target system:</p>
-        <ul style="margin:8px 0 0 18px;padding:0;color:black;font-size:15px;line-height:1.6;">
-          <li style="margin-bottom:6px;color:black;">What can the intruder see on the target system? (Reconnaissance &amp; Scanning)</li>
-          <li style="margin-bottom:6px;color:black;">What can an intruder do with that information? (Gaining &amp; Maintaining Access)</li>
-          <li style="margin-bottom:6px;color:black;">Does anyone at the target notice the intruder's attempts or success? (Detection &amp; Covering Tracks)</li>
+    <main style="margin-top:16px;">
+      <section class="card">
+        <h2 style="color:var(--primary);">Ethical Hacker — Goals & Questions</h2>
+        <p>When hired, ethical hackers ask: what is being protected, against whom, and what resources exist for protection? They measure exposure, impact, and detectability.</p>
+        <ul>
+          <li>What can the intruder see? (Reconnaissance & Scanning)</li>
+          <li>What can an intruder do? (Gaining & Maintaining Access)</li>
+          <li>Does the target notice intrusions? (Detection & Covering Tracks)</li>
         </ul>
-
-        <p style="margin:12px 0 0 0;color:black;font-size:15px;">When hired, an ethical hacker first asks the organization what it protects, from whom, and how much resource it will commit to protection. That helps scope tests and prioritize fixes.</p>
       </section>
 
-      <section id="phases" style="padding:14px;border-radius:10px;border:2px solid #eef3f9;background:#ffffff;">
-        <h2 style="margin:0 0 10px 0;color:#1a2b3c;font-size:clamp(16px,2.2vw,20px);">Typical Phases (High-level)</h2>
-
-        <div style="display:flex;flex-wrap:wrap;gap:12px;">
-          <article style="flex:1 1 240px;padding:12px;border-radius:8px;border:1px solid #f0f4f8;background:#fbfdff;min-width:220px;">
-            <h3 style="margin:0 0 8px 0;color:#2b3a4a;font-size:16px;">Reconnaissance</h3>
-            <p style="margin:0;color:black;">Collect public &amp; semi-public information (DNS, WHOIS, website, social media, open ports).</p>
-          </article>
-
-          <article style="flex:1 1 240px;padding:12px;border-radius:8px;border:1px solid #f0f4f8;background:#fbfdff;min-width:220px;">
-            <h3 style="margin:0 0 8px 0;color:#2b3a4a;font-size:16px;">Scanning &amp; Enumeration</h3>
-            <p style="margin:0;color:black;">Identify services, versions and misconfigurations the target exposes.</p>
-          </article>
-
-          <article style="flex:1 1 240px;padding:12px;border-radius:8px;border:1px solid #f0f4f8;background:#fbfdff;min-width:220px;">
-            <h3 style="margin:0 0 8px 0;color:#2b3a4a;font-size:16px;">Exploitation / Gaining Access</h3>
-            <p style="margin:0;color:black;">Use weaknesses to obtain access — always within agreed scope and rules of engagement.</p>
-          </article>
-
-          <article style="flex:1 1 240px;padding:12px;border-radius:8px;border:1px solid #f0f4f8;background:#fbfdff;min-width:220px;">
-            <h3 style="margin:0 0 8px 0;color:#2b3a4a;font-size:16px;">Maintaining Access &amp; Covering Tracks</h3>
-            <p style="margin:0;color:black;">If in scope, ethically demonstrate persistence and assess detection/forensics gaps. Then remove traces per contract.</p>
-          </article>
-        </div>
-      </section>
-
-      <section id="skills" style="padding:14px;border-radius:10px;border:2px dashed #e6eef5;background:#ffffff;">
-        <h2 style="margin:0 0 10px 0;color:#1a2b3c;font-size:clamp(16px,2.2vw,20px);">Skill Profile of an Ethical Hacker</h2>
-
-        <ul style="margin:0;padding-left:18px;color:black;font-size:15px;line-height:1.7;">
-          <li style="margin-bottom:8px;color:black;">Strong computer fundamentals and technical expertise across domains.</li>
-          <li style="margin-bottom:8px;color:black;">In-depth knowledge of target platforms (Windows, Unix, Linux).</li>
-          <li style="margin-bottom:8px;color:black;">Excellent networking knowledge — protocols, stacks, and related hardware/software.</li>
-          <li style="margin-bottom:8px;color:black;">Good understanding of security principles and incident response; not always a dedicated security professional but often works alongside them.</li>
+      <section class="card" style="margin-top:12px;">
+        <h2 style="color:var(--primary);">Skill Profile</h2>
+        <ul>
+          <li>Strong computer fundamentals across OS, networks, web stacks.</li>
+          <li>Deep knowledge of Windows, Linux, Unix platforms.</li>
+          <li>Networking expertise: protocols, routing, switching and services.</li>
+          <li>Knowledge of security principles and incident response workflows.</li>
         </ul>
-
       </section>
 
-      <section style="padding:14px;border-radius:10px;border:1px solid #e9eef6;background:#fcfdff;">
-        <h2 style="margin:0 0 8px 0;color:#1a2b3c;font-size:clamp(16px,2.2vw,20px);">Best Practices (Ethical &amp; Legal)</h2>
-        <ol style="margin:8px 0 0 18px;color:black;font-size:15px;line-height:1.6;">
-          <li style="margin-bottom:8px;color:black;">Always have written authorization (scope, time, and rules).</li>
-          <li style="margin-bottom:8px;color:black;">Report findings clearly and provide remediation steps.</li>
-          <li style="margin-bottom:8px;color:black;">Keep client data safe — do not exfiltrate or leak sensitive information.</li>
-          <li style="margin-bottom:8px;color:black;">Coordinate with defenders to minimize operational impact.</li>
+      <section class="card" style="margin-top:12px;">
+        <h2 style="color:var(--primary);">Best Practices (Ethical & Legal)</h2>
+        <ol>
+          <li>Have written authorization (scope, time, rules).</li>
+          <li>Report findings clearly with remediation steps.</li>
+          <li>Protect client data — avoid exfiltration or leaks.</li>
+          <li>Coordinate with defenders to minimize operational impact.</li>
         </ol>
       </section>
-
-       
-
     </main>
   </div>
 
-
-  
-  <!-- Page container: flexible and centered -->
-   
-    <div style="max-width: 900px; margin: 20px auto; padding: 20px; background-color: #fff; border: 2px solid #333; border-radius: 10px; box-sizing: border-box;">
-      
-    <!-- Page header (heading colors unchanged as requested) -->
-    <header style="text-align:center;padding:12px 8px;">
-      <h1 style="margin:6px 0;font-size:clamp(20px,4vw,32px);">Security Evaluation — Three Components</h1>
-      <p style="margin:6px 0;color:#000;font-size:clamp(12px,2.2vw,16px);">
-        Any security evaluation involves three components. Below each phase is described and presented in a bordered card.
-      </p>
+  <!-- Modes of Ethical Hacking (cards) -->
+  <div class="wrap section" aria-labelledby="modes-heading">
+    <header style="text-align:center;margin-bottom:12px;">
+      <h1 id="modes-heading">Modes of Ethical Hacking</h1>
     </header>
 
-    <!-- Cards wrap: will wrap on narrow screens -->
-    <div style="display:flex;flex-direction:column;gap:14px;">
-
-      <!-- Preparation -->
-      <section style="border:2px solid #1f2937;border-radius:10px;padding:16px;box-sizing:border-box;background:#ffffff;">
-        <h2 style="margin:0 0 8px 0;font-size:clamp(18px,3.5vw,22px);">Preparation</h2>
-        <p style="margin:0;color:#000;line-height:1.6;font-size:clamp(14px,2.2vw,16px);">
-          In this phase, a formal contract is signed that contains a non-disclosure clause as well as a legal
-          clause to protect the ethical hacker against any prosecution that may arise during the conduct phase.
-          The contract also outlines the infrastructure perimeter, allowed evaluation activities, time schedules,
-          and resources available to the tester.
-        </p>
+    <div class="card-grid">
+      <section class="card">
+        <h3>Remote network</h3>
+        <p>An ethical hacker mimics an Internet attacker to test external-facing assets. Example: scanning websites and servers for vulnerabilities.</p>
       </section>
 
-      <!-- Conduct -->
-      <section style="border:2px solid #1f2937;border-radius:10px;padding:16px;box-sizing:border-box;background:#ffffff;">
-        <h2 style="margin:0 0 8px 0;font-size:clamp(18px,3.5vw,22px);">Conduct</h2>
-        <p style="margin:0;color:#000;line-height:1.6;font-size:clamp(14px,2.2vw,16px);">
-          During the conduct phase the tester performs agreed-upon tests and documents findings. The evaluation
-          technical report is prepared based on discovered vulnerabilities, evidence collected, and impact analysis.
-          Tests are performed only within the agreed perimeter and timeframe.
-        </p>
+      <section class="card">
+        <h3>Remote dial-up network</h3>
+        <p>Tests legacy phone/modem access for weak/default credentials or exposed services.</p>
       </section>
 
-      <!-- Conclusion -->
-      <section style="border:2px solid #1f2937;border-radius:10px;padding:16px;box-sizing:border-box;background:#ffffff;">
-        <h2 style="margin:0 0 8px 0;font-size:clamp(18px,3.5vw,22px);">Conclusion</h2>
-        <p style="margin:0;color:#000;line-height:1.6;font-size:clamp(14px,2.2vw,16px);">
-          In the conclusion phase results and recommendations are communicated to the organization or sponsors.
-          Corrective advice and remediation steps are suggested, prioritized by risk, and follow-up activities are scheduled
-          if required.
-        </p>
+      <section class="card">
+        <h3>Local network</h3>
+        <p>Simulates an insider or guest on the network attempting lateral movement or data access.</p>
       </section>
 
+      <section class="card">
+        <h3>Stolen equipment</h3>
+        <p>Assesses the impact of lost/stolen hardware to see whether data can be accessed without authorization.</p>
+      </section>
+
+      <section class="card">
+        <h3>Social engineering</h3>
+        <p>Tests human behavior using phishing and pretexting to assess awareness and policy gaps.</p>
+      </section>
+
+      <section class="card">
+        <h3>Physical entry</h3>
+        <p>Tests physical security (locks, guards, cameras) often by attempting tailgating or unauthorized access to server rooms.</p>
+      </section>
     </div>
-
-     
-
   </div>
 
-   
-    <div style="max-width: 900px; margin: 20px auto; padding: 20px; background-color: #fff; border: 2px solid #333; border-radius: 10px; box-sizing: border-box;">
-      
-      <header style="text-align:center; padding:18px 10px;">
-        <h1 style="margin:0; font-size:1.8rem;">Modes of Ethical Hacking</h1>
-          </header>
+  <!-- Security Testing Types -->
+  <div class="wrap section" aria-labelledby="testing-heading">
+    <header style="text-align:center;margin-bottom:12px;">
+      <h1 id="testing-heading">Security Testing Approaches</h1>
+    </header>
 
-      <!-- Card / section: remote network -->
-      <section style="border:2px solid #d1d5db; border-radius:10px; padding:14px; margin:16px 0; background:#ffffff;">
-        <h2 style="margin:0 0 8px; font-size:1.1rem;">Remote network</h2>
-        <p style="margin:0; color:black; font-size:0.95rem;">An ethical hacker pretends to be an attacker on the Internet and checks a company's websites or servers for weak spots.</p>
-        <p style="margin:8px 0 0; color:black; font-size:0.9rem;"><strong>Example:</strong> Scanning a school website to find a page that anyone can break into.</p>
-      </section>
-
-      <!-- Remote dial-up -->
-      <section style="border:2px solid #d1d5db; border-radius:10px; padding:14px; margin:16px 0; background:#ffffff;">
-        <h2 style="margin:0 0 8px; font-size:1.1rem;">Remote dial-up network</h2>
-        <p style="margin:0; color:black; font-size:0.95rem;">Tests old phone/modem access to see if someone can call in and get into systems.</p>
-        <p style="margin:8px 0 0; color:black; font-size:0.9rem;"><strong>Example:</strong> Trying default modem passwords on an old office line to see if it gives access.</p>
-      </section>
-
-      <!-- Local network -->
-      <section style="border:2px solid #d1d5db; border-radius:10px; padding:14px; margin:16px 0; background:#ffffff;">
-        <h2 style="margin:0 0 8px; font-size:1.1rem;">Local network</h2>
-        <p style="margin:0; color:black; font-size:0.95rem;">Acts like someone already inside the school or office network who tries to see secrets or move to other computers.</p>
-        <p style="margin:8px 0 0; color:black; font-size:0.9rem;"><strong>Example:</strong> Plugging into a classroom network port and trying to read files on other computers.</p>
-      </section>
-
-      <!-- Stolen equipment -->
-      <section style="border:2px solid #d1d5db; border-radius:10px; padding:14px; margin:16px 0; background:#ffffff;">
-        <h2 style="margin:0 0 8px; font-size:1.1rem;">Stolen equipment</h2>
-        <p style="margin:0; color:black; font-size:0.95rem;">Checks what happens if a laptop or USB stick is lost or stolen — can the finder see private data?</p>
-        <p style="margin:8px 0 0; color:black; font-size:0.9rem;"><strong>Example:</strong> Finding an unencrypted laptop and opening student records without a password.</p>
-      </section>
-
-      <!-- Social engineering -->
-      <section style="border:2px solid #d1d5db; border-radius:10px; padding:14px; margin:16px 0; background:#ffffff;">
-        <h2 style="margin:0 0 8px; font-size:1.1rem;">Social engineering</h2>
-        <p style="margin:0; color:black; font-size:0.95rem;">Tests how people behave: the hacker tricks employees into giving passwords or doing risky things.</p>
-        <p style="margin:8px 0 0; color:black; font-size:0.9rem;"><strong>Example:</strong> Sending a fake email that asks a teacher to enter their login on a fake page.</p>
-      </section>
-
-      <!-- Physical entry -->
-      <section style="border:2px solid #d1d5db; border-radius:10px; padding:14px; margin:16px 0 28px; background:#ffffff;">
-        <h2 style="margin:0 0 8px; font-size:1.1rem;">Physical entry</h2>
-        <p style="margin:0; color:black; font-size:0.95rem;">Tries to get into buildings or server rooms to see if locks, guards, or cameras are strong enough.</p>
-        <p style="margin:8px 0 0; color:black; font-size:0.9rem;"><strong>Example:</strong> Following someone through a door (tailgating) to reach the computer lab without permission.</p>
-      </section>
-
-       
-
-    </div>
-
-  
-    <div style="max-width: 900px; margin: 20px auto; padding: 20px; background-color: #fff; border: 2px solid #333; border-radius: 10px; box-sizing: border-box;">
-        
-        <h1>Security Testing</h1>
-
-        <p style="color: black; font-size: 16px; line-height: 1.6;">
-            <strong>Purpose:</strong> Check how secure a system or network is. Examples include vulnerability scanning, ethical hacking, and penetration testing.
-        </p>
-
-        <h2>Types / Approaches:</h2>
-
+    <div class="card-grid">
+      <article class="card">
         <h3>Black-box testing</h3>
-        <p style="color: black; font-size: 16px; line-height: 1.6;">
-            Tester knows nothing about the system.<br>
-            <strong>Example:</strong> Trying to hack a company’s website from the Internet without any insider info.
-        </p>
+        <p>Tester knows nothing about the system — simulates an external attacker. Example: testing a public-facing website from the Internet.</p>
+      </article>
 
+      <article class="card">
         <h3>White-box testing</h3>
-        <p style="color: black; font-size: 16px; line-height: 1.6;">
-            Tester knows everything about the system.<br>
-            <strong>Example:</strong> Checking all server configurations and code to find security flaws.
-        </p>
+        <p>Tester has full knowledge of systems (configs, source). Example: code review and full configuration checks.</p>
+      </article>
 
+      <article class="card">
         <h3>Gray-box / Internal testing</h3>
-        <p style="color: black; font-size: 16px; line-height: 1.6;">
-            Tester knows some information, like an insider.<br>
-            <strong>Example:</strong> An employee tries accessing restricted areas of the network to see what sensitive info they can reach.
-        </p>
-
+        <p>Tester has partial knowledge (e.g., credentials or network maps). Example: an employee with restricted access attempting privilege escalation.</p>
+      </article>
     </div>
+  </div>
 
-   
-    <div style="max-width: 1000px; margin: auto; padding: 20px; background-color: #fff; border: 2px solid #333; box-sizing: border-box;">
-        <h1 style="text-align: center; color: #2c3e50;">Deliverables in Ethical Hacking</h1>
-        
-        <p style="color: black; margin-bottom: 15px;">
-            When an ethical hacker completes a security evaluation, the main deliverable is the <strong>Ethical Hacking Report</strong>. 
-            This report is the formal document that communicates the findings of the hacking activity to the organization. 
-            Its purpose is to clearly identify weaknesses in the system and provide actionable recommendations to improve security.
-        </p>
+  <!-- Deliverables -->
+  <div class="wrap section" aria-labelledby="deliverables-heading">
+    <header style="text-align:center;margin-bottom:12px;">
+      <h1 id="deliverables-heading" style="color:#2c3e50">Deliverables in Ethical Hacking</h1>
+      <p class="muted">What organizations receive after an assessment.</p>
+    </header>
 
-        <h2>Contents of the Ethical Hacking Report</h2>
+    <article class="card">
+      <h2 style="color:var(--primary);">Ethical Hacking Report</h2>
 
-        <p style="color: black; margin-bottom: 10px;"><strong>Results of the hacking activity:</strong></p>
-        <p style="color: black; margin-bottom: 15px;">
-            The report compares what was planned in the work schedule (decided before starting the testing) with what was actually tested.
-            <br><strong>Example:</strong> If the plan was to test the company website and internal network, the report will show exactly which areas were tested and what the hacker found.
-        </p>
+      <p><strong>Purpose:</strong> Document test scope, findings, evidence, impact and prioritized remediation steps.</p>
 
-        <p style="color: black; margin-bottom: 10px;"><strong>Details of vulnerabilities:</strong></p>
-        <p style="color: black; margin-bottom: 15px;">
-            Every security gap, loophole, or weak point found is listed in detail.
-            <br><strong>Example:</strong> A webpage allowing unauthorized access or a password that is too easy to guess.
-        </p>
+      <h3>Contents</h3>
+      <ul>
+        <li>Results — what was planned vs what was tested (areas, targets, exclusions).</li>
+        <li>Details of vulnerabilities — steps to reproduce and evidence.</li>
+        <li>Suggestions and remediation — prioritized, practical fixes.</li>
+        <li>Delivery format and handling — typically restricted access; protect sensitive data.</li>
+      </ul>
 
-        <p style="color: black; margin-bottom: 10px;"><strong>Suggestions and remediation:</strong></p>
-        <p style="color: black; margin-bottom: 15px;">
-            The report provides advice on how to fix vulnerabilities or prevent attacks.
-            <br><strong>Example:</strong> Updating software, using stronger passwords, adding firewalls, or restricting access to sensitive areas.
-        </p>
+      <h3>Other considerations</h3>
+      <ul>
+        <li><strong>Nondisclosure:</strong> Only authorized personnel receive the report.</li>
+        <li><strong>Integrity:</strong> Test teams must act professionally and ethically.</li>
+        <li><strong>Sensitivity:</strong> Reports often contain critical technical details; protect them accordingly.</li>
+      </ul>
+    </article>
+  </div>
 
-        <p style="color: black; margin-bottom: 15px;"><strong>Format:</strong> Usually delivered in hard copy, not digital form, to reduce the risk of sensitive data being leaked.</p>
-
-        <h2>Other Important Considerations</h2>
-
-        <p style="color: black; margin-bottom: 10px;"><strong>Nondisclosure clause:</strong></p>
-        <p style="color: black; margin-bottom: 15px;">
-            Only authorized personnel can access the report. The hacker cannot share findings outside the organization.
-            <br><strong>Example:</strong> The report is given to the IT manager, not posted online.
-        </p>
-
-        <p style="color: black; margin-bottom: 10px;"><strong>Integrity of the evaluation team:</strong></p>
-        <p style="color: black; margin-bottom: 15px;">
-            The team must act honestly, professionally, and ethically while handling the testing and report.
-        </p>
-
-        <p style="color: black; margin-bottom: 10px;"><strong>Sensitivity of information:</strong></p>
-        <p style="color: black; margin-bottom: 15px;">
-            The report often contains highly sensitive information about the organization’s systems.
-            <br><strong>Example:</strong> If the report mentions server vulnerabilities, it must be kept secure to prevent misuse.
-        </p>
-
-        <h2>Summary</h2>
-        <p style="color: black; margin-bottom: 15px;">
-            The Ethical Hacking Report is a detailed, professional document that explains what was tested, what weaknesses were found, 
-            and how to fix them, while keeping all information confidential and secure.
-        </p>
-    </div>
-
- 
   
-    
-
-
-
-
- 
- 
-
-
 </body>
 </html>
