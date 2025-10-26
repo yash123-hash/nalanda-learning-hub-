@@ -1,8 +1,9 @@
  <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="theme-color" content="#007bff" />
     <title>My Modern Creative Portfolio</title>
     <style>
         @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700&family=Roboto:wght@300;400&display=swap');
@@ -14,6 +15,11 @@
             --bg-end: #e2e7e2;
             --card-shadow: 0 10px 20px rgba(0,0,0,0.12);
             --radius: 12px;
+            --max-width: 1100px;
+            --gap: 1.1rem;
+            --nav-height: 64px;
+            --breakpoint-md: 900px;
+            --breakpoint-sm: 520px;
         }
 
         *{box-sizing: border-box}
@@ -26,13 +32,15 @@
             background: linear-gradient(to right, var(--bg-start), var(--bg-end));
             -webkit-font-smoothing:antialiased;
             -moz-osx-font-smoothing:grayscale;
+            scroll-behavior:smooth;
         }
 
         /* Page container to constrain content */
         .container{
-            max-width: 1100px;
+            max-width: var(--max-width);
             margin: 0 auto;
             padding: 0 1rem;
+            width:100%;
         }
 
         header{
@@ -49,11 +57,10 @@
             align-items:center;
             justify-content:space-between;
             gap:1rem;
-            padding: 0.75rem 0;
-            max-width:1100px;
+            height: var(--nav-height);
+            max-width:var(--max-width);
             margin:0 auto;
-            padding-left:1rem;
-            padding-right:1rem;
+            padding: 0 1rem;
         }
 
         .logo{
@@ -64,6 +71,10 @@
         }
 
         /* Navigation */
+        nav{
+            position:relative;
+        }
+
         nav ul{
             list-style:none;
             display:flex;
@@ -84,10 +95,12 @@
             font-size:0.95rem;
         }
 
-        nav a:hover{
+        nav a:hover,
+        nav a:focus{
             background: rgba(255,255,255,0.12);
             transform: translateY(-2px);
             box-shadow: 0 6px 12px rgba(0,0,0,0.08);
+            outline: none;
         }
 
         /* Mobile nav toggle */
@@ -96,8 +109,9 @@
             background:transparent;
             border:0;
             color:#fff;
-            font-size:1.2rem;
+            font-size:1.5rem;
             cursor:pointer;
+            line-height:1;
         }
 
         /* Hero */
@@ -138,6 +152,7 @@
             margin:0;
             font-size: clamp(0.9rem, 2vw, 1.05rem);
             opacity:0.95;
+            max-width:820px;
         }
 
         .btn{
@@ -198,18 +213,27 @@
             box-shadow: 0 6px 16px rgba(0,0,0,0.06);
             transition:transform 0.15s ease, background 0.15s ease;
         }
-        .skills-list li:hover{ transform:translateY(-6px); background:var(--blue-dark); }
+        .skills-list li:hover,
+        .skills-list li:focus{
+            transform:translateY(-6px);
+            background:var(--blue-dark);
+            outline: none;
+        }
 
         /* Projects grid */
         .projects-container{
             display:grid;
-            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-            gap:1.1rem;
+            grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+            gap:var(--gap);
             align-items:stretch;
             padding:0 0.5rem;
         }
 
+        /* Make project-card a button for accessibility */
         .project-card{
+            appearance: none;
+            -webkit-appearance: none;
+            border: 0;
             background:#fff;
             border-radius:var(--radius);
             padding:1.1rem;
@@ -220,10 +244,14 @@
             flex-direction:column;
             justify-content:space-between;
             min-height:160px;
+            text-align:left;
+            width:100%;
         }
-        .project-card:hover{
+        .project-card:hover,
+        .project-card:focus{
             transform: translateY(-8px);
             box-shadow: 0 18px 36px rgba(0,0,0,0.18);
+            outline: none;
         }
         .project-card h3{
             margin:0 0 0.5rem 0;
@@ -314,7 +342,7 @@
             margin-top:2rem;
         }
         .footer-inner{
-            max-width:1100px;
+            max-width:var(--max-width);
             margin:0 auto;
             padding:0 1rem;
             display:flex;
@@ -327,24 +355,55 @@
         .social-links a{ color:#fff; text-decoration:none; padding:0.35rem 0.6rem; border-radius:6px; font-weight:600; background: rgba(255,255,255,0.06); }
         .social-links a:hover{ background: rgba(255,255,255,0.14); text-decoration:none; }
 
+        /* Focus styles for keyboard users */
+        :focus-visible{
+            outline: 3px solid rgba(0,123,255,0.18);
+            outline-offset: 3px;
+            border-radius:8px;
+        }
+
         /* Animations */
         @keyframes fadeIn{ from{opacity:0; transform: translateY(8px)} to{opacity:1; transform:none} }
 
-        /* Responsive behavior */
+        /* Responsive behavior: mobile menu / nav */
         @media (max-width:900px){
-            .header-inner{ padding-left:0.75rem; padding-right:0.75rem; }
-            nav ul{ display:none; position:absolute; top:64px; right:1rem; background:var(--blue); border-radius:10px; padding:0.6rem; flex-direction:column; min-width:190px; box-shadow:0 8px 26px rgba(0,0,0,0.18); }
-            nav ul.show{ display:flex; }
             .nav-toggle{ display:inline-block; }
+            nav ul{
+                /* hidden off-canvas menu */
+                display:flex;
+                position:fixed;
+                top:0;
+                right:0;
+                height:100dvh;
+                width:min(86%, 340px);
+                flex-direction:column;
+                padding:1.25rem;
+                gap:0.5rem;
+                background:linear-gradient(180deg,var(--blue),var(--blue-dark));
+                transform: translateX(110%);
+                transition: transform 240ms ease;
+                box-shadow: -12px 0 30px rgba(0,0,0,0.18);
+                z-index:1100;
+            }
+            nav ul.show{
+                transform: translateX(0);
+            }
+            nav ul li{ margin:0.25rem 0; }
+            /* ensure header-inner stays compact */
+            .header-inner{ padding:0 0.75rem; }
         }
 
         @media (max-width:520px){
-            .hero{ padding:4.5rem 1rem 3rem; }
+            .hero{ padding:4.5rem 1rem 3rem; clip-path: ellipse(160% 120% at 50% 0%); }
             .hero p{ font-size:0.95rem; }
             .header-inner{ gap:0.5rem; }
             .logo{ font-size:1.05rem; }
-            .project-card{ padding:0.9rem; }
+            .project-card{ padding:0.9rem; min-height:140px; }
+            .projects-container{ grid-template-columns: 1fr; gap:0.9rem; }
         }
+
+        /* ensure images do not overflow */
+        img{ max-width:100%; height:auto; display:block; }
     </style>
 </head>
 <body>
@@ -357,7 +416,7 @@
             </button>
 
             <nav aria-label="Primary navigation">
-                <ul id="primaryNav" role="menu">
+                <ul id="primaryNav" role="menu" aria-hidden="true">
                     <li role="none"><a role="menuitem" href="#hero">Home</a></li>
                     <li role="none"><a role="menuitem" href="#about">About</a></li>
                     <li role="none"><a role="menuitem" href="#skills">Skills</a></li>
@@ -369,19 +428,20 @@
     </header>
 
     <main>
-        <section id="hero" class="hero">
+        <section id="hero" class="hero" aria-labelledby="hero-heading">
             <div class="container" style="display:flex;flex-direction:column;align-items:center;">
-                <img src="kkk.png" alt="Your Profile Picture" class="profile-img" />
-                <h1>Yash Raj Bhatt</h1>
+                <!-- use a responsive image (srcset optional) -->
+                <img src="kkk.png" alt="Your Profile Picture" class="profile-img" width="320" height="320" />
+                <h1 id="hero-heading">Yash Raj Bhatt</h1>
                 <p>Software developer | Web designer | Founder, Nalanda Learning Hub</p>
                 <a class="btn" href="#contact">Get in Touch</a>
             </div>
         </section>
 
-        <section id="about" class="about section">
+        <section id="about" class="about section" aria-labelledby="about-heading">
             <div class="container">
                 <div class="section-title">
-                    <h2>About Me</h2>
+                    <h2 id="about-heading">About Me</h2>
                 </div>
                 <p>
                     Hi! I’m Yash Raj Bhatt, a passionate learner and aspiring cybersecurity professional and software developer.
@@ -393,10 +453,10 @@
             </div>
         </section>
 
-        <section id="skills" class="section">
+        <section id="skills" class="section" aria-labelledby="skills-heading">
             <div class="container">
                 <div class="section-title">
-                    <h2>Skills</h2>
+                    <h2 id="skills-heading">Skills</h2>
                 </div>
                 <ul class="skills-list" aria-label="Skills list">
                     <li>HTML5</li>
@@ -417,36 +477,37 @@
             </div>
         </section>
 
-        <section id="projects" class="section">
+        <section id="projects" class="section" aria-labelledby="projects-heading">
             <div class="container">
                 <div class="section-title">
-                    <h2>Projects</h2>
+                    <h2 id="projects-heading">Projects</h2>
                 </div>
 
                 <div class="projects-container" role="list">
-                    <div class="project-card" role="listitem" tabindex="0" onclick="openModal('A responsive personal portfolio website built with HTML, JavaScript and CSS.')" onkeypress="if(event.key==='Enter'){ openModal('A responsive personal portfolio website built with HTML, JavaScript and CSS.') }">
+                    <!-- Use button elements for accessibility and keyboard support -->
+                    <button class="project-card" role="listitem" aria-label="Personal portfolio website" data-content="A responsive personal portfolio website built with HTML, JavaScript and CSS.">
                         <div>
                             <h3>Personal portfolio website</h3>
                             <p>A responsive personal portfolio website built with HTML, JavaScript and CSS.</p>
                         </div>
-                    </div>
+                    </button>
 
-                    <div class="project-card" role="listitem" tabindex="0" onclick="openModal('Nalanda Learning Hub: an e-learning platform with modern courses inspired by Nalanda’s legacy.')" onkeypress="if(event.key==='Enter'){ openModal('Nalanda Learning Hub: an e-learning platform with modern courses inspired by Nalanda’s legacy.') }">
+                    <button class="project-card" role="listitem" aria-label="Nalanda Learning Hub project" data-content="Nalanda Learning Hub: an e-learning platform with modern courses inspired by Nalanda’s legacy.">
                         <div>
                             <h3>Nalanda Learning Hub</h3>
                             <p>Revolutionize learning with modern courses inspired by the timeless wisdom of Nalanda.</p>
                         </div>
-                    </div>
+                    </button>
 
                     <!-- Add more project cards as needed -->
                 </div>
             </div>
         </section>
 
-        <section id="contact" class="section">
+        <section id="contact" class="section" aria-labelledby="contact-heading">
             <div class="container">
                 <div class="section-title">
-                    <h2>Contact</h2>
+                    <h2 id="contact-heading">Contact</h2>
                 </div>
 
                 <form id="contact-form" action="#" onsubmit="event.preventDefault(); alert('Thank you — message sent (demo)');" aria-label="Contact form">
@@ -476,8 +537,9 @@
 
     <!-- Modal overlay -->
     <div id="modalOverlay" class="modal-overlay" role="dialog" aria-modal="true" aria-hidden="true">
-        <div class="modal" role="document">
-            <button class="close" aria-label="Close modal" onclick="closeModal()">✕</button>
+        <div class="modal" role="document" aria-labelledby="modal-title">
+            <button class="close" aria-label="Close modal" id="modalClose">✕</button>
+            <h3 id="modal-title" style="margin:0 0 0.5rem 0; font-family:'Poppins',sans-serif; color:#0f1724;">Project details</h3>
             <p id="modal-content"></p>
         </div>
     </div>
@@ -487,24 +549,45 @@
         const navToggle = document.getElementById('navToggle');
         const primaryNav = document.getElementById('primaryNav');
 
+        function openNav() {
+            primaryNav.classList.add('show');
+            primaryNav.setAttribute('aria-hidden','false');
+            navToggle.setAttribute('aria-expanded', 'true');
+            // prevent background scroll when nav open on small screens
+            document.body.style.overflow = 'hidden';
+        }
+        function closeNav() {
+            primaryNav.classList.remove('show');
+            primaryNav.setAttribute('aria-hidden','true');
+            navToggle.setAttribute('aria-expanded', 'false');
+            document.body.style.overflow = '';
+        }
+
         navToggle.addEventListener('click', () => {
-            const isShown = primaryNav.classList.toggle('show');
-            navToggle.setAttribute('aria-expanded', isShown ? 'true' : 'false');
+            if (primaryNav.classList.contains('show')) closeNav();
+            else openNav();
         });
 
-        // Smooth Scrolling (works for all anchors)
+        // Close mobile nav when clicking a nav link
+        primaryNav.querySelectorAll('a[href^="#"]').forEach(a => {
+            a.addEventListener('click', () => {
+                if (primaryNav.classList.contains('show')) closeNav();
+            });
+        });
+
+        // Smooth Scrolling fallback (works for all anchors)
+        // Modern browsers already support CSS scroll-behavior, but keep JS for fine control
         document.querySelectorAll('a[href^="#"]').forEach(anchor => {
             anchor.addEventListener('click', function(e) {
-                // allow browser to handle external links
                 const target = this.getAttribute('href');
-                if (!target.startsWith('#')) return;
+                if (!target.startsWith('#') || target === '#') return;
+                // let browser handle same-page clicks if preferred
                 e.preventDefault();
                 const el = document.querySelector(target);
-                if (el) el.scrollIntoView({ behavior: 'smooth', block: 'start' });
-                // close mobile nav after click
-                if (primaryNav.classList.contains('show')) {
-                    primaryNav.classList.remove('show');
-                    navToggle.setAttribute('aria-expanded','false');
+                if (el) {
+                    el.scrollIntoView({ behavior: 'smooth', block: 'start' });
+                    // small offset for sticky header
+                    window.scrollBy(0, -Math.min(64, window.innerHeight * 0.05));
                 }
             });
         });
@@ -526,21 +609,26 @@
             observer.observe(section);
         });
 
-        // Modal functions
+        // Modal functions with basic focus management
         const modalOverlay = document.getElementById('modalOverlay');
         const modalContent = document.getElementById('modal-content');
+        const modalClose = document.getElementById('modalClose');
+        let lastActiveElement = null;
 
         function openModal(content) {
+            lastActiveElement = document.activeElement;
             modalContent.textContent = content;
             modalOverlay.style.display = 'flex';
             modalOverlay.setAttribute('aria-hidden','false');
-            // trap focus (basic)
-            document.activeElement.blur && document.activeElement.blur();
+            modalClose.focus();
+            document.body.style.overflow = 'hidden'; // prevent background scroll
         }
 
         function closeModal() {
             modalOverlay.style.display = 'none';
             modalOverlay.setAttribute('aria-hidden','true');
+            document.body.style.overflow = '';
+            if (lastActiveElement) lastActiveElement.focus();
         }
 
         // close modal on overlay click
@@ -548,23 +636,61 @@
             if (e.target === modalOverlay) closeModal();
         });
 
-        // Escape key to close modal & close nav on escape
+        modalClose.addEventListener('click', closeModal);
+
+        // Escape key and nav close on escape
         document.addEventListener('keydown', (e) => {
             if (e.key === 'Escape') {
                 closeModal();
-                if (primaryNav.classList.contains('show')) {
-                    primaryNav.classList.remove('show');
-                    navToggle.setAttribute('aria-expanded','false');
+                if (primaryNav.classList.contains('show')) closeNav();
+            }
+            // trap focus within modal when open
+            if (modalOverlay.style.display === 'flex' && e.key === 'Tab') {
+                const focusable = modalOverlay.querySelectorAll('button, [href], input, textarea, [tabindex]:not([tabindex="-1"])');
+                if (focusable.length === 0) return;
+                const first = focusable[0];
+                const last = focusable[focusable.length - 1];
+                if (e.shiftKey) {
+                    if (document.activeElement === first) {
+                        e.preventDefault();
+                        last.focus();
+                    }
+                } else {
+                    if (document.activeElement === last) {
+                        e.preventDefault();
+                        first.focus();
+                    }
                 }
             }
+        });
+
+        // Make project cards interactive (click or keyboard)
+        document.querySelectorAll('.project-card').forEach(card => {
+            card.addEventListener('click', (e) => {
+                const content = card.dataset.content || card.textContent.trim();
+                openModal(content);
+            });
+            card.addEventListener('keydown', (e) => {
+                // Space or Enter should activate
+                if (e.key === 'Enter' || e.key === ' ') {
+                    e.preventDefault();
+                    card.click();
+                }
+            });
         });
 
         // optional: small UX toast instead of alert for links (kept simple)
         document.querySelectorAll('.social-links a').forEach(link => {
             link.addEventListener('click', function() {
-                // Do not block default behavior; keep this non-intrusive for mobile
                 console.log('Opening ' + this.textContent);
             });
+        });
+
+        // ensure nav is closed on larger resizes
+        window.addEventListener('resize', () => {
+            if (window.innerWidth > 900 && primaryNav.classList.contains('show')) {
+                closeNav();
+            }
         });
     </script>
 </body>
