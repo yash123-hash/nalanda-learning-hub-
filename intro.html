@@ -1,9 +1,8 @@
- 
   <!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover" />
     <meta name="description" content="Nalanda Learning Hub: An innovative e-learning platform inspired by ancient Nalanda University, offering personalized online tutoring and education for all ages." />
     <meta name="keywords" content="online learning, e-learning, tutoring, education, Nalanda, personalized education" />
     <title>Nalanda Learning Hub - Slideshow Presentation</title>
@@ -16,6 +15,8 @@
             --muted: rgba(255,255,255,0.6);
             --text: #fff;
             --max-width: 1100px;
+            /* mobile viewport unit fallback; JS updates --vh to match actual innerHeight */
+            --vh: 1vh;
         }
 
         /* Reset and base */
@@ -27,19 +28,32 @@
             padding: 0;
             background: var(--bg-gradient);
             color: var(--text);
-            min-height: 100vh;
+            min-height: calc(var(--vh, 1vh) * 100);
             -webkit-font-smoothing:antialiased;
             -moz-osx-font-smoothing:grayscale;
-            overflow: hidden; /* desktop slideshow behavior */
+            -webkit-text-size-adjust:100%;
+            -ms-text-size-adjust:100%;
+            /* allow scrolling on small devices by default; JS toggles when appropriate */
+            overflow-y: auto;
+            -webkit-overflow-scrolling: touch;
         }
 
-        /* Container to better handle responsive overflow on small screens */
+        /* Container handles layout variation by screen size */
         .slides-wrap {
             position: relative;
             width: 100%;
-            height: 100vh;
+            height: calc(var(--vh, 1vh) * 100);
             max-height: 100vh;
+            display: block;
             overflow: hidden;
+            padding: env(safe-area-inset-top) env(safe-area-inset-right) env(safe-area-inset-bottom) env(safe-area-inset-left);
+        }
+
+        /* Desktop / large screens: overlay slides stacked on top of each other; only one visible */
+        .slides-inner {
+            position: relative;
+            width: 100%;
+            height: 100%;
         }
 
         .slide {
@@ -58,8 +72,11 @@
             transform: translateY(10px);
             will-change: opacity, transform;
             pointer-events: none;
+            border-radius: 8px;
+            margin: 0 12px;
         }
 
+        /* Visible slide on layered mode */
         .slide[aria-hidden="false"]{
             opacity: 1;
             transform: translateY(0);
@@ -113,11 +130,15 @@
             display: flex;
             align-items: center;
             gap: 12px;
-            z-index: 40;
+            z-index: 999;
             bottom: clamp(12px, 3vh, 24px);
             backdrop-filter: blur(6px);
+            -webkit-backdrop-filter: blur(6px);
             padding: 6px 10px;
             border-radius: 999px;
+            box-shadow: 0 8px 30px rgba(0,0,0,0.25);
+            align-self: center;
+            background: rgba(255,255,255,0.03);
         }
 
         .nav-button {
@@ -137,11 +158,13 @@
 
         .dots { display:flex; gap:10px; padding:0 6px; align-items:center; }
         .dot{
-            width: 12px; height: 12px; border-radius:50%;
+            width: 14px; height: 14px; border-radius:50%;
             background: var(--muted); cursor: pointer;
             transition: transform .16s ease, background .16s ease, box-shadow .16s ease;
+            border: none;
+            padding: 0;
         }
-        .dot[aria-checked="true"]{ background: white; transform: scale(1.08); box-shadow: 0 6px 16px rgba(0,0,0,0.18); }
+        .dot[aria-checked="true"]{ background: white; transform: scale(1.12); box-shadow: 0 6px 16px rgba(0,0,0,0.18); }
 
         /* Typing caret */
         .typing { border-right: 2px solid white; animation: blink 1s infinite; padding-right: 4px; }
@@ -162,19 +185,40 @@
             * { animation-duration: 0.001ms !important; }
         }
 
-        /* Mobile responsiveness: allow vertical scroll if viewport height too small */
-        @media (max-height: 520px) {
-            body, .slides-wrap { overflow: auto; height: auto; min-height: 100vh; }
-            .slide { position: relative; height: auto; min-height: 60vh; margin-bottom: 12px; border-radius: 8px; }
-            .navigation { position: sticky; margin: 12px auto 24px; left: auto; transform: none; justify-content: center; }
+        /* Mobile responsive stacked layout: slides flow vertically and become relative blocks */
+        @media (max-width: 720px), (max-height: 520px) {
+            .slides-wrap {
+                overflow-y: auto;
+                height: auto;
+                min-height: calc(var(--vh, 1vh) * 100);
+                padding: 12px;
+            }
+            .slides-inner { display: block; }
+            .slide {
+                position: relative;
+                inset: auto;
+                width: auto;
+                transform: none !important;
+                opacity: 1 !important;
+                pointer-events: auto;
+                margin-bottom: 14px;
+            }
+
+            .slide[aria-hidden="true"] {
+                /* In stacked mode, we still keep aria-hidden false so that screen readers can access content.
+                   JS will set aria-hidden appropriately; the CSS fallback ensures content remains visible. */
+                opacity: 1;
+            }
+
+            .navigation { position: sticky; bottom: 0; left: 0; transform: none; margin: 12px auto 24px; width: min(96%, 680px); border-radius: 12px; }
+            .dots { gap: 8px; }
+            .dot { width: 12px; height: 12px; }
         }
 
         /* Narrow devices */
         @media (max-width: 720px) {
             .navigation { gap: 8px; }
             .nav-button { padding: 8px 10px; font-size: 0.9rem; }
-            .dot { width: 10px; height: 10px; }
-            .slide ul { padding-left: 18px; text-align: left; }
         }
 
         /* Very small phones */
@@ -187,61 +231,66 @@
 
         /* Ensure contrast and focus outlines */
         .nav-button:focus, .dot:focus { outline: 3px solid rgba(255,255,255,0.14); outline-offset: 3px; }
+
+        /* Utility: small screen indicator hidden visually but available for JS-based checks if needed */
+        .sr-only { position: absolute; width: 1px; height: 1px; padding: 0; margin: -1px; overflow: hidden; clip: rect(0,0,0,0); white-space: nowrap; border: 0; }
     </style>
 </head>
 <body>
     <div class="slides-wrap" role="region" aria-roledescription="carousel" aria-label="Nalanda Learning Hub slides">
-        <!-- Slides -->
-        <section class="slide slide1" id="slide1" aria-hidden="false" tabindex="-1">
-            <h1>Welcome to Nalanda Learning Hub</h1>
-            <p id="typing-text" aria-live="polite" class="typing">Connecting minds, inspiring futures...</p>
-        </section>
+        <div class="slides-inner">
+            <!-- Slides -->
+            <section class="slide slide1" id="slide1" aria-hidden="false" tabindex="-1">
+                <h1>Welcome to Nalanda Learning Hub</h1>
+                <p id="typing-text" aria-live="polite" class="typing">Connecting minds, inspiring futures...</p>
+            </section>
 
-        <section class="slide slide2" id="slide2" aria-hidden="true" tabindex="-1">
-            <h2>What is Nalanda Learning Hub?</h2>
-            <p>Nalanda Learning Hub is an innovative e-learning platform dedicated to providing high-quality online tutoring and personalized education for learners of all ages. Inspired by the ancient Nalanda University, we blend time‑tested learning values with modern digital tools to make learning effective and inclusive.</p>
-            <p>Join us to unlock your potential and be part of a legacy of knowledge!</p>
-        </section>
+            <section class="slide slide2" id="slide2" aria-hidden="true" tabindex="-1">
+                <h2>What is Nalanda Learning Hub?</h2>
+                <p>Nalanda Learning Hub is an innovative e-learning platform dedicated to providing high-quality online tutoring and personalized education for learners of all ages. Inspired by the ancient university legacy, it blends mentor-led learning with modern tools.</p>
+                <p>Join us to unlock your potential and be part of a legacy of knowledge!</p>
+            </section>
 
-        <section class="slide slide3" id="slide3" aria-hidden="true" tabindex="-1">
-            <h2>Our Aim</h2>
-            <p>To make education accessible, interactive, and future-ready for every student, regardless of their background or location. We aim to nurture critical thinking, creativity, and confidence through personalized learning paths, mentor-led guidance, and collaborative learning experiences.</p>
-        </section>
+            <section class="slide slide3" id="slide3" aria-hidden="true" tabindex="-1">
+                <h2>Our Aim</h2>
+                <p>To make education accessible, interactive, and future-ready for every student, regardless of their background or location. We aim to nurture critical thinking, creativity, and confidence across subjects and careers.</p>
+            </section>
 
-        <section class="slide slide4" id="slide4" aria-hidden="true" tabindex="-1">
-            <h2>Future Goals</h2>
-            <p>As we grow, our focus is on innovation, inclusivity, and impact — shaping the future of education through technology and human mentorship.</p>
-            <ul>
-                <li><strong>Emerging Tech Skills:</strong> AI, Data Science, Cybersecurity, Blockchain, and Cloud Computing.</li>
-                <li><strong>Creative Fields:</strong> Graphic Design, Digital Marketing, Content Creation, and Video Editing.</li>
-                <li><strong>Professional Growth:</strong> Communication Skills, Interview Preparation, and Leadership Development.</li>
-            </ul>
-            <p>We also collaborate with schools, colleges, and corporates to bring blended learning experiences to classrooms and workplaces.</p>
-        </section>
+            <section class="slide slide4" id="slide4" aria-hidden="true" tabindex="-1">
+                <h2>Future Goals</h2>
+                <p>As we grow, our focus is on innovation, inclusivity, and impact — shaping the future of education through technology and human mentorship.</p>
+                <ul>
+                    <li><strong>Emerging Tech Skills:</strong> AI, Data Science, Cybersecurity, Blockchain, and Cloud Computing.</li>
+                    <li><strong>Creative Fields:</strong> Graphic Design, Digital Marketing, Content Creation, and Video Editing.</li>
+                    <li><strong>Professional Growth:</strong> Communication Skills, Interview Preparation, and Leadership Development.</li>
+                </ul>
+                <p>We also collaborate with schools, colleges, and corporates to bring blended learning experiences to classrooms and workplaces.</p>
+            </section>
 
-        <section class="slide slide5" id="slide5" aria-hidden="true" tabindex="-1">
-            <h2>Key Features</h2>
-            <p>We combine the wisdom of traditional learning with modern technology to create a powerful, interactive, and personalized e-learning experience.</p>
-            <ul>
-                <li>Learn from expert tutors in real-time: Ask questions, share screens, and engage in discussions — from anywhere.</li>
-                <li>24/7 access to tutors and mentors ensures that no question goes unanswered.</li>
-                <li>Mentorship for career and personal development.</li>
-                <li>Discussion forums, study groups, and live events to collaborate globally.</li>
-                <li>Flexible pricing plans, scholarships, and free resources for deserving learners.</li>
-            </ul>
-        </section>
+            <section class="slide slide5" id="slide5" aria-hidden="true" tabindex="-1">
+                <h2>Key Features</h2>
+                <p>We combine the wisdom of traditional learning with modern technology to create a powerful, interactive, and personalized e-learning experience.</p>
+                <ul>
+                    <li>Learn from expert tutors in real-time: Ask questions, share screens, and engage in discussions — from anywhere.</li>
+                    <li>24/7 access to tutors and mentors ensures that no question goes unanswered.</li>
+                    <li>Mentorship for career and personal development.</li>
+                    <li>Discussion forums, study groups, and live events to collaborate globally.</li>
+                    <li>Flexible pricing plans, scholarships, and free resources for deserving learners.</li>
+                </ul>
+            </section>
 
-        <section class="slide slide6" id="slide6" aria-hidden="true" tabindex="-1">
-            <h2>Why We Exist</h2>
-            <p>We exist to redefine learning for the modern world — making quality education accessible, engaging, and meaningful for everyone. Education should be empowering, inclusive, and forward-looking.</p>
-        </section>
+            <section class="slide slide6" id="slide6" aria-hidden="true" tabindex="-1">
+                <h2>Why We Exist</h2>
+                <p>We exist to redefine learning for the modern world — making quality education accessible, engaging, and meaningful for everyone. Education should be empowering, inclusive, and forward-looking.</p>
+            </section>
 
-        <section class="slide slide7" id="slide7" aria-hidden="true" tabindex="-1">
-            <h2>The Startup Idea Spark</h2>
-            <p>The idea for Nalanda Learning Hub came from seeing eager learners without equal access to quality education. The pandemic highlighted both the power and gaps of digital education; our platform is a response to those gaps.</p>
-            <p>Inspired by the legacy of Nalanda University, we envisioned a modern hub of knowledge — a digital Nalanda for the 21st century where learners connect, grow, and lead change.</p>
-            <p>The goal is more than another e-learning site — it’s a movement to redefine how people learn, connect, and evolve.</p>
-        </section>
+            <section class="slide slide7" id="slide7" aria-hidden="true" tabindex="-1">
+                <h2>The Startup Idea Spark</h2>
+                <p>The idea for Nalanda Learning Hub came from seeing eager learners without equal access to quality education. The pandemic highlighted both the power and gaps of digital education; our platform addresses those gaps with empathy and technology.</p>
+                <p>Inspired by the legacy of Nalanda University, we envisioned a modern hub of knowledge — a digital Nalanda for the 21st century where learners connect, grow, and lead change.</p>
+                <p>The goal is more than another e-learning site — it’s a movement to redefine how people learn, connect, and evolve.</p>
+            </section>
+        </div>
     </div>
 
     <!-- Navigation -->
@@ -260,7 +309,7 @@
     </div>
 
     <script>
-        // Responsive / accessible slideshow script with swipe support
+        // Responsive / accessible slideshow script with stacked/overlay modes and mobile vh fix
         (function(){
             const slides = Array.from(document.querySelectorAll('.slide'));
             const dots = Array.from(document.querySelectorAll('.dot'));
@@ -272,41 +321,76 @@
             let typingTimer = null;
             const prefersReducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
 
+            // Update CSS --vh for mobile browsers to avoid address-bar resizing issues
+            function updateVh() {
+                document.documentElement.style.setProperty('--vh', `${window.innerHeight * 0.01}px`);
+            }
+            updateVh();
+            window.addEventListener('resize', updateVh);
+
+            // detect "stacked" layout (small screens / short viewports). Matches CSS breakpoints.
+            function isStackedMode() {
+                return window.matchMedia('(max-width: 720px), (max-height: 520px)').matches;
+            }
+
             // Find initial current slide (first with aria-hidden="false") or default 0
             let currentSlide = slides.findIndex(s => s.getAttribute('aria-hidden') === 'false');
             if (currentSlide === -1) currentSlide = 0;
 
-            // Helper to update UI
+            // Helper to show slide in overlay mode; in stacked mode we scroll to slide instead
             function showSlide(idx, setFocus = false){
                 idx = Math.max(0, Math.min(idx, slides.length - 1));
+                const stacked = isStackedMode();
+
+                if (stacked){
+                    // Make sure all slides are visible in stacked mode; set aria-hidden=false for accessibility
+                    slides.forEach((slide, i) => {
+                        slide.setAttribute('aria-hidden', 'false');
+                        slide.removeAttribute('tabindex');
+                    });
+                    // Update dots
+                    dots.forEach((dot, i) => dot.setAttribute('aria-checked', i === idx ? 'true' : 'false'));
+                    prevBtn.disabled = idx === 0;
+                    nextBtn.disabled = idx === slides.length - 1;
+                    currentSlide = idx;
+                    // Scroll to the target slide smoothly
+                    slides[idx].scrollIntoView({behavior: 'smooth', block: 'start'});
+                    if (setFocus) slides[idx].focus({preventScroll: true});
+                    // Start typing only on first slide
+                    manageTyping(idx === 0);
+                    announceSlide(idx);
+                    return;
+                }
+
+                // Overlay mode: show one slide at a time
                 slides.forEach((slide, i) => {
                     const hidden = i !== idx;
                     slide.setAttribute('aria-hidden', hidden ? 'true' : 'false');
-                    // keep slides out of tab order when hidden
+                    // keep slides out of tab order when hidden; focus only when requested
                     if (hidden) slide.setAttribute('tabindex', '-1');
-                    else slide.setAttribute('tabindex', '-1'); // we'll focus only when requested
+                    else slide.setAttribute('tabindex', '-1'); // we'll focus separately
                 });
-                dots.forEach((dot, i) => {
-                    dot.setAttribute('aria-checked', i === idx ? 'true' : 'false');
-                });
+                dots.forEach((dot, i) => dot.setAttribute('aria-checked', i === idx ? 'true' : 'false'));
 
                 prevBtn.disabled = idx === 0;
                 nextBtn.disabled = idx === slides.length - 1;
 
                 currentSlide = idx;
 
-                // Focus management for keyboard users
+                // Focus management
                 if (setFocus) {
                     slides[idx].focus({preventScroll: true});
                 }
 
                 // Start typing only on slide 0
                 manageTyping(idx === 0);
+                announceSlide(idx);
             }
 
             // Typing effect (lightweight, respects reduced motion)
             function manageTyping(enable){
                 clearTimeout(typingTimer);
+                if (!typingText) return;
                 typingText.classList.remove('typing');
                 typingText.textContent = '';
 
@@ -324,7 +408,7 @@
                     if (typingIndex <= initialTypingText.length - 1){
                         typingText.textContent += initialTypingText.charAt(typingIndex);
                         typingIndex++;
-                        typingTimer = setTimeout(type, 60); // slightly faster on modern devices
+                        typingTimer = setTimeout(type, 60);
                     } else {
                         typingText.classList.remove('typing');
                     }
@@ -332,7 +416,6 @@
                 type();
             }
 
-            // Next / Prev
             function nextSlide(){
                 if (currentSlide < slides.length - 1){
                     showSlide(currentSlide + 1, true);
@@ -351,6 +434,7 @@
             // Dots: use their index from NodeList to avoid shadowing
             dots.forEach((dot, dotIndex) => {
                 dot.addEventListener('click', () => {
+                    // In stacked mode we scroll; in overlay we switch slide
                     showSlide(dotIndex, true);
                 });
                 dot.addEventListener('keydown', (e) => {
@@ -363,6 +447,10 @@
 
             // Keyboard navigation for the whole document
             document.addEventListener('keydown', (e) => {
+                // avoid interfering with form inputs
+                const tag = document.activeElement && document.activeElement.tagName;
+                if (tag === 'INPUT' || tag === 'TEXTAREA' || document.activeElement && document.activeElement.isContentEditable) return;
+
                 if (e.key === 'ArrowRight') nextSlide();
                 if (e.key === 'ArrowLeft') prevSlide();
                 if (e.key === 'Home') showSlide(0, true);
@@ -371,7 +459,7 @@
 
             // Touch / swipe support for mobile
             let touchStartX = 0, touchStartY = 0;
-            const threshold = 40; // pixels for horizontal swipe detection
+            const threshold = 40; // horizontal pixels for swipe detection
             const restraint = 75; // vertical restraint
 
             document.addEventListener('touchstart', function(e){
@@ -390,48 +478,77 @@
                 }
             }, {passive:true});
 
-            // Resize: if viewport too short, allow scroll (keeps usability on small screens)
-            function handleResize(){
-                const vh = window.innerHeight;
-                const wrap = document.querySelector('.slides-wrap');
-                if (vh < 520){
+            // Resize handler to adapt stacked vs overlay modes
+            function handleModeChange(){
+                const stacked = isStackedMode();
+                if (stacked){
+                    // Reveal all slides visually and set aria-hidden false so assistive tech can read them
+                    slides.forEach((slide) => {
+                        slide.setAttribute('aria-hidden', 'false');
+                        slide.removeAttribute('tabindex');
+                    });
+                    // update dots to reflect current selected slide for navigation
+                    dots.forEach((dot, i) => dot.setAttribute('aria-checked', i === currentSlide ? 'true' : 'false'));
+                    prevBtn.disabled = currentSlide === 0;
+                    nextBtn.disabled = currentSlide === slides.length - 1;
+                    // Ensure body can scroll
                     document.body.style.overflow = 'auto';
-                    wrap.style.height = 'auto';
                 } else {
+                    // Overlay mode: ensure only the current slide is visible
+                    slides.forEach((slide, i) => {
+                        slide.setAttribute('aria-hidden', i === currentSlide ? 'false' : 'true');
+                        if (i !== currentSlide) slide.setAttribute('tabindex', '-1');
+                    });
+                    dots.forEach((dot, i) => dot.setAttribute('aria-checked', i === currentSlide ? 'true' : 'false'));
+                    prevBtn.disabled = currentSlide === 0;
+                    nextBtn.disabled = currentSlide === slides.length - 1;
+                    // Hide overflow to simulate fullscreen slide experience
                     document.body.style.overflow = 'hidden';
-                    wrap.style.height = '100vh';
                 }
-            }
-            window.addEventListener('resize', handleResize, {passive:true});
-
-            // Start
-            handleResize();
-            showSlide(currentSlide, false);
-
-            // Start typing if first slide visible on load
-            if (document.readyState === 'complete' || document.readyState === 'interactive'){
-                manageTyping(currentSlide === 0);
-            } else {
-                window.addEventListener('DOMContentLoaded', () => manageTyping(currentSlide === 0));
+                // Reset typing if necessary
+                manageTyping(currentSlide === 0 && !stacked);
             }
 
-            // Improve accessibility: announce slide changes via aria-live region (we reuse typing text's aria-live)
-            // When the slide changes, set a short live announcement for screen reader users
+            // Live announcer for screen reader users
             const liveAnnouncer = document.createElement('div');
             liveAnnouncer.setAttribute('aria-live', 'polite');
             liveAnnouncer.setAttribute('aria-atomic', 'true');
-            liveAnnouncer.style.position = 'absolute';
-            liveAnnouncer.style.left = '-9999px';
+            liveAnnouncer.className = 'sr-only';
             document.body.appendChild(liveAnnouncer);
-
-            // Hook to update announcement
-            const observer = new MutationObserver(() => {
-                const title = slides[currentSlide].querySelector('h1, h2');
-                const text = title ? title.textContent.trim() : `Slide ${currentSlide + 1}`;
+            function announceSlide(idx){
+                const title = slides[idx].querySelector('h1, h2');
+                const text = title ? title.textContent.trim() : `Slide ${idx + 1}`;
                 liveAnnouncer.textContent = `Showing: ${text}`;
-            });
-            observer.observe(document.querySelector('.slides-wrap'), {attributes: true, subtree: true, childList: true});
+            }
 
+            // Initial setup
+            function init(){
+                updateVh();
+                handleModeChange();
+                showSlide(currentSlide, false);
+
+                // Watch for viewport changes
+                const mq = window.matchMedia('(max-width: 720px), (max-height: 520px)');
+                if (typeof mq.addEventListener === 'function') {
+                    mq.addEventListener('change', handleModeChange);
+                } else if (typeof mq.addListener === 'function') {
+                    mq.addListener(handleModeChange);
+                }
+
+                // Re-run mode change on resize/orientation
+                window.addEventListener('resize', handleModeChange, {passive:true});
+                window.addEventListener('orientationchange', () => {
+                    // small delay to allow resize values to stabilize
+                    setTimeout(() => { updateVh(); handleModeChange(); }, 120);
+                });
+            }
+
+            // Start typing if first slide visible on load
+            if (document.readyState === 'complete' || document.readyState === 'interactive'){
+                init();
+            } else {
+                window.addEventListener('DOMContentLoaded', init);
+            }
         })();
     </script>
 </body>
