@@ -1,221 +1,289 @@
- <!doctype html>
+  <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="utf-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>Network Fundamentals — Key Terms</title>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>CEH Course Modules</title>
 </head>
-<body style="margin:0; font-family: system-ui, -apple-system, 'Segoe UI', Roboto, 'Helvetica Neue', Arial; background:#f7f9fb;">
-  <main style="max-width:1100px; margin:0 auto; padding:24px; box-sizing:border-box;">
+<body style="margin:0; font-family: system-ui, -apple-system, 'Segoe UI', Roboto, 'Helvetica Neue', Arial; background:#f6f7fb;">
 
-    <!-- Page header -->
-    <header style="margin-bottom:18px; text-align:center;">
-      <h1 style="margin:0 0 8px 0; font-size:clamp(1.4rem, 3.2vw, 2rem); line-height:1.1; color:#0b5ed7;">Welcome to Network Fundamentals</h1>
-      <p style="margin:0; font-size:clamp(0.9rem, 1.8vw, 1rem);">A beginner-level course — no prior networking or cybersecurity knowledge required.</p>
+  <!-- Page container with border -->
+  <div style="max-width:1200px; margin:24px auto; padding:18px; box-sizing:border-box; border:3px solid #2b6cb0; border-radius:12px; background: #ffffff; box-shadow: 0 6px 18px rgba(0,0,0,0.06);">
+
+    <!-- Header (heading colours intentionally left as default/not-forced to black) -->
+    <header style="text-align:center; margin-bottom:18px;">
+      <h1 style="margin:6px 0; font-size: clamp(20px, 3.5vw, 32px);">CEH - Course Modules</h1>
+       
     </header>
 
-    <!-- Intro section with border (inline styles) -->
-    <section style="border:1px solid rgba(0,0,0,0.08); background:#ffffff; padding:14px; border-radius:10px; box-shadow:0 1px 3px rgba(12,12,12,0.04); margin-bottom:14px;">
-      <h2 style="margin-top:0; font-size:clamp(1rem, 2.6vw, 1.25rem); color:#0b5ed7;">Introduction</h2>
-      <p style="margin:8px 0; color:black; font-size:clamp(0.9rem, 1.9vw, 1rem); line-height:1.5;">Hello and welcome to Network Fundamentals! This is a beginner-level course, and we do not expect you to have any previous knowledge or experience in networking or cybersecurity before taking this course.</p>
+    <!-- Modules grid (flex-wrap makes it responsive without media queries) -->
+    <section style="display:flex; flex-wrap:wrap; gap:16px; align-items:flex-start;">
+
+      <!-- Each module card: border added, heading left without forced color, description/text explicitly black -->
+      <div style="flex:1 1 300px; min-width:220px; box-sizing:border-box; padding:14px; border:2px solid #333; border-radius:10px; background:#fff;">
+        <h3 style="margin:0 0 8px 0; font-size:18px;">Module I : Introduction to Ethical Hacking</h3>
+        <p style="margin:0; color:#000; font-size:14px;">Overview, ethics, legal issues, phases of hacking, tools & methodologies.</p>
+      </div>
+
+      <div style="flex:1 1 300px; min-width:220px; box-sizing:border-box; padding:14px; border:2px solid #333; border-radius:10px; background:#fff;">
+        <h3 style="margin:0 0 8px 0; font-size:18px;">Module II: Footprinting</h3>
+        <p style="margin:0; color:#000; font-size:14px;">Techniques to gather target info — DNS, WHOIS, Google dorking, reconnaissance.</p>
+      </div>
+
+      <div style="flex:1 1 300px; min-width:220px; box-sizing:border-box; padding:14px; border:2px solid #333; border-radius:10px; background:#fff;">
+        <h3 style="margin:0 0 8px 0; font-size:18px;">Module III: Scanning</h3>
+        <p style="margin:0; color:#000; font-size:14px;">Port scanning, service detection, vuln scanning tools and interpretation.</p>
+      </div>
+
+      <div style="flex:1 1 300px; min-width:220px; box-sizing:border-box; padding:14px; border:2px solid #333; border-radius:10px; background:#fff;">
+        <h3 style="margin:0 0 8px 0; font-size:18px;">Module IV: Enumeration</h3>
+        <p style="margin:0; color:#000; font-size:14px;">Extracting user/group shares, SNMP, SMB enumeration and fingerprinting.</p>
+      </div>
+
+      <div style="flex:1 1 300px; min-width:220px; box-sizing:border-box; padding:14px; border:2px solid #333; border-radius:10px; background:#fff;">
+        <h3 style="margin:0 0 8px 0; font-size:18px;">Module V: System Hacking</h3>
+        <p style="margin:0; color:#000; font-size:14px;">Privilege escalation, password attacks, maintaining access and anti-forensics.</p>
+      </div>
+
+      <div style="flex:1 1 300px; min-width:220px; box-sizing:border-box; padding:14px; border:2px solid #333; border-radius:10px; background:#fff;">
+        <h3 style="margin:0 0 8px 0; font-size:18px;">Module VI: Trojans and Backdoors</h3>
+        <p style="margin:0; color:#000; font-size:14px;">Types of trojans, backdoors, detection and mitigation strategies.</p>
+      </div>
+
+      <div style="flex:1 1 300px; min-width:220px; box-sizing:border-box; padding:14px; border:2px solid #333; border-radius:10px; background:#fff;">
+        <h3 style="margin:0 0 8px 0; font-size:18px;">Module VII: Sniffers</h3>
+        <p style="margin:0; color:#000; font-size:14px;">Packet capture, ARP poisoning, analysis, countermeasures.</p>
+      </div>
+
+      <div style="flex:1 1 300px; min-width:220px; box-sizing:border-box; padding:14px; border:2px solid #333; border-radius:10px; background:#fff;">
+        <h3 style="margin:0 0 8px 0; font-size:18px;">Module VIII: Denial of Service</h3>
+        <p style="margin:0; color:#000; font-size:14px;">DoS/DDoS techniques, amplification attacks and defense mechanisms.</p>
+      </div>
+
+      <div style="flex:1 1 300px; min-width:220px; box-sizing:border-box; padding:14px; border:2px solid #333; border-radius:10px; background:#fff;">
+        <h3 style="margin:0 0 8px 0; font-size:18px;">Module IX: Social Engineering</h3>
+        <p style="margin:0; color:#000; font-size:14px;">Psychology-based attacks, phishing, pretexting, awareness & training.</p>
+      </div>
+
+      <div style="flex:1 1 300px; min-width:220px; box-sizing:border-box; padding:14px; border:2px solid #333; border-radius:10px; background:#fff;">
+        <h3 style="margin:0 0 8px 0; font-size:18px;">Module X: Session Hijacking</h3>
+        <p style="margin:0; color:#000; font-size:14px;">Cookie/session theft, fixation, mitigation and secure session handling.</p>
+      </div>
+
+      <div style="flex:1 1 300px; min-width:220px; box-sizing:border-box; padding:14px; border:2px solid #333; border-radius:10px; background:#fff;">
+        <h3 style="margin:0 0 8px 0; font-size:18px;">Module XI: Hacking Web Servers</h3>
+        <p style="margin:0; color:#000; font-size:14px;">Server misconfigurations, directory traversal, file inclusion attacks.</p>
+      </div>
+
+      <div style="flex:1 1 300px; min-width:220px; box-sizing:border-box; padding:14px; border:2px solid #333; border-radius:10px; background:#fff;">
+        <h3 style="margin:0 0 8px 0; font-size:18px;">Module XII: Web Application Vulnerabilities</h3>
+        <p style="margin:0; color:#000; font-size:14px;">OWASP risks, input validation, auth issues, secure coding practices.</p>
+      </div>
+
+      <div style="flex:1 1 300px; min-width:220px; box-sizing:border-box; padding:14px; border:2px solid #333; border-radius:10px; background:#fff;">
+        <h3 style="margin:0 0 8px 0; font-size:18px;">Module XIII: Web Based Password Cracking Techniques</h3>
+        <p style="margin:0; color:#000; font-size:14px;">Brute force, dictionary, rainbow tables, salting and prevention.</p>
+      </div>
+
+      <div style="flex:1 1 300px; min-width:220px; box-sizing:border-box; padding:14px; border:2px solid #333; border-radius:10px; background:#fff;">
+        <h3 style="margin:0 0 8px 0; font-size:18px;">Module XIV: SQL Injection</h3>
+        <p style="margin:0; color:#000; font-size:14px;">Types, exploitation examples, parameterized queries and mitigation.</p>
+      </div>
+
+      <div style="flex:1 1 300px; min-width:220px; box-sizing:border-box; padding:14px; border:2px solid #333; border-radius:10px; background:#fff;">
+        <h3 style="margin:0 0 8px 0; font-size:18px;">Module XV: Hacking Wireless Networks</h3>
+        <p style="margin:0; color:#000; font-size:14px;">WEP/WPA attacks, rogue APs, wireless security and best practices.</p>
+      </div>
+
+      <div style="flex:1 1 300px; min-width:220px; box-sizing:border-box; padding:14px; border:2px solid #333; border-radius:10px; background:#fff;">
+        <h3 style="margin:0 0 8px 0; font-size:18px;">Module XVI: Viruses</h3>
+        <p style="margin:0; color:#000; font-size:14px;">Malware types, propagation, detection and removal techniques.</p>
+      </div>
+
+      <div style="flex:1 1 300px; min-width:220px; box-sizing:border-box; padding:14px; border:2px solid #333; border-radius:10px; background:#fff;">
+        <h3 style="margin:0 0 8px 0; font-size:18px;">Module XVII: Novell Hacking</h3>
+        <p style="margin:0; color:#000; font-size:14px;">Legacy Novell services, vulnerabilities and mitigation (as applicable).</p>
+      </div>
+
+      <div style="flex:1 1 300px; min-width:220px; box-sizing:border-box; padding:14px; border:2px solid #333; border-radius:10px; background:#fff;">
+        <h3 style="margin:0 0 8px 0; font-size:18px;">Module XVIII: Linux Hacking</h3>
+        <p style="margin:0; color:#000; font-size:14px;">Linux-specific attacks, hardening, kernel exploit basics and tools.</p>
+      </div>
+
+      <div style="flex:1 1 300px; min-width:220px; box-sizing:border-box; padding:14px; border:2px solid #333; border-radius:10px; background:#fff;">
+        <h3 style="margin:0 0 8px 0; font-size:18px;">Module XIX: Evading IDS, Firewalls and Honey pots</h3>
+        <p style="margin:0; color:#000; font-size:14px;">Tactics to evade detection and defensive countermeasures.</p>
+      </div>
+
+      <div style="flex:1 1 300px; min-width:220px; box-sizing:border-box; padding:14px; border:2px solid #333; border-radius:10px; background:#fff;">
+        <h3 style="margin:0 0 8px 0; font-size:18px;">Module XX: Buffer Overflows</h3>
+        <p style="margin:0; color:#000; font-size:14px;">Stack/heap overflows, exploitation concepts and mitigations (ASLR, DEP).</p>
+      </div>
+
+      <div style="flex:1 1 300px; min-width:220px; box-sizing:border-box; padding:14px; border:2px solid #333; border-radius:10px; background:#fff;">
+        <h3 style="margin:0 0 8px 0; font-size:18px;">Module XXI: Cryptography</h3>
+        <p style="margin:0; color:#000; font-size:14px;">Symmetric/asymmetric crypto, hashing, PKI and secure protocols.</p>
+      </div>
+
     </section>
-
-    <!-- Key terms container (responsive stacking) -->
-    <section style="display:flex; flex-direction:column; gap:12px;">
-
-      <!-- Card: Key Terms header -->
-      <div style="border:1px solid rgba(0,0,0,0.08); background:#ffffff; padding:12px; border-radius:8px;">
-        <h2 style="margin:0 0 6px 0; font-size:clamp(1rem, 2.6vw, 1.25rem); color:#0b5ed7;">Key Terms</h2>
-        <p style="margin:0 0 6px 0; color:black; font-size:clamp(0.9rem, 1.9vw, 1rem);">Below is a list of important terms you should know as we progress through the lessons. Most definitions are adapted from NIST.</p>
-      </div>
-
-      <!-- Grid of term cards: uses percentage widths so it remains responsive -->
-      <div style="display:flex; flex-wrap:wrap; gap:12px;">
-
-        <!-- Term card (repeat pattern, inline styles) -->
-        <div style="flex:1 1 300px; min-width:220px; border:1px solid #e2e8f0; background:#ffffff; padding:12px; border-radius:8px; box-sizing:border-box;">
-          <h3 style="margin:0 0 6px 0; font-size:clamp(0.98rem, 2.2vw, 1.05rem); color:#0b5ed7;">Bit</h3>
-          <p style="margin:0; color:black; font-size:0.98rem; line-height:1.45;">A binary digit having a value of 0 or 1. The atomic unit of information in computing.</p>
-        </div>
-
-        <div style="flex:1 1 300px; min-width:220px; border:1px solid #e2e8f0; background:#ffffff; padding:12px; border-radius:8px; box-sizing:border-box;">
-          <h3 style="margin:0 0 6px 0; font-size:clamp(0.98rem, 2.2vw, 1.05rem); color:#0b5ed7;">Byte</h3>
-          <p style="margin:0; color:black; font-size:0.98rem; line-height:1.45;">A group of eight bits that is treated either as a single entity or as an array of 8 individual bits.</p>
-        </div>
-
-        <div style="flex:1 1 300px; min-width:220px; border:1px solid #e2e8f0; background:#ffffff; padding:12px; border-radius:8px; box-sizing:border-box;">
-          <h3 style="margin:0 0 6px 0; font-size:clamp(0.98rem, 2.2vw, 1.05rem); color:#0b5ed7;">Software</h3>
-          <p style="margin:0; color:black; font-size:0.98rem; line-height:1.45;">Computer programs and associated data that can be dynamically written and modified during execution.</p>
-        </div>
-
-        <div style="flex:1 1 300px; min-width:220px; border:1px solid #e2e8f0; background:#ffffff; padding:12px; border-radius:8px; box-sizing:border-box;">
-          <h3 style="margin:0 0 6px 0; font-size:clamp(0.98rem, 2.2vw, 1.05rem); color:#0b5ed7;">Network</h3>
-          <p style="margin:0; color:black; font-size:0.98rem; line-height:1.45;">A system implemented with a collection of interconnected components such as routers, hubs, cabling, and controllers.</p>
-        </div>
-
-        <div style="flex:1 1 300px; min-width:220px; border:1px solid #e2e8f0; background:#ffffff; padding:12px; border-radius:8px; box-sizing:border-box;">
-          <h3 style="margin:0 0 6px 0; font-size:clamp(0.98rem, 2.2vw, 1.05rem); color:#0b5ed7;">Defense-in-Depth</h3>
-          <p style="margin:0; color:black; font-size:0.98rem; line-height:1.45;">An information security strategy that integrates people, technology, and operations to establish layered barriers.</p>
-        </div>
-
-        <div style="flex:1 1 300px; min-width:220px; border:1px solid #e2e8f0; background:#ffffff; padding:12px; border-radius:8px; box-sizing:border-box;">
-          <h3 style="margin:0 0 6px 0; font-size:clamp(0.98rem, 2.2vw, 1.05rem); color:#0b5ed7;">Authentication</h3>
-          <p style="margin:0; color:black; font-size:0.98rem; line-height:1.45;">Verifying a user is who they say they are.</p>
-        </div>
-
-        <div style="flex:1 1 300px; min-width:220px; border:1px solid #e2e8f0; background:#ffffff; padding:12px; border-radius:8px; box-sizing:border-box;">
-          <h3 style="margin:0 0 6px 0; font-size:clamp(0.98rem, 2.2vw, 1.05rem); color:#0b5ed7;">Authorization</h3>
-          <p style="margin:0; color:black; font-size:0.98rem; line-height:1.45;">Validating that a claimed identity is known to the system and verifying what that user may access.</p>
-        </div>
-
-        <div style="flex:1 1 300px; min-width:220px; border:1px solid #e2e8f0; background:#ffffff; padding:12px; border-radius:8px; box-sizing:border-box;">
-          <h3 style="margin:0 0 6px 0; font-size:clamp(0.98rem, 2.2vw, 1.05rem); color:#0b5ed7;">Identification</h3>
-          <p style="margin:0; color:black; font-size:0.98rem; line-height:1.45;">Asserting an identity and having it confirmed.</p>
-        </div>
-
-        <div style="flex:1 1 300px; min-width:220px; border:1px solid #e2e8f0; background:#ffffff; padding:12px; border-radius:8px; box-sizing:border-box;">
-          <h3 style="margin:0 0 6px 0; font-size:clamp(0.98rem, 2.2vw, 1.05rem); color:#0b5ed7;">Confidentiality</h3>
-          <p style="margin:0; color:black; font-size:0.98rem; line-height:1.45;">Preserving authorized restrictions on information access and disclosure.</p>
-        </div>
-
-        <div style="flex:1 1 300px; min-width:220px; border:1px solid #e2e8f0; background:#ffffff; padding:12px; border-radius:8px; box-sizing:border-box;">
-          <h3 style="margin:0 0 6px 0; font-size:clamp(0.98rem, 2.2vw, 1.05rem); color:#0b5ed7;">Integrity</h3>
-          <p style="margin:0; color:black; font-size:0.98rem; line-height:1.45;">Guarding against improper modification or destruction; includes non-repudiation and authenticity.</p>
-        </div>
-
-        <div style="flex:1 1 300px; min-width:220px; border:1px solid #e2e8f0; background:#ffffff; padding:12px; border-radius:8px; box-sizing:border-box;">
-          <h3 style="margin:0 0 6px 0; font-size:clamp(0.98rem, 2.2vw, 1.05rem); color:#0b5ed7;">Availability</h3>
-          <p style="margin:0; color:black; font-size:0.98rem; line-height:1.45;">Ensuring timely and reliable access to and use of information.</p>
-        </div>
-
-        <div style="flex:1 1 300px; min-width:220px; border:1px solid #e2e8f0; background:#ffffff; padding:12px; border-radius:8px; box-sizing:border-box;">
-          <h3 style="margin:0 0 6px 0; font-size:clamp(0.98rem, 2.2vw, 1.05rem); color:#0b5ed7;">Non-Repudiation</h3>
-          <p style="margin:0; color:black; font-size:0.98rem; line-height:1.45;">Evidence that prevents denial of actions — e.g., proof of who sent a message so the sender cannot deny it.</p>
-        </div>
-
-        <div style="flex:1 1 300px; min-width:220px; border:1px solid #e2e8f0; background:#ffffff; padding:12px; border-radius:8px; box-sizing:border-box;">
-          <h3 style="margin:0 0 6px 0; font-size:clamp(0.98rem, 2.2vw, 1.05rem); color:#0b5ed7;">Vulnerability</h3>
-          <p style="margin:0; color:black; font-size:0.98rem; line-height:1.45;">A weakness or flaw that could permit undesirable actions on assets.</p>
-        </div>
-
-        <div style="flex:1 1 300px; min-width:220px; border:1px solid #e2e8f0; background:#ffffff; padding:12px; border-radius:8px; box-sizing:border-box;">
-          <h3 style="margin:0 0 6px 0; font-size:clamp(0.98rem, 2.2vw, 1.05rem); color:#0b5ed7;">Threat</h3>
-          <p style="margin:0; color:black; font-size:0.98rem; line-height:1.45;">A source of harm that acts upon (exploits) a vulnerability.</p>
-        </div>
-
-        <div style="flex:1 1 300px; min-width:220px; border:1px solid #e2e8f0; background:#ffffff; padding:12px; border-radius:8px; box-sizing:border-box;">
-          <h3 style="margin:0 0 6px 0; font-size:clamp(0.98rem, 2.2vw, 1.05rem); color:#0b5ed7;">Risk</h3>
-          <p style="margin:0; color:black; font-size:0.98rem; line-height:1.45;">The possibility of a negative event occurring when a threat acts upon a vulnerability.</p>
-        </div>
-
-        <div style="flex:1 1 300px; min-width:220px; border:1px solid #e2e8f0; background:#ffffff; padding:12px; border-radius:8px; box-sizing:border-box;">
-          <h3 style="margin:0 0 6px 0; font-size:clamp(0.98rem, 2.2vw, 1.05rem); color:#0b5ed7;">Threat Actor</h3>
-          <p style="margin:0; color:black; font-size:0.98rem; line-height:1.45;">An individual or group that exploits vulnerabilities in technology.</p>
-        </div>
-
-      </div>
-
-    </section>
- <div style="padding: 20px; max-width: 900px; margin: auto;">
-        <h1 style="text-align: center; color: #2c3e50;">CIA Triad</h1>
-
-        <div style="border: 2px solid #2c3e50; padding: 15px; margin-bottom: 20px; color: black;">
-            <p>The <strong>CIA Triad</strong> is a foundational model in cybersecurity that represents the <strong>three main goals of information security</strong>:</p>
-        </div>
-
-        <!-- Confidentiality -->
-        <div style="border: 2px solid #2c3e50; padding: 15px; margin-bottom: 20px; color: black;">
-            <h2 style="color: #2c3e50;">🛡️ Confidentiality</h2>
-            <p>Ensures that information is <strong>accessible only to authorized users</strong> and not disclosed to unauthorized individuals.</p>
-            <p><em>Example:</em> Using passwords or encryption to protect data.</p>
-        </div>
-
-        <!-- Integrity -->
-        <div style="border: 2px solid #2c3e50; padding: 15px; margin-bottom: 20px; color: black;">
-            <h2 style="color: #2c3e50;">⚙️ Integrity</h2>
-            <p>Ensures that information is <strong>accurate, complete, and unaltered</strong> during storage or transmission.</p>
-            <p><em>Example:</em> Using checksums or hashing to detect unauthorized changes.</p>
-        </div>
-
-        <!-- Availability -->
-        <div style="border: 2px solid #2c3e50; padding: 15px; margin-bottom: 20px; color: black;">
-            <h2 style="color: #2c3e50;">🔄 Availability</h2>
-            <p>Ensures that information and resources are <strong>accessible to authorized users whenever needed</strong>.</p>
-            <p><em>Example:</em> Using backups, redundant systems, and DDoS protection to maintain uptime.</p>
-        </div>
-
-        <!-- Short Summary -->
-        <div style="border: 2px solid #2c3e50; padding: 15px; color: black;">
-            <h2 style="color: #2c3e50;">👉 In Short</h2>
-            <p><strong>Confidentiality = Keep it secret</strong></p>
-            <p><strong>Integrity = Keep it correct</strong></p>
-            <p><strong>Availability = Keep it accessible</strong></p>
-        </div>
-    </div>
-
-
-  <div style="max-width:1100px;margin:24px auto;padding:16px;box-sizing:border-box;">
-    <header style="text-align:center;margin-bottom:18px;">
-      <h1 style="margin:8px 0;color:#1a73e8;">Parts of a Network</h1>
-      <p style="margin-top:6px;">A brief, responsive reference describing common devices and endpoints you'll find on a typical network.</p>
-    </header>
-
-    <div style="display:flex;gap:16px;flex-wrap:wrap;justify-content:center;">
-      <div style="flex:1 1 320px;box-sizing:border-box;background:#fff;border:2px solid #e0e0e0;padding:14px;border-radius:10px;">
-        <h2 style="color:#2b6cb0;margin-top:0;">What is a Network?</h2>
-        <p>In simple terms, a network is two or more computers linked together to share resources, files and services. Home networks commonly include desktops, laptops, phones, tablets and often smart devices (TVs, doorbells, thermostats, assistants).</p>
-      </div>
-
-      <div style="flex:1 1 320px;box-sizing:border-box;background:#fff;border:2px dashed #e0e0e0;padding:14px;border-radius:10px;">
-        <h2 style="color:#2b6cb0;margin-top:0;">Router</h2>
-        <p>A router connects networks and routes traffic between them — for example, connecting your home LAN to the internet. Routers decide the best path for data to travel from source to destination.</p>
-      </div>
-
-      <div style="flex:1 1 320px;box-sizing:border-box;background:#fff;border:2px solid #e9f5ff;padding:14px;border-radius:10px;">
-        <h2 style="color:#2b6cb0;margin-top:0;">Switch</h2>
-        <p>A switch connects nodes on the same network (LAN). Unlike a hub, a switch forwards data only to the intended recipient using MAC-address learning, so it is more efficient and secure than old hubs.</p>
-      </div>
-
-      <div style="flex:1 1 320px;box-sizing:border-box;background:#fff;border:2px solid #fff4e6;padding:14px;border-radius:10px;">
-        <h2 style="color:#2b6cb0;margin-top:0;">Hub</h2>
-        <p>A hub broadcasts data to every connected node and cannot target a single destination. Hubs are largely obsolete but useful as a comparison point when learning networking fundamentals.</p>
-      </div>
-
-      <div style="flex:1 1 320px;box-sizing:border-box;background:#fff;border:2px solid #e6fffa;padding:14px;border-radius:10px;">
-        <h2 style="color:#2b6cb0;margin-top:0;">Endpoints</h2>
-        <p>Endpoints are devices that users interact with directly — desktops, laptops, phones, tablets, printers, etc. They are where data typically ends up for human consumption.</p>
-      </div>
-
-      <div style="flex:1 1 320px;box-sizing:border-box;background:#fff;border:2px solid #f0eefc;padding:14px;border-radius:10px;">
-        <h2 style="color:#2b6cb0;margin-top:0;">Servers</h2>
-        <p>Servers provide dedicated services to the network, such as web servers, email servers, and print servers. They serve resources to endpoints and other devices.</p>
-      </div>
-
-      <div style="flex:1 1 320px;box-sizing:border-box;background:#fff;border:2px solid #ffeef0;padding:14px;border-radius:10px;">
-        <h2 style="color:#2b6cb0;margin-top:0;">Firewall</h2>
-        <p>Firewalls filter traffic going between networks to protect against threats from the internet (spam, viruses, and unauthorized access). They enforce network security policies.</p>
-      </div>
-    </div>
-
-    <div style="border:2px solid #dfe7ff;padding:14px;border-radius:10px;margin-top:18px;">
-      <h2 style="color:#2b6cb0;margin-top:0;">Quick Review of Terms</h2>
-      <ul style="margin:8px 0 0 20px;">
-        <li><strong>Hub</strong> — broadcasts to every device connected to it.</li>
-        <li><strong>Switch</strong> — connects multiple nodes on the same network and forwards traffic to specific nodes.</li>
-        <li><strong>Router</strong> — connects networks and routes traffic between them.</li>
-        <li><strong>Endpoint</strong> — end-user device like a desktop, laptop or phone.</li>
-        <li><strong>Server</strong> — a computer providing a dedicated service (mail, print, web).</li>
-        <li><strong>Firewall</strong> — filters and protects traffic between networks.</li>
-      </ul>
-    </div>
 
      
   </div>
- 
+
+ <div style="max-width:1000px; margin:24px auto; padding:18px; box-sizing:border-box; border:3px solid #1f6feb; border-radius:12px; background:#ffffff; box-shadow:0 8px 24px rgba(0,0,0,0.06); width:95%;">
+
+  <!-- Header -->
+  <header style="text-align:center; margin-bottom:18px;">
+    <h1 style="margin:4px 0; font-size:clamp(22px,4vw,36px); color:#1f6feb;">Module I</h1>
+    <h2 style="margin:0; font-size:clamp(18px,3vw,24px); color:#1f6feb;">Introduction to Ethical Hacking</h2>
+  </header>
+
+  <!-- Content Section -->
+  <section style="display:flex; flex-direction:column; gap:16px;">
+
+    <!-- Card 1 -->
+    <div style="padding:16px; border:2px solid #000; border-radius:10px; background:#fff; color:#000;">
+      <h3 style="margin:0 0 8px 0; font-size:18px; color:#1f6feb;">Can Hacking Be Ethical?</h3>
+      <p style="margin:0; font-size:15px; line-height:1.6; color:#000;">
+        The noun “hacker” describes a person who enjoys learning the details of computer systems and stretching their capabilities.
+        The verb “hacking” can mean rapidly developing new programs or reverse-engineering existing software to improve its code,
+        performance, or efficiency.
+      </p>
+    </div>
+
+    <!-- Card 2 -->
+    <div style="padding:16px; border:2px solid #000; border-radius:10px; background:#fff; color:#000;">
+      <h3 style="margin:0 0 8px 0; font-size:18px; color:#1f6feb;">Terminology</h3>
+      <p style="margin:0 0 10px 0; font-size:15px; line-height:1.6; color:#000;">
+        The term <strong style="color:#000;">cracker</strong> is often used for someone who applies hacking skills offensively.
+        An <strong style="color:#000;">ethical hacker</strong> is a security professional who uses those same skills for defensive and protective purposes.
+      </p>
+
+      <ul style="margin:0; margin-left:18px; font-size:15px; line-height:1.7; color:#000;">
+        <li><strong style="color:#000;">Threat</strong> – An action or event that might prejudice security; a potential violation.</li>
+        <li><strong style="color:#000;">Vulnerability</strong> – A weakness (design or implementation) that can lead to an unexpected, undesirable event.</li>
+        <li><strong style="color:#000;">Target of Evaluation</strong> – An IT system/product/component chosen for security assessment.</li>
+        <li><strong style="color:#000;">Attack</strong> – An assault on system security originating from an intelligent threat actor.</li>
+        <li><strong style="color:#000;">Exploit</strong> – A defined method to breach an IT system through a vulnerability.</li>
+      </ul>
+    </div>
+
+    <!-- Card 3 -->
+    <div style="padding:16px; border:2px solid #000; border-radius:10px; background:#fff; color:#000;">
+      <h3 style="margin:0 0 8px 0; font-size:18px; color:#1f6feb;">Elements of Security</h3>
+      <p style="margin:0 0 10px 0; font-size:15px; line-height:1.6; color:#000;">
+        Security is the state where the risk of undetected theft, tampering, or disruption of information and services is kept low.
+        Any hacking event will impact one or more essential security elements.
+      </p>
+
+      <ul style="margin:0; margin-left:18px; font-size:15px; line-height:1.7; color:#000;">
+        <li><strong style="color:#000;">Confidentiality</strong> — Concealment of information or resources.</li>
+        <li><strong style="color:#000;">Authenticity</strong> — Assurance of the origin/identity of information.</li>
+        <li><strong style="color:#000;">Integrity</strong> — Trustworthiness of data; protection against unauthorized modification.</li>
+        <li><strong style="color:#000;">Availability</strong> — The ability to access information or resources when needed.</li>
+      </ul>
+    </div>
+
+  </section>
+</div>
 
 
+<div style="max-width:1000px; margin:24px auto; padding:18px; box-sizing:border-box; border:3px solid #1f6feb; border-radius:12px; background:#ffffff; box-shadow:0 8px 24px rgba(0,0,0,0.06); width:95%;">
 
-    
-  </main>
+  <!-- Main heading -->
+  <header style="text-align:center; margin-bottom:18px;">
+    <h1 style="margin:6px 0; font-size:clamp(20px,4vw,34px); color:#1f6feb;">What Does a Malicious Hacker Do?</h1>
+  </header>
+
+  <!-- Content -->
+  <section style="display:flex; flex-direction:column; gap:16px;">
+
+    <!-- Phase 1 - Reconnaissance -->
+    <article style="padding:16px; border:2px solid #000; border-radius:10px; background:#fff; color:#000;">
+      <h2 style="margin:0 0 8px 0; font-size:clamp(18px,3vw,22px); color:#1f6feb;">Phase 1 - Reconnaissance</h2>
+      <p style="margin:0 0 10px 0; font-size:15px; line-height:1.6; color:#000;">
+        Reconnaissance refers to the preparatory phase where an attacker seeks to gather as much information as possible
+        about a target of evaluation prior to launching an attack. It can involve network scanning (external or internal)
+        without authorization.
+      </p>
+      <p style="margin:0 0 10px 0; font-size:15px; line-height:1.6; color:#000;">
+        <strong style="color:#000;">Business Risk – ‘Notable’</strong> – Generally noted as "rattling the door knobs" to see if someone
+        is watching and responding. It could indicate a future point of return when more is known about the target.
+      </p>
+
+      <p style="margin:0 0 6px 0; font-size:15px; line-height:1.6; color:#000;"><strong style="color:#000;">Passive reconnaissance</strong> involves monitoring network data for patterns and clues (e.g., sniffing, information gathering).</p>
+
+      <p style="margin:0 0 6px 0; font-size:15px; line-height:1.6; color:#000;"><strong style="color:#000;">Active reconnaissance</strong> involves probing the network to detect:</p>
+      <ul style="margin:0; margin-left:18px; font-size:15px; line-height:1.7; color:#000;">
+        <li>accessible hosts</li>
+        <li>open ports</li>
+        <li>location of routers</li>
+        <li>details of operating systems and services</li>
+      </ul>
+    </article>
+
+    <!-- Phase 2 - Scanning -->
+    <article style="padding:16px; border:2px solid #000; border-radius:10px; background:#fff; color:#000;">
+      <h2 style="margin:0 0 8px 0; font-size:clamp(18px,3vw,22px); color:#1f6feb;">Phase 2 - Scanning</h2>
+      <p style="margin:0 0 10px 0; font-size:15px; line-height:1.6; color:#000;">
+        Scanning refers to the pre-attack phase when the hacker scans the network using information gathered during reconnaissance.
+      </p>
+      <p style="margin:0 0 10px 0; font-size:15px; line-height:1.6; color:#000;"><strong style="color:#000;">Business Risk – ‘High’</strong> – Scanning often finds a single point of entry and can reveal exploitable vulnerabilities.</p>
+
+      <p style="margin:0; font-size:15px; line-height:1.6; color:#000;">Techniques may include:</p>
+      <ul style="margin:6px 0 0 18px; font-size:15px; line-height:1.7; color:#000;">
+        <li>dialers</li>
+        <li>port scanners</li>
+        <li>network mapping and sweeping</li>
+        <li>vulnerability scanners</li>
+      </ul>
+    </article>
+
+    <!-- Phase 3 - Gaining Access -->
+    <article style="padding:16px; border:2px solid #000; border-radius:10px; background:#fff; color:#000;">
+      <h2 style="margin:0 0 8px 0; font-size:clamp(18px,3vw,22px); color:#1f6feb;">Phase 3 - Gaining Access</h2>
+      <p style="margin:0 0 10px 0; font-size:15px; line-height:1.6; color:#000;">
+        Gaining Access is the actual attack phase when the hacker exploits a vulnerability to enter the system.
+        Exploits can occur over LAN, locally, via the Internet, offline, or through deception/theft.
+      </p>
+      <p style="margin:0 0 10px 0; font-size:15px; line-height:1.6; color:#000;">
+        Examples: stack-based buffer overflows, denial of service, session hijacking, password filtering, etc.
+      </p>
+      <p style="margin:0 0 6px 0; font-size:15px; line-height:1.6; color:#000;">
+        Influencing factors: system architecture and configuration, attacker skill level, and initial access obtained.
+      </p>
+      <p style="margin:0; font-size:15px; line-height:1.6; color:#000;"><strong style="color:#000;">Business Risk – ‘Highest’</strong> – Access can compromise OS, application, or network layers.</p>
+    </article>
+
+    <!-- Phase 4 - Maintaining Access -->
+    <article style="padding:16px; border:2px solid #000; border-radius:10px; background:#fff; color:#000;">
+      <h2 style="margin:0 0 8px 0; font-size:clamp(18px,3vw,22px); color:#1f6feb;">Phase 4 - Maintaining Access</h2>
+      <p style="margin:0 0 10px 0; font-size:15px; line-height:1.6; color:#000;">
+        Maintaining Access refers to efforts by the hacker to retain control of an exploited system.
+        Attackers may harden their access against others and install mechanisms to return later.
+      </p>
+      <p style="margin:0 0 6px 0; font-size:15px; line-height:1.6; color:#000;">
+        Common tools: Backdoors, rootkits, Trojans and Trojan horse backdoors. Attackers can upload, download or manipulate data, apps, and configurations.
+      </p>
+    </article>
+
+    <!-- Phase 5 - Covering Tracks -->
+    <article style="padding:16px; border:2px solid #000; border-radius:10px; background:#fff; color:#000;">
+      <h2 style="margin:0 0 8px 0; font-size:clamp(18px,3vw,22px); color:#1f6feb;">Phase 5 - Covering Tracks</h2>
+      <p style="margin:0 0 10px 0; font-size:15px; line-height:1.6; color:#000;">
+        Covering Tracks includes activities to avoid detection and prolong misuse of the system — removing evidence or hiding presence.
+        Reasons include prolonged stay, continued use of resources, avoiding legal action, or preparing new attacks.
+      </p>
+
+      <p style="margin:0 0 6px 0; font-size:15px; line-height:1.6; color:#000;">Techniques: steganography, tunneling, altering log files, and other log manipulation.</p>
+
+      <p style="margin:0; font-size:15px; line-height:1.6; color:#000;">
+        Attackers might stay undetected for long periods, or use this phase to begin fresh reconnaissance on related targets.
+      </p>
+    </article>
+
+  </section>
+</div>
+
 </body>
 </html>
